@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="{{URL::to('/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{URL::to('/css/bootstrap/bootstrap.min.css')}}">
     <style>
         body {
             padding: 60px 0;

@@ -113,7 +113,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Bllim\Datatables\DatatablesServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Clockwork\Support\Laravel\ClockworkServiceProvider'
+        // 'Clockwork\Support\Laravel\ClockworkServiceProvider'
 
    ),
 
