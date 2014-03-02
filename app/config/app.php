@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'tNGuiCAxGFI7u5qwoKygxnmvD36crbEZ',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -107,8 +107,15 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Cartalyst\Sentry\SentryServiceProvider',
+		'Authority\Repo\RepoServiceProvider',
+		'Authority\Service\Form\FormServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
+		'Bllim\Datatables\DatatablesServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider'
 
-	),
+   ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -173,7 +180,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-
+		'Sentry'		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Datatables'      => 'Bllim\Datatables\Datatables',
 	),
 
 );

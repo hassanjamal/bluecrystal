@@ -35,14 +35,42 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (!Sentry::check()) return Redirect::route('login');
 });
 
-
-Route::filter('auth.basic', function()
+Route::filter('inGroup', function($route, $request, $value)
 {
-	return Auth::basic();
+	if (!Sentry::check()) return Redirect::route('login');
+
+	// we need to determine if a non admin user 
+	// is trying to access their own account.
+    $userId = $route->getParameter('users');
+
+	try
+	{
+		$user = Sentry::getUser();
+		 
+		$group = Sentry::findGroupByName($value);
+		 
+		if ($userId != Session::get('userId') && (! $user->inGroup($group))  )
+		{
+			Session::flash('error', trans('users.noaccess'));
+			return Redirect::route('home');
+		}
+	}
+	catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+	{
+		Session::flash('error', trans('users.notfound'));
+		return Redirect::route('login');
+	}
+	 
+	catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+	{
+		Session::flash('error', trans('groups.notfound'));
+		return Redirect::route('login');
+	}
 });
+// thanks to http://laravelsnippets.com/snippets/sentry-route-filters
 
 /*
 |--------------------------------------------------------------------------
@@ -73,8 +101,32 @@ Route::filter('guest', function()
 
 Route::filter('csrf', function()
 {
-	if (Session::token() != Input::get('_token'))
+	// var_dump($_SESSION);
+ //            var_dump($_POST);
+ //            die();
+
+	// TODO: Rewrite this tree of conditionals
+	if (Session::token() !== Input::get('_token') || Session::token()===null || Input::get('_token')===null)
 	{
-		throw new Illuminate\Session\TokenMismatchException;
+		// Session token and form tokens do not match or one is empty
+		if(App::environment() === 'testing')
+		{
+			// We only want to allow CSRF override if we're running tests
+			if(Input::get('IgnoreCSRFTokenError')===true) 
+			{
+				// Allow CSRF override in testing environment
+				return;
+			} else {
+				// Handle CSRF normally
+				throw new Illuminate\Session\TokenMismatchException;
+			}	
+		} else {
+			// @codeCoverageIgnoreStart
+			
+			// Handle CSRF normally
+			throw new Illuminate\Session\TokenMismatchException;
+			
+			// @codeCoverageIgnoreEnd
+		}
 	}
 });

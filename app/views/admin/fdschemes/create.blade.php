@@ -1,0 +1,68 @@
+@extends('admin.layouts.modal')
+
+<!-- FD Scheme Create / Edit Form -->
+
+{{-- Content --}}
+@section('content')
+	<!-- Tabs -->
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab-general" data-toggle="tab">General</a></li>
+		</ul>
+	<!-- ./ tabs -->
+
+	{{-- Create User Form --}}
+	<form class="form-horizontal" method="post" action="@if (isset($fdscheme)){{ URL::to('admin/fd-schemes/' . $fdscheme->id . '/edit') }}@endif" autocomplete="off">
+		<!-- CSRF Token -->
+		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+		<!-- ./ csrf token -->
+
+		<!-- Tabs Content -->
+		<div class="tab-content">
+			<!-- General tab -->
+			<div class="tab-pane active" id="tab-general">
+				<!-- Plan -->
+				<div class="form-group {{{ $errors->has('name') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="name">Plan Name</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="name" id="name" value="{{{ Input::old('name', isset($fdscheme) ? $fdscheme->name : null) }}}" />
+						{{{ $errors->first('name', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div>
+				<!-- ./ Plan -->
+
+				<!-- No Of Years -->
+				<div class="form-group {{{ $errors->has('years') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="years">No Of Years</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="years" id="years" value="{{{ Input::old('years', isset($fdscheme) ? $fdscheme->years : null) }}}" />
+						{{{ $errors->first('years', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div>
+				<!-- ./ No Of Years -->
+
+				<!-- Email -->
+				<div class="form-group {{{ $errors->has('interest') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="interest">Interest Rate</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="interest" id="interest" value="{{{ Input::old('interest', isset($fdscheme) ? $fdscheme->interest : null) }}}" />
+						{{{ $errors->first('interest', '<span class="help-inline">:message</span>') }}}
+					</div>
+				</div>
+			
+			</div>
+			<!-- ./ general tab -->
+
+		</div>
+		<!-- ./ tabs content -->
+
+		<!-- Form Actions -->
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<element class="btn-cancel close_popup">Cancel</element>
+				<button type="reset" class="btn btn-default">Reset</button>
+				<button type="submit" class="btn btn-success">OK</button>
+			</div>
+		</div>
+		<!-- ./ form actions -->
+	</form>
+@stop
