@@ -10,7 +10,7 @@
             "laravelbook/ardent": "dev-master"
     },
         "require-dev": {
-            "way/generators": "1.0.*@dev",
+            "way/generators": "v2.0",
             "summerstreet/woodling": "0.1.*",
             "barryvdh/laravel-ide-helper": "dev-master",
             "mockery/mockery": "dev-master@dev",
