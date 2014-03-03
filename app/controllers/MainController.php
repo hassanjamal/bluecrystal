@@ -12,7 +12,7 @@ class MainController extends BaseController {
      * User Model
      * @var User
      */
-    protected $user;
+    // protected $user;
 
     /**
      * Inject the models.
@@ -35,6 +35,10 @@ class MainController extends BaseController {
 		return View::make('site/index');
 		// return View::make('site/blog/index', compact('posts'));
 	}
+     public function getAbout()
+     {
+         return View::make('site/about');
+     }
 
 }
 

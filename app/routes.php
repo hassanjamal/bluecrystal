@@ -158,6 +158,7 @@ Route::controller('user', 'UserController');
 
 //:: Application Routes ::
 Route::get('/', array('as' => 'home','uses' => 'MainController@getIndex'));
+Route::controller('/' , 'MainController');
 
 
 App::missing(function($exception)

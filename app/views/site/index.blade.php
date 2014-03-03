@@ -14,49 +14,49 @@
                             <div class="circle">
                                 <span id="Home"></span>
                             </div>
-                            <p>Home</p>
+                            <a href="{{{ URL::to('/') }}}">HOME</a>
                         </div>
                         <div class="box">
                             <div class="circle">
                                 <span id="About Us"></span>
                             </div>
-                            <p>About Us</p>
+                            <a href="{{{ URL::to('/about') }}}">ABOUT US</a>
                         </div>
                         <div class="box">
                             <div class="circle">
                                 <span id="Schemes"></span>
                             </div>
-                            <p>Schemes</p>
+                            <a href="{{{ URL::to('/') }}}">SCHEMES</a>
                         </div>
                         <div class="box">
                             <div class="circle">
                                 <span id="Loans"></span>
                             </div>
-                            <p>Loans</p>
+                            <a href="{{{ URL::to('/') }}}">LOANS</a>
                         </div>
                         <div class="box">
                             <div class="circle">
                                 <span id="Loans"></span>
                             </div>
-                            <p>Branches</p>
+                            <a href="{{{ URL::to('/') }}}">BRANCHES</a>
                         </div>
                         <div class="box">
                             <div class="circle">
                                 <span id="Loans"></span>
                             </div>
-                            <p>Media </p>
+                            <a href="{{{ URL::to('/') }}}">MEDIA </a>
                         </div>
                         <div class="box">
                             <div class="circle">
                                 <span id="Loans"></span>
                             </div>
-                            <p>Career</p>
+                            <a href="{{{ URL::to('/') }}}">CAREER</a>
                         </div>
                         <div class="box">
                             <div class="circle">
                                 <span id="Loans"></span>
                             </div>
-                            <p>FAQ's</p>
+                            <a href="{{{ URL::to('/') }}}">FAQ's</a>
                         </div>
                     </div>
                 </div>

@@ -340,7 +340,9 @@
       color: #333; }
     #sign_in1 .division .line {
       display: none; }
-    #sign_in1 .footer input[type="text"], #sign_in1 .footer input[type="password"] {
+    #sign_in1 .footer input[type="text"],
+    #sign_in1 .footer input[type="email"],
+    #sign_in1 .footer input[type="password"]{
       font-size: 13px;
       width: 97%;
       margin-bottom: 12px; }
