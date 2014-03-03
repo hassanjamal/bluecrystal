@@ -85,7 +85,7 @@ class MainController extends BaseController {
       */
      public function getLoans()
      {
-         return View::make('site/Loans');
+         return View::make('site/loans');
      }
      /* }}} */
 
