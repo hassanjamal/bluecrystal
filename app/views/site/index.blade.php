@@ -20,7 +20,7 @@
                             <div class="circle">
                                 <span id="About Us"></span>
                             </div>
-                            <a href="{{{ URL::to('/about') }}}">ABOUT US</a>
+                            <a href="{{{ URL::to('/aaboutbout') }}}">ABOUT US</a>
                         </div>
                         <div class="box">
                             <div class="circle">

@@ -105,11 +105,6 @@ class AdminUsersController extends AdminController{
         {
             return \App::abort(404);
         }
-		// $currentUser = Sentry::getUser();
-		// if ($currentUser->hasAccess('sdsd')) {
-		// 	return "Working";
-		// }
-		// return "NOT WORKING";
 	}
 
 	public function postCreate()
