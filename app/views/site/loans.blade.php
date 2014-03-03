@@ -9,7 +9,7 @@
     <div class="head">
         <div class="container">
             <div class="col-sm-6 text">
-                <h4>About US</h4>
+                <h4>Loans Plans</h4>
                 <hr>
                 <h4>We are launching very soon</h4>
                 <p>
@@ -22,3 +22,5 @@
 </div>
 
 @stop
+
+

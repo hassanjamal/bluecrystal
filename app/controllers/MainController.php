@@ -35,10 +35,101 @@ class MainController extends BaseController {
 		return View::make('site/index');
 		// return View::make('site/blog/index', compact('posts'));
 	}
+     /* public getAbout() {{{ */ 
+     /**
+      * getAbout
+      * 
+      * @access public
+      * @return void
+      */
      public function getAbout()
      {
          return View::make('site/about');
      }
+     /* }}} */
+
+     /* public getSchemes() {{{ */ 
+     /**
+      * getSchemes
+      * 
+      * @access public
+      * @return void
+      */
+     public function getSchemes()
+     {
+         return View::make('site/schemes');
+     }
+     /* }}} */
+
+
+     /* public getBranches() {{{ */ 
+     /**
+      * getBranches
+      * 
+      * @access public
+      * @return void
+      */
+     public function getBranches()
+     {
+         return View::make('site/branches');
+     }
+     /* }}} */
+
+
+     /* public getLoans() {{{ */ 
+     /**
+      * getLoans
+      * 
+      * @access public
+      * @return void
+      */
+     public function getLoans()
+     {
+         return View::make('site/Loans');
+     }
+     /* }}} */
+
+
+     /* public getCareer() {{{ */ 
+     /**
+      * getCareer
+      * 
+      * @access public
+      * @return void
+      */
+     public function getCareer()
+     {
+         return View::make('site/career');
+     }
+     /* }}} */
+
+     /* public getMedia() {{{ */ 
+     /**
+      * getMedia
+      * 
+      * @access public
+      * @return void
+      */
+     public function getMedia()
+     {
+         return View::make('site/media');
+     }
+     /* }}} */
+
+
+     
+     /* public getFaq() {{{ */ 
+     /**
+      * getFaq
+      * 
+      * @access public
+      * @return void
+      */
+     public function getFaq()
+     {
+         return View::make('site/faq');
+     }
+     /* }}} */
 
 }
 

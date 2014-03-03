@@ -17,6 +17,8 @@
         {{HTML::style('/css/compiled/bootstrap-overrides.css')}}
         {{HTML::style('/css/compiled/theme.css')}}
         {{HTML::style('http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic')}}
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         @show
     </head>
 
