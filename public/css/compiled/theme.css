@@ -5,6 +5,7 @@ body {
     position: relative;
     -webkit-font-smoothing: antialiased;
     font-family: 'Average Sans', sans-serif;
+    font-size: 15px;
     padding-top: 107px;
 line-height: 20px; }
 body h1, body h2, body h3, body h4, body h5, body h6, body .h1, body .h2, body .h3, body .h4, body .h5, body .h6 {
@@ -28,6 +29,13 @@ padding-top: 0px !important; }
 .img-center{
     display: block;
     margin: 0 auto;
+}
+
+hr{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 5px dotted #EEE;
 }
 
 
@@ -104,6 +112,7 @@ padding-top: 0px !important; }
         padding-bottom: 0px;
         display: inline-block;
         letter-spacing: 0.1em;
+        text-transform: uppercase;
     margin: 0; }
 
     /* Footer

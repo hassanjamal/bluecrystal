@@ -12,7 +12,7 @@
         </div>
         <!-- row one  -->
         <div class="row">
-            <div class="col-sm-6 intro">
+            <div class="col-sm-8 intro">
                 <h6>OUR MISSION VISION STATEMENT</h6>
 
                 <p>To be a Top-class Quasi Bank to achieve sustained growth of business and profitability, fulfilling
@@ -21,9 +21,11 @@
                     <br>
                     <br>
 
+                    <blockquote>
                     Global banking has changed rapidly and BLUE CRYSTAL A Quasi Bank has worked hard to adapt to these
                     changes. The bank looks forward to the future with excitement and a commitment to bring greater
                     benefits to you.
+                    </blockquote>
 
                     <br>
                     <br>
@@ -35,7 +37,7 @@
                     branches in India and overseas, BLUE CRYSTAL A Quasi Bank has marched into the 21st Century matched with
                     dynamism and growth!</p>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <img src="/assets/image/aboutus-1.png" class="img-responsive img-center" alt="about-us">
             </div>
         </div>
@@ -45,10 +47,10 @@
         <br>
         <!-- row two  -->
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <img src="/assets/image/quasi-bank.png" class="img-responsive img-center" alt="about-us">
             </div>
-            <div class="col-sm-6 intro">
+            <div class="col-sm-8 intro">
                 <h6>BLUE CRYSTAL A Quasi Bank</h6>
 
                 <p>Quasi Bank Meanings- A quasi-bank has the rules and objectives of that are the same as a bank, but is
