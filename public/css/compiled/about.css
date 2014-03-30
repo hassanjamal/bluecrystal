@@ -3,7 +3,6 @@
   margin-top: 70px; }
   #aboutus .intro h6 {
     font-size: 21px;
-    font-style: italic;
     color: #252526;
     line-height: 29px;
     font-weight: normal;
@@ -56,12 +55,10 @@
           margin-bottom: 0; }
           #team .people .bio_box .info p.name {
             color: #333;
-            font-style: italic;
             margin-bottom: 4px;
             font-size: 21px; }
           #team .people .bio_box .info p.area {
             color: #98989A;
-            font-style: italic;
             font-style: 16px;
             margin-bottom: 18px; }
         #team .people .bio_box .info a {
