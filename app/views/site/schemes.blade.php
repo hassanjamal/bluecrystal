@@ -1,7 +1,7 @@
 @extends('site.layouts.master')
 @section('mainhead')
 @parent
-{{HTML::style('css/compiled/pricing.css')}}
+{{HTML::style('css/compiled/scheme.css')}}
 {{HTML::style('css/lib/animate.css')}}
 @stop
 @section('container')

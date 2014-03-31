@@ -3,19 +3,24 @@
   margin-top: 70px; }
   #features .subtitle h2 {
     margin: 0;
-    font-style: italic;
     font-size: 24px;
     font-weight: normal;
     margin-bottom: 70px;
     line-height: 35px;
-    text-align: center; }
+}
+.panel-default > .panel-heading{
+
+}
+.panel-title > a{
+    color:#99181c;
+}
   #features .section_header h3 span {
     font-size: 18px;
     line-height: 20px; }
   #features .option1 {
     margin-bottom: 70px; }
     #features .option1 .feature {
-      border-bottom: 1px solid #e0e0e0;
+      /*border-bottom: 1px solid #e0e0e0;*/
       margin-bottom: 65px; }
       #features .option1 .feature .info h3 {
         font-size: 21px;
