@@ -9,10 +9,14 @@
     line-height: 35px;
 }
 .panel-default > .panel-heading{
-
+ background-color:white;
+ border-color:white;
 }
 .panel-title > a{
     color:#99181c;
+}
+.panel-group .panel{
+    margin-bottom:15px;
 }
   #features .section_header h3 span {
     font-size: 18px;

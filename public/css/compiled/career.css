@@ -1,0 +1,39 @@
+/*Pricing Option 1*/
+#career{
+    margin-top:70px;
+}
+#career .intro h6 {
+    font-size: 21px;
+    color: #252526;
+    line-height: 29px;
+    font-weight: 400;
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus
+{
+    background-color:#99181c;
+}
+.row{
+}
+.panel-default >.panel-heading{
+    background-color:#99181c;
+    color:white;
+}
+.panel-default > .panel-heading > h2{
+    padding-top:15px;
+    padding-bottom:15px;
+    font-size:24px;
+}
+.panel-footer{
+    background-color:#99181c;
+    color:white;
+}
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid #99181c;
+  background-color:#eeeeee;
+  color:#99181c;
+}
+
