@@ -1,8 +1,8 @@
 @extends('site.layouts.master-another')
 @section('mainhead')
 @parent
-{{HTML::style('css/compiled/career.css')}}
-{{HTML::style('css/lib/animate.css')}}
+{{ HTML::style('css/compiled/career.css') }}
+{{ HTML::style('css/lib/animate.css') }}
 {{ HTML::style('/css/compiled/bootstrapValidator.min.css') }}
 @stop
 @section('container')
