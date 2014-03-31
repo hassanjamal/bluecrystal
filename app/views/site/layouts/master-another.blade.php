@@ -19,9 +19,7 @@
         {{HTML::style('/css/compiled/bootstrap-overrides.css')}}
         {{HTML::style('/css/compiled/theme.css')}}
         <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Expanded' rel='stylesheet' type='text/css'>
-        <!-- <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'> -->
         <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
-        {{HTML::style('http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic')}}
 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         @show
@@ -37,10 +35,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="{{{ URL::to('/')}}}" class="navbar-brand"><strong><span style="color:blue">Blue </span>Crystal Quasi Bank</strong></a>
+                    <!-- <a href="{{{ URL::to('/')}}}" class="navbar&#45;brand"><strong><span style="color:blue">Blue </span>Crystal </strong></a> -->
                 </div>
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li {{ (Request::is('/') ? ' class="active"' : '')  }}><a href="{{{ URL::to('/')}}}"><i class="fa fa-home"></i> Home</a></li>
+                        @if(! Sentry::check())
+                        <li {{{ (Request::is('about') ? ' class=active' : '')  }}}><a href="{{{ URL::to('/about')  }}}"><i class="fa fa-group "></i> About Us</a> </li>
+                        <li {{{ (Request::is('schemes') ? ' class=active' : '')  }}}><a href="{{{ URL::to('/schemes')  }}}"><i class="fa fa-rocket"></i> Schemes</a> </li>
+                        <li {{{ (Request::is('loans') ? ' class=active' : '')   }}}><a href="{{{ URL::to('/loans')  }}}"><i class="fa fa-rupee "></i> Loans</a> </li>
+                        <li {{{ (Request::is('branches') ? ' class=active' : '')   }}}><a href="{{{ URL::to('/branches')  }}}"><i class="fa fa-globe "></i> Branches</a> </li>
+                        <li {{{ (Request::is('media') ? ' class=active' : '')   }}}><a href="{{{ URL::to('/media')  }}}"><i class="fa fa-youtube-play "></i> Media </a> </li>
+                        <li {{{ (Request::is('career') ? ' class=active' : '')   }}}><a href="{{{ URL::to('/career')  }}}"><i class="fa fa-signal "></i> Career</a> </li>
+                        <li {{{ (Request::is('faq') ? ' class=active' : '')  }}}><a href="{{{ URL::to('/faq')  }}}"><i class="fa fa-question "></i> FAQ's</a> </li>
+                        @endif
+                    </ul>
                     <ul class="nav navbar-nav pull-right">
                         @if (Sentry::check())
                         <? $user_logged = Sentry::getUser();
@@ -57,7 +67,7 @@
                         <li><a href="{{{ URL::to('/') }}}">Logged in as {{{ Sentry::getUser()->first_name .' '.Sentry::getUser()->last_name}}}</a></li>
                         <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                         @else
-                        <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a 	href="{{{ URL::to('user/login') }}}">Login</a></li>
+                        <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a 	href="{{{ URL::to('user/login') }}}"><i class="fa fa-lock"></i> Login</a></li>
                         <!-- <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Register</a></li> -->
                         @endif
                     </ul>                   
@@ -117,3 +127,4 @@
         @yield('script')
     </body>
 </html>
+

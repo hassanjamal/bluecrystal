@@ -1,8 +1,9 @@
-@extends('site.layouts.master')
+@extends('site.layouts.master-another')
 @section('mainhead')
 @parent
 {{HTML::style('css/compiled/career.css')}}
 {{HTML::style('css/lib/animate.css')}}
+{{ HTML::style('/css/compiled/bootstrapValidator.min.css') }}
 @stop
 @section('container')
 <div id="career"> 
@@ -58,14 +59,14 @@
                 <div class="tab-pane" id="tab_b">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h2 class="panel-title">APPLY NOW</h2>
+                            <h2 class="panel-title">WRITE US </h2>
                         </div>
                         <div class="panel-body">
                             <div class="" id="contact_form">
                                 <!-- form start here -->
                                 <form id="ajax-contact-form" role="form" method="post" action="" autocomplete="off" >
                                     <div class="form-group">
-                                        <label class="form_info" for="name">COMPANY / NAME * </label>
+                                        <label class="form_info" for="name">NAME * </label>
                                         <input class="form-control" type="text" name="name" id="name" />
                                     </div>
                                     <div class="form-group">
@@ -81,8 +82,8 @@
                                         <textarea class="form-control" name="message" id="message"></textarea>
                                     </div>
                                     <!-- <div class"clear"></div> -->
-                                    <input type="submit" class="btn  btn-large btn-primary marg-right5 " value="Send Message">
-                                    <input type="reset" class="btn   btn-large btn-primary" value="Reset Form" id="resetBtn">
+                                    <button type="submit" class="btn  btn-large btn-primary " value="Send Message">Send Message</button>
+                                    <button type="reset" class="btn   btn-large btn-danger" value="Reset Form" id="resetBtn">Reset Form</button>
                                 </form>
                                 <!-- form ends here -->
                             </div>
@@ -102,4 +103,7 @@
 </div>
 
 @stop
-
+@section('script')
+{{ HTML::script('/js/bootstrapValidator.min.js') }}
+{{ HTML::script('/js/my_custom_validate.js') }}
+@stop

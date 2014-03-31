@@ -1,4 +1,4 @@
-@extends('site.layouts.master')
+@extends('site.layouts.master-another')
 @section('mainhead')
 @parent
 {{HTML::style('css/compiled/scheme.css')}}

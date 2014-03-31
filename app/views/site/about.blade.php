@@ -1,4 +1,4 @@
-@extends('site.layouts.master')
+@extends('site.layouts.master-another')
 @section('mainhead')
 @parent
 {{HTML::style('css/compiled/about.css')}}
@@ -13,7 +13,7 @@
         <!-- row one  -->
         <div class="row">
             <div class="col-sm-8 intro">
-                <h6>OUR MISSION VISION STATEMENT</h6>
+                <h6>OUR MISSION VISION STATEMENT </h6>
 
                 <p>To be a Top-class Quasi Bank to achieve sustained growth of business and profitability, fulfilling
                     socio-economic obligations, excellence in customer service; through up gradation of skills of staff

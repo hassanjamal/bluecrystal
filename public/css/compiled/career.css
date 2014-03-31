@@ -30,10 +30,67 @@
     color:white;
 }
 blockquote {
-  padding: 10px 20px;
-  margin: 0 0 20px;
-  border-left: 5px solid #99181c;
-  background-color:#eeeeee;
-  color:#99181c;
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    border-left: 5px solid #99181c;
+    background-color:#eeeeee;
+    color:#99181c;
 }
-
+#contact_form {
+    padding-top:10px;
+    padding-left:0px;
+}
+#contact_form textarea {
+    min-height:200px;
+}
+.form_info {
+    color: #666;
+    text-transform:uppercase;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:3px;
+    height:30px;
+}
+#ajax-contact-form input, #ajax-contact-form  textarea {
+    background:#E9E7E4;
+    color: #7f7d79;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border:0px none;
+    height:40px;
+    margin-bottom:20px;
+}
+#ajax-contact-form  .btn {
+    height:48px;
+    font-size:20px;
+}
+#ajax-contact-form .btn-danger{
+    margin-left:20px;
+}
+.notification_error {
+    color: #fff;
+    background-color:#333;
+    height:auto;
+    margin: 0 0 9px 0;
+    padding: 10px;
+    text-align:left;
+}
+.notification_ok {
+    color: #fff;
+    background-color:#333;
+    font-weight:400;
+    height: auto;
+    margin:0 0 9px 0;
+    padding:10px;
+    text-align:center;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.btn-primary{
+    /* background-color:blue; */
+}
