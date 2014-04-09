@@ -184,10 +184,7 @@ class AdminPolicyController extends AdminController
                                                               1
                                                               );
                     if ($result) {
-                        return Redirect::to('admin/policy/' . $this->policy->id . '/edit')->with(
-                                                                                                 'success',
-                                                                                                 "Policy Created Successfully"
-                                                                                                 );
+                        return Redirect::to('admin/policy' )->with( 'success', "Policy Created Successfully");
                     }
                     else {
                         $error = " Commision for Scheme Created has not been updated succesfully";
@@ -219,7 +216,7 @@ class AdminPolicyController extends AdminController
     {
         if (Sentry::check()) {
             $branch_id = Sentry::getUser()->branch_id;
-            if (Sentry::getUser()->isSuperUser() || Sentry::getUser()->hasAccess('policy-create')) {
+            if (Sentry::getUser()->hasAccess('policy-edit')) {
                 $title = "Create Policy";
                 $mode  = 'create';
                 if ($policy->id) {
@@ -412,13 +409,15 @@ class AdminPolicyController extends AdminController
                                            )
                 ->where('policies.branch_id', $branch_id);
             }
-
+            if(Sentry::getUser()->hasAccess('policy-edit')){
             return Datatables::of($policies)
             ->add_column(
                          'actions',
                          '
                          <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
-                         class="iframe btn btn-xs btn-info"> {{{ Lang::get(\'button.details\') }}}</a>
+                         class="iframe btn btn-xs btn-info"> Details</a>
+                         <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/edit\') }}}"
+                         class="iframe btn btn-xs btn-danger"> Edit</a>
                          '
                          )
             ->add_column(
@@ -439,6 +438,37 @@ class AdminPolicyController extends AdminController
                          )
             ->remove_column('id')
             ->make();
+            }
+            else{
+
+            return Datatables::of($policies)
+            ->add_column(
+                         'actions',
+                         '
+                         <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                         class="iframe btn btn-xs btn-info"> Details</a>
+                         '
+                         )
+            ->add_column(
+                         'receipts',
+                         '
+                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/receipt\') }}}"
+                         class="iframe btn btn-xs btn-default">Receipt</a>
+                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
+                         class="iframe btn btn-xs btn-default">Welcome</a>
+                         '
+                         )
+            ->add_column(
+                         'commission',
+                         '
+                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/commision\') }}}"
+                         class="iframe btn btn-xs btn-warning">Commission</a>
+                         '
+                         )
+            ->remove_column('id')
+            ->make();
+                
+            }
         }
         else {
             return Redirect::to('user/login')->with('error', " You are not logged in ");
@@ -456,7 +486,7 @@ class AdminPolicyController extends AdminController
         $associate = array();
         $search    = DB::select(
                                 "
-                                select id ,associate_no as value ,associate_no as label
+                                select id ,associate_no as value ,CONCAT(name ,'  ID  ',associate_no) as label
                                 from associates
                                 where company = 0
                                 and match (name, associate_no )

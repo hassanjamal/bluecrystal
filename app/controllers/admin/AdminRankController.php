@@ -175,13 +175,10 @@ class AdminRankController extends AdminController {
        if(Sentry::getUser()->isSuperUser())
         {
             $rank->rankname = Input::get( 'rankname' );
-            
-
             // Save if valid. 
 
             if ( $rank->save() )
             {
-                
                 // Redirect to the new rank page
                 return Redirect::to('admin/rank/' . $rank->id . '/edit')->with('success', Lang::get('admin/scheme/messages.edit.success'));
             }

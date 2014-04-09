@@ -54,25 +54,15 @@ class AdminAssociatesController extends AdminController
                 $title = "Create Associate";
                 $mode  = 'create';
 
-                return View::make(
-                    'admin/associates/create', compact(
-                        'title',
-                        'mode', 'rank', 'branch_id'
-                    )
-                );
+                return View::make( 'admin/associates/create', compact( 'title', 'mode', 'rank', 'branch_id'));
             }
             else {
-                return Redirect::to('admin/associates')->with(
-                    'error', " You
-                    dont have enough permission to create associates "
+                return Redirect::to('admin/associates')->with( 'error', " You dont have enough permission to create associates "
                 );
             }
         }
         else {
-            return Redirect::route('login')->with(
-                'error', " You are not logged
-                in "
-            );
+            return Redirect::route('login')->with( 'error', " You are not logged in ");
         }
     }
 
@@ -154,17 +144,22 @@ class AdminAssociatesController extends AdminController
      */
     public function edit($associate)
     {
-        if ($associate->id) {
-            $title = "Update Associate";
-            $rank  = Rank::lists('rankname', 'id');
-            $mode  = 'edit';
+        if(Sentry::getUser()->hasAccess('associate-edit')){
+            if ($associate->id) {
+                $title = "Update Associate";
+                $rank  = Rank::lists('rankname', 'id');
+                $mode  = 'edit';
 
-            return View::make('admin/associates/create', compact('associate', 'title', 'mode', 'rank'));
-        }
+                return View::make('admin/associates/create', compact('associate', 'title', 'mode', 'rank'));
+            }
         else {
             return Redirect::to('admin/associates/create')->with(
                 'error', Lang::get('admin/scheme/messages.does_not_exist')
             );
+            }
+        }
+        else{
+            return Redirect::to('admin/associates')->with('error', " You don't have enough permission to Edit");   
         }
     }
 
@@ -262,7 +257,7 @@ class AdminAssociatesController extends AdminController
 
     public function getNotification()
     {
-        $title = " success";
+        $title = "";
          return View::make('admin/notification/index' , compact('title')); 
         // return " hello";
     }
@@ -365,27 +360,57 @@ class AdminAssociatesController extends AdminController
                 )                      ->where('associates.branch_id', $branch_id);
             }
 
+            if (Sentry::getUser()->hasAccess('associate-edit')){
             return Datatables::of($associates)
                 ->add_column(
                     'actions',
                     '
                     <a href="{{{ URL::to(\'admin/associates/\'. $id ) }}}"
                     class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a>
-                        <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/tree\') }}}"
-                        class="iframe btn btn-xs btn-warning">Tree</a>
-                            '
-                        )
-                        ->add_column(
-                            'receipts',
-                            '
-                            <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/receipt\') }}}"
-                            class="iframe btn btn-xs btn-default">Receipt</a>
-                                <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/welcome\') }}}"
-                                class="iframe btn btn-xs btn-default">Welcome</a>
-                                    '
-                                )
-                                ->remove_column('id')
-                                ->make();
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/tree\') }}}"
+                    class="iframe btn btn-xs btn-primary">Tree</a>
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/edit\') }}}"
+                    class="iframe btn btn-xs btn-danger">Edit</a>
+                    '
+                    )
+                    ->add_column(
+                    'receipts',
+                    '
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/receipt\') }}}"
+                    class="iframe btn btn-xs btn-default">Receipt</a>
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/welcome\') }}}"
+                    class="iframe btn btn-xs btn-default">Welcome</a>
+                    '
+                    )
+                    ->remove_column('id')
+                    ->make();
+
+            }
+            else{
+            return Datatables::of($associates)
+                ->add_column(
+                    'actions',
+                    '
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id ) }}}"
+                    class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a>
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/tree\') }}}"
+                    class="iframe btn btn-xs btn-primary">Tree</a>
+                    '
+                    )
+                    ->add_column(
+                    'receipts',
+                    '
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/receipt\') }}}"
+                    class="iframe btn btn-xs btn-default">Receipt</a>
+                    <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/welcome\') }}}"
+                    class="iframe btn btn-xs btn-default">Welcome</a>
+                    '
+                    )
+                    ->remove_column('id')
+                    ->make();
+
+                
+            }
         }
         else {
             return Redirect::route('login')->with('error', " You are not logged in ");

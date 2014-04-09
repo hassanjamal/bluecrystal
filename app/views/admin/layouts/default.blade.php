@@ -103,13 +103,15 @@ body {
                         <span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        @if(Sentry::getUser()->hasAccess('user-view'))
                         <li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+                        @endif
 
                         <li{{ (Request::is('admin/branch*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/branch') }}}"><span class="glyphicon glyphicon-user"></span> Branch</a></li>
 
-                        @if(Sentry::getUser()->isSuperUser())   
-                        <li{{ (Request::is('admin/groups*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/groups') }}}"><span class="glyphicon glyphicon-user"></span> Groups</a></li>
-                        @endif
+                        {{--@if(Sentry::getUser()->isSuperUser())  --}} 
+                        <!-- <li{{ (Request::is('admin/groups*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/groups') }}}"><span class="glyphicon glyphicon&#45;user"></span> Groups</a></li> -->
+                        {{-- @endif --}}
 
 
                     </ul>
@@ -173,8 +175,8 @@ body {
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{{ URL::to('#') }}}"><span class="glyphicon glyphicon-wrench"></span> Settings</a></li>
-                        <li class="divider"></li>
+                        <!-- <li><a href="{{{ URL::to('#') }}}"><span class="glyphicon glyphicon&#45;wrench"></span> Settings</a></li> -->
+                        <!-- <li class="divider"></li> -->
                         <li><a href="{{{ URL::to('user/logout') }}}"><span class="glyphicon glyphicon-share"></span> Logout</a></li>
                     </ul>
                     </li>
