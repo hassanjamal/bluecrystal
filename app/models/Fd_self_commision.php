@@ -1,7 +1,6 @@
 <?php
-use LaravelBook\Ardent\Ardent;
 
-class Fd_self_commision extends \LaravelBook\Ardent\Ardent {
+class Fd_self_commision extends Eloquent {
 	protected $guarded = array();
 	protected $table ='fd_self_commision';
 	public static $rules = array();

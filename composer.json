@@ -7,14 +7,15 @@
             "bllim/datatables": "*",
             "dflydev/markdown": "1.0.*@dev",
             "imagine/imagine": "0.6.*@dev",
-            "laravelbook/ardent": "dev-master"
+            "laracasts/utilities": "1.0"
     },
         "require-dev": {
             "way/generators": "v2.0",
             "summerstreet/woodling": "0.1.*",
             "barryvdh/laravel-ide-helper": "dev-master",
             "mockery/mockery": "dev-master@dev",
-            "phpunit/phpunit": "3.7.*"
+            "phpunit/phpunit": "3.7.*",
+            "itsgoingd/clockwork": "dev-master"
         },
         "autoload": {
             "classmap": [

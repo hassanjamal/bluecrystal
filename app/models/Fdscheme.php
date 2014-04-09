@@ -1,7 +1,6 @@
 <?php
-use LaravelBook\Ardent\Ardent;
 
-class Fdscheme extends \LaravelBook\Ardent\Ardent {
+class Fdscheme extends Eloquent {
 	protected $guarded = array();
 
 	public static $rules = array(

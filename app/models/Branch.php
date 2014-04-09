@@ -1,7 +1,6 @@
 <?php
-use LaravelBook\Ardent\Ardent;
 
-class Branch extends \LaravelBook\Ardent\Ardent {
+class Branch extends Eloquent {
 	protected $guarded = array();
 
 	public static $rules = array(

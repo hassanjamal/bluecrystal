@@ -1,7 +1,6 @@
 <?php
-use LaravelBook\Ardent\Ardent;
 
-class Commision extends \LaravelBook\Ardent\Ardent {
+class Commision extends Eloquent {
 	protected $guarded = array();
 
 	public static $rules = array();

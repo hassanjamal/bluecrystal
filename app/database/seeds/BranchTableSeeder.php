@@ -12,13 +12,13 @@ class BranchTableSeeder extends Seeder {
          */
         $branch = array(
             'name'         => 'HEADQUARTER',
-            'address'      => 'Fraser Road',
-            'city'         => 'Patna',
-            'state'        => 'Bihar',
-            'pincode'      => '800001',
+            'address'      => 'C-401, City Tower Sector -15 , CBD Belapur , Opp- Nimantran Restaurant , Navi Mumbai',
+            'city'         => 'Mumbai',
+            'state'        => 'Maharastra',
+            'pincode'      => '400416',
             'managername'  => 'Head Manager',
             'managerphone' => '9876543210',
-            'email'        => 'email@bluecrystalgroup.in',
+            'email'        => 'superadmin@bluecrystalgroup.in',
             'phone'        => '9876543210',
             'created_at'   => $now,
             'updated_at' => $now
@@ -26,8 +26,8 @@ class BranchTableSeeder extends Seeder {
         $id = DB::table('branches')->insertGetId($branch);
 
         Sentry::getUserProvider()->create(array(
-            'email'      => 'admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'email'      => 'super.admin@bluecrystalgroup.in',
+            'password'   => '@@Blue123#@',
             'activated'  => 1,
             'first_name' => 'Super',
             'last_name'  => 'Admin',
@@ -35,7 +35,7 @@ class BranchTableSeeder extends Seeder {
         ));
         $rank_id = Rank::where('rank_no',99999)->pluck('id');
         $associate = array(
-            'associate_no' => 'COMPANY',
+            'associate_no'  => 'COMPANY',
             'name'          => 'COMPANY',
             'branch_id'     => $id,
             'introducer_id' => $rank_id,
@@ -47,21 +47,134 @@ class BranchTableSeeder extends Seeder {
         DB::table('associates')->insert($associate);
 
         /**
-         *  First Branch
+         *  Lucknow Branch
+         */
+
+        $branch = array(
+            'name'         => 'LUCKNOW_01',
+            'address'      => '',
+            'city'         => 'LUCKNOW',
+            'state'        => 'UTTAR PRADESH',
+            'pincode'      => '',
+            'managername'  => 'Lucknow Manager',
+            'managerphone' => '9876543210',
+            'email'        => 'lucknow.manager@bluecrystalgroup.in',
+            'phone'        => '9876543210',
+            'created_at'   => $now,
+            'updated_at'   => $now
+        );
+        $id = DB::table('branches')->insertGetId($branch);
+
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'lucknow.admin@bluecrystalgroup.in',
+            'password'   => 'admin123',
+            'activated'  => 1,
+            'first_name' => 'lucknow',
+            'last_name'  => 'Admin',
+            'branch_id'  => $id
+
+        ));
+
+        /**
+         *  Allahabad Branch
+         */
+
+        $branch = array(
+            'name'         => 'ALLAHABAD_01',
+            'address'      => '',
+            'city'         => 'ALLAHABAD',
+            'state'        => 'UTTAR PRADESH',
+            'pincode'      => '',
+            'managername'  => 'Allahabad Manager',
+            'managerphone' => '9876543210',
+            'email'        => 'allahabad.manager@bluecrystalgroup.in',
+            'phone'        => '9876543210',
+            'created_at'   => $now,
+            'updated_at'   => $now
+        );
+        $id = DB::table('branches')->insertGetId($branch);
+
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'allahabad.admin@bluecrystalgroup.in',
+            'password'   => 'admin123',
+            'activated'  => 1,
+            'first_name' => 'Allahabad',
+            'last_name'  => 'Admin',
+            'branch_id'  => $id
+        ));
+
+        /**
+         *  Varanasi Branch
+         */
+
+        $branch = array(
+            'name'         => 'VARANASI_01',
+            'address'      => '',
+            'city'         => 'VARANASI',
+            'state'        => 'UTTAR PRADESH',
+            'pincode'      => 'BranchTableSeeder.php',
+            'managername'  => 'Varanasi Manager',
+            'managerphone' => '9876543210',
+            'email'        => 'varanasi.manager@bluecrystalgroup.in',
+            'phone'        => '9876543210',
+            'created_at'   => $now,
+            'updated_at'   => $now
+        );
+        $id = DB::table('branches')->insertGetId($branch);
+
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'varanasi.admin@bluecrystalgroup.in',
+            'password'   => 'admin123',
+            'activated'  => 1,
+            'first_name' => 'Varanasi',
+            'last_name'  => 'Admin',
+            'branch_id'  => $id
+        ));
+
+        /**
+         *  Newdelhi Branch
+         */
+
+        $branch = array(
+            'name'         => 'NEWDELHI_01',
+            'address'      => '',
+            'city'         => 'NEW DELHI',
+            'state'        => 'NEW DELHI',
+            'pincode'      => '',
+            'managername'  => 'New Delhi Manager',
+            'managerphone' => '9876543210',
+            'email'        => 'newdelhi.manager@bluecrystalgroup.in',
+            'phone'        => '9876543210',
+            'created_at'   => $now,
+            'updated_at'   => $now
+        );
+        $id = DB::table('branches')->insertGetId($branch);
+
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'newdelhi.admin@bluecrystalgroup.in',
+            'password'   => 'admin123',
+            'activated'  => 1,
+            'first_name' => 'New Delhi',
+            'last_name'  => 'Admin',
+            'branch_id'  => $id
+        ));
+
+        /**
+         *  Patna Branch
          */
 
         $branch = array(
             'name'         => 'PATNA_01',
-            'address'      => 'Office No:-9, Dev Sindhi Plaza Ground Floor, Kankarbagh Main Road',
-            'city'         => 'Patna',
-            'state'        => 'Bihar',
-            'pincode'      => '800020',
-            'managername'  => 'manager',
+            'address'      => 'Birat Complex, Boring Road ',
+            'city'         => 'PATNA',
+            'state'        => 'BIHAR',
+            'pincode'      => '800013',
+            'managername'  => 'Patna Manager',
             'managerphone' => '9876543210',
-            'email'        => 'manager@bluecrystalgroup.in',
+            'email'        => 'patna.manager@bluecrystalgroup.in',
             'phone'        => '9876543210',
             'created_at'   => $now,
-            'updated_at' => $now
+            'updated_at'   => $now
         );
         $id = DB::table('branches')->insertGetId($branch);
 
@@ -72,18 +185,102 @@ class BranchTableSeeder extends Seeder {
             'first_name' => 'Patna',
             'last_name'  => 'Admin',
             'branch_id'  => $id
-
         ));
 
-        // Sentry::getUserProvider()->create(array(
-        //     'email'    => 'patuser@surakshaujjawalnidhi.com',
-        //     'password' => 'user123',
-        //     'activated' => 1,
-        //    	'first_name' => 'Patna',
-        //     'last_name' => 'User',
-        //     'branch_id' => $id
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'manu.parmar@bluecrystalgroup.in',
+            'password'   => '$$manu1234$$',
+            'activated'  => 1,
+            'first_name' => 'Manu',
+            'last_name'  => 'Parmar',
+            'branch_id'  => $id
+        ));
 
-        // ));
+        /**
+         *  Arrah Branch
+         */
+
+        $branch = array(
+            'name'         => 'ARRAH_01',
+            'address'      => '',
+            'city'         => 'ARRAH',
+            'state'        => 'BIHAR',
+            'pincode'      => '',
+            'managername'  => 'Arrah Manager',
+            'managerphone' => '9876543210',
+            'email'        => 'arrah.manager@bluecrystalgroup.in',
+            'phone'        => '9876543210',
+            'created_at'   => $now,
+            'updated_at'   => $now
+        );
+        $id = DB::table('branches')->insertGetId($branch);
+
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'arrah.admin@bluecrystalgroup.in',
+            'password'   => 'admin123',
+            'activated'  => 1,
+            'first_name' => 'Arrah',
+            'last_name'  => 'Admin',
+            'branch_id'  => $id
+        ));
+
+        /**
+         *  Muzaffarpur Branch
+         */
+
+        $branch = array(
+            'name'         => 'MUZAFFARPUR_01',
+            'address'      => '',
+            'city'         => 'MUZAFFARPUR',
+            'state'        => 'BIHAR',
+            'pincode'      => '',
+            'managername'  => 'Muzaffarpur Manager',
+            'managerphone' => '9876543210',
+            'email'        => 'muzaffarpur.manager@bluecrystalgroup.in',
+            'phone'        => '9876543210',
+            'created_at'   => $now,
+            'updated_at'   => $now
+        );
+        $id = DB::table('branches')->insertGetId($branch);
+
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'muzaffarpur.admin@bluecrystalgroup.in',
+            'password'   => 'admin123',
+            'activated'  => 1,
+            'first_name' => 'Muzaffarpur',
+            'last_name'  => 'Admin',
+            'branch_id'  => $id
+        ));
+
+        /**
+         *  Biharsharif Branch
+         */
+
+        $branch = array(
+            'name'         => 'BIHARSHARIF_01',
+            'address'      => '',
+            'city'         => 'BIHARSHARIF',
+            'state'        => 'BIHAR',
+            'pincode'      => '',
+            'managername'  => 'Biharsharif Manager',
+            'managerphone' => '9876543210',
+            'email'        => 'biharsharif.manager@bluecrystalgroup.in',
+            'phone'        => '9876543210',
+            'created_at'   => $now,
+            'updated_at'   => $now
+        );
+        $id = DB::table('branches')->insertGetId($branch);
+
+        Sentry::getUserProvider()->create(array(
+            'email'      => 'biharsharif.admin@bluecrystalgroup.in',
+            'password'   => 'admin123',
+            'activated'  => 1,
+            'first_name' => 'Biharsharif',
+            'last_name'  => 'Admin',
+            'branch_id'  => $id
+        ));
+
+
 
     }    // end of public function run to execute seeder 
 } // end of class
