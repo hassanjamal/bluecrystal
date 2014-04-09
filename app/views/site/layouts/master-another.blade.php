@@ -64,6 +64,9 @@
                         @if ($user_logged->inGroup($branch_admin_group))
                         <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
                         @endif
+                        @if ($user_logged->inGroup($branch_user_group))
+                        <li><a href="{{{ URL::to('admin') }}}">User Panel</a></li>
+                        @endif
                         <li><a href="{{{ URL::to('/') }}}">Logged in as {{{ Sentry::getUser()->first_name .' '.Sentry::getUser()->last_name}}}</a></li>
                         <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                         @else

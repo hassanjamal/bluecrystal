@@ -2,7 +2,7 @@
 
 class Rdscheme extends Eloquent {
 	protected $guarded = array();
-	protected $table = 'rdschemes';
+//	protected $table = 'rdschemes';
 	public static $rules = array(
 	    'name' => 'required|alpha_num',
 	    'years'=> 'required|numeric|between:1,7',

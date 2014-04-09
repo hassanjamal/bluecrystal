@@ -50,7 +50,7 @@ class AdminRdschemesController extends AdminController {
             $rdscheme = $this->rdscheme;
 
             // Show the page
-            return View::make('admin.rdschemes.index', compact('users','rdscheme', 'title'));    
+            return View::make('admin.rdschemes.index', compact('users','rdscheme', 'title'));
         }
         else
         {

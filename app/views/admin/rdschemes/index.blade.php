@@ -22,7 +22,7 @@
 		<thead>
 			<tr>
 				<th class="col-md-2">{{{ Lang::get('admin/scheme/scheme.schemename') }}}</th>
-				<th class="col-md-2">{{{ Lang::tget('admin/scheme/scheme.years') }}}</th>
+				<th class="col-md-2">{{{ Lang::get('admin/scheme/scheme.years') }}}</th>
 				<th class="col-md-2">{{{ Lang::get('admin/scheme/scheme.interest') }}}</th>
 				<th class="col-md-2">{{{ Lang::get('table.actions') }}}</th>
 			</tr>
