@@ -99,6 +99,7 @@ Route::group(array('prefix' => 'admin'), function()
     Route::get('associates/{associates}/welcome', 'AdminAssociatesController@getWelcome');
     Route::post('associates/create', 'AdminAssociatesController@store');
     Route::get('associates/data' , 'AdminAssociatesController@getData');
+    Route::get('associates/notification' , 'AdminAssociatesController@getNotification');
     Route::get('associates/add_to_rank_list' , 'AdminAssociatesController@getRanklist');
     Route::get('associates/add_to_introducer_id' , 'AdminAssociatesController@getIntroducer');
     Route::resource('associates' , 'AdminAssociatesController');

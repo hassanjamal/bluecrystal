@@ -353,8 +353,8 @@ class AdminRankController extends AdminController {
                               ->where('ranks.company',0);
         
             return Datatables::of($ranks)
-            ->add_column('commission', '<a href="{{{ URL::to(\'admin/rank/\'. $id . \'/self_commision\') }}}" class="iframe btn btn-xs btn-info">Self Comm</a> <a href="{{{ URL::to(\'admin/rank/\'. $id . \'/team_commision\') }}}" class="iframe btn btn-xs btn-warning">Team Comm</a> ')
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/rank/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-default">edit</a> ')
+            ->add_column('commission', '<a href="{{{ URL::to(\'admin/rank/\'. $id . \'/self_commision\') }}}" class="iframe btn btn-xs btn-primary">Self Comm</a> <a href="{{{ URL::to(\'admin/rank/\'. $id . \'/team_commision\') }}}" class="iframe btn btn-xs btn-info">Team Comm</a> ')
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/rank/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-danger">edit</a> ')
             ->remove_column('id')
             ->make();
         

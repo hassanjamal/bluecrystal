@@ -206,7 +206,7 @@ class AdminFdschemesController extends AdminController {
         {
             return Datatables::of($fdschemes)
             ->edit_column('interest','{{ number_format($interest,2)}}')
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-default">{{{ Lang::get(\'button.details\') }}}</a> <a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-warning">{{{ Lang::get(\'button.edit\') }}}</a> ')
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a> <a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.edit\') }}}</a> ')
             ->remove_column('id')
             ->make();
         }
@@ -214,7 +214,7 @@ class AdminFdschemesController extends AdminController {
         {
             return Datatables::of($fdschemes)
             ->edit_column('interest','{{ number_format($interest,2)}}')
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-warning">{{{ Lang::get(\'button.details\') }}}</a> ')
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a> ')
             ->remove_column('id')
             ->make();   
         }

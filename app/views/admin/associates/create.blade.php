@@ -448,8 +448,8 @@
 		<!-- Form Actions -->
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-9">
-				<element class = "btn-cancel close_popup">Cancel</element>
-				<button type   = "reset" class="btn btn-default">Reset</button>
+				<element class = "btn btn-danger close_popup">Cancel</element>
+				<button type   = "reset" class="btn btn-info">Reset</button>
 				<button type   = "submit" class="btn btn-success">OK</button>
 			</div>
 		</div>
@@ -507,36 +507,6 @@
 		});
 	});
 
-
-	// var nowTemp = new Date();
-	// var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
- 
-	// var dob = $('#date_of_birth').datepicker({
-	// format: 'dd/mm/yyyy',
- //  	onRender: function(date) {
- //    return date.valueOf() < now.valueOf() ? 'disabled' : '';
- //  	}
-	// }).on('changeDate', function(ev) {
- //  	dob.hide();
-	// }).data('datepicker');
-
-	// var dw = $('#drawn_date').datepicker({
-	// format: 'dd/mm/yyyy',
- //  	onRender: function(date) {
- //    return date.valueOf() < now.valueOf() ? 'disabled' : '';
- //  	}
-	// }).on('changeDate', function(ev) {
- //  	dw.hide();
-	// }).data('datepicker');
-
-	// var sd = $('#start_date').datepicker({
-	// format: 'dd/mm/yyyy',
- //  	onRender: function(date) {
- //    return date.valueOf() < now.valueOf() ? 'disabled' : '';
- //  	}
-	// }).on('changeDate', function(ev) {
- //  	sd.hide();
-	// }).data('datepicker');
 </script>
 
 @stop
