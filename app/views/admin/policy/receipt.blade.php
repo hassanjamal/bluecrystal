@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="{{URL::to('/css/print/style.css')}}">
+<link rel="stylesheet" href="{{URL::to('/css/print/printstyle.css')}}">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <style>
 body{
     background-image:url('/assets/image/policy_money_receipt.jpg');
     background-size:cover;
-}
-#article2{
-    margin-top:13em;
 }
 </style>
 </head>
@@ -24,7 +22,7 @@ body{
         </tr>
         <tr>
             <th><span >Date</span></th>
-            <td><span >Date : {{  date("d-M-Y") }}</span></td>
+            <td><span >{{  date("d-M-Y") }}</span></td>
         </tr>
     </table>
     <table class="inventory">
@@ -37,17 +35,19 @@ body{
         <tr>
             <td>AMOUNT DEPOSITED :- </td>
             <td>
+                <i class="fa fa-rupee"></i>
                 @if ($policy->scheme_type=='FD')
-                {{ Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')}}
+                {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
                 @endif
                 @if ($policy->scheme_type=='RD')
-                {{ Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')}}
+                {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
                 @endif
             </td>
         </tr>
         <tr>
             <td>MATURE AMOUNT :- </td>
             <td>
+                <i class="fa fa-rupee"></i>
                 @if ($policy->scheme_type=='FD')
                 {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('mature_amount'))}}
                 @endif
@@ -90,6 +90,16 @@ body{
         </tbody>
     </table>
 </article>
+<span class="pull-right">
+    <strong>Signature of Authority</strong>
+    <br>
+    <em>
+        {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' )'}}
+    </em>
+
+    <br>
+    For BLUE CRYSTAL MUTUAL BENEFIT INDIA LIMITED.
+</span>
 <article id="article2">
     <h1>Recipient</h1>
     <address>
@@ -102,7 +112,7 @@ body{
         </tr>
         <tr>
             <th><span >Date</span></th>
-            <td><span >Date : {{  date("d-M-Y") }}</span></td>
+            <td><span >{{  date("d-M-Y") }}</span></td>
         </tr>
     </table>
     <table class="inventory">
@@ -115,17 +125,19 @@ body{
         <tr>
             <td>AMOUNT DEPOSITED :- </td>
             <td>
+                <i class="fa fa-rupee"></i>
                 @if ($policy->scheme_type=='FD')
-                {{ Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')}}
+                {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
                 @endif
                 @if ($policy->scheme_type=='RD')
-                {{ Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')}}
+                {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
                 @endif
             </td>
         </tr>
         <tr>
             <td>MATURE AMOUNT :- </td>
             <td>
+                <i class="fa fa-rupee"></i>
                 @if ($policy->scheme_type=='FD')
                 {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('mature_amount'))}}
                 @endif
@@ -168,11 +180,21 @@ body{
         </tbody>
     </table>
 </article>
+<span class="pull-right">
+    <strong>Signature of Authority</strong>
+    <br>
+    <em>
+        {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' )'}}
+    </em>
+
+    <br>
+    For BLUE CRYSTAL MUTUAL BENEFIT INDIA LIMITED.
+</span>
 <script src="/js/jquery.js"></script>
 <script>
-    $(document).ready(function(){
+$(document).ready(function(){
         window.print();
-    });
+        });
 </script>
 </body>
 
