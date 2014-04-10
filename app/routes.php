@@ -111,6 +111,7 @@ Route::group(array('prefix' => 'admin'), function()
     Route::get('policy/{policy}/welcome', 'AdminPolicyController@getWelcome');
     Route::post('policy/create', 'AdminPolicyController@store');
     Route::get('policy/data' , 'AdminPolicyController@getData');
+    Route::get('policy/notification' , 'AdminPolicyController@getNotification');
     Route::get('policy/add_to_fd_scheme_id' , 'AdminPolicyController@getFdscheme');
     Route::get('policy/add_to_rd_scheme_id' , 'AdminPolicyController@getRdscheme');
     Route::get('policy/add_to_associate_id' , 'AdminPolicyController@getAssociate');

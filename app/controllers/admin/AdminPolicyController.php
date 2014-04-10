@@ -102,10 +102,7 @@ class AdminPolicyController extends AdminController
                 $title = "Create Policy";
                 $mode  = 'create';
 
-                return View::make(
-                                  'admin/policy/create',
-                                  compact('title', 'mode', 'branch_id')
-                                  );
+                return View::make( 'admin/policy/create', compact('title', 'mode', 'branch_id'));
             }
             else {
                 return Redirect::to('admin/policy')
@@ -165,9 +162,7 @@ class AdminPolicyController extends AdminController
                                                               $this->policy->associate_id,
                                                               $this->policy->scheme_type );
                     if ($result) {
-                        return Redirect::to('admin/policy/' . $this->policy->id . '/edit')->with(
-                                                                                                 'success',
-                                                                                                 "Policy Created Successfully" );
+                        return Redirect::to('admin/policy/notification')->with( 'success', "Policy Created Successfully" );
                     }
                     else {
                         $error = " Commision for Scheme Created has not been updated succesfully";
@@ -184,7 +179,8 @@ class AdminPolicyController extends AdminController
                                                               1
                                                               );
                     if ($result) {
-                        return Redirect::to('admin/policy' )->with( 'success', "Policy Created Successfully");
+                        return Redirect::to('admin/policy/notification')->with( 'success', "Policy Created Successfully" );
+                        // return Redirect::to('admin/policy' )->with( 'success', "Policy Created Successfully");
                     }
                     else {
                         $error = " Commision for Scheme Created has not been updated succesfully";
@@ -595,6 +591,19 @@ class AdminPolicyController extends AdminController
         $year        = date("Y");
 
         return substr($branch_name, 0, 3) . '-' . $policy_id . '-' . $year;
+    }
+    
+
+    /**
+     * getNotification
+     * 
+     * @access public
+     * @return void
+     */
+    public function getNotification()
+    {
+        $title = "";
+        return View::make('admin/notification/index' , compact('title')); 
     }
 
     /**

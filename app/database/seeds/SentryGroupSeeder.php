@@ -36,6 +36,10 @@ class SentryGroupSeeder extends Seeder {
 	            'rank-edit'        => 0,
 	            'rank-delete'      => 0,
 	            'rank-create'      => 0,
+	            'branch-view'      => 1,
+	            'branch-edit'      => 1,
+	            'branch-delete'    => 0,
+	            'branch-create'    => 0,
 
 	        )));
 
@@ -58,6 +62,10 @@ class SentryGroupSeeder extends Seeder {
 	            'rank-edit'        => 0,
 	            'rank-delete'      => 0,
 	            'rank-create'      => 0,
+	            'branch-view'      => 1,
+	            'branch-edit'      => 0,
+	            'branch-delete'    => 0,
+	            'branch-create'    => 0,
 	        )));
 
 		// Sentry::getGroupProvider()->create(array(

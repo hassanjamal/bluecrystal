@@ -114,8 +114,9 @@ class AdminBranchController extends AdminController {
     {
         if(Sentry::check())
          {
-            $admin_group = Sentry::findGroupByName('Branch-Admin');
-            if((Sentry::getUser()->isSuperUser() ||  Sentry::getUser()->hasAccess('branch-edit') || (Sentry::getUser()->inGroup($admin_group)) && Sentry::getUser()->branch_id == $branch->id))
+            // $admin_group = Sentry::findGroupByName('Branch-Admin');
+            // if((Sentry::getUser()->isSuperUser() ||  Sentry::getUser()->hasAccess('branch-edit') || (Sentry::getUser()->inGroup($admin_group)) && Sentry::getUser()->branch_id == $branch->id))
+            if(Sentry::getUser()->hasAccess('branch-edit'))
             {  
                 if ( $branch->id )
                 {
@@ -161,12 +162,11 @@ class AdminBranchController extends AdminController {
         $branch->phone = Input::get('phone');
 
         // Save if valid. 
-        
 
         if ( $branch->save() )
         {
             
-            // Redirect to the new fdscheme page
+            // Redirect to the new branch page
             return Redirect::to('admin/branch/' . $branch->id . '/edit')->with('success', Lang::get('admin/branch/messages.edit.success'));
         }
         else
@@ -185,14 +185,14 @@ class AdminBranchController extends AdminController {
     {
         if(Sentry::check())
          {
-            $admin_group = Sentry::findGroupByName('Branch-Admin');
-            if((Sentry::getUser()->isSuperUser() ||  Sentry::getUser()->hasAccess('branch-edit') || (Sentry::getUser()->inGroup($admin_group)) && Sentry::getUser()->branch_id == $branch->id) )
+            // $admin_group = Sentry::findGroupByName('Branch-Admin');
+            // if((Sentry::getUser()->isSuperUser() ||  Sentry::getUser()->hasAccess('branch-edit') || (Sentry::getUser()->inGroup($admin_group)) && Sentry::getUser()->branch_id == $branch->id) )
+            if(Sentry::getUser()->hasAccess('branch-view'))
             {  
                 if ( $branch->id )
                 {
                     // Title
                     $title = $branch->name;
-
                     return View::make('admin/branch/details', compact('branch', 'title'));
                 }
                 else
@@ -228,7 +228,7 @@ class AdminBranchController extends AdminController {
                 ->add_column('actions', 
                              '
                              <a href="{{{ URL::to(\'admin/branch/\'. $id ) }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a> 
-                             <a href="{{{ URL::to(\'admin/branch/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-warning">{{{ Lang::get(\'button.edit\') }}}</a> 
+                             <a href="{{{ URL::to(\'admin/branch/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.edit\') }}}</a> 
                              ')
                 ->remove_column('id')
                 ->make();
@@ -241,7 +241,7 @@ class AdminBranchController extends AdminController {
                 ->add_column('actions', 
                              '
                              <a href="{{{ URL::to(\'admin/branch/\'. $id ) }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a> 
-                             <a href="{{{ URL::to(\'admin/branch/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-warning">{{{ Lang::get(\'button.edit\') }}}</a> 
+                             <a href="{{{ URL::to(\'admin/branch/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.edit\') }}}</a> 
                              ')
                 ->remove_column('id')
                 ->make();
