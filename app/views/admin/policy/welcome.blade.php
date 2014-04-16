@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{URL::to('/css/print/welcomestyle.css')}}">
 <style>
 body{
-    background-image:url('/assets/image/policy_welcome_letter.png');
+    background-image:url('/assets/image/policy_welcome_letter.jpg');
     background-size:cover;
 }
 </style>

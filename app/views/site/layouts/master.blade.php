@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="{{{ URL::to('/')}}}" class="navbar-brand"><strong><span style="color:blue">Blue </span>Crystal Quasi Bank</strong></a>
+                    <a href="{{{ URL::to('/')}}}" class="navbar-brand"><strong><span style="color:blue">BLUE </span>CRYSTAL QUASI BANK</strong></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">

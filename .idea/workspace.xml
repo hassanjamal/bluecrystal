@@ -155,8 +155,8 @@
         <option value="$PROJECT_DIR$/app/views/site/layouts/master-another.blade.php" />
         <option value="$PROJECT_DIR$/app/views/site/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/models/Rdscheme.php" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/AdminRdschemesController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/rdschemes/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/AdminRdschemesController.php" />
       </list>
     </option>
   </component>

@@ -51,15 +51,18 @@
 }
 
 .fa_icon{
-    transition: all 0.3s ease-in-out 0s;
-    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -o-transition: all 0.4s ease-in-out 0s;
+    -ms-transition: all 0.4s ease-in-out 0s;
 }
 .fa_icon:hover{
-    -webkit-transform: scale(1.5,1.5);
-    -moz-transform: scale(1.5,1.5);
-    -o-transform: scale(1.5,1.5);
-    -ms-transform: scale(1.5,1.5);
-    transform: scale(1.5,1.5);
+    -webkit-transform: rotate(360deg) scale(1.5,1.5);
+    -moz-transform: rotate(360deg) scale(1.5,1.5);
+    -o-transform: rotate(360deg) scale(1.5,1.5);
+    -ms-transform: rotate(360deg) scale(1.5,1.5);
+    transform: rotate(360deg) scale(1.5,1.5);
 }
 
 #main_page .count .circle span {

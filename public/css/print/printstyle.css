@@ -63,14 +63,14 @@ header input { cursor: pointer; -ms-filter:"progid:DXImageTransform.Microsoft.Al
 
 /* article */
 
-article, article address, table.meta, table.inventory { margin: 3.5em 0 2.2em;}
+article, article address, table.meta, table.inventory { margin: 3em 0 2.2em;}
 article:after { clear: both; content: ""; display: table; }
 article h1 { clip: rect(0 0 0 0); position: absolute; }
 
 article address { float: left; font-size: 125%; font-weight: bold; }
 
 #article2{
-    margin-top:14.4em;
+    margin-top:17.4em;
 }
 
 .pull-right{ float:right; text-align:center; font-size:90%; }
