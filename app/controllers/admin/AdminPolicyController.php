@@ -333,10 +333,11 @@ class AdminPolicyController extends AdminController
     {
         if (Sentry::check()) {
             if ($policy->id) {
-                return View::make(
-                                  'admin/policy/receipt',
-                                  compact('policy')
-                                  );
+                $title =$policy->policy_no."_receipt.pdf";
+                // return View::make( 'admin/policy/receipt', compact('title','policy'));
+                $pdf = App::make('dompdf');
+                $pdf->loadView('admin/policy/receipt', compact('policy'));
+                return $pdf->download($title);
             }
             else {
                 return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
@@ -420,9 +421,9 @@ class AdminPolicyController extends AdminController
                          'receipts',
                          '
                          <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/receipt\') }}}"
-                         class="iframe btn btn-xs btn-default">Receipt</a>
+                         class="btn btn-xs btn-default">Receipt</a>
                          <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
-                         class="iframe btn btn-xs btn-default">Welcome</a>
+                         class="btn btn-xs btn-default">Welcome</a>
                          '
                          )
             ->add_column(
@@ -449,9 +450,9 @@ class AdminPolicyController extends AdminController
                          'receipts',
                          '
                          <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/receipt\') }}}"
-                         class="iframe btn btn-xs btn-default">Receipt</a>
+                         class="btn btn-xs btn-default">Receipt</a>
                          <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
-                         class="iframe btn btn-xs btn-default">Welcome</a>
+                         class="btn btn-xs btn-default">Welcome</a>
                          '
                          )
             ->add_column(
