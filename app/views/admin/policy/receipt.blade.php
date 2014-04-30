@@ -6,7 +6,7 @@
 </head>
 <body marginwidth="0" marginheight="0">
 <div class="header_image">
-    <img src="assets/image/header.jpg" alt="">
+    <!-- <img src="assets/image/header.jpg" alt=""> -->
 </div>
 <div class="main_content">
     <table class="header">
@@ -150,13 +150,13 @@
     </table>
 </div>
 <div class="footer_image">
-    <img src="assets/image/footer.jpg" alt="">
+    <!-- <img src="assets/image/footer.jpg" alt=""> -->
 </div>
 
 {{-- Office Copy--}}
 
 <div class="header_image">
-    <img src="assets/image/header.jpg" alt="">
+    <!-- <img src="assets/image/header.jpg" alt=""> -->
 </div>
 <div class="main_content" style="margin-top:.9em">
     <table class="header">
@@ -301,7 +301,7 @@
     </table>
 </div>
 <div class="footer_image" style="margin-bottom:-2px">
-    <img src="assets/image/footer.jpg" alt="">
+    <!-- <img src="assets/image/footer.jpg" alt=""> -->
 </div>
 
 {{-- Office Copy--}}
