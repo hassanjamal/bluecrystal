@@ -6,7 +6,7 @@
 </head>
 <body marginwidth="0" marginheight="0">
 <div class="header_image">
-    <!-- <img src="assets/image/header.jpg" alt=""> -->
+    <img src="assets/image/header.jpg" alt="">
 </div>
 <div class="main_content">
     <table class="header">
@@ -112,7 +112,7 @@
         </tbody>
     </table>
     <div class="in_words">
-        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  
+        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  Thanks a lot for making  payment of Rs.  
             @if ($policy->scheme_type=='FD')
             {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
             <strong>
@@ -150,13 +150,13 @@
     </table>
 </div>
 <div class="footer_image">
-    <!-- <img src="assets/image/footer.jpg" alt=""> -->
+    <img src="assets/image/footer.jpg" alt="">
 </div>
 
 {{-- Office Copy--}}
 
 <div class="header_image">
-    <!-- <img src="assets/image/header.jpg" alt=""> -->
+    <img src="assets/image/header.jpg" alt="">
 </div>
 <div class="main_content" style="margin-top:.9em">
     <table class="header">
@@ -263,7 +263,7 @@
     </table>
     
     <div class="in_words">
-        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  
+        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  Thanks a lot for making  payment of Rs.  
             @if ($policy->scheme_type=='FD')
             {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
             <strong>
@@ -301,7 +301,7 @@
     </table>
 </div>
 <div class="footer_image" style="margin-bottom:-2px">
-    <!-- <img src="assets/image/footer.jpg" alt=""> -->
+    <img src="assets/image/footer.jpg" alt="">
 </div>
 
 {{-- Office Copy--}}

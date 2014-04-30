@@ -16,7 +16,8 @@ body{
     height:27px;
 }
 .in_words{
-    margin-bottom:3em;
+    margin-bottom:2em;
+    font-size:90%;
 }
 hr{
     margin:0;
@@ -70,7 +71,7 @@ table.meta:after, table.inventory:after , table.main:after {
     content: "";
     display: table;
 }
-.pull-right{ clear:left;display:block;float:right; text-align:center; font-size:90%; margin-top:6em; }
+.pull-right{ clear:left;display:block;float:right; text-align:center; font-size:90%; margin-top:4em; }
 .pull-right strong{ font-weight:bold }
 .pull-right em { font-style:italic; color:grey}
 @page {
