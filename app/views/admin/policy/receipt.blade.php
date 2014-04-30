@@ -7,9 +7,9 @@
     <body marginwidth="0" marginheight="0">
         <table class="main">
             <tbody>
-                <tr>
-                    <td>
-                        <img src="assets/image/header.jpg" alt="">
+                <tr >
+                    <td class="header_image">
+                        <!-- <img src="assets/image/header.jpg" alt=""> -->
                     </td>
                 </tr>
                 <tr>
@@ -101,8 +101,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="assets/image/footer.jpg" alt="">
+                    <td class="footer_image">
+                        <!-- <img src="assets/image/footer.jpg" alt=""> -->
                     </td>
                 </tr>
             </tbody>
@@ -111,8 +111,8 @@
         <table class="main">
             <tbody>
                 <tr>
-                    <td>
-                        <img src="assets/image/header.jpg" alt="">
+                    <td class="header_image">
+                        <!-- <img src="assets/image/header.jpg" alt=""> -->
                     </td>
                 </tr>
                 <tr>
@@ -205,8 +205,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="assets/image/footer.jpg" alt="">
+                    <td class="footer_image">
+                        <!-- <img src="assets/image/footer.jpg" alt=""> -->
                     </td>
                 </tr>
             </tbody>

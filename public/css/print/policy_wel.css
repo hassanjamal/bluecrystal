@@ -4,22 +4,18 @@ body{
     width: 8.27in;
     /* background-color:#000757; */
 }
-.header_image{
-    height:129px;
-}
-
-.footer_image{
-    height:27px;
-}
 .main_content{
-    height:394.75px;
-    /* background-image:url('/assets/image/body.jpg'); */
+    height:744px;
+    background-color:grey;
+    /* background-image:url('/assets/image/policy_body_welcome_letter.jpg'); */
 }
 
 table.main {
     font-size: 75%;
     table-layout: fixed;
     width: 100%;
+    background-color:red;
+
 }
 table.main {
     border-spacing: 0px;
@@ -34,6 +30,7 @@ hr{
     border-top:1px dotted #000 !important;
 }
 
+
 /* table */
 
 table { font-size: 75%; table-layout: fixed; width: 100%; }
@@ -47,7 +44,8 @@ th, td {
 th { background: #EEE; border-color: #BBB; }
 td { border-color: #DDD; }
 
-address , table.meta, table.inventory{ margin:2em 2em 0em; }
+
+address , table.meta, table.maincontent{ margin:2em 2em 0em; }
 address {
     float: left;
     font-size: 110%;
@@ -58,27 +56,40 @@ table.meta {
     width: 36%;
 }
 table.meta th, table.meta td { border-radius: 0.25em; border-style: solid;  }
-table.inventory{
+table.maincontent{
     clear:both;
     float:left;
     width:100%;
-    position:relative;
 }
 /* table meta */
 
 table.meta th { width: 40%; }
 table.meta td { width: 60%; }
 
-table.inventory th { height:20px;width: 35%; text-align:right;background-color:transparent; }
-table.inventory td { width: 65%;padding-left:2em; border-bottom:1px dotted grey; }
-table.meta:after, table.inventory:after {
+table.maincontent th { height:20px;width: 35%; text-align:right;background-color:transparent; }
+table.maincontent td { width: 65%;padding-left:2em; font-size:90% }
+table.meta:after, table.maincontent:after {
     clear: both;
     content: "";
     display: table;
 }
-.pull-right{ clear:left;display:block;float:right; text-align:center; font-size:90%; margin-top:6em; }
-.pull-right strong{ font-weight:bold }
-.pull-right em { font-style:italic; color:grey}
+table.signature{
+    clear:both;
+    float:right;
+    width:50%;
+}
+.pull-right{
+    text-align:center;
+    font-size:90%;
+}
+.pull-right strong{
+    font-weight:bold
+}
+.pull-right em {
+    font-style:italic;
+    color:grey
+}
+
 @page {
     margin:0;
 }
