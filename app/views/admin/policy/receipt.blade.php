@@ -111,7 +111,6 @@
 
         </tbody>
     </table>
-    
     <div class="in_words">
         <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  
             @if ($policy->scheme_type=='FD')
@@ -159,7 +158,7 @@
 <div class="header_image">
     <!-- <img src="assets/image/header.jpg" alt=""> -->
 </div>
-<div class="main_content">
+<div class="main_content" style="margin-top:.9em">
     <table class="header">
         <tbody>
         <tr>
@@ -301,9 +300,14 @@
         </tbody>
     </table>
 </div>
-<div class="footer_image">
+<div class="footer_image" style="margin-bottom:-2px">
     <!-- <img src="assets/image/footer.jpg" alt=""> -->
 </div>
+
+{{-- Office Copy--}}
+
+
+
 </body>
 
 </html>
