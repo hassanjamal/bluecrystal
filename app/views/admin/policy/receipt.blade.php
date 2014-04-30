@@ -112,7 +112,7 @@
         </tbody>
     </table>
     <div class="in_words">
-        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  Thanks a lot for making  payment of Rs.  
+        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  
             @if ($policy->scheme_type=='FD')
             {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
             <strong>
@@ -263,7 +263,7 @@
     </table>
     
     <div class="in_words">
-        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  Thanks a lot for making  payment of Rs.  
+        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  
             @if ($policy->scheme_type=='FD')
             {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
             <strong>
