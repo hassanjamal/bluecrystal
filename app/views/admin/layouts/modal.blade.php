@@ -47,11 +47,14 @@
     <link rel="stylesheet" href="{{URL::to('/assets/compiled/jquery-ui.css')}}">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
     {{ HTML::style('/app_assets/admin/css/bootstrap.css')}}
     {{ HTML::style('/app_assets/admin/css/colorbox.css')}}
     {{ HTML::style('/app_assets/admin/css/datatables-bootstrap.css')}}
     {{ HTML::style('/app_assets/admin/css/custom.css')}}
     {{ HTML::style('http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css')}}
+    {{ HTML::style('/css/bootstrapValidator.min.css') }}
 
 
 	<style>
@@ -116,14 +119,15 @@
 	<!-- ./ container -->
 
 	<!-- Javascripts -->
-    {{HTML::script('/app_assets/admin/js/jquery.js')}}
-    {{HTML::script('/app_assets/admin/js/jquery.dataTables.min.js')}}
-    {{HTML::script('/app_assets/admin/js/datatables-bootstrap.js')}}
-    {{HTML::script('/app_assets/admin/js/datatables.fnReloadAjax.js')}}
-    {{HTML::script('/app_assets/admin/js/jquery.colorbox.js')}}
-    {{HTML::script('/app_assets/admin/js/prettify.js')}}
-    {{HTML::script('/app_assets/admin/js/bootstrap.min.js')}}
-    {{HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js')}}
+    {{ HTML::script('/app_assets/admin/js/jquery.js')}}
+    {{ HTML::script('/app_assets/admin/js/jquery.dataTables.min.js')}}
+    {{ HTML::script('/app_assets/admin/js/datatables-bootstrap.js')}}
+    {{ HTML::script('/app_assets/admin/js/datatables.fnReloadAjax.js')}}
+    {{ HTML::script('/app_assets/admin/js/jquery.colorbox.js')}}
+    {{ HTML::script('/app_assets/admin/js/prettify.js')}}
+    {{ HTML::script('/app_assets/admin/js/bootstrap.min.js')}}
+    {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js')}}
+    {{ HTML::script('/app_assets/admin/js/bootstrapValidator.min.js') }}
 
     <script type="text/javascript">
     	$(document).ready(function(){

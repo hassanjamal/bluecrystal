@@ -500,6 +500,28 @@ class AdminPolicyController extends AdminController
 
     }
 
+
+    public function postAssociate()
+    {
+        $term      = Input::get('associate_no');
+        $search    = DB::select(
+                                "
+                                select associate_no 
+                                from associates
+                                where company = 0
+                                and match (name, associate_no )
+                                against ('+{$term}*' IN BOOLEAN MODE)
+                                "
+                                );
+
+        if($search){
+            return json_encode(array('valid'=>true));
+        }
+        else{
+            return json_encode(array('valid'=>false));
+        }
+    }
+
     /**
      * [getFdscheme description]
      *
@@ -524,6 +546,29 @@ class AdminPolicyController extends AdminController
         }
 
         return json_encode($fdschemes);
+
+
+    }
+
+    public function postFdscheme()
+    {
+        $term      = Input::get('scheme_name');
+        $search    = DB::select(
+                                "
+                                select name as value 
+                                from fdschemes
+                                where match (name )
+                                against ('+{$term}*' IN BOOLEAN MODE)
+                                "
+                                );
+
+        if($search){
+            return json_encode(array('valid'=>true));
+        }
+        else{
+            return json_encode(array('valid'=>false));
+        }
+
 
     }
 
@@ -552,6 +597,28 @@ class AdminPolicyController extends AdminController
 
     }
 
+
+    public function postRdscheme()
+    {
+        $term      = Input::get('scheme_name');
+        $search    = DB::select(
+                                "
+                                select name as value 
+                                from rdschemes
+                                where match (name )
+                                against ('+{$term}*' IN BOOLEAN MODE)
+                                "
+                                );
+
+        if($search){
+            return json_encode(array('valid'=>true));
+        }
+        else{
+            return json_encode(array('valid'=>false));
+        }
+
+
+    }
    /**
     * Generate Commission Structure for policy
     * @param  [type] $policy [description]
@@ -715,9 +782,8 @@ class AdminPolicyController extends AdminController
      *
      * @return bool
      */
-    public function update_self_commission(
-                                           $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount
-                                           ) {
+    public function update_self_commission( $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount ) 
+    {
         $rank_id   = Associate::where('id', $associate_id)->pluck('rank_id');
         $scheme_id = $input->to_scheme_id;
 
@@ -787,9 +853,7 @@ class AdminPolicyController extends AdminController
      *
      * @return bool
      */
-    public function update_team_commission(
-                                           $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount
-                                           )
+    public function update_team_commission( $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount )
     {
 
         $scheme_id = $input->to_scheme_id;

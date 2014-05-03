@@ -21,7 +21,7 @@ class BranchTableSeeder extends Seeder {
             'email'        => 'superadmin@bluecrystalgroup.in',
             'phone'        => '9876543210',
             'created_at'   => $now,
-            'updated_at' => $now
+            'updated_at'   => $now
         );
         $id = DB::table('branches')->insertGetId($branch);
 
