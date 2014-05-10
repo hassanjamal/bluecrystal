@@ -46,7 +46,7 @@ class SentryUserGroupSeeder extends Seeder {
 
 	    $ManuParmar->addGroup($BranchUserGroup);
 		// Super Admin
-	    $AdminUser->addGroup($SuperAdminGroup);
+	    $SuperAdmin->addGroup($SuperAdminGroup);
 	}
 
 }
