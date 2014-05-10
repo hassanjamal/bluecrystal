@@ -60,23 +60,6 @@ class SentryGroupSeeder extends Seeder {
 	            'rank-create' => 0,
 	        )));
 
-		Sentry::getGroupProvider()->create(array(
-	        'name'        => 'Users',
-	        'permissions' => array(
-	            'view' => 1,
-	            'edit' => 0,
-	            'delete' => 0,
-	            'update' => 0,
-	        )));
-
-		Sentry::getGroupProvider()->create(array(
-	        'name'        => 'Admins',
-	        'permissions' => array(
-	            'view' => 1,
-	            'edit' => 1,
-	            'delete' => 1,
-	            'update' => 1,
-	        )));
 	}
 
 }
