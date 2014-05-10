@@ -156,6 +156,7 @@ class AdminFdschemesController extends AdminController {
             $fdscheme->name = Input::get( 'name' );
             $fdscheme->years = Input::get( 'years' );
             $fdscheme->interest = Input::get( 'interest' );
+            $fdscheme->special_interest = Input::get( 'special_interest' );
 
 
             if ( $fdscheme->save() )

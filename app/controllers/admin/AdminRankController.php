@@ -237,16 +237,12 @@ class AdminRankController extends AdminController {
             $this->fd_self_commision->third = Input::get('fdthird');
             $this->fd_self_commision->fourth = Input::get('fdfourth');
             $this->fd_self_commision->fifth = Input::get('fdfifth');
-            $this->fd_self_commision->sixth = Input::get('fdsixth');
-            $this->fd_self_commision->seventh = Input::get('fdseventh');
             // RD self commision 
             $this->rd_self_commision->first = Input::get('rdfirst');
             $this->rd_self_commision->second = Input::get('rdsecond');
             $this->rd_self_commision->third = Input::get('rdthird');
             $this->rd_self_commision->fourth = Input::get('rdfourth');
             $this->rd_self_commision->fifth = Input::get('rdfifth');
-            $this->rd_self_commision->sixth = Input::get('rdsixth');
-            $this->rd_self_commision->seventh = Input::get('rdseventh');
 
             if ( $this->fd_self_commision->save() && $this->rd_self_commision->save() )
             {
@@ -307,16 +303,12 @@ class AdminRankController extends AdminController {
             $this->fd_team_commision->third = Input::get('fdthird');
             $this->fd_team_commision->fourth = Input::get('fdfourth');
             $this->fd_team_commision->fifth = Input::get('fdfifth');
-            $this->fd_team_commision->sixth = Input::get('fdsixth');
-            $this->fd_team_commision->seventh = Input::get('fdseventh');
             // RD team commision 
             $this->rd_team_commision->first = Input::get('rdfirst');
             $this->rd_team_commision->second = Input::get('rdsecond');
             $this->rd_team_commision->third = Input::get('rdthird');
             $this->rd_team_commision->fourth = Input::get('rdfourth');
             $this->rd_team_commision->fifth = Input::get('rdfifth');
-            $this->rd_team_commision->sixth = Input::get('rdsixth');
-            $this->rd_team_commision->seventh = Input::get('rdseventh');
 
             if ( $this->fd_team_commision->save() && $this->rd_team_commision->save() )
             {

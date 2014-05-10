@@ -66,25 +66,6 @@
 					</div>
 				</div>
 				<!-- ./ Scheme 5 -->
-				<!-- Scheme 6 -->
-				<div class="form-group {{{ $errors->has('fdsixth') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="fdsixth">6 Years</label>
-					<div class="col-md-10">
-						<input class="form-control" type="text" name="fdsixth" id="fdsixth" value="{{{ Input::old('fdsixth', isset($rank) ? number_format($fd_commisions->six,2,'.',',') : null) }}}" />
-						{{{ $errors->first('fdsixth', '<span class="help-inline">:message</span>') }}}
-					</div>
-				</div>
-				<!-- ./ Scheme 6 -->
-				<!-- Scheme 7 -->
-				<div class="form-group {{{ $errors->has('fdseventh') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="fdseventh">7 Years</label>
-					<div class="col-md-10">
-						<input class="form-control" type="text" name="fdseventh" id="fdseventh" value="{{{ Input::old('fdseventh', isset($rank) ? number_format($fd_commisions->seven,2,'.',',') : null) }}}" />
-						{{{ $errors->first('fdseventh', '<span class="help-inline">:message</span>') }}}
-					</div>
-				</div>
-				<!-- ./ Scheme 7 -->
-
 			</div>
 			<!-- ./ fd_scheme tab -->
 
@@ -136,26 +117,6 @@
 					</div>
 				</div>
 				<!-- ./ Scheme 5 -->
-				<!-- Scheme 6 -->
-				<div class="form-group {{{ $errors->has('rdsixth') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="rdsixth">6 Years</label>
-					<div class="col-md-10">
-						<input class="form-control" type="text" name="rdsixth" id="rdsixth" value="{{{ Input::old('rdsixth', isset($rank) ? number_format($rd_commisions->six,2,'.',',') : null) }}}" />
-						{{{ $errors->first('rdsixth', '<span class="help-inline">:message</span>') }}}
-					</div>
-				</div>
-				<!-- ./ Scheme 6 -->
-				<!-- Scheme 7 -->
-				<div class="form-group {{{ $errors->has('rdseventh') ? 'error' : '' }}}">
-					<label class="col-md-2 control-label" for="rdseventh">7 Years</label>
-					<div class="col-md-10">
-						<input class="form-control" type="text" name="rdseventh" id="rdseventh" value="{{{ Input::old('rdseventh', isset($rank) ? number_format($rd_commisions->seven,2,'.',',') : null) }}}" />
-						{{{ $errors->first('rdseventh', '<span class="help-inline">:message</span>') }}}
-					</div>
-				</div>
-				<!-- ./ Scheme 7 -->
-
-
 			</div>
 			<!-- ./ rd_scheme tab -->
 

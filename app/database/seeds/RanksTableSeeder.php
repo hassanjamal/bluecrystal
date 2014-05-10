@@ -36,8 +36,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 3,
 		                    		      'four'  => 4,
 		                    		      'five'  => 4.1,
-		                    		      'six'   => 4.3,
-		                    		      'seven' => 4.4,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -48,8 +46,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0,
 		                    		      'four' => 0,
 		                    		      'five' => 0,
-		                    		      'six' => 0,
-		                    		      'seven' => 0,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -60,8 +56,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 3,
 		                    		      'four' => 4,
 		                    		      'five' => 4.1,
-		                    		      'six' => 4.3,
-		                    		      'seven' => 4.4,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -72,8 +66,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0,
 		                    		      'four' => 0,
 		                    		      'five' => 0,
-		                    		      'six' => 0,
-		                    		      'seven' => 0,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -95,8 +87,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 3.5,
 		                    		      'four' => 4.5,
 		                    		      'five' => 5.6,
-		                    		      'six' => 5,
-		                    		      'seven' => 5,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -107,8 +97,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.50,
 		                    		      'four' => 0.50,
 		                    		      'five' => 1.50,
-		                    		      'six' => 0.70,
-		                    		      'seven' => 0.60,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -120,8 +108,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 3.5,
 		                    		      'four' => 4.5,
 		                    		      'five' => 5.6,
-		                    		      'six' => 5,
-		                    		      'seven' => 5,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -132,8 +118,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.50,
 		                    		      'four' => 0.50,
 		                    		      'five' => 1.50,
-		                    		      'six' => 0.70,
-		                    		      'seven' => 0.60,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -157,8 +141,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 4.9,
 		                    		      'four' => 5.6,
 		                    		      'five' => 6.6,
-		                    		      'six' => 6.3,
-		                    		      'seven' => 6.4,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -169,8 +151,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 1.40,
 		                    		      'four' => 1.10,
 		                    		      'five' => 1.00,
-		                    		      'six' => 1.30,
-		                    		      'seven' => 1.40,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -182,8 +162,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 4.9,
 		                    		      'four' => 5.6,
 		                    		      'five' => 6.6,
-		                    		      'six' => 6.3,
-		                    		      'seven' => 6.4,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -194,8 +172,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 1.40,
 		                    		      'four' => 1.10,
 		                    		      'five' => 1.00,
-		                    		      'six' => 1.30,
-		                    		      'seven' => 1.40,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -219,8 +195,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 5.9,
 		                    		      'four' => 6.6,
 		                    		      'five' => 7.5,
-		                    		      'six' => 7.5,
-		                    		      'seven' => 7.7,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -231,8 +205,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 1.00,
 		                    		      'four' => 1.00,
 		                    		      'five' => 0.90,
-		                    		      'six' => 1.20,
-		                    		      'seven' => 1.30,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -244,8 +216,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 5.9,
 		                    		      'four' => 6.6,
 		                    		      'five' => 7.5,
-		                    		      'six' => 7.5,
-		                    		      'seven' => 7.7,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -256,8 +226,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 1.00,
 		                    		      'four' => 1.00,
 		                    		      'five' => 0.90,
-		                    		      'six' => 1.20,
-		                    		      'seven' => 1.30,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -281,8 +249,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 6.7,
 		                    		      'four' => 7.6,
 		                    		      'five' => 8.4,
-		                    		      'six' => 8.5,
-		                    		      'seven' => 8.9,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -293,8 +259,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.80,
 		                    		      'four' => 1.00,
 		                    		      'five' => 0.90,
-		                    		      'six' => 1.00,
-		                    		      'seven' => 1.20,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -306,8 +270,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 6.7,
 		                    		      'four' => 7.6,
 		                    		      'five' => 8.4,
-		                    		      'six' => 8.5,
-		                    		      'seven' => 8.9,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -318,8 +280,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.80,
 		                    		      'four' => 1.00,
 		                    		      'five' => 0.90,
-		                    		      'six' => 1.00,
-		                    		      'seven' => 1.20,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -343,8 +303,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 7.4,
 		                    		      'four' => 8.5,
 		                    		      'five' => 9.2,
-		                    		      'six' => 9.5,
-		                    		      'seven' => 10,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -355,8 +313,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.70,
 		                    		      'four' => 0.90,
 		                    		      'five' => 0.80,
-		                    		      'six' => 1.00,
-		                    		      'seven' => 1.10,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -368,8 +324,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 7.4,
 		                    		      'four' => 8.5,
 		                    		      'five' => 9.2,
-		                    		      'six' => 9.5,
-		                    		      'seven' => 10,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -380,8 +334,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.70,
 		                    		      'four' => 0.90,
 		                    		      'five' => 0.80,
-		                    		      'six' => 1.00,
-		                    		      'seven' => 1.10,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -405,8 +357,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 8.1,
 		                    		      'four' => 9.4,
 		                    		      'five' => 10,
-		                    		      'six' => 10.4,
-		                    		      'seven' => 11,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -417,8 +367,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.70,
 		                    		      'four' => 0.90,
 		                    		      'five' => 0.80,
-		                    		      'six' => 0.90,
-		                    		      'seven' => 1.00,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -430,8 +378,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 8.1,
 		                    		      'four' => 9.4,
 		                    		      'five' => 10,
-		                    		      'six' => 10.4,
-		                    		      'seven' => 11,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -442,8 +388,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.70,
 		                    		      'four' => 0.90,
 		                    		      'five' => 0.80,
-		                    		      'six' => 0.90,
-		                    		      'seven' => 1.00,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -467,8 +411,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 8.7,
 		                    		      'four' => 10.2,
 		                    		      'five' => 10.8,
-		                    		      'six' => 11.2,
-		                    		      'seven' => 12,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -479,8 +421,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.60,
 		                    		      'four' => 0.80,
 		                    		      'five' => 0.80,
-		                    		      'six' => 0.80,
-		                    		      'seven' => 1.00,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -492,8 +432,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 8.7,
 		                    		      'four' => 10.2,
 		                    		      'five' => 10.8,
-		                    		      'six' => 11.2,
-		                    		      'seven' => 12,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -504,8 +442,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.60,
 		                    		      'four' => 0.80,
 		                    		      'five' => 0.80,
-		                    		      'six' => 0.80,
-		                    		      'seven' => 1.00,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -529,8 +465,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 9.2,
 		                    		      'four' => 11,
 		                    		      'five' => 11.5,
-		                    		      'six' => 12,
-		                    		      'seven' => 12.90,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -541,8 +475,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.50,
 		                    		      'four' => 0.80,
 		                    		      'five' => 0.70,
-		                    		      'six' => 0.80,
-		                    		      'seven' => 0.90,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -554,8 +486,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 9.2,
 		                    		      'four' => 11,
 		                    		      'five' => 11.5,
-		                    		      'six' => 12,
-		                    		      'seven' => 12.90,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -566,8 +496,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.50,
 		                    		      'four' => 0.80,
 		                    		      'five' => 0.70,
-		                    		      'six' => 0.80,
-		                    		      'seven' => 0.90,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -591,8 +519,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 9.7,
 		                    		      'four' => 11.7,
 		                    		      'five' => 12.2,
-		                    		      'six' => 12.8,
-		                    		      'seven' => 13.8,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -603,8 +529,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.50,
 		                    		      'four' => 0.70,
 		                    		      'five' => 0.70,
-		                    		      'six' => 0.80,
-		                    		      'seven' => 0.90,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -616,8 +540,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 9.7,
 		                    		      'four' => 11.7,
 		                    		      'five' => 12.2,
-		                    		      'six' => 12.8,
-		                    		      'seven' => 13.8,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -628,8 +550,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.50,
 		                    		      'four' => 0.70,
 		                    		      'five' => 0.70,
-		                    		      'six' => 0.80,
-		                    		      'seven' => 0.90,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -652,8 +572,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 10.15,
 		                    		      'four' => 12.30,
 		                    		      'five' => 12.80,
-		                    		      'six' => 13.55,
-		                    		      'seven' => 14.60,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -664,8 +582,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.45,
 		                    		      'four' => 0.60,
 		                    		      'five' => 0.60,
-		                    		      'six' => 0.75,
-		                    		      'seven' => 0.80,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -677,8 +593,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 10.15,
 		                    		      'four' => 12.30,
 		                    		      'five' => 12.80,
-		                    		      'six' => 13.55,
-		                    		      'seven' => 14.60,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -689,8 +603,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.45,
 		                    		      'four' => 0.60,
 		                    		      'five' => 0.60,
-		                    		      'six' => 0.75,
-		                    		      'seven' => 0.80,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -714,8 +626,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 10.6,
 		                    		      'four' => 12.9,
 		                    		      'five' => 13.4,
-		                    		      'six' => 14.3,
-		                    		      'seven' => 15.4,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -726,8 +636,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.45,
 		                    		      'four' => 0.60,
 		                    		      'five' => 0.60,
-		                    		      'six' => 0.75,
-		                    		      'seven' => 0.80,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -739,8 +647,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 10.6,
 		                    		      'four' => 12.9,
 		                    		      'five' => 13.4,
-		                    		      'six' => 14.3,
-		                    		      'seven' => 15.4,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -751,8 +657,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.45,
 		                    		      'four' => 0.60,
 		                    		      'five' => 0.60,
-		                    		      'six' => 0.75,
-		                    		      'seven' => 0.80,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -776,8 +680,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 11,
 		                    		      'four' => 13.5,
 		                    		      'five' => 14,
-		                    		      'six' => 15,
-		                    		      'seven' => 16.1,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -788,8 +690,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.40,
 		                    		      'four' => 0.60,
 		                    		      'five' => 0.60,
-		                    		      'six' => 0.70,
-		                    		      'seven' => 0.70,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -801,8 +701,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 11,
 		                    		      'four' => 13.5,
 		                    		      'five' => 14,
-		                    		      'six' => 15,
-		                    		      'seven' => 16.1,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -813,8 +711,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.40,
 		                    		      'four' => 0.60,
 		                    		      'five' => 0.60,
-		                    		      'six' => 0.70,
-		                    		      'seven' => 0.70,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -838,8 +734,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 11.4,
 		                    		      'four' => 14,
 		                    		      'five' => 15,
-		                    		      'six' => 16.30,
-		                    		      'seven' => 17,
 					                      'rank_id' => $id
 					                    )
 					            	);
@@ -850,8 +744,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.40,
 		                    		      'four' => 0.50,
 		                    		      'five' => 1.0,
-		                    		      'six' => 1.3,
-		                    		      'seven' => 0.9,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -863,8 +755,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 11.4,
 		                    		      'four' => 14,
 		                    		      'five' => 15,
-		                    		      'six' => 16.30,
-		                    		      'seven' => 17,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -875,8 +765,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.40,
 		                    		      'four' => 0.50,
 		                    		      'five' => 1.0,
-		                    		      'six' => 1.3,
-		                    		      'seven' => 0.9,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -900,8 +788,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 11.7,
 		                    		      'four' => 14.5,
 		                    		      'five' => 16,
-		                    		      'six' => 18,
-		                    		      'seven' => 19,
 					                      'rank_id' => $id
 					                    )
 					                 );
@@ -912,8 +798,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.30,
 		                    		      'four' => 0.50,
 		                    		      'five' => 1.0,
-		                    		      'six' => 1.7,
-		                    		      'seven' => 2.0,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );
@@ -925,8 +809,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 11.7,
 		                    		      'four' => 14.5,
 		                    		      'five' => 16,
-		                    		      'six' => 18,
-		                    		      'seven' => 19,
 			                    		   'rank_id' => $id
 			                    		      )
 			                          );
@@ -937,8 +819,6 @@ class RanksTableSeeder extends Seeder {
 		                    		      'three' => 0.30,
 		                    		      'four' => 0.50,
 		                    		      'five' => 1.0,
-		                    		      'six' => 1.7,
-		                    		      'seven' => 2.0,
 		                    		      'rank_id' => $id
 		                    		      )
 		                             );

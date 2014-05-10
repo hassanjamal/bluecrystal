@@ -98,6 +98,7 @@ class AdminRdschemesController extends AdminController {
             $this->rdscheme->name = Input::get( 'name' );
             $this->rdscheme->years = Input::get( 'years' );
             $this->rdscheme->interest = Input::get( 'interest' );
+            $this->rdscheme->special_interest = Input::get( 'special_interest' );
 
             // Save if valid. 
             $this->rdscheme->save();
@@ -112,10 +113,7 @@ class AdminRdschemesController extends AdminController {
             {
                 // Get validation errors (see Ardent package)
                 $error = $this->rdscheme->errors()->all();
-
-
-                return Redirect::to('admin/rd-schemes/create')
-                    ->with( 'error', $error );
+                return Redirect::to('admin/rd-schemes/create') ->with( 'error', $error );
             }
         }
         else
@@ -165,6 +163,7 @@ class AdminRdschemesController extends AdminController {
             $rdscheme->name = Input::get( 'name' );
             $rdscheme->years = Input::get( 'years' );
             $rdscheme->interest = Input::get( 'interest' );
+            $rdscheme->special_interest = Input::get( 'special_interest' );
 
             // Save if valid. 
 
@@ -196,9 +195,6 @@ class AdminRdschemesController extends AdminController {
     {
         if ( $rdscheme->id )
         {
-            // $roles = $this->role->all();
-            // $permissions = $this->permission->all();
-
             // Title
             $title = Lang::get('admin/scheme/title.scheme_details') . ' For '.$rdscheme->name;
 

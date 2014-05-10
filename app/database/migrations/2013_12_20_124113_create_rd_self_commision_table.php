@@ -19,8 +19,6 @@ class CreateRdSelfCommisionTable extends Migration {
 			$table->float('three');
 			$table->float('four');
 			$table->float('five');
-			$table->float('six');
-			$table->float('seven');
 			$table->integer('rank_id')->unsigned()->index();
 			$table->timestamps();
 			// $table->foreign('rank_id')
