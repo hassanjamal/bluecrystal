@@ -334,7 +334,6 @@ class AdminPolicyController extends AdminController
         if (Sentry::check()) {
             if ($policy->id) {
                 $title =$policy->policy_no."_receipt.pdf";
-                // return View::make( 'admin/policy/receipt', compact('title','policy'));
                 $pdf = App::make('dompdf');
                 $pdf->loadView('admin/policy/receipt', compact('policy'));
                 return $pdf->stream();
@@ -757,7 +756,15 @@ class AdminPolicyController extends AdminController
                                           $this->rd_scheme_payment->id,
                                           $this->rd_scheme_payment->deposit_amount
                                           );
-            $policy_time = strtotime($this->rd_scheme_payment->created_at);
+            if($installment == 1)
+            {
+                $policy_time = strtotime($this->rd_scheme_payment->updated_at);
+            }
+            else
+            {
+                $last_installment = Rd_scheme_payment::where('policy_id', $policy_id)->orderBy('next_installment_date','desc')->first();
+                $policy_time = strtotime($last_installment->next_installment_date);
+            }
             $this->rd_scheme_payment->next_installment_date = date("Y-m-d", strtotime("+1 month", $policy_time));
             $this->rd_scheme_payment->save();
             return true;
@@ -922,7 +929,195 @@ class AdminPolicyController extends AdminController
             $associate = $associate_next;
         };
     }
-/** end of class */
+
+    public function getAllRdscheme (){
+        if (Sentry::check()) {
+            $title = "RD Policy Management";
+
+            return View::make('admin.policy.rd_schemes', compact('title'));
+        }
+        else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+    }
+    
+    public function getRdData()
+    {
+        if (Sentry::check()) {
+            $branch_id = Sentry::getUser()->branch_id;
+            if (Sentry::getUser()->isSuperUser()) {
+                $policies = Policy::Select(
+                    array(
+                        'policies.id',
+                        'policies.created_at',
+                        'policies.policy_no',
+                        'policies.name',
+                        'policies.associate_no',
+                        'policies.scheme_type'
+                    )
+                )
+                ->where('policies.scheme_type','RD');
+            }
+            else {
+                $policies = Policy::Select(
+                    array(
+                        'policies.id',
+                        'policies.created_at',
+                        'policies.policy_no',
+                        'policies.name',
+                        'policies.associate_no',
+                        'policies.scheme_type'
+                    )
+                )
+                ->where('policies.branch_id', $branch_id)
+                ->where('policies.scheme_type','RD');
+            }
+            if(Sentry::getUser()->hasAccess('policy-edit')){
+                return Datatables::of($policies)
+                    ->add_column(
+                        'actions',
+                        '
+                        <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                        class="iframe btn btn-xs btn-info"> Details</a>
+                        <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $id . \'/Installments\') }}}"
+                        class="btn btn-xs btn-primary"> Installments</a>
+                        <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/edit\') }}}"
+                        class="iframe btn btn-xs btn-danger"> Edit</a>
+                       '
+                       )
+                       ->remove_column('id')
+                       ->remove_column('scheme_type')
+                       ->make();
+            }
+            else{
+                return Datatables::of($policies)
+                    ->add_column(
+                        'actions',
+                        '
+                        <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                        class="iframe btn btn-xs btn-info"> Details</a>
+                        <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $id . \'/Installments\') }}}"
+                        class="btn btn-xs btn-primary"> Installments</a>
+                        '
+                        )
+                        ->remove_column('id')
+                        ->remove_column('scheme_type')
+                        ->make();
+
+            }
+        }
+        else {
+            return Redirect::to('user/login')->with('error', " You are not logged in ");
+        }
+    }
+
+    public function getAllRdschemeInstallements($policy){
+        if (Sentry::check()) {
+            $title = $policy->policy_no." RD Policy Installments Management";
+            $policy_id = $policy->id;
+
+            return View::make('admin.policy.rd_scheme_installments', compact('title', 'policy'));
+        }
+        else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+
+    }
+
+    public function getRdSchmeInstallments($policy){
+        if (Sentry::check()) {
+            $branch_id = Sentry::getUser()->branch_id;
+            if (Sentry::getUser()->isSuperUser() || $branch_id == $policy->branch_id) {
+                $rd_scheme_payments = Rd_scheme_payment::Select(
+                    array(
+                        'rd_scheme_payment.id',
+                        'rd_scheme_payment.policy_id',
+                        'rd_scheme_payment.paid_installment',
+                        'rd_scheme_payment.drawn_date',
+                        'rd_scheme_payment.deposit_amount',
+                        'rd_scheme_payment.next_installment_date'
+                    )
+                )
+                ->where('rd_scheme_payment.policy_id', $policy->id);
+
+                return Datatables::of($rd_scheme_payments)
+                    ->add_column(
+                        'actions',
+                        '
+                        <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $policy_id . \'/Installment/\'. $id .\'/Receipt\') }}}"
+                        class="iframe btn btn-xs btn-default"> Receipt</a>
+                        '
+                    )
+                    ->remove_column('id')
+                    ->remove_column('policy_id')
+                    ->make();
+
+            }
+            else{
+                return " You are not authorized for this branch";
+            }
+        }
+        else {
+            return Redirect::to('user/login')->with('error', " You are not logged in ");
+        }
+    }
+
+    public function getPayInstallment($policy){
+        if (Sentry::check()) {
+            $title = $policy->policy_no." Pay Installments ";
+            $rd_policy = Rd_scheme_payment::where('policy_id', $policy->id)->orderBy('updated_at', 'desc')->first();
+            $current_date = new DateTime("now");
+            $last_installment_date = new DateTime($rd_policy->next_installment_date);
+            $interval = $last_installment_date->diff($current_date);
+            $interval->format('%R%a days');
+            return View::make('admin.policy.pay_installment', compact('title', 'policy', 'rd_policy', 'interval'));
+        }
+        else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+    }
+
+    public function postPayInstallment($policy){
+        if(Input::get('rd_current_installment') <= Input::get('rd_total_installment')){
+            $result = $this->update_rd_scheme_payment(
+                $policy->id,
+                (object)Input::all(),
+                $policy->associate_id,
+                $policy->scheme_type,
+                Input::get('rd_current_installment')
+            );
+            if ($result) {
+                return Redirect::to('admin/policy/notification')->with( 'success', "Installment Paid Successfully" );
+            }
+            else {
+                return Redirect::to('admin/policy/notification')->with( 'Error', "Installment Payment Was Unsuccessful" );
+            }
+        }
+        else{
+            return Redirect::to('admin/policy/notification')->with( 'error', "All Installment Have Been Paid Already" );
+        }
+    }
+
+    public function getInstallmentReceipt($policy , $rd_scheme_payment)
+    {
+        if (Sentry::check()) {
+            if ($policy->id && $rd_scheme_payment->id) {
+                $pdf = App::make('dompdf');
+                $pdf->loadView('admin/policy/installmentReceipt', compact('policy', 'rd_scheme_payment'));
+                return $pdf->stream();
+            }
+            else {
+                return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
+            }
+        }
+        else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+
+    }
+    /** end of class */
 }
+
+
 
 

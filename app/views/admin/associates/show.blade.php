@@ -19,40 +19,40 @@
       				<td><strong class='text-danger'>PERSONAL DETAILS</strong></td>
       				<td>
       				<div class="row">  
-	      				<div class="col-md-4"><span style="color:#666666">{{"NAME:-"}}</span></div>	
-	      				<div class="col-md-8">{{$associate->name}}</div>
+	      				<div class="col-md-4"><span style="color:#666666">{{ "NAME:-"}}</span></div>	
+	      				<div class="col-md-8">{{ $associate->name}}</div>
       				</div>
       				<div class="row">	
-	      				<div class="col-md-4"><span style="color:#666666">{{"AGE:-"}}</span></div>	
-	      				<div class="col-md-8">{{$associate->age}}</div>	
+	      				<div class="col-md-4"><span style="color:#666666">{{ "AGE:-"}}</span></div>	
+	      				<div class="col-md-8">{{ $associate->age}}</div>	
 	      			</div>
 	      			<div class="row">
-	      				<div class="col-md-4"><span style="color:#666666">{{"GUARDIAN NAME:-"}}</span></div>	
-	      				<div class="col-md-8">{{$associate->guardian_name}}</div>	
+	      				<div class="col-md-4"><span style="color:#666666">{{ "GUARDIAN NAME:-"}}</span></div>	
+	      				<div class="col-md-8">{{ $associate->guardian_name}}</div>	
 	      			</div>
 	      			<div class="row">
 	      				<div class="col-md-4"><span style="color:#666666">{{"GUARDIAN TYPE:-"}}</span></div>	
 	      				<div class="col-md-8">{{$associate->guardian_type}}</div>	
       				</div>
       				<div class="row">
-	      				<div class="col-md-4"><span style="color:#666666">{{"GENDER:-"}}</span></div>	
-	      				<div class="col-md-8">{{$associate->sex}}</div>	
+	      				<div class="col-md-4"><span style="color:#666666">{{ "GENDER:-"}}</span></div>	
+	      				<div class="col-md-8">{{ $associate->sex}}</div>	
       				</div>
       				<div class="row">
-	      				<div class="col-md-4"><span style="color:#666666">{{"MOBILE:-"}}</span></div>	
-	      				<div class="col-md-8">{{$associate->mobile}}</div>	
+	      				<div class="col-md-4"><span style="color:#666666">{{ "MOBILE:-"}}</span></div>	
+	      				<div class="col-md-8">{{ $associate->mobile}}</div>	
       				</div>
       				<div class="row">
-	      				<div class="col-md-4"><span style="color:#666666">{{"DATE OF BIRTH:-"}}</span></div>	
-	      				<div class="col-md-8">{{$associate->date_of_birth}}</div>	
+	      				<div class="col-md-4"><span style="color:#666666">{{ "DATE OF BIRTH:-"}}</span></div>	
+	      				<div class="col-md-8">{{ $associate->date_of_birth}}</div>	
       				</div> 
       				<div class="row">
-	      				<div class="col-md-4"><span style="color:#666666">{{"ADDRESS:-"}}</span></div>	
+	      				<div class="col-md-4"><span style="color:#666666">{{ "ADDRESS:-"}}</span></div>	
 	      				<div class="col-md-8">
-	      					{{$associate->address}}<br>
-	      					{{$associate->city}}<br>
-	      					{{$associate->state}}<br>
-	      					{{$associate->pincode}}<br>
+	      					{{ $associate->address}}<br>
+	      					{{ $associate->city}}<br>
+	      					{{ $associate->state}}<br>
+	      					{{ $associate->pincode}}<br>
 	      				</div>	
       				</div> 
       				</td>

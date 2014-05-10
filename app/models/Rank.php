@@ -1,6 +1,7 @@
 <?php
+use LaravelBook\Ardent\Ardent;
 
-class Rank extends Eloquent {
+class Rank extends \LaravelBook\Ardent\Ardent {
 	protected $guarded = array();
 
 	public static $rules = array();

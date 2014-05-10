@@ -278,10 +278,12 @@ class AdminAssociatesController extends AdminController
                 $branch_name   = Branch::where('id', $associate->branch_id)->pluck('name');
                 $rank_name     = Rank::where('id', $associate->rank_id)->pluck('rankname');
                 $introducer_no = Associate::where('id', $associate->introducer_id)->pluck('associate_no');
+                $introducer_name = Associate::where('id', $associate->introducer_id)->pluck('name');
 
-                return View::make(
-                    'admin/associates/receipt', compact('associate', 'rank_name', 'branch_name', 'introducer_no')
-                );
+                $pdf = App::make('dompdf');
+                $pdf->loadView( 'admin/associates/receipt', compact('associate', 'rank_name', 'branch_name', 'introducer_no', 'introducer_name'));
+                return $pdf->stream();
+                // return View::make( 'admin/associates/receipt', compact('associate', 'rank_name', 'branch_name', 'introducer_no'));
             }
             else {
                 return Redirect::to('admin/associates')->with('error', "Associate Does Not Exists");
@@ -304,8 +306,10 @@ class AdminAssociatesController extends AdminController
         if (Sentry::check()) {
             if ($associate->id) {
                 $rank_name = Rank::where('id', $associate->rank_id)->pluck('rankname');
-
-                return View::make('admin/associates/welcome', compact('associate', 'rank_name'));
+                $pdf = App::make('dompdf');
+                $pdf->loadView('admin/associates/welcome', compact('associate', 'rank_name'));
+                return $pdf->stream();
+                // return View::make('admin/associates/welcome', compact('associate', 'rank_name'));
             }
             else {
                 return Redirect::to('admin/associates')->with('error', "Associate Does Not Exists");
@@ -366,7 +370,7 @@ class AdminAssociatesController extends AdminController
                     'actions',
                     '
                     <a href="{{{ URL::to(\'admin/associates/\'. $id ) }}}"
-                    class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a>
+                    class="iframe btn btn-xs btn-info">Details</a>
                     <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/tree\') }}}"
                     class="iframe btn btn-xs btn-primary">Tree</a>
                     <a href="{{{ URL::to(\'admin/associates/\'. $id . \'/edit\') }}}"
@@ -444,6 +448,69 @@ class AdminAssociatesController extends AdminController
 
     }
 
+    public function postIntroducer()
+    {
+        $term      = Input::get('introducer_no');
+        $search    = DB::select(
+                                "
+                                select associate_no 
+                                from associates
+                                where match (name, associate_no )
+                                against ('+{$term}*' IN BOOLEAN MODE)
+                                "
+                                );
+
+        if($search){
+            return json_encode(array('valid'=>true));
+        }
+        else{
+            return json_encode(array('valid'=>false));
+        }
+       
+    }
+
+
+    public function postAssociate()
+    {
+        $term      = Input::get('associate_no');
+        $search    = DB::select(
+                                "
+                                select associate_no 
+                                from associates
+                                where match (name, associate_no )
+                                against ('+{$term}*' IN BOOLEAN MODE)
+                                "
+                                );
+
+        if($search){
+            return json_encode(array('valid'=>true));
+        }
+        else{
+            return json_encode(array('valid'=>false));
+        }
+       
+    }
+    public function postCheckMobileNo()
+    {
+        $term      = Input::get('mobile');
+        $search    = DB::select(
+                                "
+                                select mobile 
+                                from associates
+                                where match (mobile)
+                                against ('+{$term}*' IN BOOLEAN MODE)
+                                "
+                                );
+
+        if($search){
+            return json_encode(array('valid'=>false));
+        }
+        else{
+            return json_encode(array('valid'=>true));
+        }
+
+    }
+
     /**
      * [getRanklist description]
      *
@@ -473,5 +540,44 @@ class AdminAssociatesController extends AdminController
         $year         = date("Y");
 
         return $branch . '-' . $associate_id . '-' . $year;
+    }
+
+    public function getCommision(){
+        if (Sentry::check()) {
+            $title = "Commision Details for Asociates";
+            return View::make('admin.associates.associateCommission', compact('title'));
+        }
+        else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+
+    }
+
+    public function postCommission(){
+
+        $title = "Commision Details for Asociates";
+        $associate_id = Input::get('to_associate_id');
+
+        $input_start_date = new DateTime(Input::get('start_date'));
+        $start_date = $input_start_date->setTime(00,00,00);
+        $start_date = $start_date->format('Y-m-d H-i-s');
+
+        $input_end_date = new DateTime(Input::get('end_date'));
+        $end_date = $input_end_date->setTime(24,00,00);
+        $end_date = $input_end_date->format('Y-m-d H-i-s');
+
+        $self_commission = Policy_self_commission::where('associate_id', Input::get('to_associate_id'))
+            ->where('created_at', '>=', $start_date)
+            ->where('created_at', '<=', $end_date)
+            ->groupBy('policy_id')
+            ->get();
+
+        $team_commission = Policy_team_commission::where('associate_id', Input::get('to_associate_id'))
+            ->where('created_at', '>=', $start_date)
+            ->where('created_at', '<=', $end_date)
+            ->groupBy('policy_id')
+            ->get();
+        return View::make('admin.associates.associateCommission', 
+                compact('title','start_date', 'end_date', 'self_commission' , 'team_commission' , 'associate_id'));
     }
 }

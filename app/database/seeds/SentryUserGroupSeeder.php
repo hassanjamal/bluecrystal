@@ -11,36 +11,42 @@ class SentryUserGroupSeeder extends Seeder {
 	{
 		DB::table('users_groups')->delete();
 
-        // Branch User
-        $ManuParmarPatnaUser = Sentry::getUserProvider()->findByLogin('manu.parmar@bluecrystalgroup.in');
-        // Branch Admin
-		$LucknowBranchAdminUser     = Sentry::getUserProvider()->findByLogin('lucknow.admin@bluecrystalgroup.in');
-		$AllahabadBranchAdminUser   = Sentry::getUserProvider()->findByLogin('allahabad.admin@bluecrystalgroup.in');
-		$VaranasiBranchAdminUser    = Sentry::getUserProvider()->findByLogin('varanasi.admin@bluecrystalgroup.in');
-		$NewdelhiBranchAdminUser    = Sentry::getUserProvider()->findByLogin('newdelhi.admin@bluecrystalgroup.in');
-		$PatnaBranchAdminUser       = Sentry::getUserProvider()->findByLogin('patna.admin@bluecrystalgroup.in');
-		$ArrahBranchAdminUser       = Sentry::getUserProvider()->findByLogin('arrah.admin@bluecrystalgroup.in');
-		$MuzaffarpurBranchAdminUser = Sentry::getUserProvider()->findByLogin('muzaffarpur.admin@bluecrystalgroup.in');
-		$BiharsharifBranchAdminUser = Sentry::getUserProvider()->findByLogin('biharsharif.admin@bluecrystalgroup.in');
+		$PatnaBranchAdminUser = Sentry::getUserProvider()->findByLogin('patna.admin@sanskarnidhi.in');
+		$NawadaBranchAdminUser = Sentry::getUserProvider()->findByLogin('nawada.admin@sanskarnidhi.in');
+		$SheikhpuraBranchAdminUser = Sentry::getUserProvider()->findByLogin('sheikhpura.admin@sanskarnidhi.in');
+		$JamshedpurBranchAdminUser = Sentry::getUserProvider()->findByLogin('Jamshedpur.admin@sanskarnidhi.in');
+		$MadhupurBranchAdminUser = Sentry::getUserProvider()->findByLogin('madhupur.admin@sanskarnidhi.in');
+		$DeogharBranchAdminUser = Sentry::getUserProvider()->findByLogin('deoghar.admin@sanskarnidhi.in');
+		$JamataraBranchAdminUser = Sentry::getUserProvider()->findByLogin('jamatara.admin@sanskarnidhi.in');
+		$RajauliBranchAdminUser = Sentry::getUserProvider()->findByLogin('rajauli.admin@sanskarnidhi.in');
+		$LakhisaraiBranchAdminUser = Sentry::getUserProvider()->findByLogin('lakhisarai.admin@sanskarnidhi.in');
+		$BegusaraiBranchAdminUser = Sentry::getUserProvider()->findByLogin('begusarai.admin@sanskarnidhi.in');
+		$RanchiBranchAdminUser = Sentry::getUserProvider()->findByLogin('ranchi.admin@sanskarnidhi.in');
+		$JalpaiguriBranchAdminUser = Sentry::getUserProvider()->findByLogin('jalpaiguri.admin@sanskarnidhi.in');
+		$DachinaBranchAdminUser = Sentry::getUserProvider()->findByLogin('dachina.admin@sanskarnidhi.in');
+
 		// Super Admin
-		$AdminUser = Sentry::getUserProvider()->findByLogin('super.admin@bluecrystalgroup.in');
+		$AdminUser = Sentry::getUserProvider()->findByLogin('admin@sanskarnidhi.in');
 
-		// Get User Type
+		// $UserGroup = Sentry::getGroupProvider()->findByName('Branch-User');
 		$BranchAdminGroup = Sentry::getGroupProvider()->findByName('Branch-Admin');
-		$BranchUserGroup  = Sentry::getGroupProvider()->findByName('Branch-User');
-		$SuperAdminGroup  = Sentry::getGroupProvider()->findByName('SuperUser');
+		$SuperAdminGroup = Sentry::getGroupProvider()->findByName('SuperUser');
 
-	    // Assign the groups to the Branch User
-        $ManuParmarPatnaUser->addGroup($BranchUserGroup);
-	    // Assign the groups to the Branch Admin
-		$LucknowBranchAdminUser->addGroup($BranchAdminGroup);
-		$AllahabadBranchAdminUser->addGroup($BranchAdminGroup);
-		$VaranasiBranchAdminUser->addGroup($BranchAdminGroup);
-		$NewdelhiBranchAdminUser->addGroup($BranchAdminGroup);
-		$PatnaBranchAdminUser->addGroup($BranchAdminGroup);
-		$ArrahBranchAdminUser->addGroup($BranchAdminGroup);
-		$MuzaffarpurBranchAdminUser->addGroup($BranchAdminGroup);
-		$BiharsharifBranchAdminUser->addGroup($BranchAdminGroup);
+	    // Assign the groups to the users
+	    $PatnaBranchAdminUser->addGroup($BranchAdminGroup);
+		$NawadaBranchAdminUser->addGroup($BranchAdminGroup);
+		$SheikhpuraBranchAdminUser->addGroup($BranchAdminGroup);
+		$JamshedpurBranchAdminUser->addGroup($BranchAdminGroup);
+		$MadhupurBranchAdminUser->addGroup($BranchAdminGroup);
+		$DeogharBranchAdminUser->addGroup($BranchAdminGroup);
+		$JamataraBranchAdminUser->addGroup($BranchAdminGroup);
+		$RajauliBranchAdminUser->addGroup($BranchAdminGroup);
+		$LakhisaraiBranchAdminUser->addGroup($BranchAdminGroup);
+		$BegusaraiBranchAdminUser->addGroup($BranchAdminGroup);
+		$RanchiBranchAdminUser->addGroup($BranchAdminGroup);
+        $JalpaiguriBranchAdminUser->addGroup($BranchAdminGroup);
+        $DachinaBranchAdminUser->addGroup($BranchAdminGroup);
+		
 		// Super Admin
 	    $AdminUser->addGroup($SuperAdminGroup);
 	}

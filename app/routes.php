@@ -23,7 +23,7 @@ Route::model('rank', 'Rank');
 Route::model('commision', 'Commision');
 Route::model('policy', 'Policy');
 Route::model('associates', 'Associate');
-// Route::model('fd_scheme_payment', 'Fd_scheme_payment');
+Route::model('rd_scheme_payment', 'Rd_scheme_payment');
 
 /** ------------------------------------------
  *  Route constraint patterns
@@ -99,9 +99,14 @@ Route::group(array('prefix' => 'admin'), function()
     Route::get('associates/{associates}/welcome', 'AdminAssociatesController@getWelcome');
     Route::post('associates/create', 'AdminAssociatesController@store');
     Route::get('associates/data' , 'AdminAssociatesController@getData');
+    Route::get('associates/commission' , 'AdminAssociatesController@getCommision');
+    Route::post('associates/commission' , 'AdminAssociatesController@postCommission');
     Route::get('associates/notification' , 'AdminAssociatesController@getNotification');
     Route::get('associates/add_to_rank_list' , 'AdminAssociatesController@getRanklist');
     Route::get('associates/add_to_introducer_id' , 'AdminAssociatesController@getIntroducer');
+    Route::post('associates/add_to_introducer_id' , 'AdminAssociatesController@postIntroducer');
+    Route::post('associates/add_to_associate_id' , 'AdminAssociatesController@postAssociate');
+    Route::post('associates/check_mobile_no' , 'AdminAssociatesController@postCheckMobileNo');
     Route::resource('associates' , 'AdminAssociatesController');
 
     #Policy
@@ -112,10 +117,16 @@ Route::group(array('prefix' => 'admin'), function()
     Route::post('policy/create', 'AdminPolicyController@store');
     Route::get('policy/data' , 'AdminPolicyController@getData');
     Route::get('policy/notification' , 'AdminPolicyController@getNotification');
+    Route::get('policy/rd_schemes' , 'AdminPolicyController@getAllRdscheme');
+    Route::get('policy/rd_schemes/{policy}/Installments' , 'AdminPolicyController@getAllRdschemeInstallements');
+    Route::get('policy/rd_schemes/{policy}/RdSchmeInstallments' , 'AdminPolicyController@getRdSchmeInstallments');
+    Route::get('policy/rd_schemes/{policy}/PayInstallment' , 'AdminPolicyController@getPayInstallment');
+    Route::post('policy/rd_schemes/{policy}/PayInstallment' , 'AdminPolicyController@postPayInstallment');
+    Route::get('policy/rd_schemes/{policy}/Installment/{rd_scheme_payment}/Receipt' , 'AdminPolicyController@getInstallmentReceipt');
+    Route::get('policy/rddata' , 'AdminPolicyController@getRdData');
     Route::get('policy/add_to_fd_scheme_id' , 'AdminPolicyController@getFdscheme');
     Route::post('policy/add_to_fd_scheme_id' , 'AdminPolicyController@postFdscheme');
     Route::get('policy/add_to_rd_scheme_id' , 'AdminPolicyController@getRdscheme');
-    Route::post('policy/add_to_rd_scheme_id' , 'AdminPolicyController@postRdscheme');
     Route::get('policy/add_to_associate_id' , 'AdminPolicyController@getAssociate');
     Route::post('policy/add_to_associate_id' , 'AdminPolicyController@postAssociate');
     Route::resource('policy' , 'AdminPolicyController');

@@ -1,6 +1,7 @@
 <?php
+use LaravelBook\Ardent\Ardent;
 
-class Policy extends Eloquent {
+class Policy extends \LaravelBook\Ardent\Ardent {
 	protected $guarded = array();
 	protected $table = 'policies';
 	public static $rules = array(

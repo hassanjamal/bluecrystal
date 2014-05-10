@@ -48,7 +48,7 @@
 {{ HTML::style('/app_assets/admin/css/colorbox.css')}}
 {{ HTML::style('/app_assets/admin/css/datatables-bootstrap.css')}}
 {{ HTML::style('/app_assets/admin/css/custom.css')}}
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <style>
 body {
     padding: 60px 0;
@@ -140,8 +140,8 @@ body {
                     </a>
                     <ul class="dropdown-menu">
 
-
-                        <li{{ (Request::is('admin/associates*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/associates') }}}"><span class="glyphicon glyphicon-user"></span>All Associates</a></li>
+                        <li{{ (Request::is('admin/associates') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/associates') }}}"><span class="glyphicon glyphicon-user"></span>All Associates</a></li>
+                        <li{{ (Request::is('admin/associates/commission') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/associates/commission') }}}"><span class="glyphicon glyphicon-user"></span>Associates Commission</a></li>
 
 
                     </ul>
@@ -156,7 +156,9 @@ body {
                     </a>
                     <ul class="dropdown-menu">
 
-                        <li{{ (Request::is('admin/policy*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/policy') }}}"><span class="glyphicon glyphicon-cog"></span>All Policy</a></li>
+                        <li{{ (Request::is('admin/policy') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/policy') }}}"><span class="glyphicon glyphicon-cog"></span>All Policy</a></li>
+
+                        <li{{ (Request::is('admin/policy/rd_schemes') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/policy/rd_schemes') }}}"><span class="glyphicon glyphicon-cog"></span>RD Installments</a></li>
 
 
                     </ul>
@@ -205,13 +207,14 @@ body {
 <!-- ./ container -->
 
 <!-- Javascripts -->
-{{HTML::script('/app_assets/admin/js/jquery.js')}}
-{{HTML::script('/app_assets/admin/js/jquery.dataTables.min.js')}}
-{{HTML::script('/app_assets/admin/js/datatables-bootstrap.js')}}
-{{HTML::script('/app_assets/admin/js/datatables.fnReloadAjax.js')}}
-{{HTML::script('/app_assets/admin/js/jquery.colorbox.js')}}
-{{HTML::script('/app_assets/admin/js/prettify.js')}}
-{{HTML::script('/app_assets/admin/js/bootstrap.min.js')}}
+{{ HTML::script('/app_assets/admin/js/jquery.js')}}
+{{ HTML::script('/app_assets/admin/js/jquery.dataTables.min.js')}}
+{{ HTML::script('/app_assets/admin/js/datatables-bootstrap.js')}}
+{{ HTML::script('/app_assets/admin/js/datatables.fnReloadAjax.js')}}
+{{ HTML::script('/app_assets/admin/js/jquery.colorbox.js')}}
+{{ HTML::script('/app_assets/admin/js/prettify.js')}}
+{{ HTML::script('/app_assets/admin/js/bootstrap.min.js')}}
+{{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js')}}
 
 <script type="text/javascript">
 $(prettyPrint);
@@ -222,3 +225,4 @@ $(prettyPrint);
 </body>
 
 </html>
+

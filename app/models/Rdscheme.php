@@ -1,8 +1,9 @@
 <?php
+use LaravelBook\Ardent\Ardent;
 
-class Rdscheme extends Eloquent {
+class Rdscheme extends \LaravelBook\Ardent\Ardent {
 	protected $guarded = array();
-//	protected $table = 'rdschemes';
+	protected $table = 'rdschemes';
 	public static $rules = array(
 	    'name' => 'required|alpha_num',
 	    'years'=> 'required|numeric|between:1,7',

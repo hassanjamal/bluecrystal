@@ -128,6 +128,7 @@
     {{ HTML::script('/app_assets/admin/js/bootstrap.min.js')}}
     {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js')}}
     {{ HTML::script('/app_assets/admin/js/bootstrapValidator.min.js') }}
+    {{ HTML::script('/app_assets/admin/js/jquery.bootstrap.wizard.js') }}
 
     <script type="text/javascript">
     	$(document).ready(function(){
@@ -145,3 +146,4 @@
 </body>
 
 </html>
+

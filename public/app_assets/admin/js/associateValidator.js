@@ -9,32 +9,24 @@ $(document).ready(function() {
             validating: 'fa fa-refresh'
         },
         fields: {
-            associate_no:{
-                message: 'Associate No is not valid',
+            introducer_no:{
+                message: 'Introducer No is not valid',
                 validators:{
                     notEmpty:{
-                        message: 'The Associate number is required '
+                        message: 'The Introducer number is required '
                     },
                     remote:{
-                        message:'This is not a valid associate',
-                        url: 'add_to_associate_id',
+                        message:'This is not a valid Introducer',
+                        url: 'add_to_introducer_id',
                         name:'associate_no',
                         data: function(validator){
                             return{
-                                associate_no: validator.getFieldElements('associate_no').val()
+                                associate_no: validator.getFieldElements('introducer_no').val()
                             };
                         }
                     }
                 },
             },
-            scheme_name:{
-                    message: 'Scheme name is not valid',
-                    validators:{
-                        notEmpty:{
-                            message: 'The Scheme Name is required '
-                        },
-                    },
-                },
             name: {
                 message: 'The Person name is not valid',
                 validators: {
@@ -59,20 +51,6 @@ $(document).ready(function() {
                     },
                 }
             },
-            pan_no:{
-                message: 'The PAN number is not valid',
-                validators: {
-                    regexp: {
-                        regexp: /^[a-z|A-Z|0-9]*$/,
-                        message: 'The PAN number can only consist of alphabetical and digits'
-                    },
-                    stringLength:{
-                        min:10,
-                        max:10,
-                        message:'PAN number must be ten characters'
-                    }
-                }
-            },
             mobile:{
                 message: 'The Mobile number is not valid',
                 validators:{
@@ -86,6 +64,15 @@ $(document).ready(function() {
                         min:10,
                         max:10,
                         message:'Mobile number must be ten digits'
+                    },
+                    remote:{
+                        message:'Mobile Number already exists',
+                        url: 'check_mobile_no',
+                        data: function(validator){
+                            return{
+                                mobile: validator.getFieldElements('mobile').val()
+                            };
+                        }
                     }
                 }
             },
@@ -159,6 +146,46 @@ $(document).ready(function() {
                         regexp: /^[a-zA-Z]*$/,
                         message: 'The Nominee relative can only consist of alphabetical'
                     },
+                }
+            },
+            bank_name:{
+                message: 'The Person name is not valid',
+                validators: {
+                    regexp: {
+                        regexp: /^[a-zA-Z ]*$/,
+                        message: 'The Person name can only consist of alphabetical and space'
+                    },
+                }
+            },
+            bank_address:{
+                validators: {
+                    regexp: {
+                        regexp: /^[a-z|A-Z|0-9|_|,| |-]*$/,
+                        message: 'Address can only consist of alphabetical, digits, comma and some special character '
+                    },
+                },
+            },
+            account_no:{
+                message: 'The Account number is not valid',
+                validators: {
+                    regexp: {
+                        regexp: /^[a-z|A-Z|0-9]*$/,
+                        message: 'The Account number can only consist of alphabetical and digits'
+                    }
+                }
+            },
+            pan_no:{
+                message: 'The PAN number is not valid',
+                validators: {
+                    regexp: {
+                        regexp: /^[a-z|A-Z|0-9]*$/,
+                        message: 'The PAN number can only consist of alphabetical and digits'
+                    },
+                    stringLength:{
+                        min:10,
+                        max:10,
+                        message:'PAN number must be ten characters'
+                    }
                 }
             },
         }

@@ -1,5 +1,6 @@
 <?php
-class Associate extends Eloquent {
+use LaravelBook\Ardent\Ardent;
+class Associate extends \LaravelBook\Ardent\Ardent {
 	protected $guarded = array();
 	protected $table = 'associates';
 	public static $rules = array(

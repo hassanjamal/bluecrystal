@@ -1,21 +1,20 @@
 {
     "require": {
-            "fideloper/proxy": "dev-master",
-            "laravel/framework": "4.1.*",
+        "fideloper/proxy": "dev-master",
+            "laravel/framework": "4.1.10",
             "cartalyst/sentry": "2.0.*",
             "j20/php-uuid": "dev-master",
             "bllim/datatables": "*",
             "dflydev/markdown": "1.0.*@dev",
             "imagine/imagine": "0.6.*@dev",
-            "laracasts/utilities": "1.0",
-            "barryvdh/laravel-dompdf": "*"
+            "laravelbook/ardent": "dev-master",
+            "barryvdh/laravel-dompdf": "*",
+            "laracasts/utilities": "1.0"
     },
         "require-dev": {
-            "way/generators": "v2.0",
+            "way/generators": "2.*",
             "summerstreet/woodling": "0.1.*",
-            "barryvdh/laravel-ide-helper": "dev-master",
-            "mockery/mockery": "dev-master@dev",
-            "phpunit/phpunit": "3.7.*"
+            "barryvdh/laravel-ide-helper": "dev-master"
         },
         "autoload": {
             "classmap": [
