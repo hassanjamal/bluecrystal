@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('RdschemesTableSeeder');
 		$this->call('FdschemesTableSeeder');
 		$this->call('SchemeamountTableSeeder');
+		$this->call('SpecialCaseTableSeeder');
 		// $this->call('AssociatesTableSeeder');
 	}
 
