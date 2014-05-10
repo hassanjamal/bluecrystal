@@ -206,10 +206,8 @@ class AdminRankController extends AdminController {
         {
             $title = "Self Commision Management For ".$rank->rankname;
 
-            $fd_commisions = Rank::find($rank->id)->fd_self_commision()->first();
-            $rd_commisions = Rank::find($rank->id)->rd_self_commision()->first();
-
-            // $rank = Fd_self_commision::find($fd_commisions->id)->rank()->first();
+            $fd_commisions = Fd_self_commision::where('rank_id', $rank->id)->first();
+            $rd_commisions = Rd_self_commision::where('rank_id', $rank->id)->first();            
 
             $mode  = 'create';
 
@@ -229,20 +227,20 @@ class AdminRankController extends AdminController {
         if(Sentry::getUser()->isSuperUser())
         {
             $this->rank = $rank;
-            $this->fd_self_commision = Fd_self_commision::find($this->rank->id);
-            $this->rd_self_commision = Rd_self_commision::find($this->rank->id);
+            $this->fd_self_commision = Fd_self_commision::where('rank_id', $rank->id)->first();
+            $this->rd_self_commision = Rd_self_commision::where('rank_id', $rank->id)->first();            
             // RD self commision 
-            $this->fd_self_commision->first = Input::get('fdfirst');
-            $this->fd_self_commision->second = Input::get('fdsecond');
-            $this->fd_self_commision->third = Input::get('fdthird');
-            $this->fd_self_commision->fourth = Input::get('fdfourth');
-            $this->fd_self_commision->fifth = Input::get('fdfifth');
+            $this->fd_self_commision->one   = Input::get('fdfirst');
+            $this->fd_self_commision->two   = Input::get('fdsecond');
+            $this->fd_self_commision->three = Input::get('fdthird');
+            $this->fd_self_commision->four  = Input::get('fdfourth');
+            $this->fd_self_commision->five  = Input::get('fdfifth');
             // RD self commision 
-            $this->rd_self_commision->first = Input::get('rdfirst');
-            $this->rd_self_commision->second = Input::get('rdsecond');
-            $this->rd_self_commision->third = Input::get('rdthird');
-            $this->rd_self_commision->fourth = Input::get('rdfourth');
-            $this->rd_self_commision->fifth = Input::get('rdfifth');
+            $this->rd_self_commision->one   = Input::get('rdfirst');
+            $this->rd_self_commision->two   = Input::get('rdsecond');
+            $this->rd_self_commision->three = Input::get('rdthird');
+            $this->rd_self_commision->four  = Input::get('rdfourth');
+            $this->rd_self_commision->five  = Input::get('rdfifth');
 
             if ( $this->fd_self_commision->save() && $this->rd_self_commision->save() )
             {
@@ -273,10 +271,10 @@ class AdminRankController extends AdminController {
     {
         if($rank->id)
         {
-            $title = "Team Commission Management For ".$this->rank->rankname;
+            $title = "Team Commission Management For ".$rank->rankname;
 
-            $fd_commisions = Rank::find($rank->id)->fd_team_commision()->first();
-            $rd_commisions = Rank::find($rank->id)->rd_team_commision()->first();
+            $fd_commisions = Fd_team_commision::where('rank_id', $rank->id)->first();
+            $rd_commisions = Rd_team_commision::where('rank_id', $rank->id)->first();
 
 
             $mode  = 'create';
@@ -295,20 +293,20 @@ class AdminRankController extends AdminController {
         if(Sentry::getUser()->isSuperUser())
         {
             $this->rank = $rank;
-            $this->fd_team_commision = Fd_team_commision::find($this->rank->id);
-            $this->rd_team_commision = Rd_team_commision::find($this->rank->id);
+            $this->fd_team_commision = Fd_team_commision::where('rank_id', $rank->id)->first();
+            $this->rd_team_commision = Rd_team_commision::where('rank_id', $rank->id)->first();            
             // RD team commision 
-            $this->fd_team_commision->first = Input::get('fdfirst');
-            $this->fd_team_commision->second = Input::get('fdsecond');
-            $this->fd_team_commision->third = Input::get('fdthird');
-            $this->fd_team_commision->fourth = Input::get('fdfourth');
-            $this->fd_team_commision->fifth = Input::get('fdfifth');
+            $this->fd_team_commision->one = Input::get('fdfirst');
+            $this->fd_team_commision->two = Input::get('fdsecond');
+            $this->fd_team_commision->three = Input::get('fdthird');
+            $this->fd_team_commision->four = Input::get('fdfourth');
+            $this->fd_team_commision->five = Input::get('fdfifth');
             // RD team commision 
-            $this->rd_team_commision->first = Input::get('rdfirst');
-            $this->rd_team_commision->second = Input::get('rdsecond');
-            $this->rd_team_commision->third = Input::get('rdthird');
-            $this->rd_team_commision->fourth = Input::get('rdfourth');
-            $this->rd_team_commision->fifth = Input::get('rdfifth');
+            $this->rd_team_commision->one = Input::get('rdfirst');
+            $this->rd_team_commision->two = Input::get('rdsecond');
+            $this->rd_team_commision->three = Input::get('rdthird');
+            $this->rd_team_commision->four = Input::get('rdfourth');
+            $this->rd_team_commision->five = Input::get('rdfifth');
 
             if ( $this->fd_team_commision->save() && $this->rd_team_commision->save() )
             {
