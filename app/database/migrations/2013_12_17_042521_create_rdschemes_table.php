@@ -19,6 +19,7 @@ class CreateRdschemesTable extends Migration {
 			$table->string('year_name')->nullable();
 			$table->integer('years')->nullable();
 			$table->float('interest')->nullable();
+			$table->float('special_interest')->nullable();
 			$table->timestamps();
 			$table->engine = 'MyISAM';
 		});

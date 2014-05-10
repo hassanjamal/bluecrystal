@@ -215,11 +215,12 @@ class AdminRdschemesController extends AdminController {
     public function getData()
     {
         
-        $rdschemes = Rdscheme::Select(array('rdschemes.id','rdschemes.name','rdschemes.years','rdschemes.interest'));
+        $rdschemes = Rdscheme::Select(array('rdschemes.id','rdschemes.name','rdschemes.years','rdschemes.interest', 'rdschemes.special_interest'));
         if(Sentry::getUser()->isSuperUser())
         {
             return Datatables::of($rdschemes)
             ->edit_column('interest','{{ number_format($interest,2)}}')
+            ->edit_column('special_interest','{{ number_format($special_interest,2)}}')
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/rd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a> <a href="{{{ URL::to(\'admin/rd-schemes/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.edit\') }}}</a> ')
             ->remove_column('id')
             ->make();
@@ -228,6 +229,7 @@ class AdminRdschemesController extends AdminController {
         {
          return Datatables::of($rdschemes)
             ->edit_column('interest','{{ number_format($interest,2)}}')
+            ->edit_column('special_interest','{{ number_format($special_interest,2)}}')
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/rd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a>')
             ->remove_column('id')
             ->make();   
