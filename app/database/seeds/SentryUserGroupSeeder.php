@@ -11,7 +11,7 @@ class SentryUserGroupSeeder extends Seeder {
 	{
 		DB::table('users_groups')->delete();
 
-		$LucknowBranchAdmin = Sentry::getUserProvider()->findByLogin('lucknow.manager@bluecrystalgroup.in');
+		$LucknowBranchAdmin = Sentry::getUserProvider()->findByLogin('lucknow.admin@bluecrystalgroup.in');
 		$AllahabadBranchAdmin = Sentry::getUserProvider()->findByLogin('allahabad.admin@bluecrystalgroup.in');
 		$VaranasiBranchAdmin = Sentry::getUserProvider()->findByLogin('varanasi.admin@bluecrystalgroup.in');
 		$NewDelhiBranchAdmin = Sentry::getUserProvider()->findByLogin('newdelhi.admin@bluecrystalgroup.in');
