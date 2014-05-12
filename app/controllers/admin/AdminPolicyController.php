@@ -532,7 +532,7 @@ class AdminPolicyController extends AdminController
         $fdschemes = array();
         $search    = DB::select(
                                 "
-                                select id, interest,years ,name as value ,description as label
+                                select id, interest, special_interest,years ,name as value ,description as label
                                 from fdschemes
                                 where match (name )
                                 against ('+{$term}*' IN BOOLEAN MODE)
@@ -582,7 +582,7 @@ class AdminPolicyController extends AdminController
         $rdschemes = array();
         $search    = DB::select(
                                 "
-                                select id, interest, years ,name as value ,description as label
+                                select id, interest,special_interest, years ,name as value ,description as label
                                 from rdschemes
                                 where match (name )
                                 against ('*{$term}*' IN BOOLEAN MODE)

@@ -30,7 +30,7 @@
         <!-- end of ist row within container -->
         <div class="tab-content">
             <div class="tab-pane" id="step-1">
-                <div class="row well">
+                <div class="row well" id="official_details">
                     <blockquote>
                         <p class="lead">Official Details For New Policy</p>
                     </blockquote>
@@ -57,7 +57,19 @@
                         </div>
                     </div>
                     <!-- ./ associate_no -->
+                    <div class="col-md-6">
+                        <div class="form-group {{{ $errors->has('special_case') ? 'error' : '' }}}">
+                            <label class="col-md-4 control-label" for="special_case">Scheme Type :</label>
 
+                            <div class="col-md-8">
+                                {{ Form::select('special_case',array(
+                                '0' => 'None',
+                                '1' => 'Women',
+                                '2'=>'Special Case'
+                                ) ,isset($policy) ? $policy->special_case : 0 , array('class'=>'form-control ' , 'id' =>'special_case'))}}
+                            </div>
+                        </div>
+                    </div>
                     <!-- scheme_type -->
                     <div class="col-md-6">
                         <div class="form-group {{{ $errors->has('scheme_type') ? 'error' : '' }}}">
@@ -85,6 +97,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <!-- end of main policy block -->
                 <div class="row">
@@ -533,6 +546,7 @@
     });
     $(function () {
         $('#fd_scheme_amount').on('keyup paste change', function () {
+            $('#scheme_name').attr("readonly",true);
             if ($('#to_scheme_interest').val() > 0) {
                 $('#fd_maturity_amount').val(Number(parseInt($('#fd_scheme_amount').val()) + (($('#to_scheme_interest').val() * $('#to_scheme_years').val() * $('#fd_scheme_amount').val()) / 100)).toFixed(2));
             }
@@ -540,8 +554,9 @@
         });
 
         $('#rd_scheme_amount').on('keyup paste change', function () {
-
+            $('#scheme_name').attr("readonly",true);
             if ($('#to_scheme_interest').val() > 0) {
+                console.log($('#to_scheme_interest').val());
                 $('#rd_total_installment').val($('#to_scheme_years').val() * 12);
                 var expected_maturity_amount = 0;
                 for (var i = ($('#rd_total_installment').val()); i >= 1; i--) {
@@ -551,6 +566,7 @@
                     i
                     );
                     expected_maturity_amount = expected_maturity_amount + calculated_amount;
+                    console.log(expected_maturity_amount);
                 }
                 $('#rd_maturity_amount').val(Number(expected_maturity_amount).toFixed(2));
             }
@@ -594,8 +610,16 @@
                 }
             },
             select: function (event, ui) {
+                $('#special_case').attr("disabled",true);
+                $('#scheme_type').attr("disabled",true);
+                $('#associate_no').attr("readonly",true);
                 $('#to_scheme_id').val(ui.item.id);
+                if($('#special_case').val()==="0"){
                 $('#to_scheme_interest').val(ui.item.interest);
+                }
+                else{
+                $('#to_scheme_interest').val(ui.item.special_interest);
+                }
                 $('#to_scheme_description').val(ui.item.description);
                 $('#to_scheme_years').val(ui.item.years);
             }
@@ -621,8 +645,16 @@
                         }
                     },
                     select: function (event, ui) {
+                        $('#special_case').attr("disabled",true);
+                        $('#scheme_type').attr("disabled",true);
+                        $('#associate_no').attr("readonly",true);
                         $('#to_scheme_id').val(ui.item.id);
+                        if($('#special_case').val()==="0"){
                         $('#to_scheme_interest').val(ui.item.interest);
+                        }
+                        else{
+                        $('#to_scheme_interest').val(ui.item.special_interest);
+                        }
                         $('#to_scheme_description').val(ui.item.description);
                         $('#to_scheme_years').val(ui.item.years);
                     }
@@ -642,8 +674,16 @@
                         }
                     },
                     select: function (event, ui) {
+                        $('#special_case').attr("disabled",true);
+                        $('#scheme_type').attr("disabled",true);
+                        $('#associate_no').attr("readonly",true);
                         $('#to_scheme_id').val(ui.item.id);
+                        if($('#special_case').val()==="0"){
                         $('#to_scheme_interest').val(ui.item.interest);
+                        }
+                        else{
+                        $('#to_scheme_interest').val(ui.item.special_interest);
+                        }
                         $('#to_scheme_description').val(ui.item.description);
                         $('#to_scheme_years').val(ui.item.years);
                     }
