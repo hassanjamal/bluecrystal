@@ -27,7 +27,6 @@ class AddSpecialCaseToPoliciesTable extends Migration {
 	{
 		Schema::table('policies', function(Blueprint $table) {
 		    $table->dropColumn('special_case');
-            $table->dropColumn('description_special_case');    
 		});
 	}
 

@@ -72,10 +72,13 @@ table.meta:after, table.maincontent:after {
     content: "";
     display: table;
 }
-table.signature{
+table.signature {
     clear:both;
     float:right;
     width:40%;
+    font-family: 'Expletus Sans', cursive;
+}
+table.signature strong , table.signature em{
     font-family: 'Expletus Sans', cursive;
 }
 table.signature td{
@@ -104,10 +107,10 @@ table.footer td{
     font-size:90%;
 }
 .pull-right strong{
-    font-weight:bold
+    font-family: 'Expletus Sans', cursive;
 }
 .pull-right em {
-    font-style:italic;
+    font-family: 'Expletus Sans', cursive;
     color:grey
 }
 
