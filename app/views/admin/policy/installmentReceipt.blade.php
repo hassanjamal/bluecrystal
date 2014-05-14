@@ -180,12 +180,10 @@
             <th></th>
             <td><div>{{ $policy->city . ' ,'. $policy->state }}</div></td>
 
-            @if ($policy->scheme_type=='RD')
             <th> Installment No :-</th>
             <td>
-                {{ Rd_scheme_payment::where('policy_id', $policy->id)->pluck('paid_installment')}}
+                {{ $rd_scheme_payment->paid_installment }}
             </td>
-            @endif
         </tr>
         <tr>
             <th></th>
@@ -196,12 +194,10 @@
                     @endif
                 </div>
             </td>    
-            @if ($policy->scheme_type=='RD')
             <th> Next Installment :-</th>
             <td>
-                {{ Rd_scheme_payment::where('policy_id', $policy->id)->pluck('next_installment_date')}}
+                {{ date("d-M-y", strtotime( $rd_scheme_payment->next_installment_date )) }}
             </td>
-            @endif
         </tr>
         <tr>
             <th>Scheme Code :-</th>
