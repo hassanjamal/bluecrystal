@@ -13,6 +13,7 @@ web1:
   php_session_save_path: "tcp://tunnel.pagodabox.com:6379"
   shared_writable_dirs:
     - app/storage/cache
+    - app/storage/fonts
     - app/storage/logs
     - app/storage/meta
     - app/storage/sessions
