@@ -3,21 +3,36 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="{{URL::to('/css/print/print_welcome.css')}}">
-    <link href='http://fonts.googleapis.com/css?family=Expletus+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body marginwidth="0" marginheight="0">
 <table class="main">
     <tbody>
     <tr>
         <td>
-            <img src="assets/image/header.png" alt="">
+            <table class="header">
+                <tr>
+                    <th></th>
+                    <td>
+                        <h1>BLUE CRYSTAL MUTUAL BENEFIT LTD.</h1>
+
+                        <p><em>A Unit Of Blue Crystl Group</em><br>
+                            <strong>
+                                Corporate Office :- C-401, City Tower Sector-15 , CBD Belapur , Opp - Nimantran
+                                Rastaurant <br>
+                                Navi Mumbai-400614 , Email : info@bluecrystalgroup.in , Web : bluecrystalgroup.in<br>
+                                Regd. Office :- Birat Complex, Boring Road, Patna -800013
+                            </strong>
+                        </p>
+
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
     <tr>
         <td class="main_content">
-            <address>
-                <!-- <p>Payment Details</p> -->
-            </address>
             <table class="meta">
                 <tr>
                     <th><span>Policy No</span></th>
@@ -36,7 +51,7 @@
                         <p><br>
 
                         <p>
-                            <strong>Congratulations!!</strong> <br><br>
+                            <strong>Congratulations!!</strong> <br>
                             For having a secure and properous financial future with <strong>BLUE CRYSTAL MUTUAL BENEFIT
                                 LTD.</strong> . Your Policy Number is <strong>{{$policy->policy_no}}</strong>.
                         </p>

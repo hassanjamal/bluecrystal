@@ -2,11 +2,11 @@ body{
     height: 11.69in;
     overflow: hidden;
     width: 8.27in;
+    font-family: 'Open Sans', sans-serif;
     /* background-color:#000757; */
 }
 .main_content{
     height:744px;
-    /* background-image:url('/assets/image/policy_body_welcome_letter.jpg'); */
 }
 
 table.main {
@@ -41,14 +41,8 @@ th, td {
 th { background: #EEE; border-color: #BBB; }
 td { border-color: #DDD; }
 
-
-address , table.meta, table.maincontent { margin:2em 2em 0em; }
-address {
-    float: left;
-    font-size: 110%;
-    font-weight: bold;
-}
 table.meta {
+    margin-top: 14em;
     float: right;
     width: 36%;
 }
@@ -58,7 +52,8 @@ table.meta td { width: 60%; border-bottom:1px dashed darkgrey ; padding-left:1em
 table.maincontent{
     clear:both;
     float:left;
-    width:100%;
+    width:98%;
+
 }
 /* table meta */
 
@@ -73,23 +68,44 @@ table.meta:after, table.maincontent:after {
     display: table;
 }
 table.signature {
+    margin-top: 16em;
     clear:both;
     float:right;
     width:40%;
-    font-family: 'Expletus Sans', cursive;
 }
 table.signature strong , table.signature em{
-    font-family: 'Expletus Sans', cursive;
 }
 table.signature td{
     text-align:center;
+}
+table.header{
+    clear:both;
+    width:100%;
+    position:fixed;
+    height:129px;
+    background-color:#000758;
+    top:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
+}
+table.header th{
+    width: 20px;
+    background-color:#000758;
+}
+table.header td{
+    padding-top: 5px;
+    width: 80%;
+    text-align: center;
+    color: #f5f5f5;
+    line-height: 16px;
 }
 table.footer{
     clear:both;
     width:100%;
     position:fixed;
     height:60px;
-    background-color:#003f8e;
+    background-color:#000758;
     bottom:0px;
     left:0px;
     right:0px;
@@ -102,15 +118,18 @@ table.footer td{
     font-style:italic;
     padding-bottom:20px;
 }
+table.header h1{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
 .pull-right{
     text-align:center;
     font-size:90%;
 }
 .pull-right strong{
-    font-family: 'Expletus Sans', cursive;
 }
 .pull-right em {
-    font-family: 'Expletus Sans', cursive;
     color:grey
 }
 

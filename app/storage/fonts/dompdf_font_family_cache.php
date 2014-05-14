@@ -108,8 +108,12 @@
     'italic' => DOMPDF_DIR . '/lib/fonts/DejaVuSerifCondensed-Italic',
     'normal' => DOMPDF_DIR . '/lib/fonts/DejaVuSerifCondensed',
   ),
-  'expletus sans' => 
+  'open sans' => 
   array (
-    'normal' => DOMPDF_FONT_DIR . 'd93757b330c8140b737bd4eada2838e9',
+    'normal' => DOMPDF_FONT_DIR . 'bf11512877ef2223afd06e89358ef2fc',
+  ),
+  'alegreya sans sc' => 
+  array (
+    'normal' => DOMPDF_FONT_DIR . '15336012378fb69dbf7098888d63b4d5',
   ),
 ) ?>

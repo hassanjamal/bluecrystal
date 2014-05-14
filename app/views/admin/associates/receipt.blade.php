@@ -1,145 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="{{URL::to('/css/print/printstyle.css')}}">
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<style>
-body{
-    background-image:url('/assets/image/associate_money_receipt.jpg');
-    background-size:cover;
-}
-</style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="{{URL::to('css/print/policy_print_receipt.css')}}">
 </head>
-<body>
-<article>
-    <h1>Recipient</h1>
-    <address>
-        <p>Payment Details</p>
-    </address>
-    <table class="meta">
-        <tr>
-            <th><span >Receipt No</span></th>
-            <td><span >{{"REC-".$associate->branch_id."-".$associate->id."-".date("y")}}</span></td>
-        </tr>
-        <tr>
-            <th><span >Date</span></th>
-            <td><span >{{  date("d-M-Y") }}</span></td>
-        </tr>
-    </table>
-    <table class="inventory">
+<body marginwidth="0" marginheight="0">
+<img src="assets/image/associate_money_receipt_header.jpg" alt="">
+<div class="main_content">
+    <table class="header">
         <tbody>
         <tr>
-            <td>NAME :-</td>
+            <td></td>
+            <td style="text-align:right">
+                {{ date("d-M-Y") }}
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:#eee;">Receipt No :-<strong> {{ "REC-".$associate->branch_id."-".$associate->id."-".date("y")}}</strong></td>
+            <td style="text-align:right; background-color:#eee">Associate No:- <strong>{{ $associate->associate_no}}</strong></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="content">
+        <tbody>
+        <tr>
+            <th>Associate Name :-</th>
             <td>{{$associate->name}}</td>
-        </tr>
-        <tr>
-            <td>ASSOCIATE NO :-</td>
-            <td>{{$associate->associate_no}}</td>
-        </tr>
-        <tr>
-            <td>DESIGNATION :-</td>
-            <td>{{$rank_name}}</td>
-        </tr>
-        <tr>
-            <td>INTRODUCER NO :-</td>
-            <td>{{$introducer_no}}</td>
-        </tr>
 
-        <tr>
-            <td>PAYMENT :-</td>
-            <td><i class="fa fa-rupee"></i> 500.00
-                {{'( '.$associate->payment_mode.' )'}}</td>
+            <th>Amount Deposited :-</th>
+            <td>{{ $associate->associate_fees }}</td>
         </tr>
         <tr>
-            <td>BRANCH NAME :-</td>
-            <td>{{$branch_name}}</td>
+
+            <th>Address :-</th>
+            <td><div>{{ $associate->address }}</div></td>
+
+            <th>Designation :-</th>
+            <td>{{$rank_name}}</td>
+
         </tr>
         <tr>
-            <td>START DATE :-</td>
-            <td>{{$associate->start_date}}</td>
+            <th></th>
+            <td><div>{{ $associate->city . ' ,'. $associate->state }}</div></td>
+
+            <th>Start Date :-</th>
+            <td>{{ date("d-M-Y",strtotime( $associate->start_date))}}</td>
+
+        </tr>
+        <tr>
+            <th></th>
+            <td><div>@if($associate->pincode == 0)
+                    {{ ' ' }}
+                    @else
+                    {{ $associate->pincode }}
+                    @endif
+                </div>
+            </td>    
+        </tr>
+        
+        <tr>
+            <th>Introducer Code :-</th>
+            <td>{{ $introducer_no}}</td>
+
+            <th> Introducer Name :-</th>
+            <td>{{ $introducer_name}}</td>
+        </tr>
+        <tr>
+            <th>Branch Code :-</th>
+            <td>{{ Branch::where('id', $associate->branch_id)->pluck('name') }}</td>
+
+            <th> Branch Id :-</th>
+            <td>{{ $associate->branch_id }}</td>
         </tr>
 
         </tbody>
     </table>
-</article>
-<span class="pull-right">
-    <strong>Signature of Authority</strong>
-    <br>
-    <em>
-        {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' )'}}
-    </em>
-
-    <br>
-    For BLUE CRYSTAL MUTUAL BENEFIT INDIA LIMITED.
-</span>
-<article id="article2">
-    <h1>Recipient</h1>
-    <address>
-        <p>Payment Details</p>
-    </address>
-    <table class="meta">
-        <tr>
-            <th><span >Receipt No</span></th>
-            <td><span >{{"REC-".$associate->branch_id."-".$associate->id."-".date("y")}}</span></td>
-        </tr>
-        <tr>
-            <th><span >Date</span></th>
-            <td><span >{{  date("d-M-Y") }}</span></td>
-        </tr>
-    </table>
-    <table class="inventory">
+    <table class="middle_table">
         <tbody>
         <tr>
-            <td>NAME :-</td>
-            <td>{{$associate->name}}</td>
+            <th>Payment Date</th>
+            <th>Amount Deposited</th>
+            <th>Mode Of Payment</th>
         </tr>
         <tr>
-            <td>ASSOCIATE NO :-</td>
-            <td>{{$associate->associate_no}}</td>
+            <td>{{ date("d-M-Y",strtotime( $associate->drawn_date))}}</td>
+            <td>{{  $associate->associate_fees }} </td>
+            <td>{{  $associate->payment_mode }} </td>
         </tr>
-        <tr>
-            <td>DESIGNATION :-</td>
-            <td>{{$rank_name}}</td>
-        </tr>
-        <tr>
-            <td>INTRODUCER NO :-</td>
-            <td>{{$introducer_no}}</td>
-        </tr>
-
-        <tr>
-            <td>PAYMENT :-</td>
-            <td><i class="fa fa-rupee"></i> 500.00
-                {{'( '.$associate->payment_mode.' )'}}</td>
-        </tr>
-        <tr>
-            <td>BRANCH NAME :-</td>
-            <td>{{$branch_name}}</td>
-        </tr>
-        <tr>
-            <td>START DATE :-</td>
-            <td>{{$associate->start_date}}</td>
-        </tr>
-
         </tbody>
     </table>
-</article>
-<span class="pull-right">
-    <strong>Signature of Authority</strong>
-    <br>
-    <em>
-        {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' )'}}
-    </em>
-
-    <br>
-    For BLUE CRYSTAL MUTUAL BENEFIT INDIA LIMITED.
-</span>
-
-<script src="/js/jquery.js"></script>
-<script>
-$(document).ready(function(){
-        window.print();
-        });
-</script>
+    <div class="in_words">
+        <span>Dear Mr/Mrs {{ $associate->name }} . Thanks a lot for making  payment of Rs.  
+            {{ number_format($associate->associate_fees)}}
+            <strong>
+                {{ '( '.Str::title(apphelper::convert_number_to_words(round($associate->associate_fees))).
+                ' Only in words )'}}
+            </strong>
+        </span>
+    </div>
+    <table class="signature" style="margin-top:4em ; margin-bootom:4em">
+        <tbody>  
+        <tr>
+            <th></th>
+            <td>
+                <strong>Signature of Authority</strong>
+                <br>
+                <em>
+                    {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' )'}}
+                </em>
+                <br>
+                For BLUE CRYSTAL MARKETING PVT. LTD. 
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<img src="assets/image/associate_money_receipt_footer.jpg" alt="">
 </body>
 
 </html>
+
+
 
