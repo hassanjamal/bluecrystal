@@ -13,7 +13,9 @@
         <td>
             <table class="header">
                 <tr>
-                    <th></th>
+                    <th>
+                        <img src="assets/image/logo.png">
+                    </th>
                     <td>
                         <h1>BLUE CRYSTAL MARKETING PVT. LTD.</h1>
 

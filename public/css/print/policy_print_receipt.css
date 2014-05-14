@@ -19,10 +19,6 @@ body{
     margin-bottom:2em;
     font-size:90%;
 }
-hr{
-    margin:0;
-    border-top:1px dotted red;
-}
 table.header, table.content, table.middle_table, table.signature  {
     width:100%;
     margin-bottom:.87em;
@@ -53,8 +49,8 @@ table.content th { width: 40%; text-align:right;padding-top:.3em;}
 table.content td { width: 60%; border-bottom:1px dashed darkgrey ; padding-left:1em; padding-top:.3em; }
 
 
-table.signature th { width: 50%; text-align:left; font-size:80%; font-style:normal }
-table.signature td { width: 50%; text-align:center }
+table.signature th { width: 60%; text-align:left; font-size:80%; font-style:normal }
+table.signature td { width: 40%; text-align:center; font-size: 80% }
 
 table.middle_table th { border:1px dotted grey; padding-top:4px; padding-bottom:5px;}
 table.middle_table td { border:1px dotted grey ; text-align:center }
