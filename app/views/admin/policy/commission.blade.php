@@ -216,7 +216,7 @@
               $counter = 1;
               ?>
               <tr>
-                <td> <strong class='text-danger'> INSTALLMENT {{ $counter}}</strong> </td>
+                  <td> <strong class='text-danger'> INSTALLMENT {{ $payment->paid_installment}}</strong> </td>
                 <td>
                   <?
                   $commision = Policy_team_commission::where('payment_id', $payment->id)->where('policy_id', $policy->id)->get();
