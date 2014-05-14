@@ -424,7 +424,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="nominee_age">Age :</label>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="nominee_age" id="nominee_age" value="{{{ Input::old('nominee_age', isset($associate) ? $associate->nominee_age : null) }}}" />
+                                {{ Form::selectRange('age', 10, 70,isset($associate) ? $associate->nominee_age : 35, array('class'=>'form-control ', 'id'=>'nominee_age'))}}
                             </div>
                         </div>
                     </div>

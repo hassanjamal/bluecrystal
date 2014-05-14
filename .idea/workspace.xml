@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fc03001-4661-4238-a2cf-34e513c95592" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2014_05_10_182920_add_special_case_to_policies_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_05_10_182920_add_special_case_to_policies_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/AdminAssociatesController.php" afterPath="$PROJECT_DIR$/app/controllers/admin/AdminAssociatesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/BaseController.php" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/app.php" afterPath="$PROJECT_DIR$/app/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app_assets/admin/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/app_assets/admin/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" afterPath="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/AdminRdschemesController.php" afterPath="$PROJECT_DIR$/app/controllers/admin/AdminRdschemesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/SpecialCaseTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/SpecialCaseTableSeeder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/associates/create.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/associates/create.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/layouts/modal.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/layouts/modal.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blue-crystal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,92 +32,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Rd_self_commision.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Rd_self_commision.php">
+      <file leaf-file-name="AdminPolicyController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="16" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="616">
+            <state line="121" column="20" selection-start="3427" selection-end="3427" vertical-scroll-proportion="0.0" vertical-offset="4594" max-vertical-offset="35712">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rd_team_commision.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Rd_team_commision.php">
+      <file leaf-file-name="create.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/policy/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="35" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="644">
+            <state line="705" column="45" selection-start="29111" selection-end="29111" vertical-scroll-proportion="-0.3751783" vertical-offset="22118" max-vertical-offset="23405">
+              <folding>
+                <element signature="n#style#0;n#div#3;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#1;n#div#3;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpecialCaseTableSeeder.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/database/seeds/SpecialCaseTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="38" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1860">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <file leaf-file-name="2014_05_10_182920_add_special_case_to_policies_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_05_10_182920_add_special_case_to_policies_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="11" selection-start="3529" selection-end="3529" vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="4648">
+            <state line="15" column="26" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1209">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminRdschemesController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminRdschemesController.php">
+      <file leaf-file-name="create.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/associates/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="6" selection-start="649" selection-end="649" vertical-scroll-proportion="0.10178817" vertical-offset="934" max-vertical-offset="6804">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/rdschemes/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="12" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1680">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fd_scheme_payment.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Fd_scheme_payment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fd_self_commision.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Fd_self_commision.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="588">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fd_team_commision.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Fd_team_commision.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="588">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rdscheme.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Rdscheme.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="18" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fdscheme.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Fdscheme.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="32" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-              <folding />
+            <state line="426" column="154" selection-start="23097" selection-end="23097" vertical-scroll-proportion="0.0" vertical-offset="12834" max-vertical-offset="16740">
+              <folding>
+                <element signature="n#style#0;n#div#4;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#1;n#div#4;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,14 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/Rank.php" />
-        <option value="$PROJECT_DIR$/app/models/Policy.php" />
-        <option value="$PROJECT_DIR$/app/models/Commision.php" />
-        <option value="$PROJECT_DIR$/app/models/Fd_self_commision.php" />
-        <option value="$PROJECT_DIR$/app/models/Fd_team_commision.php" />
-        <option value="$PROJECT_DIR$/app/models/Fdscheme.php" />
-        <option value="$PROJECT_DIR$/app/models/Groups.php" />
-        <option value="$PROJECT_DIR$/app/models/Rd_self_commision.php" />
         <option value="$PROJECT_DIR$/app/models/Rd_team_commision.php" />
         <option value="$PROJECT_DIR$/app/database/seeds/BranchTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/controllers/UserController.php" />
@@ -157,6 +109,14 @@
         <option value="$PROJECT_DIR$/app/models/Rdscheme.php" />
         <option value="$PROJECT_DIR$/app/views/admin/rdschemes/index.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/admin/AdminRdschemesController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/AdminAssociatesController.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_05_10_183738_create_special_case_table.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/SpecialCaseTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_05_10_182920_add_special_case_to_policies_table.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/associates/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" />
       </list>
     </option>
   </component>
@@ -196,6 +156,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -486,14 +447,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.HTML" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../buffer-lab" />
@@ -528,6 +488,23 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7fc03001-4661-4238-a2cf-34e513c95592" name="Default" comment="" />
@@ -551,7 +528,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="eSnippet Pro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20278184" sideWeight="0.60026044" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20278184" sideWeight="0.60026044" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -574,62 +551,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/site/layouts/master-another.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="30" selection-start="4475" selection-end="4475" vertical-scroll-proportion="0.5006878" vertical-offset="1540" max-vertical-offset="3892">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="304" column="5" selection-start="7869" selection-end="7869" vertical-scroll-proportion="0.0" vertical-offset="13636" max-vertical-offset="15064">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/layouts/default.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="30" selection-start="5103" selection-end="5103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6384">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/BranchTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="264" column="52" selection-start="8918" selection-end="8918" vertical-scroll-proportion="0.0" vertical-offset="6581" max-vertical-offset="8176">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/seeds/SentryUserGroupSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Rd_scheme_payment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Rd_self_commision.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="16" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="616">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Rd_team_commision.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="35" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="644">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Fd_scheme_payment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
@@ -639,50 +560,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Fd_self_commision.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="616">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Fd_team_commision.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="616">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Fdscheme.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="32" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+        <state line="3" column="32" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="504">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Rdscheme.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="18" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="11" selection-start="3529" selection-end="3529" vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="4648">
+        <state line="5" column="18" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0" vertical-offset="140" max-vertical-offset="504">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/rdschemes/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="12" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1680">
+        <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0" vertical-offset="449" max-vertical-offset="1708">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Rd_team_commision.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="6" selection-start="206" selection-end="206" vertical-scroll-proportion="0.28783783" vertical-offset="4" max-vertical-offset="744">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminRdschemesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="6" selection-start="649" selection-end="649" vertical-scroll-proportion="0.10178817" vertical-offset="934" max-vertical-offset="6804">
+        <state line="178" column="39" selection-start="4932" selection-end="4932" vertical-scroll-proportion="-0.8445667" vertical-offset="6132" max-vertical-offset="7657">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="38" selection-start="4690" selection-end="4690" vertical-scroll-proportion="0.45804676" vertical-offset="2643" max-vertical-offset="5611">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_05_10_183738_create_special_case_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="0.58648646" vertical-offset="31" max-vertical-offset="1178">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/SpecialCaseTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="38" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1860">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_05_10_182920_add_special_case_to_policies_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="26" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1209">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/associates/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="426" column="154" selection-start="23097" selection-end="23097" vertical-scroll-proportion="0.0" vertical-offset="12834" max-vertical-offset="16740">
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#1;n#div#4;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminAssociatesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="344" column="4" selection-start="13564" selection-end="13564" vertical-scroll-proportion="11.513067" vertical-offset="2294" max-vertical-offset="18848">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="20" selection-start="3427" selection-end="3427" vertical-scroll-proportion="0.0" vertical-offset="4594" max-vertical-offset="35712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/policy/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="705" column="45" selection-start="29111" selection-end="29111" vertical-scroll-proportion="-0.3751783" vertical-offset="22118" max-vertical-offset="23405">
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#1;n#div#3;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

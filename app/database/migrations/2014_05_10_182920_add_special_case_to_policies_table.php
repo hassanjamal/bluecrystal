@@ -13,8 +13,7 @@ class AddSpecialCaseToPoliciesTable extends Migration {
 	public function up()
 	{
 		Schema::table('policies', function(Blueprint $table) {
-		    $table->boolean('special_case');
-            $table->string('description_special_case');
+		    $table->string('special_case');
 		});
 	}
 

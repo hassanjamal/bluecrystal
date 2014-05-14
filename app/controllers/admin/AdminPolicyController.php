@@ -52,15 +52,15 @@ class AdminPolicyController extends AdminController
      * @param Policy_self_commission $policy_self_commision
      */
     public function __construct(
-                                Associate $associate,
-                                Branch $branch,
-                                Rank $rank,
-                                Policy $policy,
-                                Fd_scheme_payment $fd_scheme_payment,
-                                Rd_scheme_payment $rd_scheme_payment,
-                                Policy_team_commission $policy_team_commision,
-                                Policy_self_commission $policy_self_commision
-                                ) {
+        Associate $associate,
+        Branch $branch,
+        Rank $rank,
+        Policy $policy,
+        Fd_scheme_payment $fd_scheme_payment,
+        Rd_scheme_payment $rd_scheme_payment,
+        Policy_team_commission $policy_team_commision,
+        Policy_self_commission $policy_self_commision
+    ) {
         parent::__construct();
         $this->associate             = $associate;
         $this->branch                = $branch;
@@ -100,13 +100,13 @@ class AdminPolicyController extends AdminController
             $branch_id = Sentry::getUser()->branch_id;
             if (Sentry::getUser()->isSuperUser() || Sentry::getUser()->hasAccess('policy-create')) {
                 $title = "Create Policy";
+                $special_case = Special_case::lists('special_case' , 'special_case');
                 $mode  = 'create';
-
-                return View::make( 'admin/policy/create', compact('title', 'mode', 'branch_id'));
+                return View::make('admin/policy/create', compact('title', 'mode', 'branch_id' , 'special_case'));
             }
             else {
                 return Redirect::to('admin/policy')
-                ->with('error', " You dont have enough permission to create policy ");
+                               ->with('error', " You dont have enough permission to create policy ");
             }
         }
         else {
@@ -121,82 +121,87 @@ class AdminPolicyController extends AdminController
      */
     public function store()
     {
-        if (Sentry::check()) {
-            $this->policy->branch_id        = Input::get('branch_id');
-            $this->policy->associate_no     = Input::get('associate_no');
-            $this->policy->associate_id     = Input::get('to_associate_id');
-            $this->policy->scheme_type      = strtoupper(Input::get('scheme_type'));
-            $this->policy->scheme_name      = strtoupper(Input::get('scheme_name'));
-            $this->policy->scheme_id        = Input::get('to_scheme_id');
-            $this->policy->name             = strtoupper(Input::get('name'));
-            $this->policy->age              = strtoupper(Input::get('age'));
-            $this->policy->guardian_type    = strtoupper(Input::get('guardian_type'));
-            $this->policy->guardian_name    = strtoupper(Input::get('guardian_name'));
-            $this->policy->pan_no           = strtoupper(Input::get('pan_no'));
-            $this->policy->sex              = strtoupper(Input::get('sex'));
-            $this->policy->date_of_birth    = date("Y-m-d", strtotime(Input::get('date_of_birth')));
-            $this->policy->mobile           = Input::get('mobile');
-            $this->policy->address          = strtoupper(Input::get('address'));
-            $this->policy->city             = strtoupper(Input::get('city'));
-            $this->policy->state            = strtoupper(Input::get('state'));
-            $this->policy->pincode          = Input::get('pincode');
-            $this->policy->nominee_name     = strtoupper(Input::get('nominee_name'));
-            $this->policy->nominee_add      = strtoupper(Input::get('nominee_add'));
-            $this->policy->nominee_relation = strtoupper(Input::get('nominee_relation'));
-            $this->policy->nominee_age      = Input::get('nominee_age');
-            //save if valid
-            $this->policy->save();
+         if (Sentry::check()) {
+             $this->policy->branch_id        = Input::get('branch_id');
+             $this->policy->associate_no     = Input::get('associate_no');
+             $this->policy->special_case     = strtoupper(Input::get('special_case'));
+             $this->policy->associate_id     = Input::get('to_associate_id');
+             $this->policy->scheme_type      = strtoupper(Input::get('scheme_type'));
+             $this->policy->scheme_name      = strtoupper(Input::get('scheme_name'));
+             $this->policy->scheme_id        = Input::get('to_scheme_id');
+             $this->policy->name             = strtoupper(Input::get('name'));
+             $this->policy->age              = strtoupper(Input::get('age'));
+             $this->policy->guardian_type    = strtoupper(Input::get('guardian_type'));
+             $this->policy->guardian_name    = strtoupper(Input::get('guardian_name'));
+             $this->policy->pan_no           = strtoupper(Input::get('pan_no'));
+             $this->policy->sex              = strtoupper(Input::get('sex'));
+             $this->policy->date_of_birth    = date("Y-m-d", strtotime(Input::get('date_of_birth')));
+             $this->policy->mobile           = Input::get('mobile');
+             $this->policy->address          = strtoupper(Input::get('address'));
+             $this->policy->city             = strtoupper(Input::get('city'));
+             $this->policy->state            = strtoupper(Input::get('state'));
+             $this->policy->pincode          = Input::get('pincode');
+             $this->policy->nominee_name     = strtoupper(Input::get('nominee_name'));
+             $this->policy->nominee_add      = strtoupper(Input::get('nominee_add'));
+             $this->policy->nominee_relation = strtoupper(Input::get('nominee_relation'));
+             $this->policy->nominee_age      = Input::get('nominee_age');
+             //save if valid
+             $this->policy->save();
 
-            if ($this->policy->id) {
-                $this->policy->policy_no = self::generate_policy_no(
-                                                                    $this->policy->id,
-                                                                    $this->policy->branch_id
-                                                                    );
-                // updating policy number for newly created policy
-                $this->policy->save();
+             if ($this->policy->id) {
+                 $this->policy->policy_no = self::generate_policy_no(
+                                                $this->policy->id,
+                                                $this->policy->branch_id
+                 );
+                 // updating policy number for newly created policy
+                 $this->policy->save();
 
-                if ($this->policy->scheme_type == 'FD') {
-                    $result = $this->update_fd_scheme_payment(
-                                                              $this->policy->id,
-                                                              (object)Input::all(),
-                                                              $this->policy->associate_id,
-                                                              $this->policy->scheme_type );
-                    if ($result) {
-                        return Redirect::to('admin/policy/notification')->with( 'success', "Policy Created Successfully" );
-                    }
-                    else {
-                        $error = " Commision for Scheme Created has not been updated succesfully";
+                 if ($this->policy->scheme_type == 'FD') {
+                     $result = $this->update_fd_scheme_payment(
+                                    $this->policy->id,
+                                    (object)Input::all(),
+                                    $this->policy->associate_id,
+                                    $this->policy->scheme_type
+                     );
+                     if ($result) {
+                         return Redirect::to('admin/policy/notification')->with(
+                                        'success', "Policy Created Successfully"
+                         );
+                     }
+                     else {
+                         $error = " Commision for Scheme Created has not been updated succesfully";
 
-                        return Redirect::to('admin/policy/create')->with('error', $error);
-                    }
-                }
-                elseif ($this->policy->scheme_type == 'RD') {
-                    $result = $this->update_rd_scheme_payment(
-                                                              $this->policy->id,
-                                                              (object)Input::all(),
-                                                              $this->policy->associate_id,
-                                                              $this->policy->scheme_type,
-                                                              1
-                                                              );
-                    if ($result) {
-                        return Redirect::to('admin/policy/notification')->with( 'success', "Policy Created Successfully" );
-                        // return Redirect::to('admin/policy' )->with( 'success', "Policy Created Successfully");
-                    }
-                    else {
-                        $error = " Commision for Scheme Created has not been updated succesfully";
+                         return Redirect::to('admin/policy/create')->with('error', $error);
+                     }
+                 }
+                 elseif ($this->policy->scheme_type == 'RD') {
+                     $result = $this->update_rd_scheme_payment(
+                                    $this->policy->id,
+                                    (object)Input::all(),
+                                    $this->policy->associate_id,
+                                    $this->policy->scheme_type,
+                                    1
+                     );
+                     if ($result) {
+                         return Redirect::to('admin/policy/notification')->with(
+                                        'success', "Policy Created Successfully"
+                         );
+                     }
+                     else {
+                         $error = " Commision for Scheme Created has not been updated succesfully";
 
-                        return Redirect::to('admin/policy/create')->with('error', $error);
-                    }
-                }
-            }
-            else {
-                // Get validation errors (see Ardent package)
-                $error = $this->policy->errors()->all();
+                         return Redirect::to('admin/policy/create')->with('error', $error);
+                     }
+                 }
+             }
+             else {
+                 // Get validation errors (see Ardent package)
+                 $error = $this->policy->errors()->all();
 
-                return Redirect::to('admin/policy/create')
-                ->with('error', $error);
-            }
-        }
+                 return Redirect::to('admin/policy/create')
+                                ->with('error', $error);
+             }
+         }
     }
 
 
@@ -217,14 +222,14 @@ class AdminPolicyController extends AdminController
                 $mode  = 'create';
                 if ($policy->id) {
                     return View::make(
-                                      'admin/policy/create',
-                                      compact('title', 'mode', 'branch_id', 'policy')
-                                      );
+                               'admin/policy/create',
+                               compact('title', 'mode', 'branch_id', 'policy')
+                    );
                 }
             }
             else {
                 return Redirect::to('admin/policy')
-                ->with('error', " You dont have enough permission to create policy ");
+                               ->with('error', " You dont have enough permission to create policy ");
             }
         }
         else {
@@ -333,9 +338,10 @@ class AdminPolicyController extends AdminController
     {
         if (Sentry::check()) {
             if ($policy->id) {
-                $title =$policy->policy_no."_receipt.pdf";
-                $pdf = App::make('dompdf');
+                $title = $policy->policy_no . "_receipt.pdf";
+                $pdf   = App::make('dompdf');
                 $pdf->loadView('admin/policy/receipt', compact('policy'));
+
                 return $pdf->stream();
             }
             else {
@@ -349,16 +355,19 @@ class AdminPolicyController extends AdminController
 
     /**
      * [getWelcome description]
+     *
      * @param  [type] $policy [description]
+     *
      * @return [type]         [description]
      */
     public function getWelcome($policy)
     {
         if (Sentry::check()) {
             if ($policy->id) {
-                $title =$policy->policy_no."_Welcome.pdf";
-                $pdf = App::make('dompdf');
+                $title = $policy->policy_no . "_Welcome.pdf";
+                $pdf   = App::make('dompdf');
                 $pdf->loadView('admin/policy/welcome', compact('policy'));
+
                 return $pdf->stream();
                 // return View::make( 'admin/policy/welcome', compact('policy'));
             }
@@ -383,88 +392,88 @@ class AdminPolicyController extends AdminController
             $branch_id = Sentry::getUser()->branch_id;
             if (Sentry::getUser()->isSuperUser()) {
                 $policies = Policy::Select(
-                                           array(
-                                                 'policies.id',
-                                                 'policies.policy_no',
-                                                 'policies.name',
-                                                 'policies.associate_no',
-                                                 'policies.scheme_type',
-                                                 'policies.created_at'
-                                                 )
-                                           );
+                                  array(
+                                       'policies.id',
+                                       'policies.policy_no',
+                                       'policies.name',
+                                       'policies.associate_no',
+                                       'policies.scheme_type',
+                                       'policies.created_at'
+                                  )
+                );
             }
             else {
                 $policies = Policy::Select(
-                                           array(
-                                                 'policies.id',
-                                                 'policies.policy_no',
-                                                 'policies.name',
-                                                 'policies.associate_no',
-                                                 'policies.scheme_type',
-                                                 'policies.created_at'
-                                                 )
-                                           )
-                ->where('policies.branch_id', $branch_id);
+                                  array(
+                                       'policies.id',
+                                       'policies.policy_no',
+                                       'policies.name',
+                                       'policies.associate_no',
+                                       'policies.scheme_type',
+                                       'policies.created_at'
+                                  )
+                )
+                                  ->where('policies.branch_id', $branch_id);
             }
-            if(Sentry::getUser()->hasAccess('policy-edit')){
-            return Datatables::of($policies)
-            ->add_column(
-                         'actions',
-                         '
-                         <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
-                         class="iframe btn btn-xs btn-info"> Details</a>
-                         <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/edit\') }}}"
-                         class="iframe btn btn-xs btn-danger"> Edit</a>
-                         '
-                         )
-            ->add_column(
-                         'receipts',
-                         '
-                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/receipt\') }}}"
-                         class="iframe btn btn-xs btn-default">Receipt</a>
-                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
-                         class="iframe btn btn-xs btn-default">Welcome</a>
-                         '
-                         )
-            ->add_column(
-                         'commission',
-                         '
-                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/commision\') }}}"
-                         class="iframe btn btn-xs btn-warning">Commission</a>
-                         '
-                         )
-            ->remove_column('id')
-            ->make();
+            if (Sentry::getUser()->hasAccess('policy-edit')) {
+                return Datatables::of($policies)
+                                 ->add_column(
+                                 'actions',
+                                 '
+                                 <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                                 class="iframe btn btn-xs btn-info"> Details</a>
+                                 <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/edit\') }}}"
+                                 class="iframe btn btn-xs btn-danger"> Edit</a>
+                                 '
+                    )
+                                 ->add_column(
+                                 'receipts',
+                                 '
+                                 <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/receipt\') }}}"
+                                 class="iframe btn btn-xs btn-default">Receipt</a>
+                                 <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
+                                 class="iframe btn btn-xs btn-default">Welcome</a>
+                                 '
+                    )
+                                 ->add_column(
+                                 'commission',
+                                 '
+                                 <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/commision\') }}}"
+                                 class="iframe btn btn-xs btn-warning">Commission</a>
+                                 '
+                    )
+                                 ->remove_column('id')
+                                 ->make();
             }
-            else{
+            else {
 
-            return Datatables::of($policies)
-            ->add_column(
-                         'actions',
-                         '
-                         <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
-                         class="iframe btn btn-xs btn-info"> Details</a>
-                         '
-                         )
-            ->add_column(
-                         'receipts',
-                         '
-                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/receipt\') }}}"
-                         class="iframe btn btn-xs btn-default">Receipt</a>
-                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
-                         class="iframe btn btn-xs btn-default">Welcome</a>
-                         '
-                         )
-            ->add_column(
-                         'commission',
-                         '
-                         <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/commision\') }}}"
-                         class="iframe btn btn-xs btn-warning">Commission</a>
-                         '
-                         )
-            ->remove_column('id')
-            ->make();
-                
+                return Datatables::of($policies)
+                                 ->add_column(
+                                 'actions',
+                                 '
+                                 <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                                 class="iframe btn btn-xs btn-info"> Details</a>
+                                 '
+                    )
+                                 ->add_column(
+                                 'receipts',
+                                 '
+                                 <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/receipt\') }}}"
+                                 class="iframe btn btn-xs btn-default">Receipt</a>
+                                 <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
+                                 class="iframe btn btn-xs btn-default">Welcome</a>
+                                 '
+                    )
+                                 ->add_column(
+                                 'commission',
+                                 '
+                                 <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/commision\') }}}"
+                                 class="iframe btn btn-xs btn-warning">Commission</a>
+                                 '
+                    )
+                                 ->remove_column('id')
+                                 ->make();
+
             }
         }
         else {
@@ -482,14 +491,14 @@ class AdminPolicyController extends AdminController
         $term      = Input::get('term');
         $associate = array();
         $search    = DB::select(
-                                "
+                       "
                                 select id ,associate_no as value ,CONCAT(name ,'  ID  ',associate_no) as label
                                 from associates
                                 where company = 0
                                 and match (name, associate_no )
                                 against ('+{$term}*' IN BOOLEAN MODE)
                                 "
-                                );
+        );
 
         foreach ($search as $result) {
             $associate[] = $result;
@@ -502,22 +511,22 @@ class AdminPolicyController extends AdminController
 
     public function postAssociate()
     {
-        $term      = Input::get('associate_no');
-        $search    = DB::select(
-                                "
+        $term   = Input::get('associate_no');
+        $search = DB::select(
+                    "
                                 select associate_no 
                                 from associates
                                 where company = 0
                                 and match (name, associate_no )
                                 against ('+{$term}*' IN BOOLEAN MODE)
                                 "
-                                );
+        );
 
-        if($search){
-            return json_encode(array('valid'=>true));
+        if ($search) {
+            return json_encode(array('valid' => true));
         }
-        else{
-            return json_encode(array('valid'=>false));
+        else {
+            return json_encode(array('valid' => false));
         }
     }
 
@@ -531,13 +540,13 @@ class AdminPolicyController extends AdminController
         $term      = Input::get('term');
         $fdschemes = array();
         $search    = DB::select(
-                                "
+                       "
                                 select id, interest, special_interest,years ,name as value ,description as label
                                 from fdschemes
                                 where match (name )
                                 against ('+{$term}*' IN BOOLEAN MODE)
                                 "
-                                );
+        );
 
         foreach ($search as $result) {
             $fdschemes[] = $result;
@@ -551,21 +560,21 @@ class AdminPolicyController extends AdminController
 
     public function postFdscheme()
     {
-        $term      = Input::get('scheme_name');
-        $search    = DB::select(
-                                "
+        $term   = Input::get('scheme_name');
+        $search = DB::select(
+                    "
                                 select name as value 
                                 from fdschemes
                                 where match (name )
                                 against ('+{$term}*' IN BOOLEAN MODE)
                                 "
-                                );
+        );
 
-        if($search){
-            return json_encode(array('valid'=>true));
+        if ($search) {
+            return json_encode(array('valid' => true));
         }
-        else{
-            return json_encode(array('valid'=>false));
+        else {
+            return json_encode(array('valid' => false));
         }
 
 
@@ -581,13 +590,13 @@ class AdminPolicyController extends AdminController
         $term      = Input::get('term');
         $rdschemes = array();
         $search    = DB::select(
-                                "
+                       "
                                 select id, interest,special_interest, years ,name as value ,description as label
                                 from rdschemes
                                 where match (name )
                                 against ('*{$term}*' IN BOOLEAN MODE)
                                 "
-                                );
+        );
         foreach ($search as $result) {
             $rdschemes[] = $result;
         }
@@ -599,43 +608,45 @@ class AdminPolicyController extends AdminController
 
     public function postRdscheme()
     {
-        $term      = Input::get('scheme_name');
-        $search    = DB::select(
-                                "
+        $term   = Input::get('scheme_name');
+        $search = DB::select(
+                    "
                                 select name as value 
                                 from rdschemes
                                 where match (name )
                                 against ('+{$term}*' IN BOOLEAN MODE)
                                 "
-                                );
+        );
 
-        if($search){
-            return json_encode(array('valid'=>true));
+        if ($search) {
+            return json_encode(array('valid' => true));
         }
-        else{
-            return json_encode(array('valid'=>false));
+        else {
+            return json_encode(array('valid' => false));
         }
 
 
     }
-   /**
-    * Generate Commission Structure for policy
-    * @param  [type] $policy [description]
-    * @return [type]         [description]
-    */
+
+    /**
+     * Generate Commission Structure for policy
+     *
+     * @param  [type] $policy [description]
+     *
+     * @return [type]         [description]
+     */
     public function getCommision($policy)
     {
-        if($policy->id)
-        {
+        if ($policy->id) {
             $title = "Policy And Self Commission Details" . ' For ' . $policy->policy_no;
 
             return View::make(
-                              'admin/policy/commission',
-                              compact(
-                                      'policy',
-                                      'title'
-                                      )
-                              );
+                       'admin/policy/commission',
+                       compact(
+                           'policy',
+                           'title'
+                       )
+            );
         }
         else {
             return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
@@ -660,18 +671,19 @@ class AdminPolicyController extends AdminController
 
         return substr($branch_name, 0, 3) . '-' . $policy_id . '-' . $year;
     }
-    
+
 
     /**
      * getNotification
-     * 
+     *
      * @access public
      * @return void
      */
     public function getNotification()
     {
         $title = "";
-        return View::make('admin/notification/index' , compact('title')); 
+
+        return View::make('admin/notification/index', compact('title'));
     }
 
     /**
@@ -692,27 +704,27 @@ class AdminPolicyController extends AdminController
         $this->fd_scheme_payment->payment_mode   = strtoupper($input->payment_mode);
         $this->fd_scheme_payment->drawee_bank    = strtoupper($input->drawee_bank);
         $this->fd_scheme_payment->drawee_branch  = strtoupper($input->drawee_branch);
-        $this->fd_scheme_payment->drawn_date     = date("Y-m-d", strtotime($input->drawn_date));;
+        $this->fd_scheme_payment->drawn_date     = date("Y-m-d", strtotime($input->drawn_date));
         $this->fd_scheme_payment->cheque_no      = strtoupper($input->cheque_no);
         $this->fd_scheme_payment->paid           = strtoupper($input->paid);
 
         if ($this->fd_scheme_payment->save()) {
             $this->update_self_commission(
-                                          $associate_id,
-                                          $scheme_type,
-                                          $input,
-                                          $policy_id,
-                                          $this->fd_scheme_payment->id,
-                                          $this->fd_scheme_payment->deposit_amount
-                                          );
+                 $associate_id,
+                 $scheme_type,
+                 $input,
+                 $policy_id,
+                 $this->fd_scheme_payment->id,
+                 $this->fd_scheme_payment->deposit_amount
+            );
             $this->update_team_commission(
-                                          $associate_id,
-                                          $scheme_type,
-                                          $input,
-                                          $policy_id,
-                                          $this->fd_scheme_payment->id,
-                                          $this->fd_scheme_payment->deposit_amount
-                                          );
+                 $associate_id,
+                 $scheme_type,
+                 $input,
+                 $policy_id,
+                 $this->fd_scheme_payment->id,
+                 $this->fd_scheme_payment->deposit_amount
+            );
 
             return true;
         }
@@ -741,32 +753,33 @@ class AdminPolicyController extends AdminController
 
         if ($this->rd_scheme_payment->save()) {
             $this->update_self_commission(
-                                          $associate_id,
-                                          $scheme_type,
-                                          $input,
-                                          $policy_id,
-                                          $this->rd_scheme_payment->id,
-                                          $this->rd_scheme_payment->deposit_amount
-                                          );
+                 $associate_id,
+                 $scheme_type,
+                 $input,
+                 $policy_id,
+                 $this->rd_scheme_payment->id,
+                 $this->rd_scheme_payment->deposit_amount
+            );
             $this->update_team_commission(
-                                          $associate_id,
-                                          $scheme_type,
-                                          $input,
-                                          $policy_id,
-                                          $this->rd_scheme_payment->id,
-                                          $this->rd_scheme_payment->deposit_amount
-                                          );
-            if($installment == 1)
-            {
+                 $associate_id,
+                 $scheme_type,
+                 $input,
+                 $policy_id,
+                 $this->rd_scheme_payment->id,
+                 $this->rd_scheme_payment->deposit_amount
+            );
+            if ($installment == 1) {
                 $policy_time = strtotime($this->rd_scheme_payment->updated_at);
             }
-            else
-            {
-                $last_installment = Rd_scheme_payment::where('policy_id', $policy_id)->orderBy('next_installment_date','desc')->first();
-                $policy_time = strtotime($last_installment->next_installment_date);
+            else {
+                $last_installment = Rd_scheme_payment::where('policy_id', $policy_id)->orderBy(
+                                                     'next_installment_date', 'desc'
+                )                                    ->first();
+                $policy_time      = strtotime($last_installment->next_installment_date);
             }
             $this->rd_scheme_payment->next_installment_date = date("Y-m-d", strtotime("+1 month", $policy_time));
             $this->rd_scheme_payment->save();
+
             return true;
         }
         else {
@@ -789,8 +802,9 @@ class AdminPolicyController extends AdminController
      *
      * @return bool
      */
-    public function update_self_commission( $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount ) 
-    {
+    public function update_self_commission(
+        $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount
+    ) {
         $rank_id   = Associate::where('id', $associate_id)->pluck('rank_id');
         $scheme_id = $input->to_scheme_id;
 
@@ -860,8 +874,9 @@ class AdminPolicyController extends AdminController
      *
      * @return bool
      */
-    public function update_team_commission( $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount )
-    {
+    public function update_team_commission(
+        $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount
+    ) {
 
         $scheme_id = $input->to_scheme_id;
         $associate = Associate::where('id', '=', $associate_id)->first();
@@ -930,7 +945,8 @@ class AdminPolicyController extends AdminController
         };
     }
 
-    public function getAllRdscheme (){
+    public function getAllRdscheme()
+    {
         if (Sentry::check()) {
             $title = "RD Policy Management";
 
@@ -940,69 +956,69 @@ class AdminPolicyController extends AdminController
             return Redirect::route('login')->with('error', " You are not logged in ");
         }
     }
-    
+
     public function getRdData()
     {
         if (Sentry::check()) {
             $branch_id = Sentry::getUser()->branch_id;
             if (Sentry::getUser()->isSuperUser()) {
                 $policies = Policy::Select(
-                    array(
-                        'policies.id',
-                        'policies.created_at',
-                        'policies.policy_no',
-                        'policies.name',
-                        'policies.associate_no',
-                        'policies.scheme_type'
-                    )
+                                  array(
+                                       'policies.id',
+                                       'policies.created_at',
+                                       'policies.policy_no',
+                                       'policies.name',
+                                       'policies.associate_no',
+                                       'policies.scheme_type'
+                                  )
                 )
-                ->where('policies.scheme_type','RD');
+                                  ->where('policies.scheme_type', 'RD');
             }
             else {
                 $policies = Policy::Select(
-                    array(
-                        'policies.id',
-                        'policies.created_at',
-                        'policies.policy_no',
-                        'policies.name',
-                        'policies.associate_no',
-                        'policies.scheme_type'
-                    )
+                                  array(
+                                       'policies.id',
+                                       'policies.created_at',
+                                       'policies.policy_no',
+                                       'policies.name',
+                                       'policies.associate_no',
+                                       'policies.scheme_type'
+                                  )
                 )
-                ->where('policies.branch_id', $branch_id)
-                ->where('policies.scheme_type','RD');
+                                  ->where('policies.branch_id', $branch_id)
+                                  ->where('policies.scheme_type', 'RD');
             }
-            if(Sentry::getUser()->hasAccess('policy-edit')){
+            if (Sentry::getUser()->hasAccess('policy-edit')) {
                 return Datatables::of($policies)
-                    ->add_column(
-                        'actions',
-                        '
-                        <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
-                        class="iframe btn btn-xs btn-info"> Details</a>
-                        <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $id . \'/Installments\') }}}"
-                        class="btn btn-xs btn-primary"> Installments</a>
-                        <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/edit\') }}}"
-                        class="iframe btn btn-xs btn-danger"> Edit</a>
-                       '
-                       )
-                       ->remove_column('id')
-                       ->remove_column('scheme_type')
-                       ->make();
+                                 ->add_column(
+                                 'actions',
+                                 '
+                                 <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                                 class="iframe btn btn-xs btn-info"> Details</a>
+                                 <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $id . \'/Installments\') }}}"
+                                 class="btn btn-xs btn-primary"> Installments</a>
+                                 <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/edit\') }}}"
+                                 class="iframe btn btn-xs btn-danger"> Edit</a>
+                                '
+                    )
+                                 ->remove_column('id')
+                                 ->remove_column('scheme_type')
+                                 ->make();
             }
-            else{
+            else {
                 return Datatables::of($policies)
-                    ->add_column(
-                        'actions',
-                        '
-                        <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
-                        class="iframe btn btn-xs btn-info"> Details</a>
-                        <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $id . \'/Installments\') }}}"
-                        class="btn btn-xs btn-primary"> Installments</a>
-                        '
-                        )
-                        ->remove_column('id')
-                        ->remove_column('scheme_type')
-                        ->make();
+                                 ->add_column(
+                                 'actions',
+                                 '
+                                 <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                                 class="iframe btn btn-xs btn-info"> Details</a>
+                                 <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $id . \'/Installments\') }}}"
+                                 class="btn btn-xs btn-primary"> Installments</a>
+                                 '
+                    )
+                                 ->remove_column('id')
+                                 ->remove_column('scheme_type')
+                                 ->make();
 
             }
         }
@@ -1011,9 +1027,10 @@ class AdminPolicyController extends AdminController
         }
     }
 
-    public function getAllRdschemeInstallements($policy){
+    public function getAllRdschemeInstallements($policy)
+    {
         if (Sentry::check()) {
-            $title = $policy->policy_no." RD Policy Installments Management";
+            $title     = $policy->policy_no . " RD Policy Installments Management";
             $policy_id = $policy->id;
 
             return View::make('admin.policy.rd_scheme_installments', compact('title', 'policy'));
@@ -1024,36 +1041,37 @@ class AdminPolicyController extends AdminController
 
     }
 
-    public function getRdSchmeInstallments($policy){
+    public function getRdSchmeInstallments($policy)
+    {
         if (Sentry::check()) {
             $branch_id = Sentry::getUser()->branch_id;
             if (Sentry::getUser()->isSuperUser() || $branch_id == $policy->branch_id) {
                 $rd_scheme_payments = Rd_scheme_payment::Select(
-                    array(
-                        'rd_scheme_payment.id',
-                        'rd_scheme_payment.policy_id',
-                        'rd_scheme_payment.paid_installment',
-                        'rd_scheme_payment.drawn_date',
-                        'rd_scheme_payment.deposit_amount',
-                        'rd_scheme_payment.next_installment_date'
-                    )
+                                                       array(
+                                                            'rd_scheme_payment.id',
+                                                            'rd_scheme_payment.policy_id',
+                                                            'rd_scheme_payment.paid_installment',
+                                                            'rd_scheme_payment.drawn_date',
+                                                            'rd_scheme_payment.deposit_amount',
+                                                            'rd_scheme_payment.next_installment_date'
+                                                       )
                 )
-                ->where('rd_scheme_payment.policy_id', $policy->id);
+                                                       ->where('rd_scheme_payment.policy_id', $policy->id);
 
                 return Datatables::of($rd_scheme_payments)
-                    ->add_column(
-                        'actions',
-                        '
-                        <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $policy_id . \'/Installment/\'. $id .\'/Receipt\') }}}"
-                        class="iframe btn btn-xs btn-default"> Receipt</a>
-                        '
+                                 ->add_column(
+                                 'actions',
+                                 '
+                                 <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $policy_id . \'/Installment/\'. $id .\'/Receipt\') }}}"
+                                 class="iframe btn btn-xs btn-default"> Receipt</a>
+                                 '
                     )
-                    ->remove_column('id')
-                    ->remove_column('policy_id')
-                    ->make();
+                                 ->remove_column('id')
+                                 ->remove_column('policy_id')
+                                 ->make();
 
             }
-            else{
+            else {
                 return " You are not authorized for this branch";
             }
         }
@@ -1062,14 +1080,17 @@ class AdminPolicyController extends AdminController
         }
     }
 
-    public function getPayInstallment($policy){
+    public function getPayInstallment($policy)
+    {
         if (Sentry::check()) {
-            $title = $policy->policy_no." Pay Installments ";
-            $rd_policy = Rd_scheme_payment::where('policy_id', $policy->id)->orderBy('updated_at', 'desc')->first();
-            $current_date = new DateTime("now");
+            $title                 = $policy->policy_no . " Pay Installments ";
+            $rd_policy             = Rd_scheme_payment::where('policy_id', $policy->id)->orderBy('updated_at', 'desc')
+                                                      ->first();
+            $current_date          = new DateTime("now");
             $last_installment_date = new DateTime($rd_policy->next_installment_date);
-            $interval = $last_installment_date->diff($current_date);
+            $interval              = $last_installment_date->diff($current_date);
             $interval->format('%R%a days');
+
             return View::make('admin.policy.pay_installment', compact('title', 'policy', 'rd_policy', 'interval'));
         }
         else {
@@ -1077,33 +1098,35 @@ class AdminPolicyController extends AdminController
         }
     }
 
-    public function postPayInstallment($policy){
-        if(Input::get('rd_current_installment') <= Input::get('rd_total_installment')){
+    public function postPayInstallment($policy)
+    {
+        if (Input::get('rd_current_installment') <= Input::get('rd_total_installment')) {
             $result = $this->update_rd_scheme_payment(
-                $policy->id,
-                (object)Input::all(),
-                $policy->associate_id,
-                $policy->scheme_type,
-                Input::get('rd_current_installment')
+                           $policy->id,
+                           (object)Input::all(),
+                           $policy->associate_id,
+                           $policy->scheme_type,
+                           Input::get('rd_current_installment')
             );
             if ($result) {
-                return Redirect::to('admin/policy/notification')->with( 'success', "Installment Paid Successfully" );
+                return Redirect::to('admin/policy/notification')->with('success', "Installment Paid Successfully");
             }
             else {
-                return Redirect::to('admin/policy/notification')->with( 'Error', "Installment Payment Was Unsuccessful" );
+                return Redirect::to('admin/policy/notification')->with('Error', "Installment Payment Was Unsuccessful");
             }
         }
-        else{
-            return Redirect::to('admin/policy/notification')->with( 'error', "All Installment Have Been Paid Already" );
+        else {
+            return Redirect::to('admin/policy/notification')->with('error', "All Installment Have Been Paid Already");
         }
     }
 
-    public function getInstallmentReceipt($policy , $rd_scheme_payment)
+    public function getInstallmentReceipt($policy, $rd_scheme_payment)
     {
         if (Sentry::check()) {
             if ($policy->id && $rd_scheme_payment->id) {
                 $pdf = App::make('dompdf');
                 $pdf->loadView('admin/policy/installmentReceipt', compact('policy', 'rd_scheme_payment'));
+
                 return $pdf->stream();
             }
             else {
