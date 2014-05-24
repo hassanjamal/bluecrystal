@@ -1,27 +1,65 @@
 @extends('site.layouts.master-another')
 @section('mainhead')
 @parent
-{{HTML::style('css/compiled/coming-soon-1.css')}}
+{{HTML::style('css/compiled/scheme.css')}}
 {{HTML::style('css/lib/animate.css')}}
 @stop
 @section('container')
-<div id="coming_soon">
-    <div class="head">
-        <div class="container">
-            <div class="col-sm-6 text">
-                <h4>Our Branches</h4>
-                <hr>
-                <h4>We are launching very soon</h4>
-                <p>
-                    We are currently working on an awesome new site. <span>STAY TUNED!</span>
-                    <br />
-                </p>
-            </div>
+<div id="scheme">
+    <div class="container">
+        <div class="section_header">
+            <h3>Our Branches</h3>
         </div>
-    </div>
-</div>
+        <div class="row">
+            <ul class="nav nav-pills nav-stacked col-md-3">
+                <li class="active"><a href="#tab_a" data-toggle="pill">UTTAR PRADESH</a></li>
+                <li><a href="#tab_b" data-toggle="pill">BIHAR</a></li>
+                <li><a href="#tab_c" data-toggle="pill">DELHI</a></li>
+            </ul>
+            <div class="tab-content col-md-9">
+                <div class="tab-pane active" id="tab_a">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">UTTAR PRADESH</h3>
+                        </div>
+                        <div class="panel-body">
+                           
+                        </div>
+                        <div class="panel-footer">
+                            <ol>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_b">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">BIHAR</h3>
+                        </div>
+                        <div class="panel-body">
 
-@stop
+                        </div>
+                        <div class="panel-footer">
+                            <ol></ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_c">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">DELHI</h3>
+                        </div>
+                        <div class="panel-body">
+                        
+                        </div>
+                        <div class="panel-footer">
+                            <ol></ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 
-
+        @stop
 

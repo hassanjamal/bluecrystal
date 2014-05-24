@@ -19,7 +19,7 @@
                     <td>
                         <h1>BLUE CRYSTAL MARKETING PVT. LTD.</h1>
 
-                        <p><em>A Unit Of Blue Crystl Group</em><br>
+                        <p><em>A Unit Of Crystal Group</em><br>
                             <strong>
                                 Corporate Office :- C-401, City Tower Sector-15 , CBD Belapur , Opp - Nimantran
                                 Rastaurant <br>
@@ -29,6 +29,17 @@
                         </p>
 
                     </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="welcome">
+                <tr>
+                    <th>
+                        WELCOME LETTER
+                    </th>
                 </tr>
             </table>
         </td>
@@ -81,13 +92,11 @@
             <table class="signature">
                 <tr>
                     <td class="pull-right">
-                        <strong>Signature of Authority</strong>
+                        <img src="assets/image/signature.png">
                         <br>
-                        <em>
-                            {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' )'}}
-                        </em>
+                        Prashant Singh
                         <br>
-                        For BLUE CRYSTAL MARKETING PVT. LTD.
+                        <strong>Chief Operating Officier</strong>
                     </td>
                 </tr>
             </table>
