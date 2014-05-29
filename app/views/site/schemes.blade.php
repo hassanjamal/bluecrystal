@@ -99,7 +99,7 @@
                         <div class="panel-footer">
                             <ol>
                                 <li>The minimum denomination will be Rs. 10,000/ and multiple of Rs 1,000/</li>
-                                <li>After maturity only principal amount will be paid.</li>
+                                <li>After maturity only, principal amount will be paid.</li>
                                 <li>Special Case M.I.S is applicable for senior citizen , Women , Govt Employee
                                     , Defence Personnel ,  Physically Handicapped , Govt Pensioner and Windows of Matyrs</li>
                             </ol>

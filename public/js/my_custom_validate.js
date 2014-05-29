@@ -21,7 +21,7 @@ $(document).ready(function() {
                         message: 'The Person name must be more than 6 and less than 30 characters long'
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z_\.]+$/,
+                        regexp: /^[a-zA-Z ]*$/,
                         message: 'The Person name can only consist of alphabetical, dot and underscore'
                     },
                 }

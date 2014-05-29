@@ -27,7 +27,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'super.admin@bluecrystalgroup.in',
-            'password'   => '@@Blue123#@',
+            'password'   => '$$Blue123#$',
             'activated'  => 1,
             'first_name' => 'Super',
             'last_name'  => 'Admin',
@@ -67,7 +67,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'lucknow.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'lucknow',
             'last_name'  => 'Admin',
@@ -96,7 +96,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'allahabad.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'Allahabad',
             'last_name'  => 'Admin',
@@ -124,7 +124,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'varanasi.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'Varanasi',
             'last_name'  => 'Admin',
@@ -152,7 +152,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'newdelhi.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'New Delhi',
             'last_name'  => 'Admin',
@@ -180,7 +180,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'patna.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'Patna',
             'last_name'  => 'Admin',
@@ -217,7 +217,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'arrah.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'Arrah',
             'last_name'  => 'Admin',
@@ -245,7 +245,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'muzaffarpur.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'Muzaffarpur',
             'last_name'  => 'Admin',
@@ -273,7 +273,7 @@ class BranchTableSeeder extends Seeder {
 
         Sentry::getUserProvider()->create(array(
             'email'      => 'biharsharif.admin@bluecrystalgroup.in',
-            'password'   => 'admin123',
+            'password'   => 'Admin1234',
             'activated'  => 1,
             'first_name' => 'Biharsharif',
             'last_name'  => 'Admin',
