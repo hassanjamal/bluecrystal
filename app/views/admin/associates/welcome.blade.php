@@ -47,7 +47,6 @@
     <tr>
         <td class="main_content">
             <address>
-                <!-- <p>Payment Details</p> -->
             </address>
             <table class="meta">
                 <tr>

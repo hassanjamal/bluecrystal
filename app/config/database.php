@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => isset($_SERVER['DB1_HOST']) ? $_SERVER['DB1_HOST'] : 'localhost',
-			'database'  => isset($_SERVER['DB1_NAME']) ? $_SERVER['DB1_NAME'] : 'bluecrystalgroup',
-			'username'  => isset($_SERVER['DB1_USER']) ? $_SERVER['DB1_USER'] : 'root',
-			'password'  => isset($_SERVER['DB1_PASS']) ? $_SERVER['DB1_PASS'] : 'Jamal123',
+            'host'      => getenv('DB_HOST'),
+            'database'  => getenv('DB_DATABSE'),
+			'username'  => getenv('DB_USER'),
+			'password'  => getenv('DB_PASSWORD'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

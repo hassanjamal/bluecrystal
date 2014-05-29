@@ -1,7 +1,7 @@
 {
     "require": {
         "fideloper/proxy": "dev-master",
-            "laravel/framework": "4.1.10",
+            "laravel/framework": "4.1.*",
             "cartalyst/sentry": "2.0.*",
             "j20/php-uuid": "dev-master",
             "bllim/datatables": "*",

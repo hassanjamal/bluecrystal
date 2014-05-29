@@ -3,9 +3,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link rel="stylesheet" href="{{URL::to('css/print/policy_print_receipt.css')}}">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body marginwidth="0" marginheight="0">
-<img src="assets/image/associate_money_receipt_header.jpg" alt="">
+<div class="header_image">
+    <!-- <img src="assets/image/associate_money_receipt_header.jpg" alt=""> -->
+    <table class="header_top">
+        <tr>
+            <th>
+                <img src="assets/image/logo.png">
+            </th>
+            <td>
+                <h1>BLUE CRYSTAL MARKETING PVT. LTD.</h1>
+                <p><em>A Unit Of Crystal Group</em><br>
+                <strong>
+                    Corporate Office :- C-401, City Tower Sector-15 , CBD Belapur , Opp - Nimantran
+                    Rastaurant <br>
+                    Navi Mumbai-400614 , Email : info@bluecrystalgroup.in , Web : bluecrystalgroup.in<br>
+                    Regd. Office :- Birat Complex, Boring Road, Patna -800013
+                </strong>
+                </p>
+
+            </td>
+        </tr>
+    </table>
+</div>
 <div class="main_content">
     <table class="header">
         <tbody>
