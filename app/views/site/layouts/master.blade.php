@@ -43,25 +43,17 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
                     <ul class="nav navbar-nav pull-right">
                         @if (Sentry::check())
-                        <? $user_logged = Sentry::getUser();
+                        <? 
+                        $user_logged = Sentry::getUser();
                         $super_admin_group = Sentry::FindGroupByName('SuperUser'); 
                         $branch_admin_group = Sentry::FindGroupByName('Branch-Admin'); 
                         $branch_user_group = Sentry::FindGroupByName('Branch-User'); 
                         ?>
-                        @if ($user_logged->inGroup($super_admin_group))
                         <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
-                        @endif
-                        @if ($user_logged->inGroup($branch_admin_group))
-                        <li><a href="{{{ URL::to('admin') }}}">Admin Panel</a></li>
-                        @endif
-                        @if ($user_logged->inGroup($branch_user_group))
-                        <li><a href="{{{ URL::to('admin') }}}">User Panel</a></li>
-                        @endif
                         <li><a href="{{{ URL::to('/') }}}">Logged in as {{{ Sentry::getUser()->first_name .' '.Sentry::getUser()->last_name}}}</a></li>
                         <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
                         @else
                         <li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a 	href="{{{ URL::to('user/login') }}}">Login</a></li>
-                        <!-- <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">Register</a></li> -->
                         @endif
                     </ul>                   
                 </div>

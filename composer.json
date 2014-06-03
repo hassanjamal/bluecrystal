@@ -2,7 +2,7 @@
     "require": {
         "fideloper/proxy": "dev-master",
             "laravel/framework": "4.1.*",
-            "cartalyst/sentry": "2.0.*",
+            "cartalyst/sentry": "2.1.*",
             "j20/php-uuid": "dev-master",
             "bllim/datatables": "*",
             "dflydev/markdown": "1.0.*@dev",
@@ -14,7 +14,8 @@
         "require-dev": {
             "way/generators": "2.*",
             "summerstreet/woodling": "0.1.*",
-            "barryvdh/laravel-ide-helper": "dev-master"
+            "barryvdh/laravel-ide-helper": "dev-master",
+            "itsgoingd/clockwork": "1.*"
         },
         "autoload": {
             "classmap": [

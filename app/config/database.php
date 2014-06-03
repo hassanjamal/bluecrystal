@@ -56,8 +56,8 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => isset($_SERVER['DB_HOST']) ? $_SERVER['DB_HOST'] : 'localhost',
 			'database'  => isset($_SERVER['DB_DATABASE']) ? $_SERVER['DB_DATABASE'] : 'bluecrystal',
-			'username'  => isset($_SERVER['DB_USER']) ? $_SERVER['DB_USER'] : 'forge',
-			'password'  => isset($_SERVER['DB_PASSWORD']) ? $_SERVER['DB_PASSWORD'] : 'LwpxQFcF4NtcJ8tlgSMu',
+			'username'  => isset($_SERVER['DB_USER']) ? $_SERVER['DB_USER'] : 'homestead',
+			'password'  => isset($_SERVER['DB_PASSWORD']) ? $_SERVER['DB_PASSWORD'] : 'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -104,7 +104,7 @@ return array(
 		'cluster' => false,
 
 		'default' => array(
-			'host'     => 'tunnel.pagodabox.com',
+			'host'     => '127.0.0.1',
 			'port'     => 6379,
 			'database' => 0,
 		),

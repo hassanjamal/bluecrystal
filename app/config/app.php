@@ -114,7 +114,7 @@ return array(
         'Bllim\Datatables\DatatablesServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider',
-        // 'Clockwork\Support\Laravel\ClockworkServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider',
         'Laracasts\Utilities\UtilitiesServiceProvider'
     ),
 

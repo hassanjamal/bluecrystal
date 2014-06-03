@@ -134,7 +134,7 @@
       <table class="table">
       		<tbody>
       		@foreach ($scheme_payments as $payment)
-      		<?
+      		<?php
       		$counter = 1;
       		?>
       			<tr>
@@ -171,7 +171,7 @@
 
       				</td>
       			</tr>
-      		<?
+      		<?php
       		$counter++ ;
       		?>
       		@endforeach

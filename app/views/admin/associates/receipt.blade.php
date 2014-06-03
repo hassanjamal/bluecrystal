@@ -78,9 +78,9 @@
                     {{ $associate->pincode }}
                     @endif
                 </div>
-            </td>    
+            </td>
         </tr>
-        
+
         <tr>
             <th>Introducer Code :-</th>
             <td>{{ $introducer_no}}</td>
@@ -122,7 +122,7 @@
         </span>
     </div>
     <table class="signature" style="margin-top:4em ; margin-bootom:4em">
-        <tbody>  
+        <tbody>
         <tr>
             <th></th>
             <td>
@@ -132,7 +132,7 @@
                     {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' )'}}
                 </em>
                 <br>
-                For BLUE CRYSTAL MARKETING PVT. LTD. 
+                For BLUE CRYSTAL MARKETING PVT. LTD.
             </td>
         </tr>
         </tbody>

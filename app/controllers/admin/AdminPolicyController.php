@@ -99,10 +99,11 @@ class AdminPolicyController extends AdminController
         if (Sentry::check()) {
             $branch_id = Sentry::getUser()->branch_id;
             if (Sentry::getUser()->isSuperUser() || Sentry::getUser()->hasAccess('policy-create')) {
-                $title = "Create Policy";
-                $special_case = Special_case::lists('special_case' , 'special_case');
-                $mode  = 'create';
-                return View::make('admin/policy/create', compact('title', 'mode', 'branch_id' , 'special_case'));
+                $title        = "Create Policy";
+                $special_case = Special_case::lists('special_case', 'special_case');
+                $mode         = 'create';
+
+                return View::make('admin/policy/create', compact('title', 'mode', 'branch_id', 'special_case'));
             }
             else {
                 return Redirect::to('admin/policy')
@@ -121,87 +122,87 @@ class AdminPolicyController extends AdminController
      */
     public function store()
     {
-         if (Sentry::check()) {
-             $this->policy->branch_id        = Input::get('branch_id');
-             $this->policy->associate_no     = Input::get('associate_no');
-             $this->policy->special_case     = strtoupper(Input::get('special_case'));
-             $this->policy->associate_id     = Input::get('to_associate_id');
-             $this->policy->scheme_type      = strtoupper(Input::get('scheme_type'));
-             $this->policy->scheme_name      = strtoupper(Input::get('scheme_name'));
-             $this->policy->scheme_id        = Input::get('to_scheme_id');
-             $this->policy->name             = strtoupper(Input::get('name'));
-             $this->policy->age              = strtoupper(Input::get('age'));
-             $this->policy->guardian_type    = strtoupper(Input::get('guardian_type'));
-             $this->policy->guardian_name    = strtoupper(Input::get('guardian_name'));
-             $this->policy->pan_no           = strtoupper(Input::get('pan_no'));
-             $this->policy->sex              = strtoupper(Input::get('sex'));
-             $this->policy->date_of_birth    = date("Y-m-d", strtotime(Input::get('date_of_birth')));
-             $this->policy->mobile           = Input::get('mobile');
-             $this->policy->address          = strtoupper(Input::get('address'));
-             $this->policy->city             = strtoupper(Input::get('city'));
-             $this->policy->state            = strtoupper(Input::get('state'));
-             $this->policy->pincode          = Input::get('pincode');
-             $this->policy->nominee_name     = strtoupper(Input::get('nominee_name'));
-             $this->policy->nominee_add      = strtoupper(Input::get('nominee_add'));
-             $this->policy->nominee_relation = strtoupper(Input::get('nominee_relation'));
-             $this->policy->nominee_age      = Input::get('nominee_age');
-             //save if valid
-             $this->policy->save();
+        if (Sentry::check()) {
+            $this->policy->branch_id        = Input::get('branch_id');
+            $this->policy->associate_no     = Input::get('associate_no');
+            $this->policy->special_case     = strtoupper(Input::get('special_case'));
+            $this->policy->associate_id     = Input::get('to_associate_id');
+            $this->policy->scheme_type      = strtoupper(Input::get('scheme_type'));
+            $this->policy->scheme_name      = strtoupper(Input::get('scheme_name'));
+            $this->policy->scheme_id        = Input::get('to_scheme_id');
+            $this->policy->name             = strtoupper(Input::get('name'));
+            $this->policy->age              = strtoupper(Input::get('age'));
+            $this->policy->guardian_type    = strtoupper(Input::get('guardian_type'));
+            $this->policy->guardian_name    = strtoupper(Input::get('guardian_name'));
+            $this->policy->pan_no           = strtoupper(Input::get('pan_no'));
+            $this->policy->sex              = strtoupper(Input::get('sex'));
+            $this->policy->date_of_birth    = date("Y-m-d", strtotime(Input::get('date_of_birth')));
+            $this->policy->mobile           = Input::get('mobile');
+            $this->policy->address          = strtoupper(Input::get('address'));
+            $this->policy->city             = strtoupper(Input::get('city'));
+            $this->policy->state            = strtoupper(Input::get('state'));
+            $this->policy->pincode          = Input::get('pincode');
+            $this->policy->nominee_name     = strtoupper(Input::get('nominee_name'));
+            $this->policy->nominee_add      = strtoupper(Input::get('nominee_add'));
+            $this->policy->nominee_relation = strtoupper(Input::get('nominee_relation'));
+            $this->policy->nominee_age      = Input::get('nominee_age');
+            //save if valid
+            $this->policy->save();
 
-             if ($this->policy->id) {
-                 $this->policy->policy_no = self::generate_policy_no(
-                                                $this->policy->id,
-                                                $this->policy->branch_id
-                 );
-                 // updating policy number for newly created policy
-                 $this->policy->save();
+            if ($this->policy->id) {
+                $this->policy->policy_no = self::generate_policy_no(
+                                               $this->policy->id,
+                                               $this->policy->branch_id
+                );
+                // updating policy number for newly created policy
+                $this->policy->save();
 
-                 if ($this->policy->scheme_type == 'FD') {
-                     $result = $this->update_fd_scheme_payment(
-                                    $this->policy->id,
-                                    (object)Input::all(),
-                                    $this->policy->associate_id,
-                                    $this->policy->scheme_type
-                     );
-                     if ($result) {
-                         return Redirect::to('admin/policy/notification')->with(
-                                        'success', "Policy Created Successfully"
-                         );
-                     }
-                     else {
-                         $error = " Commision for Scheme Created has not been updated succesfully";
+                if ($this->policy->scheme_type == 'FD') {
+                    $result = $this->update_fd_scheme_payment(
+                                   $this->policy->id,
+                                   (object)Input::all(),
+                                   $this->policy->associate_id,
+                                   $this->policy->scheme_type
+                    );
+                    if ($result) {
+                        return Redirect::to('admin/policy/notification')->with(
+                                       'success', "Policy Created Successfully"
+                        );
+                    }
+                    else {
+                        $error = " Commision for Scheme Created has not been updated succesfully";
 
-                         return Redirect::to('admin/policy/create')->with('error', $error);
-                     }
-                 }
-                 elseif ($this->policy->scheme_type == 'RD') {
-                     $result = $this->update_rd_scheme_payment(
-                                    $this->policy->id,
-                                    (object)Input::all(),
-                                    $this->policy->associate_id,
-                                    $this->policy->scheme_type,
-                                    1
-                     );
-                     if ($result) {
-                         return Redirect::to('admin/policy/notification')->with(
-                                        'success', "Policy Created Successfully"
-                         );
-                     }
-                     else {
-                         $error = " Commision for Scheme Created has not been updated succesfully";
+                        return Redirect::to('admin/policy/create')->with('error', $error);
+                    }
+                }
+                elseif ($this->policy->scheme_type == 'RD') {
+                    $result = $this->update_rd_scheme_payment(
+                                   $this->policy->id,
+                                   (object)Input::all(),
+                                   $this->policy->associate_id,
+                                   $this->policy->scheme_type,
+                                   1
+                    );
+                    if ($result) {
+                        return Redirect::to('admin/policy/notification')->with(
+                                       'success', "Policy Created Successfully"
+                        );
+                    }
+                    else {
+                        $error = " Commision for Scheme Created has not been updated succesfully";
 
-                         return Redirect::to('admin/policy/create')->with('error', $error);
-                     }
-                 }
-             }
-             else {
-                 // Get validation errors (see Ardent package)
-                 $error = $this->policy->errors()->all();
+                        return Redirect::to('admin/policy/create')->with('error', $error);
+                    }
+                }
+            }
+            else {
+                // Get validation errors (see Ardent package)
+                $error = $this->policy->errors()->all();
 
-                 return Redirect::to('admin/policy/create')
-                                ->with('error', $error);
-             }
-         }
+                return Redirect::to('admin/policy/create')
+                               ->with('error', $error);
+            }
+        }
     }
 
 
@@ -807,6 +808,9 @@ class AdminPolicyController extends AdminController
     ) {
         $rank_id   = Associate::where('id', $associate_id)->pluck('rank_id');
         $scheme_id = $input->to_scheme_id;
+        $rank_gap  = Rank::where('id', '<', $rank_id)
+                         ->where('rank_no', '!=', '99999')
+                         ->get();
 
         if ($scheme_type == 'FD') {
             /**
@@ -815,7 +819,12 @@ class AdminPolicyController extends AdminController
              * and finally commision rate will be fetched from there
              */
             $year_name  = Fdscheme::where('id', $scheme_id)->pluck('year_name');
-            $commission = Fd_self_commision::where('rank_id', $rank_id)->pluck($year_name);
+            $total_commission = 0;
+            foreach ($rank_gap as $temp_rank_gap) {
+                $commission            = Fd_self_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                $commission_calculated = ($commission * $deposit_amount) / 100;
+                $total_commission      = $total_commission + $commission_calculated;
+            }
 
             // generate self comission for generated policy
             $this->policy_self_commision->payment_id     = $payment_id;
@@ -824,7 +833,7 @@ class AdminPolicyController extends AdminController
             $this->policy_self_commision->rank_id        = $rank_id;
             $this->policy_self_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
             $this->policy_self_commision->deposit_amount = $deposit_amount;
-            $this->policy_self_commision->self_commision = ($commission * $deposit_amount) / 100;
+            $this->policy_self_commision->self_commision = $total_commission;
 
             // saving self commission and returning value according to action
             if ($this->policy_self_commision->save()) {
@@ -841,16 +850,21 @@ class AdminPolicyController extends AdminController
              * and finally commision rate will be fetched from there
              */
             $year_name  = Rdscheme::where('id', $scheme_id)->pluck('year_name');
-            $commission = Rd_self_commision::where('rank_id', $rank_id)->pluck($year_name);
+            $total_commission = 0;
+            foreach ($rank_gap as $temp_rank_gap) {
+                $commission            = Rd_self_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                $commission_calculated = ($commission * $deposit_amount) / 100;
+                $total_commission      = $total_commission + $commission_calculated;
+            }
 
-            // generate self comission for generated policy
+            // save self comission for generated policy
             $this->policy_self_commision->payment_id     = $payment_id;
             $this->policy_self_commision->policy_id      = $policy_id;
             $this->policy_self_commision->associate_id   = $associate_id;
             $this->policy_self_commision->rank_id        = $rank_id;
             $this->policy_self_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
             $this->policy_self_commision->deposit_amount = $deposit_amount;
-            $this->policy_self_commision->self_commision = ($commission * $deposit_amount) / 100;
+            $this->policy_self_commision->self_commision = $total_commission;
 
             // saving self commission and returning value according to action
             if ($this->policy_self_commision->save()) {
@@ -886,6 +900,10 @@ class AdminPolicyController extends AdminController
 
             $associate_next = Associate::where('id', $associate->introducer_id)->first();
             $rank_id        = $associate_next->rank_id;
+            $rank_gap       = Rank::where('id', '>', $associate->rank_id)
+                                  ->where('id', '<=', $associate_next->rank_id)
+                                  ->get();
+
 
             if ($scheme_type == 'FD') {
                 /**
@@ -893,8 +911,14 @@ class AdminPolicyController extends AdminController
                  * be the column name in Fd_self_commision table
                  * and finally commision rate will be fetched from there
                  */
-                $year_name  = Fdscheme::where('id', $scheme_id)->pluck('year_name');
-                $commission = Fd_team_commision::where('rank_id', $rank_id)->pluck($year_name);
+                $year_name        = Fdscheme::where('id', $scheme_id)->pluck('year_name');
+                $total_commission = 0;
+                foreach ($rank_gap as $temp_rank_gap) {
+                    $commission            = Fd_team_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                    $commission_calculated = ($commission * $deposit_amount) / 100;
+                    $total_commission      = $total_commission + $commission_calculated;
+                }
+
                 /**
                  * now commision has been fetched for each associate in the tree
                  * populate database for each associate
@@ -909,7 +933,7 @@ class AdminPolicyController extends AdminController
                 $policy_team_commision->rank_id        = $rank_id;
                 $policy_team_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
                 $policy_team_commision->deposit_amount = $deposit_amount;
-                $policy_team_commision->team_commision = ($commission * $deposit_amount) / 100;
+                $policy_team_commision->team_commision = $total_commission;
 
                 $policy_team_commision->save();
 
@@ -920,8 +944,13 @@ class AdminPolicyController extends AdminController
                  * be the column name in Rd_self_commision table
                  * and finally commision rate will be fetched from there
                  */
-                $year_name  = Rdscheme::where('id', $scheme_id)->pluck('year_name');
-                $commission = Rd_team_commision::where('rank_id', $rank_id)->pluck($year_name);
+                $year_name        = Rdscheme::where('id', $scheme_id)->pluck('year_name');
+                $total_commission = 0;
+                foreach ($rank_gap as $temp_rank_gap) {
+                    $commission            = Rd_team_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                    $commission_calculated = ($commission * $deposit_amount) / 100;
+                    $total_commission      = $total_commission + $commission_calculated;
+                }
                 /**
                  * now commision has been fetched for each associate in the tree
                  * populate database for each associate
@@ -936,7 +965,7 @@ class AdminPolicyController extends AdminController
                 $policy_team_commision->rank_id        = $rank_id;
                 $policy_team_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
                 $policy_team_commision->deposit_amount = $deposit_amount;
-                $policy_team_commision->team_commision = ($commission * $deposit_amount) / 100;
+                $policy_team_commision->team_commision = $total_commission;
 
                 $policy_team_commision->save();
 
