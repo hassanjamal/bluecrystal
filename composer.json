@@ -14,8 +14,7 @@
         "require-dev": {
             "way/generators": "2.*",
             "summerstreet/woodling": "0.1.*",
-            "barryvdh/laravel-ide-helper": "dev-master",
-            "itsgoingd/clockwork": "1.*"
+            "barryvdh/laravel-ide-helper": "dev-master"
         },
         "autoload": {
             "classmap": [
