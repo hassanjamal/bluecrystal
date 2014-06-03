@@ -43,7 +43,7 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
                     <ul class="nav navbar-nav pull-right">
                         @if (Sentry::check())
-                        <? 
+                        <?php
                         $user_logged = Sentry::getUser();
                         $super_admin_group = Sentry::FindGroupByName('SuperUser'); 
                         $branch_admin_group = Sentry::FindGroupByName('Branch-Admin'); 

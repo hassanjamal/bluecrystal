@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fc03001-4661-4238-a2cf-34e513c95592" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/site/layouts/master.blade.php" afterPath="$PROJECT_DIR$/app/views/site/layouts/master.blade.php" />
     </list>
     <ignored path="blue-crystal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,10 +70,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="database.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="48" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.58648646" vertical-offset="1395" max-vertical-offset="3720">
+            <state line="59" column="48" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="3720">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/site/layouts/master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="28" selection-start="2347" selection-end="2347" vertical-scroll-proportion="1.0" vertical-offset="668" max-vertical-offset="3720">
               <folding />
             </state>
           </provider>
@@ -97,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/css/print/policy_print_receipt.css" />
         <option value="$PROJECT_DIR$/Boxfile" />
         <option value="$PROJECT_DIR$/app/models/User.php" />
         <option value="$PROJECT_DIR$/public/css/print/print_welcome.css" />
@@ -113,6 +121,7 @@
         <option value="$PROJECT_DIR$/app/config/app.php" />
         <option value="$PROJECT_DIR$/app/controllers/BaseController.php" />
         <option value="$PROJECT_DIR$/app/config/database.php" />
+        <option value="$PROJECT_DIR$/app/views/site/layouts/master.blade.php" />
       </list>
     </option>
   </component>
@@ -415,13 +424,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/admin/associates/tree.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="24" selection-start="183" selection-end="183" vertical-scroll-proportion="0.29324323" vertical-offset="0" max-vertical-offset="899">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/policy/commission.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="20" selection-start="4622" selection-end="4622" vertical-scroll-proportion="3.895946" vertical-offset="0" max-vertical-offset="8153">
@@ -540,7 +542,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="48" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.58648646" vertical-offset="1395" max-vertical-offset="3720">
+        <state line="59" column="48" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="3720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/site/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="28" selection-start="2347" selection-end="2347" vertical-scroll-proportion="1.0" vertical-offset="668" max-vertical-offset="3720">
           <folding />
         </state>
       </provider>
