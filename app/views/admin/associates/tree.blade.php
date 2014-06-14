@@ -10,11 +10,11 @@
 	</thead>
 	<tbody>
 		@foreach ($associate_list as $associate)
-        {{{ $rank_name = Rank::where('id', $associate->rank_id)->pluck('rankname') }}}
+        <?php $rank_name = Rank::where('id', $associate->rank_id)->pluck('rankname') ?>
 		<tr>
-			<td>{{$associate->name}}</td>
-			<td>{{$associate->associate_no}}</td>
-			<td>{{$rank_name}}</td>
+			<td>{{ $associate->name }}</td>
+			<td>{{ $associate->associate_no }}</td>
+			<td>{{ $rank_name }}</td>
 		</tr>
 		@endforeach
 	</tbody>
