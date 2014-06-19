@@ -173,8 +173,34 @@ class AdminUsersController extends AdminController{
 
     public function postEdit($user)
     {
-        dd(Input::all());
+        try{
+            $user = Sentry::findUserById($user->id);
+
+            $user->first_name = Input::get('first_name');
+            $user->last_name = Input::get('last_name');
+            $user->branch_id = Input::get('branch_id');
+
+            if ($user->save()) {
+                //update user group
+                $user_updated = Sentry::getUserProvider()->findByLogin(Input::get('email'));
+                $user_group   = Sentry::getGroupProvider()->findByName(Input::get('group_name'));
+                $user_updated->addGroup($user_group);
+                //redirect to notification 
+                return Redirect::to('admin/users/notification')
+                    ->with( 'success', "User updated Successfully ");
+            }
+//             else{
+//                 $error = "something went wrong while storing user data";
+//                 return Redirect::to('admin/users/create')->with('error', $error);
+//
+//             }
+        }
+        catch(Cartalyst\Sentry\Users\UserNotFoundException $e){
+                return Redirect::to('admin/users/notification')
+                    ->with( 'error', "User not found");
+        }
     }
+            
 	/**
 	 * Update the specified resource in storage.
 	 *
