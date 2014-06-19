@@ -32,14 +32,14 @@ class AdminUsersController extends AdminController{
 		ChangePasswordForm $changePasswordForm,
 		SuspendUserForm $suspendUserForm)
 	{
-		$this->user = $user;
-		$this->group = $group;
-		$this->registerForm = $registerForm;
-		$this->userForm = $userForm;
+		$this->user                 = $user;
+		$this->group                = $group;
+		$this->registerForm         = $registerForm;
+		$this->userForm             = $userForm;
 		$this->resendActivationForm = $resendActivationForm;
-		$this->forgotPasswordForm = $forgotPasswordForm;
-		$this->changePasswordForm = $changePasswordForm;
-		$this->suspendUserForm = $suspendUserForm;
+		$this->forgotPasswordForm   = $forgotPasswordForm;
+		$this->changePasswordForm   = $changePasswordForm;
+		$this->suspendUserForm      = $suspendUserForm;
 
 		//Check CSRF token on POST
 		$this->beforeFilter('csrf', array('on' => 'post'));
@@ -60,13 +60,13 @@ class AdminUsersController extends AdminController{
 	{
         if (Sentry::check())
         {   
-        $title = "User Management";
-        // calling the view
-        return View::make('admin.users.index', compact('users', 'title'));
+            $title = "User Management";
+            // calling the view
+            return View::make('admin.users.index', compact('users', 'title'));
         }
         else
         {
-         return "you are not logged in !! "  ;
+            return "you are not logged in !! "  ;
         }
 	}
 
@@ -83,18 +83,12 @@ class AdminUsersController extends AdminController{
             $branch_id = Sentry::getUser()->branch_id;
             if($current_user->hasAccess('user-create'))
             {
-    		$title = "Create New User";
-    		$mode = 'create';
-    		$groups = $this->group->all();
-            if($branch_id>0)
-                {
-                $branch_name = Branch::find($branch_id);
-                }
-                else
-                {
-                    $branch_name = "All Branch" ;
-                }
-    		return View::make('admin.users.create_edit', compact('title', 'mode', 'groups', 'branch_id', 'branch_name'));
+                $title = "Create New User";
+                $mode = 'create';
+                $branch = Branch::lists('name' ,'id');
+                $groups = Groups::lists('name', 'name');
+                $branch_name = Branch::where('id','$branch_id')->pluck('name');
+                return View::make('admin.users.create_edit', compact('title', 'mode', 'groups','branch', 'branch_id', 'branch_name'));
             }
             else
             {
@@ -109,33 +103,34 @@ class AdminUsersController extends AdminController{
 
 	public function postCreate()
 	{
-		// grabing all input in array format
-		$input = Input::all();
-		// grabbing group assigned to current user
-		$group = Input::get('groups');
-		// pop out last element i.e. group from array
-		array_pop($input);
-		// Form Processing
-        $result = $this->registerForm->save(Input::all());
-        if( $result['success'] )
-        {
-            // Event::fire('user.signup', array(
-            // 	'email' => $result['mailData']['email'], 
-            // 	'userId' => $result['mailData']['userId'], 
-            //     'activationCode' => $result['mailData']['activationCode']
-            // ));
+        if(Sentry::getUser()->isSuperUser()){
+            Sentry::getUserProvider()->create(array(
+                'email'      => Input::get('email'),
+                'password'   => Input::get('password'),            
+                'activated'  => 1,
+                'first_name' => Input::get('first_name'),            
+                'last_name'  => Input::get('last_name'),            
+                'branch_id'  => Input::get('branch_id'),            
+            ));
 
-            // Success!
-            Session::flash('success', $result['message']);
-            return Redirect::action('AdminUsersController@getCreate');
+            $user_created = Sentry::getUserProvider()->findByLogin(Input::get('email'));
+            $user_group   = Sentry::getGroupProvider()->findByName(Input::get('group_name'));
+            $user_created->addGroup($user_group);
+            if ($user_created->addGroup($user_group)) {
+                return Redirect::to('admin/users/notification')
+                    ->with( 'success', "User Created Successfully ");
+            }
+            else{
+                $error = "something went wrong while storing user data";
+                return Redirect::to('admin/users/create')->with('error', $error);
 
-        } else {
-            Session::flash('error', $result['message']);
-            return Redirect::action('AdminUsersController@getCreate')
-                ->withInput()
-                ->withErrors( $this->registerForm->errors() );
+            }
         }
-	}
+        else{
+            $error = "You dont have enough permissions";
+            return Redirect::to('admin/users/create')->with('error', $error);
+        }
+    }
 
 	
 
@@ -147,90 +142,39 @@ class AdminUsersController extends AdminController{
 	 */
 	public function show($id)
 	{
-        $user = $this->user->byId($id);
-
-        if($user == null || !is_numeric($id))
-        {
-            // @codeCoverageIgnoreStart
-            return \App::abort(404);
-            // @codeCoverageIgnoreEnd
-        }
-
-        return View::make('users.show')->with('user', $user);
+        //
 	}
     /**
      * 
      */
     public function getEdit($user)
     {
-        $user = $this->user->byId($user->id);
-        if($user == null || !is_numeric($user->id))
+        if(Sentry::check())
         {
-            // @codeCoverageIgnoreStart
-            return \App::abort(404);
-            // @codeCoverageIgnoreEnd
+            if(Sentry::getUser()->hasAccess('user-create'))
+            {
+                $title = "Create New User";
+                $mode = 'edit';
+                $branch = Branch::lists('name' ,'id');
+                $groups = Groups::lists('name', 'name');
+                $branch_name = Branch::where('id','$branch_id')->pluck('name');
+                return View::make('admin.users.create_edit', compact('title','user', 'mode', 'groups','branch'));
+            }
+            else
+            {
+                return " you dont have enough permissions";
+            }
         }
-        $title = "Edit User";
-        $mode = "edit";
-        $groups = $this->group->all();
-        return View::make('admin.users.edit', compact('title', 'mode', 'groups', 'user'));
+        else
+        {
+            return \App::abort(404);
+        }
     }
 
     public function postEdit($user)
     {
-        if(!is_numeric($user->id))
-        {
-            // @codeCoverageIgnoreStart
-            return \App::abort(404);
-            // @codeCoverageIgnoreEnd
-        }
-        $input = array('id' => $user->id);
-        array_push($input, Input::all());
-
-        // Form Processing
-        $result = $this->userForm->update( $input );
-        // var_dump($result);
-
-        if( $result['success'] )
-        {
-            // Success!
-            Session::flash('success', $result['message']);
-            return Redirect::action('AdminUserController@getEdit');
-
-        } else {
-            Session::flash('error', $result['message']);
-            return Redirect::action('AdminUserController@getEdit')
-                ->withInput()
-                ->withErrors( $this->userForm->errors() );
-        }
+        dd(Input::all());
     }
-	// /**
-	//  * Show the form for editing the specified resource.
-	//  *
-	//  * @param  int  $id
-	//  * @return Response
-	//  */
-	// public function edit($id)
-	// {
- //        $user = $this->user->byId($id);
-
- //        if($user == null || !is_numeric($id))
- //        {
- //            // @codeCoverageIgnoreStart
- //            return \App::abort(404);
- //            // @codeCoverageIgnoreEnd
- //        }
-
- //        $currentGroups = $user->getGroups()->toArray();
- //        $userGroups = array();
- //        foreach ($currentGroups as $group) {
- //        	array_push($userGroups, $group['name']);
- //        }
- //        $allGroups = $this->group->all();
-
- //        return View::make('users.edit')->with('user', $user)->with('userGroups', $userGroups)->with('allGroups', $allGroups);
-	// }
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -584,45 +528,6 @@ class AdminUsersController extends AdminController{
 	}
 
     /**
-     * Show the login form
-     */
-    public function getLogin()
-    {
-        // if user is logged in then index page else login page
-        if( ! Sentry::check())
-        {
-            return View::make('site/user/login');
-        }
-        else
-        {
-            return Redirect::to('/');
-        }
-    }
-    /**
-     * 
-     */
-    public function postLogin()
-    {
-        $credentials = array(
-        'email' => Input::get('email'),
-        'password' => Input::get('password')
-        );
-        try
-        {
-            $user = Sentry::authenticate($credentials, false);
-            if ($user)
-            {
-                return View::make('site/blog/index');
-            }
-        }
-        catch(\Exception $e)
-        {
-            return Redirect::to('user/login')
-                 ->withInput(Input::except('password'))
-                 ->withErrors(array('login' => $e->getMessage()));
-        }
-    }
-    /**
      * 
      */
     public function getLogout()
@@ -659,13 +564,11 @@ class AdminUsersController extends AdminController{
                         @endif
 
                       ')
-        // ->add_column('actions', 
-        //              '
-        //              <a href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="iframe btn btn-xs btn-default">edit</a>
-                                
-        //             // <a href="{{{ URL::to(\'admin/users/\' . $id . \'/delete\' ) }}}" class="iframe btn btn-xs btn-danger">delete</a>
-                                   
-        //             ')
+        ->add_column('actions', 
+                     '
+                     <a href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="iframe btn btn-xs btn-warning">edit</a>
+
+                    ')
 
         ->remove_column('id')
         ->remove_column('last_name')
@@ -674,5 +577,13 @@ class AdminUsersController extends AdminController{
         } // end if sentry check condition
 
 	}
+
+    public function getNotification()
+    {
+        $title = "";
+
+        return View::make('admin/notification/index', compact('title'));
+        // return " hello";
+    }
 
 }

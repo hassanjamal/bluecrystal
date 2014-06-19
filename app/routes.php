@@ -143,6 +143,7 @@ Route::group(array('prefix' => 'admin'), function()
     Route::controller('rank', 'AdminRankController');
 
     # User Management
+    Route::get('users/notification' , 'AdminUsersController@getNotification');
     Route::get('users/{user}/show', 'AdminUsersController@getShow');
     Route::get('users/{user}/edit', 'AdminUsersController@getEdit');
     Route::post('users/{user}/edit', 'AdminUsersController@postEdit');

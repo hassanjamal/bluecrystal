@@ -11,9 +11,9 @@
 		<h3>
 			{{{ $title }}}
 
-			<!-- <div class="pull-right">
+			<div class="pull-right">
 				<a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
-			</div> -->
+			</div> 
 		</h3>
 	</div>
 
@@ -24,7 +24,7 @@
 				<th class="col-md-2">Email</th>
 				<th class="col-md-2">Activated</th>
 				<th class="col-md-2">Created At</th>
-				<!-- <th class="col-md-2">Action</th> -->
+				<th class="col-md-2">Action</th>
 			</tr>
 		</thead>
 		<tbody>

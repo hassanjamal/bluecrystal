@@ -72,7 +72,6 @@ class BranchTableSeeder extends Seeder {
             'first_name' => 'lucknow',
             'last_name'  => 'Admin',
             'branch_id'  => $id
-
         ));
 
         /**
