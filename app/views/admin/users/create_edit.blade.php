@@ -58,7 +58,7 @@
 				<div class="form-group {{{ $errors->has('email') ? 'error' : '' }}}">
 					<label class="col-md-2 control-label" for="email">Email</label>
 					<div class="col-md-6">
-                        @if('mode'==='create')
+                        @if($mode==='create')
 						<input class="form-control" type="text" name="email" id="email" value="{{{ Input::old('email', isset($user) ? $user->email : null) }}}" />
                         @else
 						<input readonly class="form-control" type="text" name="email" id="email" value="{{{ Input::old('email', isset($user) ? $user->email : null) }}}" />
@@ -68,7 +68,7 @@
 				</div>
 				<!-- ./ email -->
 
-                @if('mode'==='create')
+                @if($mode==='create')
 				<!-- Password -->
 				<div class="form-group {{{ $errors->has('password') ? 'error' : '' }}}">
 					<label class="col-md-2 control-label" for="password">Password</label>
