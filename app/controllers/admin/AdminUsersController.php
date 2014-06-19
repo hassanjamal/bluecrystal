@@ -593,7 +593,7 @@ class AdminUsersController extends AdminController{
         ->add_column('actions', 
                      '
                      <a href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="iframe btn btn-xs btn-warning">edit</a>
-
+                     <a href="{{{ URL::to(\'admin/users/\' . $id . \'/changepassword\' ) }}}" class="iframe btn btn-xs btn-info">Change Password</a>
                     ')
 
         ->remove_column('id')
@@ -611,5 +611,31 @@ class AdminUsersController extends AdminController{
         return View::make('admin/notification/index', compact('title'));
         // return " hello";
     }
+
+
+    public function getChangepassword($user){
+        if(Sentry::check()){
+            $title = "User Management :: Change Password";
+            return View::make('admin.users.changepassword', compact('user', 'title'));
+        }
+    }
+    /**
+     * [postChangepassword description]
+     * @param  [type] $user [description]
+     * @return [type]       [description]
+     */
+    public function postChangepassword($user){
+        if(Sentry::check()){
+            $update_user = Sentry::findUserById($user->id);
+            $update_user->password = Input::get('password');
+            if($update_user->save()){
+                return Redirect::to('admin/users/notification')->with( 'success', "Password Updated Successfully" );
+            }
+            else{
+                return Redirect::to('admin/users/notification')->with( 'error', "Something Went Wrong" );
+            }
+        }
+    }
+
 
 }
