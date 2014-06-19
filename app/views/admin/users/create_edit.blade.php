@@ -58,7 +58,11 @@
 				<div class="form-group {{{ $errors->has('email') ? 'error' : '' }}}">
 					<label class="col-md-2 control-label" for="email">Email</label>
 					<div class="col-md-6">
+                        @if('mode'==='create')
 						<input class="form-control" type="text" name="email" id="email" value="{{{ Input::old('email', isset($user) ? $user->email : null) }}}" />
+                        @else
+						<input readonly class="form-control" type="text" name="email" id="email" value="{{{ Input::old('email', isset($user) ? $user->email : null) }}}" />
+                        @endif
 						{{{ $errors->first('email', '<span class="help-inline">:message</span>') }}}
 					</div>
 				</div>
