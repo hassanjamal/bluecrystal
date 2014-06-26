@@ -354,6 +354,28 @@ class AdminPolicyController extends AdminController
         }
     }
 
+
+
+    public function getBond($policy)
+    {
+        if (Sentry::check()) {
+            if ($policy->id) {
+                $title = $policy->policy_no . "_receipt.pdf";
+                $pdf   = App::make('dompdf');
+                $pdf->loadView('admin/policy/bond', compact('policy'));
+                // return View::make('admin/policy/bond', compact('policy', 'title'));
+
+                return $pdf->stream();
+            }
+            else {
+                return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
+            }
+        }
+        else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+    }
+
     /**
      * [getWelcome description]
      *
@@ -434,6 +456,10 @@ class AdminPolicyController extends AdminController
                                  class="iframe btn btn-xs btn-default">Receipt</a>
                                  <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/welcome\') }}}"
                                  class="iframe btn btn-xs btn-default">Welcome</a>
+                                 @if($scheme_type ==="FD")
+                                 <a href="{{{ URL::to(\'admin/policy/\'. $id . \'/bond\') }}}"
+                                 class="iframe btn btn-xs btn-info">Bond</a>
+                                 @endif
                                  '
                     )
                                  ->add_column(

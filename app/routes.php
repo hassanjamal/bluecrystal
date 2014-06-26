@@ -112,6 +112,7 @@ Route::group(array('prefix' => 'admin'), function()
     #Policy
     Route::get('policy/{policy}/commision', 'AdminPolicyController@getCommision');
     Route::get('policy/{policy}/detail', 'AdminPolicyController@getDetail');
+    Route::get('policy/{policy}/bond', 'AdminPolicyController@getBond');
     Route::get('policy/{policy}/receipt', 'AdminPolicyController@getReceipt');
     Route::get('policy/{policy}/welcome', 'AdminPolicyController@getWelcome');
     Route::post('policy/create', 'AdminPolicyController@store');
