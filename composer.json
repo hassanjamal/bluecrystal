@@ -5,7 +5,6 @@
             "j20/php-uuid": "dev-master",
             "bllim/datatables": "*",
             "dflydev/markdown": "1.0.*@dev",
-            "imagine/imagine": "0.6.*@dev",
             "laravelbook/ardent": "dev-master",
             "barryvdh/laravel-dompdf": "*"
     },

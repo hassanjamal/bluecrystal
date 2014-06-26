@@ -80,7 +80,6 @@ return array(
 
     'providers' => array(
 
-        'Fideloper\Proxy\ProxyServiceProvider',
         'Illuminate\Foundation\Providers\ArtisanServiceProvider',
         'Illuminate\Auth\AuthServiceProvider',
         'Illuminate\Cache\CacheServiceProvider',
@@ -115,7 +114,6 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider',
         // 'Clockwork\Support\Laravel\ClockworkServiceProvider',
-        'Laracasts\Utilities\UtilitiesServiceProvider'
     ),
 
     /*
