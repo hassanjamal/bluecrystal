@@ -7,7 +7,7 @@
             "dflydev/markdown": "1.0.*@dev",
             "imagine/imagine": "0.6.*@dev",
             "laravelbook/ardent": "dev-master",
-            "barryvdh/laravel-dompdf": "*",
+            "barryvdh/laravel-dompdf": "*"
     },
         "require-dev": {
             "way/generators": "2.*",
