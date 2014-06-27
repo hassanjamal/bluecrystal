@@ -111,9 +111,8 @@ return array(
         'Authority\Service\Form\FormServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Bllim\Datatables\DatatablesServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider',
-        // 'Clockwork\Support\Laravel\ClockworkServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider',
     ),
 
     /*

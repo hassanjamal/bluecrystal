@@ -533,7 +533,7 @@ class AdminAssociatesController extends AdminController
     {
         $get_rank_id = Input::get('rank_id');
         $get_rank_no = Rank::where('id', $get_rank_id)->pluck('rank_no');
-        $ranklist    = Rank::select('id', 'rankname')->where('rank_no', '<=', $get_rank_no)->where('company', 0)->get();
+        $ranklist    = Rank::select('id', 'rankname')->where('rank_no', '<', $get_rank_no)->where('company', 0)->get();
 
         return $ranklist;
     }

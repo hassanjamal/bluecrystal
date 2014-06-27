@@ -40,11 +40,11 @@
                         ?>
                         <div class="row">
                             <div class="col-md-4"><span style="color:grey">{{"DEPOSIT AMOUNT:-"}}</span></div>
-                            <div class="col-md-8">{{ number_format($payment_details->deposit_amount)}}</div>
+                            <div class="col-md-8">{{ ($payment_details->deposit_amount)}}</div>
                         </div>
                         <div class="row">
                             <div class="col-md-4"><span style="color:grey">{{"MATURE AMOUNT:-"}}</span></div>
-                            <div class="col-md-8">{{ number_format($payment_details->mature_amount)}}</div>
+                            <div class="col-md-8">{{ ($payment_details->mature_amount)}}</div>
                         </div>
                         @endif
                         @if ($policy->scheme_type == 'RD')
@@ -53,11 +53,11 @@
                         ?>
                         <div class="row">
                             <div class="col-md-4"><span style="color:grey">{{"DEPOSIT AMOUNT:-"}}</span></div>
-                            <div class="col-md-8">{{ number_format($payment_details->deposit_amount)}}</div>
+                            <div class="col-md-8">{{ ($payment_details->deposit_amount)}}</div>
                         </div>
                         <div class="row">
                             <div class="col-md-4"><span style="color:grey">{{"MATURE AMOUNT:-"}}</span></div>
-                            <div class="col-md-8">{{ number_format($payment_details->mature_amount)}}</div>
+                            <div class="col-md-8">{{ ($payment_details->mature_amount)}}</div>
                         </div>
                         <div class="row">
                             <div class="col-md-4"><span style="color:grey">{{"TOTAL INSTALLMENTS:-"}}</span></div>
@@ -110,7 +110,7 @@
                             <div class="col-md-4"><span style="color:grey">
                         {{ Associate::where('id', $associate_commision->associate_id)->pluck('name')}}
                       </span></div>
-                            <div class="col-md-4">{{number_format($associate_commision->self_commision)}}</div>
+                            <div class="col-md-4">{{($associate_commision->self_commision)}}</div>
                         </div>
                         @endforeach
                     </td>
@@ -146,7 +146,7 @@
                             <div class="col-md-4"><span style="color:grey">
                         {{ Associate::where('id', $associate_commision->associate_id)->pluck('name')}}
                       </span></div>
-                            <div class="col-md-4">{{number_format($associate_commision->self_commision)}}</div>
+                            <div class="col-md-4">{{($associate_commision->self_commision)}}</div>
                         </div>
                         @endforeach
                     </td>
@@ -201,7 +201,7 @@
                             <div class="col-md-4"><span style="color:grey">
                         {{ Associate::where('id', $associate_commision->associate_id)->pluck('name')}}
                       </span></div>
-                            <div class="col-md-4">{{number_format($associate_commision->team_commision)}}</div>
+                            <div class="col-md-4">{{($associate_commision->team_commision)}}</div>
                         </div>
                         @endforeach
                     </td>
@@ -237,7 +237,7 @@
                             <div class="col-md-4"><span style="color:grey">
                         {{ Associate::where('id', $associate_commision->associate_id)->pluck('name')}}
                       </span></div>
-                            <div class="col-md-4">{{number_format($associate_commision->team_commision)}}</div>
+                            <div class="col-md-4">{{($associate_commision->team_commision)}}</div>
                         </div>
                         @endforeach
                     </td>
