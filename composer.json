@@ -9,7 +9,8 @@
             "barryvdh/laravel-dompdf": "*"
     },
         "require-dev": {
-            "way/generators": "2.*"
+            "way/generators": "2.*",
+            "itsgoingd/clockwork": "1.*"
         },
         "autoload": {
             "classmap": [

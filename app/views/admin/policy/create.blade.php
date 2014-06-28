@@ -157,6 +157,18 @@
             </div>
             <!-- ./scheme amount -->
 
+            <!-- associate collector-->
+            <div class="col-md-6" id="rd_associate_collector_block">
+                <div class="form-group ">
+                    <label class="col-md-4 control-label" for="rd_associate_collector_id">Collector :</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" name="rd_associate_collector_id" id="rd_associate_collector_id
+                               value=""/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- associate collector-->
             <!-- Maturity amount -->
             <div class="col-md-6" id="rd_maturity_amount_block">
                 <div class="form-group ">
@@ -183,6 +195,8 @@
                     </div>
                 </div>
             </div>
+
+
             <!-- ./No Of Installment -->
         </div>
     </div>

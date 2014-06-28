@@ -199,8 +199,7 @@ class AdminPolicyController extends AdminController
                 // Get validation errors (see Ardent package)
                 $error = $this->policy->errors()->all();
 
-                return Redirect::to('admin/policy/create')
-                               ->with('error', $error);
+                return Redirect::to('admin/policy/create') ->with('error', $error);
             }
         }
     }
@@ -629,6 +628,7 @@ class AdminPolicyController extends AdminController
                                 from rdschemes
                                 where match (name )
                                 against ('*{$term}*' IN BOOLEAN MODE)
+                                and years <=3
                                 "
         );
         foreach ($search as $result) {
@@ -674,13 +674,7 @@ class AdminPolicyController extends AdminController
         if ($policy->id) {
             $title = "Policy And Self Commission Details" . ' For ' . $policy->policy_no;
 
-            return View::make(
-                'admin/policy/commission',
-                compact(
-                    'policy',
-                    'title'
-                )
-            );
+            return View::make('admin/policy/commission', compact('policy', 'title'));
         }
         else {
             return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
@@ -769,6 +763,17 @@ class AdminPolicyController extends AdminController
         }
     }
 
+    /**
+     * update_rd_scheme_payment
+     *
+     * @param $policy_id
+     * @param $input
+     * @param $associate_id
+     * @param $scheme_type
+     * @param $installment
+     *
+     * @return bool|\Illuminate\Http\RedirectResponse
+     */
     public function update_rd_scheme_payment($policy_id, $input, $associate_id, $scheme_type, $installment)
     {
         $this->rd_scheme_payment                    = new Rd_scheme_payment;
@@ -783,6 +788,9 @@ class AdminPolicyController extends AdminController
         $this->rd_scheme_payment->drawn_date        = date("Y-m-d", strtotime($input->drawn_date));
         $this->rd_scheme_payment->cheque_no         = $input->cheque_no;
         $this->rd_scheme_payment->paid              = strtoupper($input->paid);
+
+        // extra commission for the payment collector associate
+        $this->rd_scheme_payment->payment_collector_id = strtoupper($input->rd_associate_collector_id);
 
 
         if ($this->rd_scheme_payment->save()) {
@@ -802,13 +810,21 @@ class AdminPolicyController extends AdminController
                 $this->rd_scheme_payment->id,
                 $this->rd_scheme_payment->deposit_amount
             );
+
+            $this->update_collector_commission(
+                $input,
+                $policy_id,
+                $this->rd_scheme_payment->id,
+                $this->rd_scheme_payment->deposit_amount
+            );
+
             if ($installment == 1) {
                 $policy_time = strtotime($this->rd_scheme_payment->updated_at);
             }
             else {
-                $last_installment = Rd_scheme_payment::where('policy_id', $policy_id)->orderBy(
-                    'next_installment_date', 'desc'
-                )                                    ->first();
+                $last_installment = Rd_scheme_payment::where('policy_id', $policy_id)
+                                                     ->orderBy('next_installment_date', 'desc')
+                                                     ->first();
                 $policy_time      = strtotime($last_installment->next_installment_date);
             }
             $this->rd_scheme_payment->next_installment_date = date("Y-m-d", strtotime("+1 month", $policy_time));
@@ -1007,6 +1023,47 @@ class AdminPolicyController extends AdminController
         };
     }
 
+
+    /**
+     * update_collector_commission
+     *
+     * @param $input
+     * @param $policy_id
+     * @param $payment_id
+     * @param $deposit_amount
+     */
+    public function update_collector_commission(
+         $input, $policy_id, $payment_id, $deposit_amount
+    )
+    {
+        $collector_commission = Rd_collector_commission::where('rdschemes_id', $input->to_scheme_id)
+                                                       ->pluck('commission');
+        $calculated_commission = ($deposit_amount*$collector_commission)/100;
+
+        $policy_collector_commission = new Policy_collector_commission;
+        $policy_collector_commission->payment_id = $payment_id;
+        $policy_collector_commission->policy_id  = $policy_id;
+        $policy_collector_commission->collector_id = $input->rd_associate_collector_id;
+        $policy_collector_commission->deposit_amount = $deposit_amount;
+        $policy_collector_commission->collection_commission = $calculated_commission;
+
+
+        if($policy_collector_commission->save())
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+
+    }
+
+    /**
+     * getAllRdscheme
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function getAllRdscheme()
     {
         if (Sentry::check()) {
@@ -1019,6 +1076,11 @@ class AdminPolicyController extends AdminController
         }
     }
 
+    /**
+     * getRdData
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function getRdData()
     {
         if (Sentry::check()) {
@@ -1089,6 +1151,13 @@ class AdminPolicyController extends AdminController
         }
     }
 
+    /**
+     * getAllRdschemeInstallements
+     *
+     * @param $policy
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function getAllRdschemeInstallements($policy)
     {
         if (Sentry::check()) {
@@ -1103,6 +1172,13 @@ class AdminPolicyController extends AdminController
 
     }
 
+    /**
+     * getRdSchmeInstallments
+     *
+     * @param $policy
+     *
+     * @return \Illuminate\Http\RedirectResponse|string
+     */
     public function getRdSchmeInstallments($policy)
     {
         if (Sentry::check()) {
@@ -1142,6 +1218,13 @@ class AdminPolicyController extends AdminController
         }
     }
 
+    /**
+     * getPayInstallment
+     *
+     * @param $policy
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function getPayInstallment($policy)
     {
         if (Sentry::check()) {
@@ -1160,6 +1243,13 @@ class AdminPolicyController extends AdminController
         }
     }
 
+    /**
+     * postPayInstallment
+     *
+     * @param $policy
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postPayInstallment($policy)
     {
         if (Input::get('rd_current_installment') <= Input::get('rd_total_installment')) {
@@ -1182,6 +1272,14 @@ class AdminPolicyController extends AdminController
         }
     }
 
+    /**
+     * getInstallmentReceipt
+     *
+     * @param $policy
+     * @param $rd_scheme_payment
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function getInstallmentReceipt($policy, $rd_scheme_payment)
     {
         if (Sentry::check()) {

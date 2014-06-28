@@ -72,6 +72,61 @@
     </div>
 </div>
 
+@if ($policy->scheme_type == 'RD')
+<!--collector commission section-->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collector_payment_details">
+                <span class="lead">Collector Commision Details</span>
+            </a>
+        </h4>
+    </div>
+    <div id="collector_payment_details" class="panel-collapse collapse">
+        <div class="panel-body">
+            <table class="table">
+                <tbody>
+                <?php
+                $payment_id = Rd_scheme_payment::where('policy_id', $policy->id)->get();
+                ?>
+                @foreach ($payment_id as $payment)
+                <?php
+                $counter = 1;
+                ?>
+                <tr>
+                    <td><strong class='text-danger'> INSTALLMENT {{ $payment->paid_installment}}</strong></td>
+                    <td>
+                        <?php
+                        $commision = Policy_collector_commission::where('payment_id', $payment->id)->where(
+                                                           'policy_id', $policy->id
+                        )                                  ->get();
+                        ?>
+                        @foreach ($commision as $associate_commision)
+                        <div class="row">
+                            <div class="col-md-4"><span style="color:grey">
+                        {{ Associate::where('id', $associate_commision->collector_id)->pluck('associate_no')}}
+                      </span></div>
+                            <div class="col-md-4"><span style="color:grey">
+                        {{ Associate::where('id', $associate_commision->collector_id)->pluck('name')}}
+                      </span></div>
+                            <div class="col-md-4">{{($associate_commision->collection_commission)}}</div>
+                        </div>
+                        @endforeach
+                    </td>
+                </tr>
+                <?php
+                $counter++;
+                ?>
+                @endforeach
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endif
+
+<!--end of collector commission section-->
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
@@ -83,7 +138,6 @@
     <div id="self_payment_details" class="panel-collapse collapse">
         <div class="panel-body">
             <table class="table">
-                <tbody>
                 <tbody>
                 {{-- generate team commission structure for FD scheme --}}
                 @if ($policy->scheme_type == 'FD')
