@@ -123,6 +123,8 @@ Route::group(array('prefix' => 'admin'), function()
     Route::get('policy/rd_schemes/{policy}/RdSchmeInstallments' , 'AdminPolicyController@getRdSchmeInstallments');
     Route::get('policy/rd_schemes/{policy}/PayInstallment' , 'AdminPolicyController@getPayInstallment');
     Route::post('policy/rd_schemes/{policy}/PayInstallment' , 'AdminPolicyController@postPayInstallment');
+    Route::get('policy/rd_schemes/{policy}/add_to_associate_id' , 'AdminPolicyController@getAssociate');
+    Route::post('policy/rd_schemes/{policy}/add_to_associate_id' , 'AdminPolicyController@postAssociate');
     Route::get('policy/rd_schemes/{policy}/Installment/{rd_scheme_payment}/Receipt' , 'AdminPolicyController@getInstallmentReceipt');
     Route::get('policy/rddata' , 'AdminPolicyController@getRdData');
     Route::get('policy/add_to_fd_scheme_id' , 'AdminPolicyController@getFdscheme');

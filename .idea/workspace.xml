@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7fc03001-4661-4238-a2cf-34e513c95592" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" afterPath="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/BaseController.php" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/app.php" afterPath="$PROJECT_DIR$/app/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/policy/commission.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/policy/commission.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blue-crystal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,29 +37,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminPolicyController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminPolicyController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="32242" max-vertical-offset="40672">
-              <caret line="1036" column="4" selection-start-line="1036" selection-start-column="4" selection-end-line="1036" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.5837838" vertical-offset="32149" max-vertical-offset="40672">
+              <caret line="1051" column="8" selection-start-line="1051" selection-start-column="8" selection-end-line="1051" selection-end-column="8" />
               <folding>
-                <marker date="1403941657000" expanded="true" signature="19930:20240" placeholder="select id ,a..." />
-                <marker date="1403941657000" expanded="true" signature="20586:20838" placeholder="select assoc..associates..." />
-                <marker date="1403941657000" expanded="true" signature="21338:21587" placeholder="select id, i..." />
-                <marker date="1403941657000" expanded="true" signature="21932:22122" placeholder="select name ..." />
-                <marker date="1403941657000" expanded="true" signature="22624:22919" placeholder="select id, i..." />
-                <marker date="1403941657000" expanded="true" signature="23262:23452" placeholder="select name ..." />
+                <marker date="1403950379000" expanded="true" signature="19930:20240" placeholder="select id ,a..." />
+                <marker date="1403950379000" expanded="true" signature="20586:20838" placeholder="select assoc..associates..." />
+                <marker date="1403950379000" expanded="true" signature="21338:21587" placeholder="select id, i..." />
+                <marker date="1403950379000" expanded="true" signature="21932:22122" placeholder="select name ..." />
+                <marker date="1403950379000" expanded="true" signature="22624:22919" placeholder="select id, i..." />
+                <marker date="1403950379000" expanded="true" signature="23262:23452" placeholder="select name ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commission.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="commission.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/policy/commission.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.79594594" vertical-offset="2294" max-vertical-offset="8866">
-              <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3255" max-vertical-offset="9827">
+              <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/admin/policy/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-12.730769" vertical-offset="4691" max-vertical-offset="23839">
-              <caret line="162" column="63" selection-start-line="162" selection-start-column="63" selection-end-line="162" selection-end-column="63" />
+              <caret line="162" column="41" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -116,10 +114,10 @@
         <option value="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_06_27_135307_create_rd_collector_commission_table.php" />
         <option value="$PROJECT_DIR$/app/models/Rd_collector_commission.php" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" />
         <option value="$PROJECT_DIR$/app/models/Policy_collector_commission.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_06_27_140059_create_policy_collector_commission_table.php" />
         <option value="$PROJECT_DIR$/app/views/admin/policy/commission.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" />
       </list>
     </option>
   </component>
@@ -731,7 +729,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/admin/policy/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.730769" vertical-offset="4691" max-vertical-offset="23839">
-          <caret line="162" column="63" selection-start-line="162" selection-start-column="63" selection-end-line="162" selection-end-column="63" />
+          <caret line="162" column="41" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -760,26 +758,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php">
+    <entry file="file://$PROJECT_DIR$/app/views/admin/policy/commission.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="32242" max-vertical-offset="40672">
-          <caret line="1036" column="4" selection-start-line="1036" selection-start-column="4" selection-end-line="1036" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3255" max-vertical-offset="9827">
+          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
           <folding>
-            <marker date="1403941657000" expanded="true" signature="19930:20240" placeholder="select id ,a..." />
-            <marker date="1403941657000" expanded="true" signature="20586:20838" placeholder="select assoc..associates..." />
-            <marker date="1403941657000" expanded="true" signature="21338:21587" placeholder="select id, i..." />
-            <marker date="1403941657000" expanded="true" signature="21932:22122" placeholder="select name ..." />
-            <marker date="1403941657000" expanded="true" signature="22624:22919" placeholder="select id, i..." />
-            <marker date="1403941657000" expanded="true" signature="23262:23452" placeholder="select name ..." />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/policy/commission.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79594594" vertical-offset="2294" max-vertical-offset="8866">
-          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-          <folding />
+        <state vertical-scroll-proportion="0.5837838" vertical-offset="32149" max-vertical-offset="40672">
+          <caret line="1051" column="8" selection-start-line="1051" selection-start-column="8" selection-end-line="1051" selection-end-column="8" />
+          <folding>
+            <marker date="1403950379000" expanded="true" signature="19930:20240" placeholder="select id ,a..." />
+            <marker date="1403950379000" expanded="true" signature="20586:20838" placeholder="select assoc..associates..." />
+            <marker date="1403950379000" expanded="true" signature="21338:21587" placeholder="select id, i..." />
+            <marker date="1403950379000" expanded="true" signature="21932:22122" placeholder="select name ..." />
+            <marker date="1403950379000" expanded="true" signature="22624:22919" placeholder="select id, i..." />
+            <marker date="1403950379000" expanded="true" signature="23262:23452" placeholder="select name ..." />
+          </folding>
         </state>
       </provider>
     </entry>

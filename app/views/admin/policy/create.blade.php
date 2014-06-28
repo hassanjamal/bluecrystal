@@ -7,6 +7,7 @@
 <!-- CSRF Token -->
 <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
 {{ Form::hidden('to_associate_id', Input::old('to_associate_id'),array('id'=>'to_associate_id'))}}
+{{ Form::hidden('to_collector_id', Input::old('to_collector_id'),array('id'=>'to_collector_id'))}}
 {{ Form::hidden('to_scheme_id', Input::old('to_scheme_id'),array('id'=>'to_scheme_id'))}}
 {{ Form::hidden('to_scheme_interest', Input::old('to_scheme_interest'),array('id'=>'to_scheme_interest'))}}
 {{ Form::hidden('to_scheme_description', Input::old('to_scheme_description'),array('id'=>'to_scheme_description'))}}
@@ -162,8 +163,7 @@
                 <div class="form-group ">
                     <label class="col-md-4 control-label" for="rd_associate_collector_id">Collector :</label>
                     <div class="col-md-8">
-                        <input class="form-control" type="text" name="rd_associate_collector_id" id="rd_associate_collector_id
-                               value=""/>
+                        <input class="form-control" type="text" name="rd_associate_collector_id" id="rd_associate_collector_id" value=""/>
                     </div>
                 </div>
             </div>
@@ -646,7 +646,7 @@ $(function () {
         change: function (event, ui) {
             if (!ui.item) {
                 this.value = '';
-                $('#policy').data('bootstrapValidator').updateStatus('scheme_name', 'NOT_VALIDATED', null).validateField('scheme_name');
+                $('#policy').data('bootstrapValidator').updateStatus('#scheme_name', 'NOT_VALIDATED', null).validateField('#scheme_name');
 
             }
         },
@@ -682,7 +682,7 @@ $(function () {
                 change: function (event, ui) {
                     if (!ui.item) {
                         this.value = '';
-                        $('#policy').data('bootstrapValidator').updateStatus('scheme_name', 'NOT_VALIDATED', null).validateField('scheme_name');
+                        $('#policy').data('bootstrapValidator').updateStatus('#scheme_name', 'NOT_VALIDATED', null).validateField('#scheme_name');
                     }
                 },
                 select: function (event, ui) {
@@ -711,7 +711,7 @@ $(function () {
                 change: function (event, ui) {
                     if (!ui.item) {
                         this.value = '';
-                        $('#policy').data('bootstrapValidator').updateStatus('scheme_name', 'NOT_VALIDATED', null).validateField('scheme_name');
+                        $('#policy').data('bootstrapValidator').updateStatus('#scheme_name', 'NOT_VALIDATED', null).validateField('#scheme_name');
                     }
                 },
                 select: function (event, ui) {
@@ -747,8 +747,27 @@ $(function () {
         source: "add_to_associate_id",
         select: function (event, ui) {
             $('#to_associate_id').val(ui.item.id);
+            $('#to_collector_id').val(ui.item.id);
+            $('#rd_associate_collector_id').val(ui.item.value);
         }
     });
+});
+
+// autosearch for collector id
+$(function(){
+    $('#rd_associate_collector_id').autocomplete({
+            source: "add_to_associate_id",
+            change: function (event, ui) {
+                if (!ui.item) {
+                    this.value = '';
+                    $('#policy').data('bootstrapValidator').updateStatus('#rd_associate_collector_id', 'NOT_VALIDATED', null).validateField('#rd_associate_collector_id');
+                }
+            },
+            select: function(event, ui){
+                $('#to_collector_id').val(ui.item.id);
+                $('#rd_associate_collector_id').val(ui.item.value);
+            }
+        });
 });
 
 $(function () {

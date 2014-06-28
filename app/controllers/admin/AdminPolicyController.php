@@ -790,7 +790,7 @@ class AdminPolicyController extends AdminController
         $this->rd_scheme_payment->paid              = strtoupper($input->paid);
 
         // extra commission for the payment collector associate
-        $this->rd_scheme_payment->payment_collector_id = strtoupper($input->rd_associate_collector_id);
+        $this->rd_scheme_payment->payment_collector_id = strtoupper($input->to_collector_id);
 
 
         if ($this->rd_scheme_payment->save()) {
@@ -1043,7 +1043,7 @@ class AdminPolicyController extends AdminController
         $policy_collector_commission = new Policy_collector_commission;
         $policy_collector_commission->payment_id = $payment_id;
         $policy_collector_commission->policy_id  = $policy_id;
-        $policy_collector_commission->collector_id = $input->rd_associate_collector_id;
+        $policy_collector_commission->collector_id = $input->to_collector_id;
         $policy_collector_commission->deposit_amount = $deposit_amount;
         $policy_collector_commission->collection_commission = $calculated_commission;
 
