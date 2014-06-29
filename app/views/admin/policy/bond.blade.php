@@ -25,7 +25,7 @@
 
         .header_image {
             /* margin-top:545px; */
-            height: 540px;
+            height: 550px;
         }
 
         .image_center {
@@ -67,7 +67,7 @@
             clear: both;
             width: 100%;
             position: fixed;
-            height: 60px;
+            height: 40px;
             background-color: #eee;
             bottom: 0px;
             left: 0px;
