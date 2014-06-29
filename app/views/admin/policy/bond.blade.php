@@ -17,15 +17,15 @@
             margin-left: 2em;
             margin-right: 2em;
             margin-bottom: 0em;
-            border: 10px solid #eee;
-            outline: 5px solid lightgrey;
+            border: 10px solid lightgrey;
+            outline: 5px solid darkgrey;
             padding-left: .2em;
             padding-right: .2em;
         }
 
         .header_image {
             /* margin-top:545px; */
-            height: 490px;
+            height: 540px;
         }
 
         .image_center {
@@ -90,7 +90,7 @@
 
         table.header, table.content, table.middle_table, table.signature {
             width: 100%;
-            margin-bottom: .87em;
+            margin-bottom: .1em;
         }
 
         table.signature {
