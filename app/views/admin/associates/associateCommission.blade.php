@@ -94,18 +94,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <? $fd_self_total=0; ?>
+                            <?php $fd_self_total=0; ?>
 
                             @foreach ($self_commission as $policy_self_commission)
-                            <?
+                            <?php
                             $policy = Policy::find($policy_self_commission->policy_id);
                             ?>
                             @if($policy->scheme_type == 'FD')
-                            <?
+                            <?php
                             $fd_policy_payments = Fd_scheme_payment::where('policy_id', $policy->id)->get();
                             ?>
                             @foreach ($fd_policy_payments as $fd_policy_payment)
-                            <?
+                            <?php
                             $fd_policy_self_commissions = Policy_self_commission::where('payment_id', $fd_policy_payment->id)->where('policy_id', $policy->id)->get();
                             ?>
                             @foreach ($fd_policy_self_commissions as $fd_policy_self_commission)
@@ -114,7 +114,7 @@
                                 <td>{{ $fd_policy_payment->drawn_date }}</td>
                                 <td>{{ $fd_policy_payment->deposit_amount }}</td>
                                 <td>{{ $fd_policy_self_commission->self_commision }}</td>
-                                <? $fd_self_total = $fd_self_total+ $fd_policy_self_commission->self_commision; ?>
+                                <?php $fd_self_total = $fd_self_total+ $fd_policy_self_commission->self_commision; ?>
                             </tr>
 
                             @endforeach
@@ -151,13 +151,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <? $rd_self_total=0; ?>
+                            <?php $rd_self_total=0; ?>
                             @foreach ($self_commission as $policy_self_commission)
-                            <?
+                            <?php
                             $policy = Policy::find($policy_self_commission->policy_id);
                             ?>
                             @if($policy->scheme_type == 'RD')
-                            <?
+                            <?php
                             $rd_policy_payments = Rd_scheme_payment::where('policy_id', $policy->id)->get();
                             ?>
                             <tr>
@@ -173,7 +173,7 @@
                                         <tbody>
                                             @foreach ($rd_policy_payments as $rd_policy_payment)
                                             <tr>
-                                                <?
+                                                <?php
                                                 $rd_policy_self_commissions = Policy_self_commission::where('payment_id', $rd_policy_payment->id)->where('policy_id', $policy->id)->get();
                                                 ?>
                                                 @foreach ($rd_policy_self_commissions as $rd_policy_self_commission)
@@ -182,7 +182,7 @@
                                                 <td>{{ $rd_policy_payment->deposit_amount }}</td>
                                                 <td>{{ $rd_policy_self_commission->self_commision }}</td>
 
-                                                <? $rd_self_total = $rd_self_total+ $rd_policy_self_commission->self_commision; ?>
+                                                <?php $rd_self_total = $rd_self_total+ $rd_policy_self_commission->self_commision; ?>
                                                 @endforeach
                                             </tr>
                                             @endforeach
@@ -229,17 +229,17 @@
                         </thead>
                         <tbody>
 
-                            <? $fd_team_total=0; ?>
+                            <?php $fd_team_total=0; ?>
                             @foreach ($team_commission as $policy_team_commission)
-                            <?
+                            <?php
                             $policy = Policy::find($policy_team_commission->policy_id);
                             ?>
                             @if($policy->scheme_type == 'FD')
-                            <?
+                            <?php
                             $fd_policy_payments = Fd_scheme_payment::where('policy_id', $policy->id)->get();
                             ?>
                             @foreach ($fd_policy_payments as $fd_policy_payment)
-                            <?
+                            <?php
                             $fd_policy_team_commissions = Policy_team_commission::where('payment_id', $fd_policy_payment->id)->where('policy_id', $policy->id)->where('associate_id', $associate_id )->get();
                             ?>
                             @foreach ($fd_policy_team_commissions as $fd_policy_team_commission)
@@ -248,7 +248,7 @@
                                 <td>{{ $fd_policy_payment->drawn_date }}</td>
                                 <td>{{ $fd_policy_payment->deposit_amount }}</td>
                                 <td>{{ $fd_policy_team_commission->team_commision }}</td>
-                                <? $fd_team_total = $fd_team_total + $fd_policy_team_commission->team_commision ;?> 
+                                <?php $fd_team_total = $fd_team_total + $fd_policy_team_commission->team_commision ;?> 
                             </tr>
                             @endforeach
                             @endforeach
@@ -284,13 +284,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <? $rd_team_total=0; ?>
+                            <?php $rd_team_total=0; ?>
                             @foreach ($team_commission as $policy_team_commission)
-                            <?
+                            <?php
                             $policy = Policy::find($policy_team_commission->policy_id);
                             ?>
                             @if($policy->scheme_type == 'RD')
-                            <?
+                            <?php
                             $rd_policy_payments = Rd_scheme_payment::where('policy_id', $policy->id)->get();
                             ?>
                             <tr>
@@ -306,7 +306,7 @@
                                         <tbody>
                                             @foreach ($rd_policy_payments as $rd_policy_payment)
                                             <tr>
-                                                <?
+                                                <?php
                                                 $rd_policy_team_commissions = Policy_team_commission::where('payment_id', $rd_policy_payment->id)->where('policy_id', $policy->id)->where('associate_id', $associate_id)->get();
                                                 ?>
                                                 @foreach ($rd_policy_team_commissions as $rd_policy_team_commission)
@@ -314,7 +314,7 @@
                                                 <td>{{ $rd_policy_payment->drawn_date }}</td>
                                                 <td>{{ $rd_policy_payment->deposit_amount }}</td>
                                                 <td>{{ $rd_policy_team_commission->team_commision }}</td>
-                                                <? $rd_team_total = $rd_team_total + $rd_policy_team_commission->team_commision; ?>  
+                                                <?php $rd_team_total = $rd_team_total + $rd_policy_team_commission->team_commision; ?>  
                                                 @endforeach
                                             </tr>
                                             @endforeach

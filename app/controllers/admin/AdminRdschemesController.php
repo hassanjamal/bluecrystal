@@ -210,10 +210,8 @@ class AdminRdschemesController extends AdminController
     public function getData()
     {
 
-        $rdschemes = Rdscheme::Select(
-                             array('rdschemes.id', 'rdschemes.name', 'rdschemes.years', 'rdschemes.interest',
-                                   'rdschemes.special_interest')
-        );
+        $rdschemes = Rdscheme::Select( array('rdschemes.id', 'rdschemes.name', 'rdschemes.years', 'rdschemes.interest',
+                                   'rdschemes.special_interest'))->where('years' ,'<=', 3 );
         if (Sentry::getUser()->isSuperUser()) {
             return Datatables::of($rdschemes)
                              ->edit_column('interest', '{{ number_format($interest,2)}}')
