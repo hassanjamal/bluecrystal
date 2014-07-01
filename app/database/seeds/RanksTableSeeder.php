@@ -73,7 +73,7 @@ class RanksTableSeeder extends Seeder {
 		 * for 2 rank
 		 */
 
-		$ranks = array('rank_no' =>2,
+		$ranks = array('rank_no' => 2,
 		                    'rankname' => 'SR. INSPECTOR',
 		                    'created_at' => $now,
 		         	        'updated_at' => $now);

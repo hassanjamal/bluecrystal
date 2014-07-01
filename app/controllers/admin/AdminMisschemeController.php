@@ -1,48 +1,26 @@
 <?php
 
-class AdminFdschemesController extends AdminController {
+class AdminMisschemesController extends AdminController {
 
-    /**
-     * User Model
-     * @var User
-     */
-    protected $user;
-    /**
-    * Fdscheme Model
-    * @var Role
-    */
-    protected $fdscheme;
 
-    /**
-     * Inject the models.
-     * @param User $user
-     * @param Role $role
-     * @param Permission $permission
-     * @param Fdscheme $fdscheme
-     */
-    public function __construct(User $user, Fdscheme $fdscheme  )
+    public function __construct()
     {
         parent::__construct();
-        $this->user = $user;
-        $this->fdscheme = $fdscheme;
-
     }
-    /**
-     * 
-     */
+
+   /**
+    * Show all MIS schemes
+    * @return View index page
+    */
     public function getIndex()
     {
         if(Sentry::check())
         {
             // Title
-            $title = "FD :: ".Lang::get('admin/scheme/title.scheme_management');
-
-            // Grab all the users
-            $users = $this->user;
-            $fdscheme = $this->fdscheme;
+            $title = "MIS :: ".Lang::get('admin/scheme/title.scheme_management');
 
             // Show the page
-            return View::make('admin.fdschemes.index', compact('users','fdscheme', 'title'));    
+            return View::make('admin.misschemes.index', compact( 'title'));    
         }
         else
         {
@@ -86,8 +64,8 @@ class AdminFdschemesController extends AdminController {
     {
         if(Sentry::getUser()->isSuperUser())
         { 
-            $this->fdscheme->name = Input::get( 'name' );
-            $this->fdscheme->years = Input::get( 'years' );
+            $this->fdscheme->name     = Input::get( 'name' );
+            $this->fdscheme->years    = Input::get( 'years' );
             $this->fdscheme->interest = Input::get( 'interest' );
 
             // Save if valid. 
@@ -202,10 +180,10 @@ class AdminFdschemesController extends AdminController {
      */
     public function getData()
     {
-        $fdschemes = Fdscheme::Select(array('fdschemes.id','fdschemes.name','fdschemes.years','fdschemes.interest', 'fdschemes.special_interest'));
+        $misschemes = Misschemes::Select(array('misschemes.id','misschemes.name','misschemes.years','misschemes.interest', 'misschemes.special_interest'));
         if(Sentry::getUser()->isSuperUser())
         {
-            return Datatables::of($fdschemes)
+            return Datatables::of($misschemes)
             ->edit_column('interest','{{ number_format($interest,2)}}')
             ->edit_column('special_interest','{{ number_format($special_interest,2)}}')
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a> <a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/edit\') }}}" class="iframe btn btn-xs btn-danger">{{{ Lang::get(\'button.edit\') }}}</a> ')
@@ -214,7 +192,7 @@ class AdminFdschemesController extends AdminController {
         }
         else
         {
-            return Datatables::of($fdschemes)
+            return Datatables::of($misschemes)
             ->edit_column('interest','{{ number_format($interest,2)}}')
             ->edit_column('special_interest','{{ number_format($special_interest,2)}}')
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/fd-schemes/\'. $id . \'/detail\') }}}" class="iframe btn btn-xs btn-info">{{{ Lang::get(\'button.details\') }}}</a> ')

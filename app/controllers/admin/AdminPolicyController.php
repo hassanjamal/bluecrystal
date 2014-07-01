@@ -852,9 +852,7 @@ class AdminPolicyController extends AdminController
      *
      * @return bool
      */
-    public function update_self_commission(
-        $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount
-    ) {
+    public function update_self_commission( $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount ) {
         $rank_id   = Associate::where('id', $associate_id)->pluck('rank_id');
         $scheme_id = $input->to_scheme_id;
         $rank_gap  = Rank::where('id', '<=', $rank_id)
@@ -1032,15 +1030,14 @@ class AdminPolicyController extends AdminController
      * @param $payment_id
      * @param $deposit_amount
      */
-    public function update_collector_commission(
-         $input, $policy_id, $payment_id, $deposit_amount
-    )
+    public function update_collector_commission( $input, $policy_id, $payment_id, $deposit_amount )
     {
-        $collector_commission = Rd_collector_commission::where('rdschemes_id', $input->to_scheme_id)
-                                                       ->pluck('commission');
-        $calculated_commission = ($deposit_amount*$collector_commission)/100;
-
+        $collector_commission        = Rd_collector_commission::where('rdschemes_id', $input->to_scheme_id)
+                                                                ->pluck('commission');
+        $calculated_commission       = ($deposit_amount*$collector_commission)/100;
         $policy_collector_commission = new Policy_collector_commission;
+
+
         $policy_collector_commission->payment_id = $payment_id;
         $policy_collector_commission->policy_id  = $policy_id;
         $policy_collector_commission->collector_id = $input->to_collector_id;

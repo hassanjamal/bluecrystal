@@ -128,6 +128,9 @@ body {
 
                         <li{{ (Request::is('admin/rd-schemes*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/rd-schemes') }}}"><span class="glyphicon glyphicon-user"></span> RD Scheme</a></li>
 
+
+                        <li{{ (Request::is('admin/mis-schemes*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/mis-schemes') }}}"><span class="glyphicon glyphicon-user"></span> MIS Scheme</a></li>
+
                         <li{{ (Request::is('admin/rank*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/rank') }}}"><span class="glyphicon glyphicon-user"></span> Rank & Commission</a></li>
                     </ul>
                     </li>

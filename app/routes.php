@@ -18,6 +18,7 @@ Route::model('user', 'User');
 Route::model('group', 'Groups');
 Route::model('fdscheme', 'Fdscheme');
 Route::model('rdscheme', 'Rdscheme');
+Route::model('misscheme', 'Misscheme');
 Route::model('branch', 'Branch');
 Route::model('rank', 'Rank');
 Route::model('commision', 'Commision');
@@ -33,6 +34,7 @@ Route::pattern('user', '[0-9]+');
 Route::pattern('groups', '[0-9]+');
 Route::pattern('fdscheme', '[0-9]+');
 Route::pattern('rdscheme', '[0-9]+');
+Route::pattern('misscheme', '[0-9]+');
 Route::pattern('associates', '[0-9]+');
 Route::pattern('rank', '[0-9]+');
 Route::pattern('commision', '[0-9]+');
@@ -85,6 +87,12 @@ Route::group(array('prefix' => 'admin'), function()
     Route::post('rd-schemes/{rdscheme}/edit', 'AdminRdschemesController@postEdit');
     Route::get('rd-schemes/{rdscheme}/detail', 'AdminRdschemesController@getDetail');
     Route::controller('rd-schemes', 'AdminRdschemesController');
+
+    Route::get('mis-schemes/{misscheme}/show','AdminMisschemesController@getShow');
+    Route::get('mis-schemes/{misscheme}/edit', 'AdminMisschemesController@getEdit');
+    Route::post('mis-schemes/{misscheme}/edit', 'AdminMisschemesController@postEdit');
+    Route::get('mis-schemes/{misscheme}/detail', 'AdminMisschemesController@getDetail');
+    Route::controller('mis-schemes', 'AdminMisschemesController');
 
     #Branch
     Route::post('branch/create', 'AdminBranchController@save');

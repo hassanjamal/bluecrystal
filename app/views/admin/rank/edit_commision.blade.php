@@ -8,6 +8,7 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab-fd_scheme" data-toggle="tab">FD Scheme</a></li>
 			<li ><a href="#tab-rd_scheme" data-toggle="tab">RD Scheme</a></li>
+			<li ><a href="#tab-mis_scheme" data-toggle="tab">MIS Scheme</a></li>
 		</ul>
 	<!-- ./ tabs -->
 
@@ -100,25 +101,75 @@
 				</div>
 				<!-- ./ Scheme 3 -->
 				<!-- Scheme 4 -->
-				<div class="form-group {{{ $errors->has('rdfourth') ? 'error' : '' }}}">
+				<!-- <div class="form-group {{{ $errors->has('rdfourth') ? 'error' : '' }}}">
 					<label class="col-md-2 control-label" for="rdfourth">4 Years</label>
 					<div class="col-md-10">
 						<input class="form-control" type="text" name="rdfourth" id="rdfourth" value="{{{ Input::old('rdfourth', isset($rank) ? number_format($rd_commisions->four,2,'.',',') : null) }}}" />
 						{{{ $errors->first('rdfourth', '<span class="help-inline">:message</span>') }}}
 					</div>
-				</div>
+				</div> -->
 				<!-- ./ Scheme 4 -->
 				<!-- Scheme 5 -->
-				<div class="form-group {{{ $errors->has('rdfifth') ? 'error' : '' }}}">
+				<!-- <div class="form-group {{{ $errors->has('rdfifth') ? 'error' : '' }}}">
 					<label class="col-md-2 control-label" for="rdfifth">5 Years</label>
 					<div class="col-md-10">
 						<input class="form-control" type="text" name="rdfifth" id="rdfifth" value="{{{ Input::old('rdfifth', isset($rank) ? number_format($rd_commisions->five,2,'.',',') : null) }}}" />
 						{{{ $errors->first('rdfifth', '<span class="help-inline">:message</span>') }}}
 					</div>
-				</div>
+				</div> -->
 				<!-- ./ Scheme 5 -->
 			</div>
 			<!-- ./ rd_scheme tab -->
+
+		<div class="tab-pane " id="tab-mis_scheme">
+			<!-- Scheme 1 -->
+				<div class="form-group {{{ $errors->has('misfirst') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="misfirst">1 Year</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="misfirst" id="misfirst" value="" />
+					</div>
+				</div>
+				<!-- ./ Scheme 1 -->
+				<!-- Scheme 2 -->
+				<div class="form-group {{{ $errors->has('missecond') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="missecond">2 Years</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="missecond" id="missecond" value="" />
+					</div>
+				</div>
+				<!-- ./ Scheme 2 -->
+				<!-- Scheme 3 -->
+				<div class="form-group {{{ $errors->has('misthird') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="misthird">3 Years</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="misthird" id="misthird" value="" />
+					</div>
+				</div>
+				<!-- ./ Scheme 3 -->
+				<!-- Scheme 4 -->
+					<div class="form-group {{{ $errors->has('misfourth') ? 'error' : '' }}}">
+						<label class="col-md-2 control-label" for="misfourth">4 Years</label>
+						<div class="col-md-10">
+							<input class="form-control" type="text" name="misfourth" id="misfourth" value="" />
+						</div>
+					</div>
+				<!-- ./ Scheme 4 -->
+				<!-- Scheme 5 -->
+				<div class="form-group {{{ $errors->has('misfifth') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="misfifth">5 Years</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="misfifth" id="misfifth" value="" />
+					</div>
+				</div>
+
+				<div class="form-group {{{ $errors->has('missixth') ? 'error' : '' }}}">
+					<label class="col-md-2 control-label" for="missixth">6 Years</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" name="missixth" id="fdfifth" value="" />
+					</div>
+				</div>
+				<!-- ./ Scheme 5 -->
+			</div>	
 
 		</div>
 		<!-- ./ tabs content -->
