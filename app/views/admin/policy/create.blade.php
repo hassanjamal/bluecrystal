@@ -204,9 +204,38 @@
 
     <div class="col-md-12" id="mis_scheme_details_block">
         <div class="well form-group">
+            
             <blockquote>
-                <p class="lead">MIS PLAN Coming soon</p>
+                <p class="lead">Monthly Installment Plan</p>
             </blockquote>
+            <!-- scheme amount -->
+            <div class="col-md-6" id="mis_scheme_amount_block">
+                <div class="form-group ">
+                    <label class="col-md-4 control-label" for="mis_scheme_amount">Scheme Amount :</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" name="mis_scheme_amount" id="mis_scheme_amount"
+                               value="{{{ Input::old('mis_scheme_amount', isset($policy) ? $policy->mis_scheme_amount : null) }}}"
+                               data-bv-notempty data-bv-notempty-message="Amount is required"/>
+                    </div>
+                </div>
+            </div>
+            <!-- ./scheme amount -->
+
+            <!-- Monthly Installment amount -->
+            <div class="col-md-6" id="mis_monthly_amount_block">
+                <div class="form-group ">
+                    <label class="col-md-4 control-label" for="mis_monthly_amount">Monthly Amount :</label>
+
+                    <div class="col-md-8">
+                        <input readonly class="form-control" type="text" name="mis_monthly_amount"
+                               id="mis_monthly_amount" value=""/>
+                    </div>
+                </div>
+            </div>
+            <!-- ./Monthly Installment amount -->
+        
+
         </div>
     </div>
 </div>
@@ -557,6 +586,7 @@
 @stop
 @section('scripts')
 <script type="text/javascript">
+// form wizard
 $(document).ready(function () {
     $('#rootwizard').bootstrapWizard(
         {
@@ -597,7 +627,7 @@ $(function () {
     $('#rd_scheme_amount').on('keyup paste change', function () {
         $('#scheme_name').attr("readonly", true);
         if ($('#to_scheme_interest').val() > 0) {
-            console.log($('#to_scheme_interest').val());
+            // console.log($('#to_scheme_interest').val());
             $('#rd_total_installment').val($('#to_scheme_years').val() * 12);
             var expected_maturity_amount = 0;
             for (var i = ($('#rd_total_installment').val()); i >= 1; i--) {
@@ -607,7 +637,7 @@ $(function () {
                         i
                     );
                 expected_maturity_amount = expected_maturity_amount + calculated_amount;
-                console.log(expected_maturity_amount);
+                // console.log(expected_maturity_amount);
             }
             $('#rd_maturity_amount').val(Number(expected_maturity_amount).toFixed(2));
         }
@@ -638,6 +668,8 @@ $(function () {
 
     });
 });
+
+// by default FD plan is selected and thus hiding MIS and RD
 $(function () {
     $("#rd_scheme_details_block").hide();
     $("#mis_scheme_details_block").hide();
@@ -651,8 +683,6 @@ $(function () {
             }
         },
         select: function (event, ui) {
-//            $('#special_case').attr("disabled", true);
-//            $('#scheme_type').attr("disabled", true);
             $('#associate_no').attr("readonly", true);
             $('#to_scheme_id').val(ui.item.id);
             if ($('#special_case').val() === "NONE") {
@@ -667,7 +697,7 @@ $(function () {
     });
 });
 // ./dropdown change block
-// autocomplete block
+// autocomplete block for change in Scheme Type like FD MIS and RD
 $(function () {
     $("#scheme_type").change(function () {
         var mode = $(this).val();
@@ -686,8 +716,6 @@ $(function () {
                     }
                 },
                 select: function (event, ui) {
-//                    $('#special_case').attr("disabled", true);
-//                    $('#scheme_type').attr("disabled", true);
                     $('#associate_no').attr("readonly", true);
                     $('#to_scheme_id').val(ui.item.id);
                     if ($('#special_case').val() === "NONE") {
@@ -736,6 +764,32 @@ $(function () {
             $("#rd_scheme_details_block").hide();
             $("#mis_scheme_details_block").show(500);
             // return false;
+
+            $('#scheme_name').autocomplete({
+                source: "add_to_mis_scheme_id",
+                change: function (event, ui) {
+                    if (!ui.item) {
+                        this.value = '';
+                        $('#policy').data('bootstrapValidator').updateStatus('#scheme_name', 'NOT_VALIDATED', null).validateField('#scheme_name');
+                    }
+                },
+                select: function (event, ui) {
+//                    $('#special_case').attr("disabled", true);
+//                    $('#scheme_type').attr("disabled", true);
+                    $('#associate_no').attr("readonly", true);
+                    $('#to_scheme_id').val(ui.item.id);
+                    if ($('#special_case').val() === "NONE") {
+                        $('#to_scheme_interest').val(ui.item.interest);
+                    }
+                    else {
+                        $('#to_scheme_interest').val(ui.item.special_interest);
+                    }
+                    $('#to_scheme_description').val(ui.item.description);
+                    $('#to_scheme_years').val(ui.item.years);
+                }
+            });
+
+
         }
     });
 

@@ -640,6 +640,10 @@ class AdminPolicyController extends AdminController
     }
 
 
+    /**
+     * [postRdscheme description]
+     * @return [type] [description]
+     */
     public function postRdscheme()
     {
         $term   = Input::get('scheme_name');
@@ -661,6 +665,58 @@ class AdminPolicyController extends AdminController
 
 
     }
+
+
+    /**
+     * [getMisscheme description]
+     * @return [type] [description]
+     */
+    public function getMisscheme()
+    {
+        $term      = Input::get('term');
+        $misschemes = array();
+        $search    = DB::select(
+            "
+                                select id, interest,special_interest, years ,name as value ,description as label
+                                from misschemes
+                                where match (name )
+                                against ('*{$term}*' IN BOOLEAN MODE)
+                                "
+        );
+        foreach ($search as $result) {
+            $misschemes[] = $result;
+        }
+
+        return json_encode($misschemes);
+
+    }
+
+
+    /**
+     * [postMisscheme description]
+     * @return [type] [description]
+     */
+    public function postMisscheme()
+    {
+        $term   = Input::get('scheme_name');
+        $search = DB::select(
+            "
+                                select name as value 
+                                from misschemes
+                                where match (name )
+                                against ('+{$term}*' IN BOOLEAN MODE)
+                                "
+        );
+
+        if ($search) {
+            return json_encode(array('valid' => true));
+        }
+        else {
+            return json_encode(array('valid' => false));
+        }
+    }
+
+
 
     /**
      * Generate Commission Structure for policy

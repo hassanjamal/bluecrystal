@@ -138,6 +138,7 @@ Route::group(array('prefix' => 'admin'), function()
     Route::get('policy/add_to_fd_scheme_id' , 'AdminPolicyController@getFdscheme');
     Route::post('policy/add_to_fd_scheme_id' , 'AdminPolicyController@postFdscheme');
     Route::get('policy/add_to_rd_scheme_id' , 'AdminPolicyController@getRdscheme');
+    Route::get('policy/add_to_mis_scheme_id' , 'AdminPolicyController@getMisscheme');
     Route::get('policy/add_to_associate_id' , 'AdminPolicyController@getAssociate');
     Route::post('policy/add_to_associate_id' , 'AdminPolicyController@postAssociate');
     Route::resource('policy' , 'AdminPolicyController');
