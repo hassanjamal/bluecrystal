@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('AssociatesTableSeeder');
 
 
-		// $this->call('MisschemesTableSeeder');
+		$this->call('MisschemesTableSeeder');
 		$this->call('MisCommissionTableSeeder');
 	}
 
