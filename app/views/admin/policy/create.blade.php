@@ -643,6 +643,20 @@ $(function () {
         }
     });
 });
+
+$(function(){
+    $('#mis_scheme_amount').on('keyup paste change', function () {
+
+        $('#scheme_name').attr("readonly", true);
+        if($('#to_scheme_interest').val() > 0){
+            var no_of_quarters = $('#to_scheme_years').val()*4;
+            var monthly_installment = ($('#mis_scheme_amount').val()* (Math.pow((1+($('#to_scheme_interest').val()/400)),1/3)-1))/(1-Math.pow((1+(($('#to_scheme_interest').val())/400)),-no_of_quarters));
+
+            $('#mis_monthly_amount').val(Number(monthly_installment).toFixed(2));
+
+        }
+        });
+});
 // dropdown change block
 $(function () {
     if ($('#payment_mode').val() === 'cash') {
@@ -788,8 +802,6 @@ $(function () {
                     $('#to_scheme_years').val(ui.item.years);
                 }
             });
-
-
         }
     });
 
