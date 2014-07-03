@@ -162,8 +162,10 @@
             <div class="col-md-6" id="rd_associate_collector_block">
                 <div class="form-group ">
                     <label class="col-md-4 control-label" for="rd_associate_collector_id">Collector :</label>
+
                     <div class="col-md-8">
-                        <input class="form-control" type="text" name="rd_associate_collector_id" id="rd_associate_collector_id" value=""/>
+                        <input class="form-control" type="text" name="rd_associate_collector_id"
+                               id="rd_associate_collector_id" value=""/>
                     </div>
                 </div>
             </div>
@@ -204,7 +206,7 @@
 
     <div class="col-md-12" id="mis_scheme_details_block">
         <div class="well form-group">
-            
+
             <blockquote>
                 <p class="lead">Monthly Installment Plan</p>
             </blockquote>
@@ -234,7 +236,7 @@
                 </div>
             </div>
             <!-- ./Monthly Installment amount -->
-        
+
 
         </div>
     </div>
@@ -644,18 +646,18 @@ $(function () {
     });
 });
 
-$(function(){
+$(function () {
     $('#mis_scheme_amount').on('keyup paste change', function () {
 
         $('#scheme_name').attr("readonly", true);
-        if($('#to_scheme_interest').val() > 0){
-            var no_of_quarters = $('#to_scheme_years').val()*4;
-            var monthly_installment = $('#mis_scheme_amount').val()*$('#to_scheme_interest').val()*$('#to_scheme_years').val()/(100*$('#to_scheme_years').val()*12);
+        if ($('#to_scheme_interest').val() > 0) {
+            var no_of_quarters = $('#to_scheme_years').val() * 4;
+            var monthly_installment = $('#mis_scheme_amount').val() * $('#to_scheme_interest').val() * $('#to_scheme_years').val() / (100 * $('#to_scheme_years').val() * 12);
 
             $('#mis_monthly_installment').val(Number(monthly_installment).toFixed(2));
 
         }
-        });
+    });
 });
 // dropdown change block
 $(function () {
@@ -820,20 +822,20 @@ $(function () {
 });
 
 // autosearch for collector id
-$(function(){
+$(function () {
     $('#rd_associate_collector_id').autocomplete({
-            source: "add_to_associate_id",
-            change: function (event, ui) {
-                if (!ui.item) {
-                    this.value = '';
-                    $('#policy').data('bootstrapValidator').updateStatus('#rd_associate_collector_id', 'NOT_VALIDATED', null).validateField('#rd_associate_collector_id');
-                }
-            },
-            select: function(event, ui){
-                $('#to_collector_id').val(ui.item.id);
-                $('#rd_associate_collector_id').val(ui.item.value);
+        source: "add_to_associate_id",
+        change: function (event, ui) {
+            if (!ui.item) {
+                this.value = '';
+                $('#policy').data('bootstrapValidator').updateStatus('#rd_associate_collector_id', 'NOT_VALIDATED', null).validateField('#rd_associate_collector_id');
             }
-        });
+        },
+        select: function (event, ui) {
+            $('#to_collector_id').val(ui.item.id);
+            $('#rd_associate_collector_id').val(ui.item.value);
+        }
+    });
 });
 
 $(function () {

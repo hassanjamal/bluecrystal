@@ -40,7 +40,7 @@
       				</div>
       				<div class="row">
 	      				<div class="col-md-4"><span style="color:grey">{{"PAN:-"}}</span></div>
-	      				<div class="col-md-8">{{$policy->pan}}</div>
+	      				<div class="col-md-8">{{$policy->pan_no}}</div>
       				</div>
       				<div class="row">
 	      				<div class="col-md-4"><span style="color:grey">{{"DATE OF BIRTH:-"}}</span></div>
