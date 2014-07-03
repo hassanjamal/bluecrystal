@@ -15,7 +15,7 @@ class MisCommissionTableSeeder extends Seeder {
 
 		Rank::find($id)->mis_self_commission()->insert(
 					                 array(
-					                      'one'     => 2,
+					                      'one' => 2,
 		                    		      'two'   => 2.5,
 		                    		      'three' => 3,
 		                    		      'four'  => 4,

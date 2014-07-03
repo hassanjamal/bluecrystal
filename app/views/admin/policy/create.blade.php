@@ -223,13 +223,13 @@
             <!-- ./scheme amount -->
 
             <!-- Monthly Installment amount -->
-            <div class="col-md-6" id="mis_monthly_amount_block">
+            <div class="col-md-6" id="mis_monthly_installment_block">
                 <div class="form-group ">
-                    <label class="col-md-4 control-label" for="mis_monthly_amount">Monthly Amount :</label>
+                    <label class="col-md-4 control-label" for="mis_monthly_installment">Monthly Installment :</label>
 
                     <div class="col-md-8">
-                        <input readonly class="form-control" type="text" name="mis_monthly_amount"
-                               id="mis_monthly_amount" value=""/>
+                        <input readonly class="form-control" type="text" name="mis_monthly_installment"
+                               id="mis_monthly_installment" value=""/>
                     </div>
                 </div>
             </div>
@@ -652,7 +652,7 @@ $(function(){
             var no_of_quarters = $('#to_scheme_years').val()*4;
             var monthly_installment = ($('#mis_scheme_amount').val()* (Math.pow((1+($('#to_scheme_interest').val()/400)),1/3)-1))/(1-Math.pow((1+(($('#to_scheme_interest').val())/400)),-no_of_quarters));
 
-            $('#mis_monthly_amount').val(Number(monthly_installment).toFixed(2));
+            $('#mis_monthly_installment').val(Number(monthly_installment).toFixed(2));
 
         }
         });
