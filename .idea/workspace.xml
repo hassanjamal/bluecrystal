@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fc03001-4661-4238-a2cf-34e513c95592" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" afterPath="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/seeds/MisCommissionTableSeeder.php" afterPath="$PROJECT_DIR$/app/database/seeds/MisCommissionTableSeeder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="blue-crystal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,112 +58,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2014_07_01_081745_create_mis_scheme_payment_table.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_01_081745_create_mis_scheme_payment_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.38243243" vertical-offset="283" max-vertical-offset="1457">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mis_self_commission.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Mis_self_commission.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="682">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rdscheme.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Rdscheme.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Misschemes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Misschemes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="341">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commission.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/policy/commission.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3255" max-vertical-offset="9827">
-              <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/admin/policy/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5590" max-vertical-offset="26474">
-              <caret line="191" column="41" selection-start-line="191" selection-start-column="41" selection-end-line="191" selection-end-column="41" />
-              <folding>
-                <marker date="1404205643000" expanded="true" signature="109:8772" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="195:8772" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="1636:8772" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="1671:8772" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="4490:8772" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="8720:8772" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="8758:8772" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="34530:34695" placeholder="..." />
-                <marker date="1404205643000" expanded="true" signature="26985:28008" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="26978:27914" placeholder="{&quot;tabClass&quot;: 'nav nav-pills thumbnail nav-justified'...}" />
-                <marker date="1404205643000" expanded="true" signature="27196:27417" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="27464:27887" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="27600:27762" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="27768:27857" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="28069:28924" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="28162:28278" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="28173:28190" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="28377:28873" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="28373:28838" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="28519:28817" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="29040:29844" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="29135:29280" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="29377:29801" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="29376:29576" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="29904:31116" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="30149:31073" placeholder="{&quot;source&quot;: &quot;add_to_fd_scheme_id&quot;...}" />
-                <marker date="1404205643000" expanded="true" signature="30192:30487" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="30228:30469" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="30542:31030" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="30838:30937" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="31353:34108" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="31402:34037" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="31454:32756" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="31853:32738" placeholder="{&quot;source&quot;: &quot;add_to_fd_scheme_id&quot;...}" />
-                <marker date="1404205643000" expanded="true" signature="31904:32132" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="31973:32118" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="32176:32595" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="32338:32381" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="32386:32475" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="32798:33889" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="33104:33819" placeholder="{&quot;source&quot;: &quot;add_to_rd_scheme_id&quot;...}" />
-                <marker date="1404205643000" expanded="true" signature="33241:33438" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="33252:33368" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="33528:33772" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="33597:33647" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="33921:33998" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="34347:34543" placeholder="{...}" />
-                <marker date="1404205643000" expanded="true" signature="34384:34543" placeholder="{&quot;source&quot;: &quot;add_to_associate_id&quot;...}" />
-                <marker date="1404205643000" expanded="true" signature="34481:34535" placeholder="{...}" />
-              </folding>
+            <state vertical-scroll-proportion="0.6283784" vertical-offset="19747" max-vertical-offset="26474">
+              <caret line="652" column="71" selection-start-line="652" selection-start-column="71" selection-end-line="652" selection-end-column="71" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -205,13 +102,13 @@
         <option value="$PROJECT_DIR$/app/config/app.php" />
         <option value="$PROJECT_DIR$/app/controllers/BaseController.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_06_27_131959_add_payment_collector_to_rd_scheme_payment_table.php" />
-        <option value="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_06_27_135307_create_rd_collector_commission_table.php" />
         <option value="$PROJECT_DIR$/app/models/Rd_collector_commission.php" />
         <option value="$PROJECT_DIR$/app/models/Policy_collector_commission.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_06_27_140059_create_policy_collector_commission_table.php" />
         <option value="$PROJECT_DIR$/app/views/admin/policy/commission.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/admin/AdminPolicyController.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/policy/create.blade.php" />
       </list>
     </option>
   </component>
@@ -464,7 +361,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20278184" sideWeight="0.60026044" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20278184" sideWeight="0.60026044" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997396" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -786,64 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/policy/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5590" max-vertical-offset="26474">
-          <caret line="191" column="41" selection-start-line="191" selection-start-column="41" selection-end-line="191" selection-end-column="41" />
-          <folding>
-            <marker date="1404205643000" expanded="true" signature="109:8772" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="195:8772" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="1636:8772" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="1671:8772" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="4490:8772" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="8720:8772" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="8758:8772" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="34530:34695" placeholder="..." />
-            <marker date="1404205643000" expanded="true" signature="26985:28008" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="26978:27914" placeholder="{&quot;tabClass&quot;: 'nav nav-pills thumbnail nav-justified'...}" />
-            <marker date="1404205643000" expanded="true" signature="27196:27417" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="27464:27887" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="27600:27762" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="27768:27857" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="28069:28924" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="28162:28278" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="28173:28190" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="28377:28873" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="28373:28838" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="28519:28817" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="29040:29844" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="29135:29280" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="29377:29801" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="29376:29576" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="29904:31116" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="30149:31073" placeholder="{&quot;source&quot;: &quot;add_to_fd_scheme_id&quot;...}" />
-            <marker date="1404205643000" expanded="true" signature="30192:30487" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="30228:30469" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="30542:31030" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="30838:30937" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="31353:34108" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="31402:34037" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="31454:32756" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="31853:32738" placeholder="{&quot;source&quot;: &quot;add_to_fd_scheme_id&quot;...}" />
-            <marker date="1404205643000" expanded="true" signature="31904:32132" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="31973:32118" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="32176:32595" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="32338:32381" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="32386:32475" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="32798:33889" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="33104:33819" placeholder="{&quot;source&quot;: &quot;add_to_rd_scheme_id&quot;...}" />
-            <marker date="1404205643000" expanded="true" signature="33241:33438" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="33252:33368" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="33528:33772" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="33597:33647" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="33921:33998" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="34347:34543" placeholder="{...}" />
-            <marker date="1404205643000" expanded="true" signature="34384:34543" placeholder="{&quot;source&quot;: &quot;add_to_associate_id&quot;...}" />
-            <marker date="1404205643000" expanded="true" signature="34481:34535" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_06_27_140059_create_policy_collector_commission_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9635135" vertical-offset="0" max-vertical-offset="1364">
@@ -865,18 +704,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/policy/commission.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3255" max-vertical-offset="9827">
-          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/policy/rd_schemes.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1767">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_01_081745_create_mis_scheme_payment_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9635135" vertical-offset="0" max-vertical-offset="1457">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Mis_self_commission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08378378" vertical-offset="0" max-vertical-offset="740">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -897,10 +744,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Mis_self_commission.php">
+    <entry file="file://$PROJECT_DIR$/app/views/admin/policy/commission.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="682">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.79594594" vertical-offset="3255" max-vertical-offset="9827">
+          <caret line="124" column="5" selection-start-line="124" selection-start-column="5" selection-end-line="124" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -922,10 +769,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_01_081745_create_mis_scheme_payment_table.php">
+    <entry file="file://$PROJECT_DIR$/app/views/admin/policy/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.38243243" vertical-offset="283" max-vertical-offset="1457">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6283784" vertical-offset="19747" max-vertical-offset="26474">
+          <caret line="652" column="71" selection-start-line="652" selection-start-column="71" selection-end-line="652" selection-end-column="71" />
           <folding />
         </state>
       </provider>
