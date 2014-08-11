@@ -1,14 +1,14 @@
-/* body{ */
-/*     height: 11.69in; */
-/*     overflow: hidden; */
-/*     width: 8.27in; */
-/* } */
-/* .main_content{ */
-/*     margin-top:.2em; */
-/*     margin-left:2em; */
-/*     margin-right:2em; */
-/*     margin-bottom:0em; */
-/* } */
+body{
+    height: 11.69in;
+    overflow: hidden;
+    width: 8.27in;
+}
+.main_content{
+    margin-top:.2em;
+    margin-left:2em;
+    margin-right:2em;
+    margin-bottom:0em;
+}
 .header_image{
     height:145px;
 }

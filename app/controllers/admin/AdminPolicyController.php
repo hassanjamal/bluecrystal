@@ -361,11 +361,11 @@ class AdminPolicyController extends AdminController
         if (Sentry::check()) {
             if ($policy->id) {
                 $title = $policy->policy_no . "_receipt.pdf";
-                $pdf = App::make('dompdf');
+                $pdf   = App::make('dompdf');
                 $pdf->loadView('admin/policy/receipt', compact('policy'));
 
-                // return $pdf->stream();
-                return View::make('admin/policy/receipt', compact('policy', 'title'));
+                return $pdf->stream();
+                // return View::make('admin/policy/receipt', compact('policy', 'title'));
             } else {
                 return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
             }
@@ -390,9 +390,9 @@ class AdminPolicyController extends AdminController
                 $pdf = App::make('dompdf');
                 $pdf->loadView('admin/policy/bond', compact('policy'));
 
-                return View::make('admin/policy/bond', compact('policy', 'title'));
+                // return View::make('admin/policy/bond', compact('policy', 'title'));
 
-                // return $pdf->stream();
+                return $pdf->stream();
             } else {
                 return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
             }
