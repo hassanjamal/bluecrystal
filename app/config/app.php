@@ -112,7 +112,6 @@ return array(
         'Way\Generators\GeneratorsServiceProvider',
         'Bllim\Datatables\DatatablesServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider',
-         // 'Clockwork\Support\Laravel\ClockworkServiceProvider',
     ),
 
     /*
