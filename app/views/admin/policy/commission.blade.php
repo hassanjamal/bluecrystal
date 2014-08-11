@@ -64,6 +64,20 @@
                             <div class="col-md-8">{{ $payment_details->total_installment}}</div>
                         </div>
                         @endif
+
+                        @if ($policy->scheme_type == 'MIS')
+                        <?php
+                        $payment_details = Mis_scheme_payment::where('policy_id', $policy->id)->first();
+                        ?>
+                        <div class="row">
+                            <div class="col-md-4"><span style="color:grey">{{"DEPOSIT AMOUNT:-"}}</span></div>
+                            <div class="col-md-8">{{ ($payment_details->deposit_amount)}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"><span style="color:grey">{{"MATURE AMOUNT:-"}}</span></div>
+                            <div class="col-md-8">{{ ($payment_details->monthly_installment)}}</div>
+                        </div>
+                        @endif
                     </td>
                 </tr>
                 </tbody>
@@ -118,7 +132,6 @@
                 $counter++;
                 ?>
                 @endforeach
-                
                 </tbody>
             </table>
         </div>
@@ -175,6 +188,44 @@
                 @endforeach
                 @endif
 
+                {{-- Self Commision Details for MIS--}}
+                @if ($policy->scheme_type == 'MIS')
+                <?php
+                $payment_id = Mis_scheme_payment::where('policy_id', $policy->id)->get();
+                ?>
+                @foreach ($payment_id as $payment)
+                <?php
+                $counter = 1;
+                ?>
+                <tr>
+                    <td><strong class='text-danger'>PAYMENT </strong></td>
+                    <td>
+                        <?php
+                        $commision = Policy_self_commission::where('payment_id', $payment->id)->where(
+                                                           'policy_id', $policy->id
+                        )                                  ->get();
+                        ?>
+                        @foreach ($commision as $associate_commision)
+                        <div class="row">
+                            <div class="col-md-4"><span style="color:grey">
+                        {{ Associate::where('id', $associate_commision->associate_id)->pluck('associate_no')}}
+                      </span></div>
+                            <div class="col-md-4"><span style="color:grey">
+                        {{ Associate::where('id', $associate_commision->associate_id)->pluck('name')}}
+                      </span></div>
+                            <div class="col-md-4">{{($associate_commision->self_commision)}}</div>
+                        </div>
+                        @endforeach
+                    </td>
+                </tr>
+                <?php
+                $counter++;
+                ?>
+                @endforeach
+                @endif
+
+ 
+
                 {{-- generate team commission structure for RD scheme --}}
                 @if ($policy->scheme_type == 'RD')
                 <?php
@@ -211,7 +262,7 @@
                 @endforeach
                 @endif
                 </tbody>
-                </tbody>
+                <!-- </tbody> -->
             </table>
         </div>
     </div>
@@ -234,6 +285,42 @@
                 @if ($policy->scheme_type == 'FD')
                 <?php
                 $payment_id = Fd_scheme_payment::where('policy_id', $policy->id)->get();
+                ?>
+                @foreach ($payment_id as $payment)
+                <?php
+                $counter = 1;
+                ?>
+                <tr>
+                    <td><strong class='text-danger'>PAYMENT </strong></td>
+                    <td>
+                        <?php
+                        $commision = Policy_team_commission::where('payment_id', $payment->id)->where(
+                                                           'policy_id', $policy->id
+                        )                                  ->get();
+                        ?>
+                        @foreach ($commision as $associate_commision)
+                        <div class="row">
+                            <div class="col-md-4"><span style="color:grey">
+                        {{ Associate::where('id', $associate_commision->associate_id)->pluck('associate_no')}}
+                      </span></div>
+                            <div class="col-md-4"><span style="color:grey">
+                        {{ Associate::where('id', $associate_commision->associate_id)->pluck('name')}}
+                      </span></div>
+                            <div class="col-md-4">{{($associate_commision->team_commision)}}</div>
+                        </div>
+                        @endforeach
+                    </td>
+                </tr>
+                <?php
+                $counter++;
+                ?>
+                @endforeach
+                @endif
+                
+                {{-- Team Commision Details for MIS--}}
+                @if ($policy->scheme_type == 'MIS')
+                <?php
+                $payment_id = Mis_scheme_payment::where('policy_id', $policy->id)->get();
                 ?>
                 @foreach ($payment_id as $payment)
                 <?php

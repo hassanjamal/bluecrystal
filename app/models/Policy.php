@@ -56,6 +56,11 @@ class Policy extends \LaravelBook\Ardent\Ardent {
 	{
 		return $this->hasMany('Rd_scheme_payment', 'policy_id');
 	}
+
+    public function mis_scheme_payment()
+    {
+        return $this->hasMany('Mis_scheme_payment', 'policy_id');
+    }
 	/**
 	 * 
 	 */

@@ -149,8 +149,13 @@
 	      				<div class="col-md-8">{{number_format($payment->deposit_amount)}}</div>
 	      			</div>
 	      			<div class="row">
+                        @if ($policy->scheme_type != "MIS")
 	      				<div class="col-md-4"><span style="color:grey">{{"MATURE AMOUNT:-"}}</span></div>
 	      				<div class="col-md-8">{{number_format($payment->mature_amount)}}</div>
+                        @else
+                        <div class="col-md-4"><span style="color:grey">{{"MONTHLY AMOUNT:-"}}</span></div>
+                        <div class="col-md-8">{{number_format($payment->monthly_installment)}}</div>
+                        @endif
 	      			</div>
 	      			<div class="row">
 	      				<div class="col-md-4"><span style="color:grey">{{"STATUS:-"}}</span></div>

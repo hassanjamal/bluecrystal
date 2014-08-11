@@ -112,7 +112,7 @@ return array(
         'Way\Generators\GeneratorsServiceProvider',
         'Bllim\Datatables\DatatablesServiceProvider',
         'Barryvdh\DomPDF\ServiceProvider',
-         // 'Clockwork\Support\Laravel\ClockworkServiceProvider',
+         'Clockwork\Support\Laravel\ClockworkServiceProvider',
     ),
 
     /*
@@ -181,6 +181,7 @@ return array(
         'Sentry'		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'PDF'             => 'Barryvdh\DomPDF\Facade',
         'Datatables'      => 'Bllim\Datatables\Datatables',
+        'Carbon'          => 'Carbon\Carbon',
     ),
 
 );

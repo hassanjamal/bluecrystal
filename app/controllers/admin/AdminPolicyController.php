@@ -61,25 +61,25 @@ class AdminPolicyController extends AdminController
      * @param Policy_self_commission $policy_self_commision [description]
      */
     public function __construct(
-        Associate $associate,
-        Branch $branch,
-        Rank $rank,
-        Policy $policy,
-        Fd_scheme_payment $fd_scheme_payment,
-        Rd_scheme_payment $rd_scheme_payment,
+        Associate              $associate,
+        Branch                 $branch,
+        Rank                   $rank,
+        Policy                 $policy,
+        Fd_scheme_payment      $fd_scheme_payment,
+        Rd_scheme_payment      $rd_scheme_payment,
         Policy_team_commission $policy_team_commision,
         Policy_self_commission $policy_self_commision,
-        Mis_scheme_payment $mis_scheme_payment
+        Mis_scheme_payment     $mis_scheme_payment
     )
     {
         parent::__construct();
-        $this->associate = $associate;
-        $this->branch = $branch;
-        $this->rank = $rank;
-        $this->policy = $policy;
-        $this->fd_scheme_payment = $fd_scheme_payment;
-        $this->rd_scheme_payment = $rd_scheme_payment;
-        $this->mis_scheme_payment = $mis_scheme_payment;
+        $this->associate             = $associate;
+        $this->branch                = $branch;
+        $this->rank                  = $rank;
+        $this->policy                = $policy;
+        $this->fd_scheme_payment     = $fd_scheme_payment;
+        $this->rd_scheme_payment     = $rd_scheme_payment;
+        $this->mis_scheme_payment    = $mis_scheme_payment;
         $this->policy_self_commision = $policy_self_commision;
         $this->policy_team_commision = $policy_team_commision;
     }
@@ -110,9 +110,9 @@ class AdminPolicyController extends AdminController
         if (Sentry::check()) {
             $branch_id = Sentry::getUser()->branch_id;
             if (Sentry::getUser()->isSuperUser() || Sentry::getUser()->hasAccess('policy-create')) {
-                $title = "Create Policy";
+                $title        = "Create Policy";
                 $special_case = Special_case::lists('special_case', 'special_case');
-                $mode = 'create';
+                $mode         = 'create';
 
                 return View::make('admin/policy/create', compact('title', 'mode', 'branch_id', 'special_case'));
             } else {
@@ -337,7 +337,10 @@ class AdminPolicyController extends AdminController
                 $scheme_payments = Policy::find($policy->id)->fd_scheme_payment()->get();
             } elseif ($policy->scheme_type == 'RD') {
                 $scheme_payments = Policy::find($policy->id)->rd_scheme_payment()->get();
+            } elseif($policy->scheme_type == 'MIS'){
+                $scheme_payments = Policy::find($policy->id)->mis_scheme_payment()->get();
             }
+
 
             return View::make('admin/policy/details', compact('policy', 'scheme_payments', 'title'));
 
@@ -361,7 +364,8 @@ class AdminPolicyController extends AdminController
                 $pdf = App::make('dompdf');
                 $pdf->loadView('admin/policy/receipt', compact('policy'));
 
-                return $pdf->stream();
+                // return $pdf->stream();
+                return View::make('admin/policy/receipt', compact('policy', 'title'));
             } else {
                 return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
             }
@@ -386,9 +390,9 @@ class AdminPolicyController extends AdminController
                 $pdf = App::make('dompdf');
                 $pdf->loadView('admin/policy/bond', compact('policy'));
 
-                // return View::make('admin/policy/bond', compact('policy', 'title'));
+                return View::make('admin/policy/bond', compact('policy', 'title'));
 
-                return $pdf->stream();
+                // return $pdf->stream();
             } else {
                 return Redirect::to('admin/policy')->with('error', "Policy Does Not Exists");
             }
@@ -838,18 +842,18 @@ class AdminPolicyController extends AdminController
      */
     public function update_rd_scheme_payment($policy_id, $input, $associate_id, $scheme_type, $installment)
     {
-        $this->rd_scheme_payment = new Rd_scheme_payment;
-        $this->rd_scheme_payment->policy_id = $policy_id;
-        $this->rd_scheme_payment->deposit_amount = $input->rd_scheme_amount;
-        $this->rd_scheme_payment->mature_amount = $input->rd_maturity_amount;
+        $this->rd_scheme_payment                    = new Rd_scheme_payment;
+        $this->rd_scheme_payment->policy_id         = $policy_id;
+        $this->rd_scheme_payment->deposit_amount    = $input->rd_scheme_amount;
+        $this->rd_scheme_payment->mature_amount     = $input->rd_maturity_amount;
         $this->rd_scheme_payment->total_installment = $input->rd_total_installment;
-        $this->rd_scheme_payment->paid_installment = $installment;
-        $this->rd_scheme_payment->payment_mode = strtoupper($input->payment_mode);
-        $this->rd_scheme_payment->drawee_bank = strtoupper($input->drawee_bank);
-        $this->rd_scheme_payment->drawee_branch = strtoupper($input->drawee_branch);
-        $this->rd_scheme_payment->drawn_date = date("Y-m-d", strtotime($input->drawn_date));
-        $this->rd_scheme_payment->cheque_no = $input->cheque_no;
-        $this->rd_scheme_payment->paid = strtoupper($input->paid);
+        $this->rd_scheme_payment->paid_installment  = $installment;
+        $this->rd_scheme_payment->payment_mode      = strtoupper($input->payment_mode);
+        $this->rd_scheme_payment->drawee_bank       = strtoupper($input->drawee_bank);
+        $this->rd_scheme_payment->drawee_branch     = strtoupper($input->drawee_branch);
+        $this->rd_scheme_payment->drawn_date        = date("Y-m-d", strtotime($input->drawn_date));
+        $this->rd_scheme_payment->cheque_no         = $input->cheque_no;
+        $this->rd_scheme_payment->paid              = strtoupper($input->paid);
 
         // extra commission for the payment collector associate
         $this->rd_scheme_payment->payment_collector_id = strtoupper($input->to_collector_id);
@@ -903,15 +907,16 @@ class AdminPolicyController extends AdminController
 
     public function update_mis_scheme_payment($policy_id, $input, $associate_id, $scheme_type)
     {
-        $this->mis_scheme_payment->policy_id = $policy_id;
-        $this->mis_scheme_payment->deposit_amount = $input->mis_scheme_amount;
+        $this->mis_scheme_payment->policy_id           = $policy_id;
+        $this->mis_scheme_payment->deposit_amount      = $input->mis_scheme_amount;
         $this->mis_scheme_payment->monthly_installment = $input->mis_monthly_installment;
-        $this->mis_scheme_payment->payment_mode = strtoupper($input->payment_mode);
-        $this->mis_scheme_payment->drawee_bank = strtoupper($input->drawee_bank);
-        $this->mis_scheme_payment->drawee_branch = strtoupper($input->drawee_branch);
-        $this->mis_scheme_payment->drawn_date = date("Y-m-d", strtotime($input->drawn_date));
-        $this->mis_scheme_payment->cheque_no = strtoupper($input->cheque_no);
-        $this->mis_scheme_payment->paid = strtoupper($input->paid);
+        $this->mis_scheme_payment->payment_mode        = strtoupper($input->payment_mode);
+        $this->mis_scheme_payment->drawee_bank         = strtoupper($input->drawee_bank);
+        $this->mis_scheme_payment->drawee_branch       = strtoupper($input->drawee_branch);
+        $this->mis_scheme_payment->drawn_date          = date("Y-m-d", strtotime($input->drawn_date));
+        $this->mis_scheme_payment->maturity_date       = \Carbon\Carbon::createFromFormat('Y-m-d', trim($input->drawn_date))->addYears($input->to_scheme_years);
+        $this->mis_scheme_payment->cheque_no           = strtoupper($input->cheque_no);
+        $this->mis_scheme_payment->paid                = strtoupper($input->paid);
 
         if ($this->mis_scheme_payment->save()) {
 
@@ -964,7 +969,7 @@ class AdminPolicyController extends AdminController
                     'drawee_bank'           => $input->drawee_bank,
                     'drawee_branch'         => $input->drawee_branch,
                     'drawn_date'            => $input->drawn_date,
-//                    'maturity_date'         => date( "Y-m-d", strtotime( "+" . $input->to_scheme_years . " year", $input->drawn_date ) ),
+                    'maturity_date'         => \Carbon\Carbon::createFromFormat('Y-m-d', trim($input->drawn_date))->addYears($input->to_scheme_years),
                     'next_installment_date' => date("Y-m-d", strtotime($input->drawn_date)),
                     'cheque_no'             => $input->cheque_no,
                     'paid'                  => $input->paid,
@@ -985,15 +990,12 @@ class AdminPolicyController extends AdminController
      *
      * @return bool
      */
-    public function update_self_commission(
-        $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount
-    )
+    public function update_self_commission( $associate_id, $scheme_type, $input, $policy_id, $payment_id, $deposit_amount )
     {
-        $rank_id = Associate::where('id', $associate_id)->pluck('rank_id');
+        $rank_id   = Associate::where('id', $associate_id)->pluck('rank_id');
+        $rank_no    = Rank::where('id', $rank_id)->pluck('rank_no');
         $scheme_id = $input->to_scheme_id;
-        $rank_gap = Rank::where('id', '<=', $rank_id)
-            ->where('rank_no', '!=', '99999')
-            ->get();
+        $rank_gap  = Rank::where('rank_no', '<=', $rank_no)->where('rank_no', '!=', '99999')->get();
 
         if ($scheme_type == 'FD') {
             /**
@@ -1004,17 +1006,17 @@ class AdminPolicyController extends AdminController
             $year_name = Fdscheme::where('id', $scheme_id)->pluck('year_name');
             $total_commission = 0;
             foreach ($rank_gap as $temp_rank_gap) {
-                $commission = Fd_self_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                $commission            = Fd_self_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
                 $commission_calculated = ($commission * $deposit_amount) / 100;
-                $total_commission = $total_commission + $commission_calculated;
+                $total_commission      = $total_commission + $commission_calculated;
             }
 
             // generate self comission for generated policy
-            $this->policy_self_commision->payment_id = $payment_id;
-            $this->policy_self_commision->policy_id = $policy_id;
-            $this->policy_self_commision->associate_id = $associate_id;
-            $this->policy_self_commision->rank_id = $rank_id;
-            $this->policy_self_commision->rank_no = Rank::where('id', $rank_id)->pluck('rank_no');
+            $this->policy_self_commision->payment_id     = $payment_id;
+            $this->policy_self_commision->policy_id      = $policy_id;
+            $this->policy_self_commision->associate_id   = $associate_id;
+            $this->policy_self_commision->rank_id        = $rank_id;
+            $this->policy_self_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
             $this->policy_self_commision->deposit_amount = $deposit_amount;
             $this->policy_self_commision->self_commision = $total_commission;
 
@@ -1033,17 +1035,17 @@ class AdminPolicyController extends AdminController
             $year_name = Rdscheme::where('id', $scheme_id)->pluck('year_name');
             $total_commission = 0;
             foreach ($rank_gap as $temp_rank_gap) {
-                $commission = Rd_self_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                $commission            = Rd_self_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
                 $commission_calculated = ($commission * $deposit_amount) / 100;
-                $total_commission = $total_commission + $commission_calculated;
+                $total_commission      = $total_commission + $commission_calculated;
             }
 
             // save self comission for generated policy
-            $this->policy_self_commision->payment_id = $payment_id;
-            $this->policy_self_commision->policy_id = $policy_id;
-            $this->policy_self_commision->associate_id = $associate_id;
-            $this->policy_self_commision->rank_id = $rank_id;
-            $this->policy_self_commision->rank_no = Rank::where('id', $rank_id)->pluck('rank_no');
+            $this->policy_self_commision->payment_id     = $payment_id;
+            $this->policy_self_commision->policy_id      = $policy_id;
+            $this->policy_self_commision->associate_id   = $associate_id;
+            $this->policy_self_commision->rank_id        = $rank_id;
+            $this->policy_self_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
             $this->policy_self_commision->deposit_amount = $deposit_amount;
             $this->policy_self_commision->self_commision = $total_commission;
 
@@ -1062,17 +1064,17 @@ class AdminPolicyController extends AdminController
             $year_name = Misschemes::where('id', $scheme_id)->pluck('year_name');
             $total_commission = 0;
             foreach ($rank_gap as $temp_rank_gap) {
-                $commission = Mis_self_commission::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                $commission            = Mis_self_commission::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
                 $commission_calculated = ($commission * $deposit_amount) / 100;
-                $total_commission = $total_commission + $commission_calculated;
+                $total_commission      = $total_commission + $commission_calculated;
             }
 
             // save self comission for generated policy
-            $this->policy_self_commision->payment_id = $payment_id;
-            $this->policy_self_commision->policy_id = $policy_id;
-            $this->policy_self_commision->associate_id = $associate_id;
-            $this->policy_self_commision->rank_id = $rank_id;
-            $this->policy_self_commision->rank_no = Rank::where('id', $rank_id)->pluck('rank_no');
+            $this->policy_self_commision->payment_id     = $payment_id;
+            $this->policy_self_commision->policy_id      = $policy_id;
+            $this->policy_self_commision->associate_id   = $associate_id;
+            $this->policy_self_commision->rank_id        = $rank_id;
+            $this->policy_self_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
             $this->policy_self_commision->deposit_amount = $deposit_amount;
             $this->policy_self_commision->self_commision = $total_commission;
 
@@ -1104,13 +1106,13 @@ class AdminPolicyController extends AdminController
 
         $scheme_id = $input->to_scheme_id;
         $associate = Associate::where('id', '=', $associate_id)->first();
-        $top_node = Associate::where('company', '1')->pluck('id');
+        $top_node  = Associate::where('company', '1')->pluck('id');
 
         while ($associate->introducer_id != $top_node) {
 
             $associate_next = Associate::where('id', $associate->introducer_id)->first();
-            $rank_id = $associate_next->rank_id;
-            $rank_gap = Rank::where('id', '>', $associate->rank_id)
+            $rank_id        = $associate_next->rank_id;
+            $rank_gap       = Rank::where('id', '>', $associate->rank_id)
                 ->where('id', '<=', $associate_next->rank_id)
                 ->get();
 
@@ -1121,12 +1123,12 @@ class AdminPolicyController extends AdminController
                  * be the column name in Fd_self_commision table
                  * and finally commision rate will be fetched from there
                  */
-                $year_name = Fdscheme::where('id', $scheme_id)->pluck('year_name');
+                $year_name        = Fdscheme::where('id', $scheme_id)->pluck('year_name');
                 $total_commission = 0;
                 foreach ($rank_gap as $temp_rank_gap) {
-                    $commission = Fd_team_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                    $commission            = Fd_team_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
                     $commission_calculated = ($commission * $deposit_amount) / 100;
-                    $total_commission = $total_commission + $commission_calculated;
+                    $total_commission      = $total_commission + $commission_calculated;
                 }
 
                 /**
@@ -1136,12 +1138,12 @@ class AdminPolicyController extends AdminController
                  */
 
                 // generate team comission for generated policy
-                $policy_team_commision = new Policy_team_commission;
-                $policy_team_commision->payment_id = $payment_id;
-                $policy_team_commision->policy_id = $policy_id;
-                $policy_team_commision->associate_id = $associate_next->id;
-                $policy_team_commision->rank_id = $rank_id;
-                $policy_team_commision->rank_no = Rank::where('id', $rank_id)->pluck('rank_no');
+                $policy_team_commision                 = new Policy_team_commission;
+                $policy_team_commision->payment_id     = $payment_id;
+                $policy_team_commision->policy_id      = $policy_id;
+                $policy_team_commision->associate_id   = $associate_next->id;
+                $policy_team_commision->rank_id        = $rank_id;
+                $policy_team_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
                 $policy_team_commision->deposit_amount = $deposit_amount;
                 $policy_team_commision->team_commision = $total_commission;
 
@@ -1153,12 +1155,12 @@ class AdminPolicyController extends AdminController
                  * be the column name in Rd_self_commision table
                  * and finally commision rate will be fetched from there
                  */
-                $year_name = Rdscheme::where('id', $scheme_id)->pluck('year_name');
+                $year_name        = Rdscheme::where('id', $scheme_id)->pluck('year_name');
                 $total_commission = 0;
                 foreach ($rank_gap as $temp_rank_gap) {
-                    $commission = Rd_team_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
+                    $commission            = Rd_team_commision::where('rank_id', $temp_rank_gap->id)->pluck($year_name);
                     $commission_calculated = ($commission * $deposit_amount) / 100;
-                    $total_commission = $total_commission + $commission_calculated;
+                    $total_commission      = $total_commission + $commission_calculated;
                 }
                 /**
                  * now commision has been fetched for each associate in the tree
@@ -1167,12 +1169,12 @@ class AdminPolicyController extends AdminController
                  */
 
                 // generate team comission for generated policy
-                $policy_team_commision = new Policy_team_commission;
-                $policy_team_commision->payment_id = $payment_id;
-                $policy_team_commision->policy_id = $policy_id;
-                $policy_team_commision->associate_id = $associate_next->id;
-                $policy_team_commision->rank_id = $rank_id;
-                $policy_team_commision->rank_no = Rank::where('id', $rank_id)->pluck('rank_no');
+                $policy_team_commision                 = new Policy_team_commission;
+                $policy_team_commision->payment_id     = $payment_id;
+                $policy_team_commision->policy_id      = $policy_id;
+                $policy_team_commision->associate_id   = $associate_next->id;
+                $policy_team_commision->rank_id        = $rank_id;
+                $policy_team_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
                 $policy_team_commision->deposit_amount = $deposit_amount;
                 $policy_team_commision->team_commision = $total_commission;
 
@@ -1191,7 +1193,7 @@ class AdminPolicyController extends AdminController
                         $year_name
                     );
                     $commission_calculated = ($commission * $deposit_amount) / 100;
-                    $total_commission = $total_commission + $commission_calculated;
+                    $total_commission      = $total_commission + $commission_calculated;
                 }
 
                 /**
@@ -1201,12 +1203,12 @@ class AdminPolicyController extends AdminController
                  */
 
                 // generate team comission for generated policy
-                $policy_team_commision = new Policy_team_commission;
-                $policy_team_commision->payment_id = $payment_id;
-                $policy_team_commision->policy_id = $policy_id;
-                $policy_team_commision->associate_id = $associate_next->id;
-                $policy_team_commision->rank_id = $rank_id;
-                $policy_team_commision->rank_no = Rank::where('id', $rank_id)->pluck('rank_no');
+                $policy_team_commision                 = new Policy_team_commission;
+                $policy_team_commision->payment_id     = $payment_id;
+                $policy_team_commision->policy_id      = $policy_id;
+                $policy_team_commision->associate_id   = $associate_next->id;
+                $policy_team_commision->rank_id        = $rank_id;
+                $policy_team_commision->rank_no        = Rank::where('id', $rank_id)->pluck('rank_no');
                 $policy_team_commision->deposit_amount = $deposit_amount;
                 $policy_team_commision->team_commision = $total_commission;
 
@@ -1230,14 +1232,15 @@ class AdminPolicyController extends AdminController
     {
         $collector_commission = Rd_collector_commission::where('rdschemes_id', $input->to_scheme_id)
             ->pluck('commission');
-        $calculated_commission = ($deposit_amount * $collector_commission) / 100;
+
+        $calculated_commission       = ($deposit_amount * $collector_commission) / 100;
         $policy_collector_commission = new Policy_collector_commission;
 
 
-        $policy_collector_commission->payment_id = $payment_id;
-        $policy_collector_commission->policy_id = $policy_id;
-        $policy_collector_commission->collector_id = $input->to_collector_id;
-        $policy_collector_commission->deposit_amount = $deposit_amount;
+        $policy_collector_commission->payment_id            = $payment_id;
+        $policy_collector_commission->policy_id             = $policy_id;
+        $policy_collector_commission->collector_id          = $input->to_collector_id;
+        $policy_collector_commission->deposit_amount        = $deposit_amount;
         $policy_collector_commission->collection_commission = $calculated_commission;
 
 
@@ -1411,12 +1414,11 @@ class AdminPolicyController extends AdminController
     public function getPayInstallment($policy)
     {
         if (Sentry::check()) {
-            $title = $policy->policy_no . " Pay Installments ";
-            $rd_policy = Rd_scheme_payment::where('policy_id', $policy->id)->orderBy('updated_at', 'desc')
-                ->first();
-            $current_date = new DateTime("now");
+            $title                 = $policy->policy_no . " Pay Installments ";
+            $rd_policy             = Rd_scheme_payment::where('policy_id', $policy->id)->orderBy('updated_at', 'desc')->first();
+            $current_date          = new DateTime("now");
             $last_installment_date = new DateTime($rd_policy->next_installment_date);
-            $interval = $last_installment_date->diff($current_date);
+            $interval              = $last_installment_date->diff($current_date);
             $interval->format('%R%a days');
 
             return View::make('admin.policy.pay_installment', compact('title', 'policy', 'rd_policy', 'interval'));

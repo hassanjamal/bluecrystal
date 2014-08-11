@@ -22,6 +22,7 @@ class CreateMisSchemePaymentTable extends Migration {
 			$table->string('drawee_bank')->nullable();
 			$table->string('drawee_branch')->nullable();
 			$table->date('drawn_date')->nullable();
+            $table->date('maturity_date')->nullable();
 			$table->string('cheque_no')->nullable();
 			$table->string('paid');
 			$table->timestamps();

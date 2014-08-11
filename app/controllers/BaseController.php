@@ -2,26 +2,24 @@
 
 class BaseController extends Controller {
 
-    /* public __construct() {{{ */ 
     /**
      * __construct
      * 
      * @access public
      * @return void
      */
-//      public function __construct()
-//      {
-//          $this->beforeFilter(function()
-//          {
-//          Event::fire('clockwork.controller.start');
-//          });
-//
-//          $this->afterFilter(function()
-//          {
-//          Event::fire('clockwork.controller.end');
-//          });
-//      }
-    /* }}} */
+    public function __construct()
+    {
+       $this->beforeFilter(function()
+       {
+           Event::fire('clockwork.controller.start');
+       });
+
+       $this->afterFilter(function()
+       {
+           Event::fire('clockwork.controller.end');
+       });
+   }
 
 
     /**
