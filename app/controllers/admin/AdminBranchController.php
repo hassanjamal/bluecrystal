@@ -81,15 +81,15 @@ class AdminBranchController extends AdminController {
      */
     public function save()
     {
-        $this->branch->name = Input::get('name');
-        $this->branch->address = Input::get('address');
-        $this->branch->city = Input::get('city');
-        $this->branch->state = Input::get('state');
-        $this->branch->pincode = Input::get('pincode');
-        $this->branch->managername = Input::get('managername');
+        $this->branch->name         = Input::get('name');
+        $this->branch->address      = Input::get('address');
+        $this->branch->city         = Input::get('city');
+        $this->branch->state        = Input::get('state');
+        $this->branch->pincode      = Input::get('pincode');
+        $this->branch->managername  = Input::get('managername');
         $this->branch->managerphone = Input::get('managerphone');
-        $this->branch->email = Input::get('email');
-        $this->branch->phone = Input::get('phone');
+        $this->branch->email        = Input::get('email');
+        $this->branch->phone        = Input::get('phone');
 
         //save if valid
         $this->branch->save();

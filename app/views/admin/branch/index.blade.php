@@ -11,12 +11,12 @@
 		<h3>
 			{{{ $title }}}
 
-			<!-- <div class="pull-right">
+			<div class="pull-right">
 				@if(Sentry::getUser()->isSuperUser())
 				<a href="{{{ URL::to('admin/branch/create') }}}"
         class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create Branch</a>
 				@endif
-			</div> -->
+			</div>
 		</h3>
 	</div>
 

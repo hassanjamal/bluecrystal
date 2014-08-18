@@ -12,8 +12,11 @@
 			{{{ $title }}}
 
 			<div class="pull-right">
-				<a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
-			</div> 
+				@if(Sentry::getUser()->isSuperUser())
+				<a href="{{{ URL::to('admin/users/create') }}}"
+        class="btn btn-small btn-info iframe"><span class="glyphicon glyphicon-plus-sign"></span> Create User</a>
+				@endif
+			</div>
 		</h3>
 	</div>
 
