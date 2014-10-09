@@ -637,15 +637,28 @@ $(function () {
         if ($('#to_scheme_interest').val() > 0) {
             // console.log($('#to_scheme_interest').val());
             $('#rd_total_installment').val($('#to_scheme_years').val() * 12);
+
+            var yearly_amount = parseInt($('#rd_scheme_amount').val())*12;
             var expected_maturity_amount = 0;
-            for (var i = ($('#rd_total_installment').val()); i >= 1; i--) {
-                var calculated_amount = parseInt($('#rd_scheme_amount').val()) *
-                    Math.pow(
-                        (1 + ($('#to_scheme_interest').val() / (100 * 12))),
-                        i
-                    );
-                expected_maturity_amount = expected_maturity_amount + calculated_amount;
-                // console.log(expected_maturity_amount);
+
+
+            for (var i = 1;  i <= ($('#to_scheme_years').val()); i++) {
+                var calculated_amount = Number
+                (
+                        (
+                        (yearly_amount + expected_maturity_amount) * 
+                        1 * 
+                        $('#to_scheme_interest').val()
+                        ) / 100
+                );
+                console.log( 'Years ' + i +' ::---> ');
+                // var calculated_amount = (parseInt($('#rd_scheme_amount').val()) * 12);
+                    // Math.pow(
+                        // (1 + ($('#to_scheme_interest').val() / (100 * 12))),
+                        // i
+                    // );
+                expected_maturity_amount = expected_maturity_amount + calculated_amount + yearly_amount;
+                console.log(expected_maturity_amount);
             }
             $('#rd_maturity_amount').val(Number(expected_maturity_amount).toFixed(2));
         }
