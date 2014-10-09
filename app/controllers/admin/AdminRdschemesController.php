@@ -211,7 +211,7 @@ class AdminRdschemesController extends AdminController
     {
 
         $rdschemes = Rdscheme::Select( array('rdschemes.id', 'rdschemes.name', 'rdschemes.years', 'rdschemes.interest',
-                                   'rdschemes.special_interest'))->where('years' ,'<=', 3 );
+                                   'rdschemes.special_interest'));
         if (Sentry::getUser()->isSuperUser()) {
             return Datatables::of($rdschemes)
                              ->edit_column('interest', '{{ number_format($interest,2)}}')

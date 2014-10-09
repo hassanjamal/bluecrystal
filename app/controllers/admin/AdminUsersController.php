@@ -579,7 +579,6 @@ class AdminUsersController extends AdminController{
             $users = User::select(array('users.id','users.first_name','users.last_name','users.email', 'users.activated', 'users.created_at'))
                             ->where('users.branch_id', $branch_id);
         }
-
         return Datatables::of($users)
         ->edit_column('activated',
                       '@if($activated)
@@ -600,7 +599,8 @@ class AdminUsersController extends AdminController{
         ->remove_column('last_name')
 
         ->make();
-        } // end if sentry check condition
+        } 
+        // end if sentry check condition
 
 	}
 

@@ -640,7 +640,6 @@ class AdminPolicyController extends AdminController
                                 from rdschemes
                                 where match (name )
                                 against ('*{$term}*' IN BOOLEAN MODE)
-                                and years <=3
                                 "
         );
         foreach ($search as $result) {

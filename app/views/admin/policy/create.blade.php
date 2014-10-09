@@ -617,11 +617,17 @@ $(document).ready(function () {
         }
     );
 });
+// end of form wizard
+// 
+// Maturity Amount Calculation 
 $(function () {
     $('#fd_scheme_amount').on('keyup paste change', function () {
         $('#scheme_name').attr("readonly", true);
         if ($('#to_scheme_interest').val() > 0) {
-            $('#fd_maturity_amount').val(Number(parseInt($('#fd_scheme_amount').val()) + (($('#to_scheme_interest').val() * $('#to_scheme_years').val() * $('#fd_scheme_amount').val()) / 100)).toFixed(2));
+            // $('#fd_maturity_amount').val(Number(parseInt($('#fd_scheme_amount').val()) + (($('#to_scheme_interest').val() * $('#to_scheme_years').val() * $('#fd_scheme_amount').val()) / 100)).toFixed(2));
+            $('#fd_maturity_amount').val(Number(parseInt($('#fd_scheme_amount').val()) *
+                    Math.pow( 1+ ($('#to_scheme_interest').val()/100), $('#to_scheme_years').val())
+                ).toFixed(2));
         }
 
     });
@@ -648,7 +654,6 @@ $(function () {
 
 $(function () {
     $('#mis_scheme_amount').on('keyup paste change', function () {
-
         $('#scheme_name').attr("readonly", true);
         if ($('#to_scheme_interest').val() > 0) {
             var no_of_quarters = $('#to_scheme_years').val() * 4;
@@ -659,6 +664,9 @@ $(function () {
         }
     });
 });
+
+// End Of Maturity Amount Calculation 
+
 // dropdown change block
 $(function () {
     if ($('#payment_mode').val() === 'cash') {

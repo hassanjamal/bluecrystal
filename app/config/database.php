@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => getenv('DB_HOST') ? getenv('DB_HOST') : 'localhost',
-			'database'  => getenv('DB_DATABASE') ? getenv('DB_DATABASE') : 'bluecrystalgroup',
+			'database'  => getenv('DB_DATABASE') ? getenv('DB_DATABASE') : 'bluecrystalquasibank',
 			'username'  => getenv('DB_USER') ? getenv('DB_USER') : 'root',
-			'password'  => getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'Jamal123',
+			'password'  => getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

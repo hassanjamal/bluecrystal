@@ -3,7 +3,7 @@
             "laravel/framework": "4.1.*",
             "cartalyst/sentry": "2.0.*",
             "j20/php-uuid": "dev-master",
-            "bllim/datatables": "*",
+            "bllim/datatables": "dev-master#7ea3200",
             "dflydev/markdown": "1.0.*@dev",
             "laravelbook/ardent": "dev-master",
             "barryvdh/laravel-dompdf": "0.3.1"
