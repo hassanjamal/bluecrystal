@@ -123,9 +123,11 @@ Route::group(array('prefix' => 'admin'), function()
     Route::get('policy/{policy}/bond', 'AdminPolicyController@getBond');
     Route::get('policy/{policy}/receipt', 'AdminPolicyController@getReceipt');
     Route::get('policy/{policy}/welcome', 'AdminPolicyController@getWelcome');
+
     Route::post('policy/create', 'AdminPolicyController@store');
     Route::get('policy/data' , 'AdminPolicyController@getData');
     Route::get('policy/notification' , 'AdminPolicyController@getNotification');
+
     Route::get('policy/rd_schemes' , 'AdminPolicyController@getAllRdscheme');
     Route::get('policy/rd_schemes/{policy}/Installments' , 'AdminPolicyController@getAllRdschemeInstallements');
     Route::get('policy/rd_schemes/{policy}/RdSchmeInstallments' , 'AdminPolicyController@getRdSchmeInstallments');
@@ -135,6 +137,13 @@ Route::group(array('prefix' => 'admin'), function()
     Route::post('policy/rd_schemes/{policy}/add_to_associate_id' , 'AdminPolicyController@postAssociate');
     Route::get('policy/rd_schemes/{policy}/Installment/{rd_scheme_payment}/Receipt' , 'AdminPolicyController@getInstallmentReceipt');
     Route::get('policy/rddata' , 'AdminPolicyController@getRdData');
+
+    Route::get('policy/mis_schemes' , 'AdminPolicyController@getAllMisScheme');
+    Route::get('policy/misdata' , 'AdminPolicyController@getMisData');
+    Route::get('policy/mis_schemes/{policy}/Installments' , 'AdminPolicyController@getAllMisSchemeInstallments');
+    Route::get('policy/mis_schemes/{policy}/MisSchmeInstallments' , 'AdminPolicyController@getMisSchmeInstallments');
+
+
     Route::get('policy/add_to_fd_scheme_id' , 'AdminPolicyController@getFdscheme');
     Route::post('policy/add_to_fd_scheme_id' , 'AdminPolicyController@postFdscheme');
     Route::get('policy/add_to_rd_scheme_id' , 'AdminPolicyController@getRdscheme');

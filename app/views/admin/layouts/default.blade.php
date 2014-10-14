@@ -163,6 +163,7 @@ body {
 
                         <li{{ (Request::is('admin/policy/rd_schemes') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/policy/rd_schemes') }}}"><span class="glyphicon glyphicon-cog"></span>RD Installments</a></li>
 
+                        <li{{ (Request::is('admin/policy/mis_schemes') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/policy/mis_schemes') }}}"><span class="glyphicon glyphicon-cog"></span>MIS Installments</a></li>
 
                     </ul>
                     </li>

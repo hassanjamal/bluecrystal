@@ -794,15 +794,15 @@ class AdminPolicyController extends AdminController
      */
     public function update_fd_scheme_payment($policy_id, $input, $associate_id, $scheme_type)
     {
-        $this->fd_scheme_payment->policy_id = $policy_id;
+        $this->fd_scheme_payment->policy_id      = $policy_id;
         $this->fd_scheme_payment->deposit_amount = $input->fd_scheme_amount;
-        $this->fd_scheme_payment->mature_amount = $input->fd_maturity_amount;
-        $this->fd_scheme_payment->payment_mode = strtoupper($input->payment_mode);
-        $this->fd_scheme_payment->drawee_bank = strtoupper($input->drawee_bank);
-        $this->fd_scheme_payment->drawee_branch = strtoupper($input->drawee_branch);
-        $this->fd_scheme_payment->drawn_date = date("Y-m-d", strtotime($input->drawn_date));
-        $this->fd_scheme_payment->cheque_no = strtoupper($input->cheque_no);
-        $this->fd_scheme_payment->paid = strtoupper($input->paid);
+        $this->fd_scheme_payment->mature_amount  = $input->fd_maturity_amount;
+        $this->fd_scheme_payment->payment_mode   = strtoupper($input->payment_mode);
+        $this->fd_scheme_payment->drawee_bank    = strtoupper($input->drawee_bank);
+        $this->fd_scheme_payment->drawee_branch  = strtoupper($input->drawee_branch);
+        $this->fd_scheme_payment->drawn_date     = date("Y-m-d", strtotime($input->drawn_date));
+        $this->fd_scheme_payment->cheque_no      = strtoupper($input->cheque_no);
+        $this->fd_scheme_payment->paid           = strtoupper($input->paid);
 
         if ($this->fd_scheme_payment->save()) {
             $this->update_self_commission(
@@ -915,7 +915,8 @@ class AdminPolicyController extends AdminController
         $this->mis_scheme_payment->drawee_bank         = strtoupper($input->drawee_bank);
         $this->mis_scheme_payment->drawee_branch       = strtoupper($input->drawee_branch);
         $this->mis_scheme_payment->drawn_date          = date("Y-m-d", strtotime($input->drawn_date));
-        $this->mis_scheme_payment->maturity_date       = \Carbon\Carbon::createFromFormat('Y-m-d', trim($input->drawn_date))->addYears($input->to_scheme_years);
+        $this->mis_scheme_payment->maturity_date       = \Carbon\Carbon::createFromFormat('Y-m-d', trim($input->drawn_date))->addYears($input->to_scheme_years)->toDateString();
+        $this->mis_scheme_payment->total_installment   = $input->to_scheme_years * 12 ;
         $this->mis_scheme_payment->cheque_no           = strtoupper($input->cheque_no);
         $this->mis_scheme_payment->paid                = strtoupper($input->paid);
 
@@ -925,7 +926,7 @@ class AdminPolicyController extends AdminController
                 $input,
                 $policy_id,
                 $this->mis_scheme_payment->id,
-                1
+                0
             );
 
 
@@ -1479,7 +1480,145 @@ class AdminPolicyController extends AdminController
         }
 
     }
+
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function getAllMisScheme()
+    {
+        if (Sentry::check()) {
+            $title = "MIS Policy Management";
+
+            return View::make('admin.policy.mis_schemes', compact('title'));
+        } else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+    }
+
+
+    public function getMisData()
+    {
+        if (Sentry::check()) {
+            $branch_id = Sentry::getUser()->branch_id;
+            if (Sentry::getUser()->isSuperUser()) {
+                $policies = Policy::Select(
+                    array(
+                        'policies.id',
+                        'policies.created_at',
+                        'policies.policy_no',
+                        'policies.name',
+                        'policies.associate_no',
+                        'policies.scheme_type'
+                    )
+                )
+                    ->where('policies.scheme_type', 'MIS');
+            } else {
+                $policies = Policy::Select(
+                    array(
+                        'policies.id',
+                        'policies.created_at',
+                        'policies.policy_no',
+                        'policies.name',
+                        'policies.associate_no',
+                        'policies.scheme_type'
+                    )
+                )
+                    ->where('policies.branch_id', $branch_id)
+                    ->where('policies.scheme_type', 'MIS');
+            }
+            if (Sentry::getUser()->hasAccess('policy-edit')) {
+                return Datatables::of($policies)
+                    ->add_column(
+                        'actions',
+                        '
+                                     <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                                     class="iframe btn btn-xs btn-info"> Details</a>
+                                     <a href=" {{{ URL::to(\'admin/policy/mis_schemes/\'. $id . \'/Installments\') }}}"
+                                     class="btn btn-xs btn-primary"> Installments</a>
+                                     <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/edit\') }}}"
+                                     class="iframe btn btn-xs btn-danger"> Edit</a>
+                                    '
+                    )
+                    ->remove_column('id')
+                    ->remove_column('scheme_type')
+                    ->make();
+            } else {
+                return Datatables::of($policies)
+                    ->add_column(
+                        'actions',
+                        '
+                                     <a href=" {{{ URL::to(\'admin/policy/\'. $id . \'/detail\') }}}"
+                                     class="iframe btn btn-xs btn-info"> Details</a>
+                                     <a href=" {{{ URL::to(\'admin/policy/mis_schemes/\'. $id . \'/Installments\') }}}"
+                                     class="btn btn-xs btn-primary"> Installments</a>
+                                     '
+                    )
+                    ->remove_column('id')
+                    ->remove_column('scheme_type')
+                    ->make();
+
+            }
+        } else {
+            return Redirect::to('user/login')->with('error', " You are not logged in ");
+        }
+    }
+
+
+    public function getAllMisSchemeInstallments($policy)
+    {
+        if (Sentry::check()) {
+            $title = $policy->policy_no . " MIS Policy Installments Management";
+            $policy_id = $policy->id;
+
+            return View::make('admin.policy.mis_scheme_installments', compact('title', 'policy'));
+        } else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+
+    }
+
+
+    public function getMisSchmeInstallments($policy)
+    {
+        if (Sentry::check()) {
+            $branch_id = Sentry::getUser()->branch_id;
+            if (Sentry::getUser()->isSuperUser() || $branch_id == $policy->branch_id) {
+                $mis_scheme_returns = Mis_scheme_return::Select(
+                    array(
+                        'mis_scheme_return.id',
+                        'mis_scheme_return.policy_id',
+                        'mis_scheme_return.paid_installment',
+                        'mis_scheme_return.drawn_date',
+                        'mis_scheme_return.deposit_amount',
+                        'mis_scheme_return.next_installment_date'
+                    )
+                )
+                    ->where('mis_scheme_return.policy_id', $policy->id);
+
+                return Datatables::of($mis_scheme_returns)
+                    ->add_column(
+                        'actions',
+                        '
+                                     <a href=" {{{ URL::to(\'admin/policy/rd_schemes/\'. $policy_id . \'/Installment/\'. $id .\'/Receipt\') }}}"
+                                     class="iframe btn btn-xs btn-default"> Receipt</a>
+                                     '
+                    )
+                    ->remove_column('id')
+                    ->remove_column('policy_id')
+                    ->make();
+
+            } else {
+                return " You are not authorized for this branch";
+            }
+        } else {
+            return Redirect::to('user/login')->with('error', " You are not logged in ");
+        }
+    }
+
+
     /** end of class */
+
 }
 
 
