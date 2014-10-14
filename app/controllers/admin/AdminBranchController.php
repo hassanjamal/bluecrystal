@@ -151,15 +151,15 @@ class AdminBranchController extends AdminController {
      */
     public function update($branch)
     {
-        $branch->name = Input::get('name');
-        $branch->address = Input::get('address');
-        $branch->city = Input::get('city');
-        $branch->state = Input::get('state');
-        $branch->pincode = Input::get('pincode');
-        $branch->managername = Input::get('managername');
+        $branch->name         = Input::get('name');
+        $branch->address      = Input::get('address');
+        $branch->city         = Input::get('city');
+        $branch->state        = Input::get('state');
+        $branch->pincode      = Input::get('pincode');
+        $branch->managername  = Input::get('managername');
         $branch->managerphone = Input::get('managerphone');
-        $branch->email = Input::get('email');
-        $branch->phone = Input::get('phone');
+        $branch->email        = Input::get('email');
+        $branch->phone        = Input::get('phone');
 
         // Save if valid. 
 

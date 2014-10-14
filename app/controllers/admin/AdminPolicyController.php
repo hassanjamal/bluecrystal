@@ -413,7 +413,7 @@ class AdminPolicyController extends AdminController
         if (Sentry::check()) {
             if ($policy->id) {
                 $title = $policy->policy_no . "_Welcome.pdf";
-                $pdf = App::make('dompdf');
+                $pdf   = App::make('dompdf');
                 $pdf->loadView('admin/policy/welcome', compact('policy'));
 
                 return $pdf->stream();
@@ -689,9 +689,11 @@ class AdminPolicyController extends AdminController
         $misschemes = array();
         $search = DB::select(
             "
-                                select id, interest,special_interest, years ,name as value ,description as label
-                                from misschemes
-                                where match (name )
+                                SELECT id, interest,special_interest, years ,name as value ,description as label
+                                FROM misschemes
+                                WHERE years IN (1,3,5) 
+                                AND
+                                match (name )
                                 against ('*{$term}*' IN BOOLEAN MODE)
                                 "
         );

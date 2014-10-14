@@ -180,7 +180,8 @@ class AdminMisschemesController extends AdminController {
      */
     public function getData()
     {
-        $misschemes = Misschemes::Select(array('misschemes.id','misschemes.name','misschemes.years','misschemes.interest', 'misschemes.special_interest'));
+        $misschemes = Misschemes::Select(array('misschemes.id','misschemes.name','misschemes.years','misschemes.interest', 'misschemes.special_interest'))
+                                    ->whereIn('years', [1,3,5]);
         if(Sentry::getUser()->isSuperUser())
         {
             return Datatables::of($misschemes)
