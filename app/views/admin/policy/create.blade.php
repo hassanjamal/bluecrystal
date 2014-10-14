@@ -651,7 +651,7 @@ $(function () {
                         $('#to_scheme_interest').val()
                         ) / 100
                 );
-                console.log( 'Years ' + i +' ::---> ');
+                // console.log( 'Years ' + i +' ::---> ');
                 // var calculated_amount = (parseInt($('#rd_scheme_amount').val()) * 12);
                     // Math.pow(
                         // (1 + ($('#to_scheme_interest').val() / (100 * 12))),
@@ -669,8 +669,9 @@ $(function () {
     $('#mis_scheme_amount').on('keyup paste change', function () {
         $('#scheme_name').attr("readonly", true);
         if ($('#to_scheme_interest').val() > 0) {
-            var no_of_quarters = $('#to_scheme_years').val() * 4;
-            var monthly_installment = $('#mis_scheme_amount').val() * $('#to_scheme_interest').val() * $('#to_scheme_years').val() / (100 * $('#to_scheme_years').val() * 12);
+            var compound_amount     = parseInt($('#mis_scheme_amount').val()) * Math.pow( (1 + $('#to_scheme_interest').val()/100 ) , $('#to_scheme_years').val() );
+            var compound_interest   = compound_amount - parseInt($('#mis_scheme_amount').val());
+            var monthly_installment = compound_interest / ($('#to_scheme_years').val() *12);
 
             $('#mis_monthly_installment').val(Number(monthly_installment).toFixed(2));
 
