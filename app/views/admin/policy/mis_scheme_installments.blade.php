@@ -12,7 +12,7 @@
 			{{{ $title }}}
 			@if(Sentry::getUser()->isSuperUser() || Sentry::getUser()->hasAccess('policy-create'))
 			<div class="pull-right">
-                <a href="{{{ URL::to('admin/policy/rd_schemes/'.$policy->id.'\PayInstallment') }}}"
+                <a href="{{{ URL::to('admin/policy/mis_schemes/'.$policy->id.'\PayInstallment') }}}"
                     class="btn btn-small btn-info iframe">
               <span class="glyphicon glyphicon-plus-sign"></span>
               Next Installment</a>

@@ -42,31 +42,6 @@ Route::pattern('policy', '[0-9]+');
 
 
 
-// User Routes
-// Route::get('register', 'UserController@create');
-// Route::get('users/{id}/activate/{code}', 'UserController@activate')->where('id', '[0-9]+');
-// Route::get('resend', array('as' => 'resendActivationForm', function()
-// {
-// 	return View::make('users.resend');
-// }));
-// Route::post('resend', 'UserController@resend');
-// Route::get('forgot', array('as' => 'forgotPasswordForm', function()
-// {
-// 	return View::make('users.forgot');
-// }));
-// Route::post('forgot', 'UserController@forgot');
-// Route::post('users/{id}/change', 'UserController@change');
-// Route::get('users/{id}/reset/{code}', 'UserController@reset')->where('id', '[0-9]+');
-// Route::get('users/{id}/suspend', array('as' => 'suspendUserForm', function($id)
-// {
-// 	return View::make('users.suspend')->with('id', $id);
-// }));
-// Route::post('users/{id}/suspend', 'UserController@suspend')->where('id', '[0-9]+');
-// Route::get('users/{id}/unsuspend', 'UserController@unsuspend')->where('id', '[0-9]+');
-// Route::get('users/{id}/ban', 'UserController@ban')->where('id', '[0-9]+');
-// Route::get('users/{id}/unban', 'UserController@unban')->where('id', '[0-9]+');
-// Route::resource('users', 'UserController');
-
 
 /** ------------------------------------------
  *  Admin Routes
@@ -142,6 +117,8 @@ Route::group(array('prefix' => 'admin'), function()
     Route::get('policy/misdata' , 'AdminPolicyController@getMisData');
     Route::get('policy/mis_schemes/{policy}/Installments' , 'AdminPolicyController@getAllMisSchemeInstallments');
     Route::get('policy/mis_schemes/{policy}/MisSchmeInstallments' , 'AdminPolicyController@getMisSchmeInstallments');
+    Route::get('policy/mis_schemes/{policy}/PayInstallment' , 'AdminPolicyController@getMisPayInstallment');
+    Route::post('policy/mis_schemes/{policy}/PayInstallment' , 'AdminPolicyController@postMisPayInstallment');
 
 
     Route::get('policy/add_to_fd_scheme_id' , 'AdminPolicyController@getFdscheme');

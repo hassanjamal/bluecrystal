@@ -6,26 +6,25 @@
     <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700' rel='stylesheet' type='text/css'>
     <style>
         body {
-            height: 11.69in;
+            height: 10.95in;
             overflow: hidden;
-            width: 8.27in;
+            width: 7.81in;
             font-family: 'Open Sans', sans-serif;
         }
 
         .main_content {
-            margin-top: .2em;
+            /*margin-top: .2em;*/
             margin-left: 2em;
             margin-right: 2em;
-            margin-bottom: 0em;
-            border: 10px solid lightgrey;
-            outline: 5px solid darkgrey;
-            padding-left: .2em;
-            padding-right: .2em;
+            /*margin-bottom: 0em;*/
+            /*border: 10px solid lightgrey;*/
+            /*outline: 5px solid darkgrey;*/
+            /*padding-left: .2em;*/
+            /*padding-right: .2em;*/
         }
 
         .header_image {
-            /* margin-top:545px; */
-            height: 550px;
+            height: 2.2inch;
         }
 
         .image_center {
@@ -207,55 +206,37 @@
 <div class="main_content">
     <table class="header">
         <tbody>
-        <tr>
-            <td></td>
-            <td style="text-align:left">
-                <h2 style="letter-spacing:2px ; text-decoration:underline">BOND</h2>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td style="text-align:right">
-                {{ date("d-M-Y") }}
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color:#eee;">Receipt No :-<strong> {{
-                    "REC-".$policy->branch_id."-".$policy->id."-".date("y")}}</strong></td>
-            <td style="text-align:right; background-color:#eee">Policy No:- <strong>{{ $policy->policy_no}}</strong>
-            </td>
-        </tr>
         </tbody>
     </table>
     <table class="content">
         <tbody>
         <tr>
-            <th>Applicant Name :-</th>
+            <th>Branch Name:</th>
+            <td></td>
+            <th>Branch Code:</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th></th>
             <td>{{$policy->name}}</td>
 
-            <th>Amount Deposited :-</th>
+            <th></th>
             <td>
                 @if ($policy->scheme_type=='FD')
                 {{ number_format( Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
-                @endif
-                @if ($policy->scheme_type=='RD')
-                {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
                 @endif
             </td>
         </tr>
         <tr>
 
-            <th>Address :-</th>
+            <th></th>
             <td>
                 <div>{{ $policy->address }}</div>
             </td>
-            <th>Maturity Amount :-</th>
+            <th></th>
             <td>
                 @if ($policy->scheme_type=='FD')
                 {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('mature_amount'))}}
-                @endif
-                @if ($policy->scheme_type=='RD')
-                {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('mature_amount'))}}
                 @endif
             </td>
         </tr>
@@ -265,12 +246,6 @@
                 <div>{{ $policy->city . ' ,'. $policy->state }}</div>
             </td>
 
-            @if ($policy->scheme_type=='RD')
-            <th> Installment No :-</th>
-            <td>
-                {{ Rd_scheme_payment::where('policy_id', $policy->id)->pluck('paid_installment')}}
-            </td>
-            @endif
         </tr>
         <tr>
             <th></th>
@@ -282,39 +257,30 @@
                     @endif
                 </div>
             </td>
-            @if ($policy->scheme_type=='RD')
-            <th> Next Installment :-</th>
-            <td>
-                {{ Rd_scheme_payment::where('policy_id', $policy->id)->pluck('next_installment_date')}}
-            </td>
-            @endif
         </tr>
         <tr>
-            <th>Scheme Code :-</th>
+            <th></th>
             <td>{{ $policy->scheme_name }}</td>
 
-            <th> Scheme Detail :-</th>
+            <th></th>
             <td>
                 @if ($policy->scheme_type=='FD')
                 {{ Fdscheme::where('id', $policy->scheme_id)->pluck('description')}}
                 @endif
-                @if ($policy->scheme_type=='RD')
-                {{ Rdscheme::where('id', $policy->scheme_id)->pluck('description')}}
-                @endif
             </td>
         </tr>
         <tr>
-            <th>Associate Code :-</th>
+            <th></th>
             <td>{{ $policy->associate_no }}</td>
 
-            <th> Associate Name :-</th>
+            <th></th>
             <td>{{ Associate::where('id', $policy->associate_id)->pluck('name') }}</td>
         </tr>
         <tr>
-            <th>Branch Code :-</th>
+            <th></th>
             <td>{{ Branch::where('id', $policy->branch_id)->pluck('name') }}</td>
 
-            <th> Branch Id :-</th>
+            <th></th>
             <td>{{ $policy->branch_id }}</td>
         </tr>
 

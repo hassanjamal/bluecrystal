@@ -8,7 +8,6 @@
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
         {{ Form::hidden('to_associate_id', $policy->associate_id,array('id'=>'to_associate_id'))}}
         {{ Form::hidden('to_scheme_id',$policy->scheme_id ,array('id'=>'to_scheme_id'))}}
-        {{ Form::hidden('to_collector_id', $policy->associate_id,array('id'=>'to_collector_id'))}}
 
         <div class="row well">
             <blockquote>
@@ -70,14 +69,6 @@
                         <p class="lead">Recurring Deposit Plan</p>
                     </blockquote>
 
-                    <div class="col-md-6" id="rd_associate_collector_block">
-                        <div class="form-group ">
-                            <label class="col-md-4 control-label" for="rd_associate_collector_id">Collector :</label>
-                            <div class="col-md-8">
-                                <input class="form-control" type="text" name="rd_associate_collector_id" id="rd_associate_collector_id" value="{{{ isset($policy) ? $policy->associate_no : null }}}"/>
-                            </div>
-                        </div>
-                    </div>
                     <!-- scheme amount -->
                     <div class="col-md-6" id="rd_scheme_amount_block">
                         <div class="form-group ">
@@ -94,7 +85,7 @@
                     <!-- Maturity amount -->
                     <div class="col-md-6" id="rd_maturity_amount_block">
                         <div class="form-group ">
-                            <label class="col-md-4 control-label" for="rd_maturity_amount">Maturity Amount :</label>
+                            <label class="col-md-4 control-label" for="rd_maturity_amount">Installment Amount :</label>
 
                             <div class="col-md-8">
                                 <input readonly class="form-control" type="text" name="rd_maturity_amount" id="rd_maturity_amount"

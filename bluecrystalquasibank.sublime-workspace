@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"mis",
+				"mis_scheme_payments"
+			],
+			[
+				"nex",
+				"next_installment_date"
+			],
+			[
+				"cal",
+				"calculated_amount"
+			],
+			[
 				"yea",
 				"yearly_amount"
 			],
@@ -55,7 +67,7 @@
 			"file": "app/views/admin/policy/create.blade.php",
 			"settings":
 			{
-				"buffer_size": 35487,
+				"buffer_size": 35604,
 				"line_ending": "Unix"
 			}
 		},
@@ -68,18 +80,74 @@
 			}
 		},
 		{
-			"file": "app/controllers/admin/AdminFdschemesController.php",
+			"file": "app/controllers/admin/AdminPolicyController.php",
 			"settings":
 			{
-				"buffer_size": 6845,
+				"buffer_size": 63602,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/admin/AdminPolicyController.php",
+			"file": "app/views/admin/layouts/default.blade.php",
 			"settings":
 			{
-				"buffer_size": 57047,
+				"buffer_size": 10863,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/routes.php",
+			"settings":
+			{
+				"buffer_size": 9576,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/admin/policy/mis_pay_installment.blade.php",
+			"settings":
+			{
+				"buffer_size": 13106,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/database/migrations/2014_10_14_075747_add_column_mis_scheme_payment_table.php",
+			"settings":
+			{
+				"buffer_size": 662,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/database/migrations/2014_01_06_213054_create_rd_scheme_payment_table.php",
+			"settings":
+			{
+				"buffer_size": 1100,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/admin/AdminMisschemeController.php",
+			"settings":
+			{
+				"buffer_size": 6438,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/Mis_scheme_return.php",
+			"settings":
+			{
+				"buffer_size": 221,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/Mis_scheme_payment.php",
+			"settings":
+			{
+				"buffer_size": 238,
 				"line_ending": "Unix"
 			}
 		},
@@ -170,21 +238,24 @@
 	[
 		"/Users/hassanjamal/Sites/bluecrystal",
 		"/Users/hassanjamal/Sites/bluecrystal/app",
-		"/Users/hassanjamal/Sites/bluecrystal/app/start",
+		"/Users/hassanjamal/Sites/bluecrystal/app/controllers/admin",
+		"/Users/hassanjamal/Sites/bluecrystal/app/database/migrations",
 		"/Users/hassanjamal/Sites/bluecrystal/app/views",
-		"/Users/hassanjamal/Sites/bluecrystal/app/views/admin"
+		"/Users/hassanjamal/Sites/bluecrystal/app/views/admin",
+		"/Users/hassanjamal/Sites/bluecrystal/app/views/admin/policy"
 	],
 	"file_history":
 	[
+		"/Users/hassanjamal/Sites/bluecrystal/app/config/app.php",
+		"/Users/hassanjamal/Sites/bluecrystal/app/views/admin/dashboard.blade.php",
+		"/Users/hassanjamal/Sites/bluecrystal/app/controllers/AdminController.php",
 		"/Users/hassanjamal/Library/Application Support/Sublime Text 3/Packages/Theme - Flatland/README.md",
 		"/Users/hassanjamal/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/hassanjamal/Sites/bluecrystal/app/config/app.php",
 		"/Users/hassanjamal/Sites/bluecrystal/app/views/admin/policy/commission.blade.php",
 		"/Users/hassanjamal/Sites/bluecrystal/app/views/admin/policy/bond.blade.php",
 		"/Users/hassanjamal/Sites/bluecrystal/app/models/Policy.php",
 		"/Users/hassanjamal/Sites/bluecrystal/phpunit.xml",
 		"/Users/hassanjamal/Sites/bluecrystal/composer.json",
-		"/Users/hassanjamal/Sites/bluecrystal/app/controllers/AdminController.php",
 		"/Users/hassanjamal/Sites/bluecrystal/app/controllers/admin/AdminMisschemeController.php",
 		"/Users/hassanjamal/Sites/bluecrystal/app/controllers/admin/AdminDashboardController.php",
 		"/Users/hassanjamal/Sites/bluecrystal/public/css/print/welcomestyle.css",
@@ -284,6 +355,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"rd",
+			"rd_scheme",
+			"rd_schemes",
+			"mis_scheme_payment",
+			"mis_scheme_payments",
+			"rd_scheme_payment",
+			"rd_scheme_payments",
+			"MisSchmeInstallments",
+			"Rd",
+			"rd",
+			"Rd",
+			"rd",
+			"rd_schemes",
+			"getMisData",
 			"expected_maturity_amount",
 			"fd",
 			"rd_total_installment",
@@ -321,7 +406,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -423,7 +508,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -533,7 +618,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -637,7 +722,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -646,15 +731,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 35487,
+						"buffer_size": 35604,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27158,
-								27158
+								28250,
+								28250
 							]
 						],
 						"settings":
@@ -667,69 +752,69 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"vintage":
 							{
-								"_vintageous_glue_until_normal_mode": false,
+								"_vintageous_glue_until_normal_mode": true,
 								"_vintageous_gluing_sequence": false,
 								"_vintageous_non_interactive": false,
 								"action": null,
 								"action_count": "",
 								"capture_register": false,
-								"mode": "mode_normal",
+								"mode": "mode_insert",
 								"motion": null,
 								"motion_count": "",
 								"normal_insert_count": "1",
@@ -747,10 +832,10 @@
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 10590.0,
+						"translation.y": 14894.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -861,16 +946,16 @@
 						"translation.y": 91.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "app/controllers/admin/AdminFdschemesController.php",
-					"semi_transient": true,
+					"file": "app/controllers/admin/AdminPolicyController.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6845,
+						"buffer_size": 63602,
 						"regions":
 						{
 						},
@@ -891,60 +976,817 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"vi",
+									"r0",
+									"mode_normal",
+									null
+								],
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 39590.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/admin/layouts/default.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10863,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8740,
+								8740
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": true,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_insert",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"vi",
+									"x",
+									"mode_normal",
+									null
+								],
+								"sequence": "",
+								"xpos": 57
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 3620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5939,
+								5939
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": true,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_insert",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"vi",
+									"p",
+									"mode_normal",
+									null
+								],
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 2191.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/views/admin/policy/mis_pay_installment.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13106,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4148,
+								4148
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"vi",
+									"cw",
+									"mode_insert",
+									null
+								],
+								"sequence": "",
+								"xpos": 102
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 231.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/database/migrations/2014_10_14_075747_add_column_mis_scheme_payment_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								471,
+								471
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": false,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"repeat_data":
+								[
+									"vi",
+									"p",
+									"mode_normal",
+									null
+								],
+								"sequence": "",
+								"xpos": 95
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/database/migrations/2014_01_06_213054_create_rd_scheme_payment_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1100,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								823,
+								823
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 22
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/controllers/admin/AdminMisschemeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5391,
+								5391
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"_vintageous_glue_until_normal_mode": true,
+								"action": null,
+								"action_count": "",
+								"capture_register": false,
+								"mode": "mode_insert",
+								"motion": null,
+								"motion_count": "",
+								"normal_insert_count": "1",
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 11.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/models/Mis_scheme_return.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"vintage":
 							{
 								"action": null,
@@ -960,27 +1802,27 @@
 							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 193.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/controllers/admin/AdminPolicyController.php",
+					"buffer": 13,
+					"file": "app/models/Mis_scheme_payment.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 57047,
+						"buffer_size": 238,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15416,
-								15416
+								238,
+								238
 							]
 						],
 						"settings":
@@ -993,60 +1835,58 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
 							"vintage":
 							{
 								"action": null,
@@ -1057,26 +1897,19 @@
 								"motion_count": "",
 								"partial_sequence": "",
 								"register": "\"",
-								"repeat_data":
-								[
-									"vi",
-									"dd",
-									"mode_internal_normal",
-									null
-								],
 								"sequence": "",
-								"xpos": 27
+								"xpos": 0
 							}
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 14,
 					"file": "app/controllers/admin/AdminRdschemesController.php",
 					"semi_transient": false,
 					"settings":
@@ -1183,11 +2016,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 15,
 					"file": "app/controllers/admin/AdminUsersController.php",
 					"semi_transient": false,
 					"settings":
@@ -1294,11 +2127,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 16,
 					"file": "app/views/admin/associates/welcome.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -1409,7 +2242,7 @@
 						"translation.y": 7474.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 14,
 					"type": "text"
 				}
 			]
@@ -1417,7 +2250,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 32.0
+		"height": 42.0
 	},
 	"input":
 	{
@@ -1463,7 +2296,23 @@
 		[
 			[
 				"",
-				"app/views/admin/policy/create.blade.php"
+				"app/routes.php"
+			],
+			[
+				"adminpo",
+				"app/controllers/admin/AdminPolicyController.php"
+			],
+			[
+				"route",
+				"app/routes.php"
+			],
+			[
+				"admin/def",
+				"app/views/admin/layouts/default.blade.php"
+			],
+			[
+				"admn",
+				"app/controllers/admin/AdminPolicyController.php"
 			],
 			[
 				"adminpoli",
@@ -1492,10 +2341,6 @@
 			[
 				"glo",
 				"app/start/global.php"
-			],
-			[
-				"route",
-				"app/routes.php"
 			],
 			[
 				"linkcontr",
@@ -1585,7 +2430,7 @@
 	"show_open_files": false,
 	"show_tabs": false,
 	"side_bar_visible": true,
-	"side_bar_width": 236.0,
+	"side_bar_width": 548.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

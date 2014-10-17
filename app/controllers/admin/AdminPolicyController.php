@@ -709,7 +709,7 @@ class AdminPolicyController extends AdminController
     /**
      * [postMisscheme description]
      *
-     * @return [type] [description]
+     * @return string [type] [description]
      */
     public function postMisscheme()
     {
@@ -734,9 +734,10 @@ class AdminPolicyController extends AdminController
     /**
      * Generate Commission Structure for policy
      *
-     * @param  [type] $policy [description]
+     * @param $policy
+     * @internal param $ [type] $policy [description]
      *
-     * @return [type]         [description]
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View [type]         [description]
      */
     public function getCommision($policy)
     {
@@ -1616,6 +1617,23 @@ class AdminPolicyController extends AdminController
         }
     }
 
+
+
+    public function getMisPayInstallment($policy)
+    {
+        if (Sentry::check()) {
+            $title                 = $policy->policy_no . " Pay Installments ";
+            $rd_policy             = Mis_scheme_return::where('policy_id', $policy->id)->orderBy('updated_at', 'desc')->first();
+            $current_date          = new DateTime("now");
+            $last_installment_date = new DateTime($rd_policy->next_installment_date);
+            $interval              = $last_installment_date->diff($current_date);
+            $interval->format('%R%a days');
+
+            return View::make('admin.policy.mis_pay_installment', compact('title', 'policy', 'rd_policy', 'interval'));
+        } else {
+            return Redirect::route('login')->with('error', " You are not logged in ");
+        }
+    }
 
     /** end of class */
 
