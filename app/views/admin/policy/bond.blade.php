@@ -10,7 +10,7 @@
             overflow: hidden;
             width: 7.81in;
             font-family: 'Open Sans', sans-serif;
-            background-image: url('/bond.jpg'); 
+            /*background-image: url('/bond.jpg'); */
         }
 
         .main_content {
@@ -265,10 +265,11 @@
         </tr>
         <tr>
             <th>Address</th>
-            <td>{{ $policy->address }}</td>
-
+            <td>{{ str_limit($policy->address, $limit = 22 , $end='...') }}</td>
+        </tr>
+        <tr>
             <th></th>
-            <td></td>
+            <td>{{ str_limit($policy->city . ' ,'. $policy->state, $limit = 22 , $end='...') }}</td>
         </tr>
         <tr>
             <th>Nominee Name</th>
