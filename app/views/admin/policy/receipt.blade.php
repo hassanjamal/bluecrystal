@@ -233,7 +233,7 @@ table.meta:after, table.inventory:after , table.main:after {
         </span>
     </div>
     <table class="signature">
-        <tbody>  
+        <tbody>
         <tr>
             <th>
             </th>

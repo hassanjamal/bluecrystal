@@ -360,6 +360,16 @@ class AdminPolicyController extends AdminController
     {
         if (Sentry::check()) {
             if ($policy->id) {
+                if($policy->scheme_type == 'FD')
+                {
+                    $fd_payment = Fd_scheme_payment::where('policy_id', $policy->id)->first();
+                    if($fd_payment->receipt_no == null)
+                    {
+                        $year = \Carbon\Carbon::createFromFormat('Y-m-d', $fd_payment->drawn_date)->year;
+                        $fd_payment->receipt_no = "REC-".$policy->branch_id."-".$policy->id."-".$year;
+                        $fd_payment->save();
+                    }
+                }
                 $title = $policy->policy_no . "_receipt.pdf";
                 $pdf   = App::make('dompdf');
                 $pdf->loadView('admin/policy/receipt', compact('policy'));
@@ -386,9 +396,31 @@ class AdminPolicyController extends AdminController
     {
         if (Sentry::check()) {
             if ($policy->id) {
+                if($policy->scheme_type == 'FD')
+                {
+                    $fd_payment = Fd_scheme_payment::where('policy_id', $policy->id)->first();
+                    if($fd_payment->mature_date == null)
+                    {
+                        $years = Fdscheme::where('id', $policy->scheme_id)->pluck('years');
+                        $fd_payment->mature_date = \Carbon\Carbon::createFromFormat('Y-m-d', $fd_payment->drawn_date)->addYears($years)->toDateString();
+                        $fd_payment->save();
+                    }
+                    if($fd_payment->certificate_no == null)
+                    {
+                        $year = \Carbon\Carbon::createFromFormat('Y-m-d', $fd_payment->drawn_date)->year;
+                        $fd_payment->certificate_no = "CERT-".$policy->branch_id."-".$policy->id."-".$policy->scheme_name."-".$year;
+                        $fd_payment->save();
+                    }
+                    if($fd_payment->receipt_no == null)
+                    {
+                        $year = \Carbon\Carbon::createFromFormat('Y-m-d', $fd_payment->drawn_date)->year;
+                        $fd_payment->receipt_no = "REC-".$policy->branch_id."-".$policy->id."-".$year;
+                        $fd_payment->save();
+                    }
+                }
                 $title = $policy->policy_no . "_receipt.pdf";
                 $pdf = App::make('dompdf');
-                $pdf->loadView('admin/policy/bond', compact('policy'));
+                $pdf->loadView('admin/policy/bond', compact('policy', 'fd_payment'));
 
                 // return View::make('admin/policy/bond', compact('policy', 'title'));
 

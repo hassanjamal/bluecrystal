@@ -10,13 +10,13 @@
             overflow: hidden;
             width: 7.81in;
             font-family: 'Open Sans', sans-serif;
-            background-image: url('/bond.jpg'); 
         }
 
         .main_content {
             /*margin-top: .2em;*/
             margin-left: 2em;
             margin-right: 2em;
+            background-image: url('assets/image/body_welcome_letter.jpg'); 
             /*margin-bottom: 0em;*/
             /*border: 10px solid lightgrey;*/
             /*outline: 5px solid darkgrey;*/
@@ -213,46 +213,54 @@
         <tbody>
         <tr>
             <th>Branch Name:</th>
-            <td>{{ Branch::where('id', $policy->branch_id)->pluck('name') }}</td>
+            <td></td>
             <th>Branch Code:</th>
-            <td>{{ $policy->branch_id }}</td>
+            <td></td>
         </tr>
         <tr>
             <th>Receipt No</th>
-            <td>{{ $fd_payment->receipt_no }}</td>
+            <td>{{$policy->name}}</td>
 
             <th>Certificate No</th>
-            <td>{{ $fd_payment->certificate_no }}
+            <td>
+                @if ($policy->scheme_type=='FD')
+                {{ number_format( Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
+                @endif
             </td>
         </tr>
         <tr>
 
             <th>Account No</th>
             <td>
-                {{ $policy->policy_no}}
+                <div>{{ $policy->address }}</div>
             </td>
             <th>Receipt Date</th>
             <td>
-                {{ \Carbon\Carbon::createFromFormat('Y-m-d', $fd_payment->drawn_date)->toDateString() }}
+                @if ($policy->scheme_type=='FD')
+                {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('mature_amount'))}}
+                @endif
             </td>
         </tr>
         <tr>
             <th>Scheme</th>
             <td>
-                <div>{{ $policy->scheme_name }}</div>
+                <div>{{ $policy->city . ' ,'. $policy->state }}</div>
             </td>
             <th>Amount</th>
-            <td>
-                {{ number_format($fd_payment->deposit_amount)}}
-            </td>
+            <td></td>
         </tr>
         <tr>
             <th>Tenure</th>
             <td>
-                {{ Fdscheme::where('name', $policy->scheme_name)->pluck('years') . " Yrs"}}
+                <div>@if($policy->pincode == 0)
+                    {{ ' ' }}
+                    @else
+                    {{ $policy->pincode }}
+                    @endif
+                </div>
             </td>
             <th>Redemption Date</th>
-            <td>{{ $fd_payment->mature_date }}</td>
+            <td></td>
         </tr>
         <tr>
             <th>Name</th>
@@ -260,27 +268,80 @@
 
             <th>Redemption Amt</th>
             <td>
-                {{ number_format($fd_payment->mature_amount)}}
+                @if ($policy->scheme_type=='FD')
+                {{ Fdscheme::where('id', $policy->scheme_id)->pluck('description')}}
+                @endif
             </td>
         </tr>
         <tr>
-            <th>Address</th>
-            <td>{{ $policy->address }}</td>
+            <th></th>
+            <td>{{ $policy->associate_no }}</td>
 
             <th></th>
-            <td></td>
+            <td>{{ Associate::where('id', $policy->associate_id)->pluck('name') }}</td>
         </tr>
         <tr>
-            <th>Nominee Name</th>
-            <td>{{  $policy->nominee_name }}</td>
-            <th>Relation</th>
-            <td>{{  $policy->nominee_relation }}</td>
-            </tr>
+            <th></th>
+            <td>{{ Branch::where('id', $policy->branch_id)->pluck('name') }}</td>
+
+            <th></th>
+            <td>{{ $policy->branch_id }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="in_words">
+        <span>Dear Mr/Mrs {{ $policy->name }} . Thanks a lot for making  payment of Rs.  
+            @if ($policy->scheme_type=='FD')
+            {{ number_format(Fd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
+            <strong>
+                {{ '( '.Str::title(apphelper::convert_number_to_words(round(Fd_scheme_payment::where('policy_id',
+                $policy->id)->pluck('deposit_amount')))).
+                ' Only in words )'}}
+            </strong>
+            @endif
+            @if ($policy->scheme_type=='RD')
+            {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
+            <strong>
+                {{ '( '.Str::title(apphelper::convert_number_to_words(round(Rd_scheme_payment::where('policy_id',
+                $policy->id)->pluck('deposit_amount')))).
+                ' Only in words )'}}
+            </strong>
+            @endif
+        </span>
+    </div>
+    <table class="signature">
+        <tbody>
+        <tr>
+            <th>
+            </th>
+            <td>
+                <strong>Signature of Authority</strong>
+                <br>
+                <em>
+                    {{ '( '.Sentry::getUser()->first_name . ' '. Sentry::getUser()->last_name.' ) '}}
+                </em>
+                <br>
+                For BLUE CRYSTAL MUTUAL BENEFIT LTD.
+            </td>
+
+        </tr>
+
         </tbody>
     </table>
 </div>
+<table class="footer">
+    <tr>
+        <td>
+            * Terms and condition apply <br>
+            * Please contact concerned branch for any query
+        </td>
+    </tr>
+</table>
+
 </body>
 
 </html>
+
 
 
