@@ -140,12 +140,21 @@ table.meta:after, table.inventory:after , table.main:after {
                 @if ($policy->scheme_type=='RD')
                 {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
                 @endif
+                @if ($policy->scheme_type=='MIS')
+                {{ number_format(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
+                @endif
             </td>
         </tr>
         <tr>
 
             <th>Address :-</th>
             <td><div>{{ $policy->address }}</div></td>
+            @if ($policy->scheme_type=='MIS')
+            <th>Monthly Installment :-</th>
+             <td>
+                {{ number_format(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('monthly_installment'))}}
+             </td>
+            @else
             <th>Maturity Amount :-</th>
             <td>
                 @if ($policy->scheme_type=='FD')
@@ -155,6 +164,7 @@ table.meta:after, table.inventory:after , table.main:after {
                 {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('mature_amount'))}}
                 @endif
             </td>
+            @endif
         </tr>
         <tr>
             <th></th>
@@ -195,6 +205,10 @@ table.meta:after, table.inventory:after , table.main:after {
                 @if ($policy->scheme_type=='RD')
                 {{ Rdscheme::where('id', $policy->scheme_id)->pluck('description')}}
                 @endif
+                @if ($policy->scheme_type=='MIS')
+                {{ Misschemes::where('id', $policy->scheme_id)->pluck('description')}}
+                @endif
+
             </td>
         </tr>
         <tr>
@@ -227,6 +241,13 @@ table.meta:after, table.inventory:after , table.main:after {
             {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
             <strong>
                 {{ '( '.Str::title(apphelper::convert_number_to_words(round(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')))).
+                ' Only in words )'}}
+            </strong>
+            @endif
+            @if ($policy->scheme_type=='MIS')
+            {{ number_format(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
+            <strong>
+                {{ '( '.Str::title(apphelper::convert_number_to_words(round(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')))).
                 ' Only in words )'}}
             </strong>
             @endif
@@ -289,12 +310,21 @@ table.meta:after, table.inventory:after , table.main:after {
                 @if ($policy->scheme_type=='RD')
                 {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
                 @endif
+                @if ($policy->scheme_type=='MIS')
+                {{ number_format(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
+                @endif
             </td>
         </tr>
         <tr>
 
             <th>Address :-</th>
             <td><div>{{ $policy->address }}</div></td>
+            @if ($policy->scheme_type=='MIS')
+            <th>Monthly Installment :-</th>
+             <td>
+             {{ number_format(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('monthly_installment'))}}
+             </td>
+            @else
             <th>Maturity Amount :-</th>
             <td>
                 @if ($policy->scheme_type=='FD')
@@ -304,6 +334,7 @@ table.meta:after, table.inventory:after , table.main:after {
                 {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('mature_amount'))}}
                 @endif
             </td>
+            @endif
         </tr>
         <tr>
             <th></th>
@@ -344,6 +375,10 @@ table.meta:after, table.inventory:after , table.main:after {
                 @if ($policy->scheme_type=='RD')
                 {{ Rdscheme::where('id', $policy->scheme_id)->pluck('description')}}
                 @endif
+                @if ($policy->scheme_type=='MIS')
+                {{ Misschemes::where('id', $policy->scheme_id)->pluck('description')}}
+                @endif
+
             </td>
         </tr>
         <tr>
@@ -377,6 +412,13 @@ table.meta:after, table.inventory:after , table.main:after {
             {{ number_format(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
             <strong>
                 {{ '( '.Str::title(apphelper::convert_number_to_words(round(Rd_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')))).
+                ' Only in words )'}}
+            </strong>
+            @endif
+            @if ($policy->scheme_type=='MIS')
+            {{ number_format(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount'))}}
+            <strong>
+                {{ '( '.Str::title(apphelper::convert_number_to_words(round(Mis_scheme_payment::where('policy_id', $policy->id)->pluck('deposit_amount')))).
                 ' Only in words )'}}
             </strong>
             @endif
