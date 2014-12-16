@@ -120,7 +120,7 @@
         <tr>
             <td></td>
             <td style="text-align:right">
-                {{ date("d-M-Y") }}
+                {{ date('d-M-Y', strtotime($policy->created_at) ) }}
             </td>
         </tr>
         <tr>
@@ -244,7 +244,7 @@
         <tr>
             <td></td>
             <td style="text-align:right">
-                {{ date("d-M-Y") }}
+                {{ date('d-M-Y', strtotime($policy->created_at) ) }}
             </td>
         </tr>
         <tr>

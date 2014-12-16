@@ -117,7 +117,7 @@ table.meta:after, table.inventory:after , table.main:after {
         <tr>
             <td></td>
             <td style="text-align:right">
-                {{ date("d-M-Y") }}
+                {{ date('d-M-Y', strtotime($policy->created_at) ) }}
             </td>
         </tr>
         <tr>
@@ -290,7 +290,7 @@ table.meta:after, table.inventory:after , table.main:after {
         <tr>
             <td></td>
             <td style="text-align:right">
-                {{ date("d-M-Y") }}
+                {{ date('d-M-Y', strtotime($policy->created_at) ) }}
             </td>
         </tr>
         <tr>
