@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link rel="stylesheet" href="{{URL::to('css/print/policy_print_receipt.css')}}">
+<!-- <link rel="stylesheet" href="{{URL::to('css/print/policy_print_receipt.css')}}"> -->
 <style>
 body{
     height: 11.69in;
@@ -87,10 +87,10 @@ table.signature td { width: 40%; text-align:center; font-size: 80% }
 
 table.middle_table th { border:1px dotted grey; padding-top:4px; padding-bottom:5px;}
 table.middle_table td { border:1px dotted grey ; text-align:center }
-table td > div {
-    overflow: hidden;
-    height:20px;
-}
+/* table td > div { */
+    /* overflow: hidden; */
+    /* height:20px; */
+/* } */
 
 table.meta th { width: 40%; text-align:right; border-bottom:1px dashed darkgrey}
 table.meta td { width: 60%; border-bottom:1px dashed darkgrey ; padding-left:1em; }
@@ -148,7 +148,7 @@ table.meta:after, table.inventory:after , table.main:after {
         <tr>
 
             <th>Address :-</th>
-            <td><div>{{ $policy->address }}</div></td>
+            <td><div>{{ substr($policy->address ,0,22) }}</div></td>
             @if ($policy->scheme_type=='MIS')
             <th>Monthly Installment :-</th>
              <td>
@@ -168,7 +168,7 @@ table.meta:after, table.inventory:after , table.main:after {
         </tr>
         <tr>
             <th></th>
-            <td><div>{{ $policy->city . ' ,'. $policy->state }}</div></td>
+            <td><div>{{ substr($policy->address ,22) .",".$policy->city}}</div></td>
 
             @if ($policy->scheme_type=='RD')
             <th> Installment No :-</th>
@@ -179,7 +179,10 @@ table.meta:after, table.inventory:after , table.main:after {
         </tr>
         <tr>
             <th></th>
-            <td><div>@if($policy->pincode == 0)
+            <td>
+                <div>
+                    {{ $policy->state .', ' }}
+                    @if($policy->pincode == 0)
                     {{ ' ' }}
                     @else
                     {{ $policy->pincode }}
@@ -318,7 +321,7 @@ table.meta:after, table.inventory:after , table.main:after {
         <tr>
 
             <th>Address :-</th>
-            <td><div>{{ $policy->address }}</div></td>
+            <td><div>{{ substr($policy->address ,0,22) }}</div></td>
             @if ($policy->scheme_type=='MIS')
             <th>Monthly Installment :-</th>
              <td>
@@ -338,7 +341,7 @@ table.meta:after, table.inventory:after , table.main:after {
         </tr>
         <tr>
             <th></th>
-            <td><div>{{ $policy->city . ' ,'. $policy->state }}</div></td>
+            <td><div>{{ substr($policy->address ,22) .",".$policy->city}}</div></td>
 
             @if ($policy->scheme_type=='RD')
             <th> Installment No :-</th>
@@ -349,7 +352,10 @@ table.meta:after, table.inventory:after , table.main:after {
         </tr>
         <tr>
             <th></th>
-            <td><div>@if($policy->pincode == 0)
+            <td>
+                <div>
+                    {{ $policy->state .', ' }}
+                    @if($policy->pincode == 0)
                     {{ ' ' }}
                     @else
                     {{ $policy->pincode }}

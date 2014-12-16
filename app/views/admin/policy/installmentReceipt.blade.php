@@ -143,7 +143,7 @@
         <tr>
 
             <th>Address :-</th>
-            <td><div>{{ $policy->address }}</div></td>
+            <td><div>{{ substr($policy->address ,0,22) }}</div></td>
             <th>Maturity Amount :-</th>
             <td>
                 {{ number_format($rd_scheme_payment->mature_amount)}}
@@ -151,8 +151,7 @@
         </tr>
         <tr>
             <th></th>
-            <td><div>{{ $policy->city . ' ,'. $policy->state }}</div></td>
-
+            <td><div>{{ substr($policy->address ,22) .",".$policy->city}}</div></td>
             <th> Installment No :-</th>
             <td>
                 {{ $rd_scheme_payment->paid_installment }}
@@ -161,7 +160,9 @@
         <tr>
             <th></th>
             <td>
-                <div>@if($policy->pincode == 0)
+                <div>
+                    {{ $policy->state .', ' }}
+                    @if($policy->pincode == 0)
                     {{ ' ' }}
                     @else
                     {{ $policy->pincode }}
@@ -271,7 +272,7 @@
         <tr>
 
             <th>Address :-</th>
-            <td><div>{{ $policy->address }}</div></td>
+            <td><div>{{ substr($policy->address ,0,22) }}</div></td>
             <th>Maturity Amount :-</th>
             <td>
                 @if ($policy->scheme_type=='FD')
@@ -284,7 +285,7 @@
         </tr>
         <tr>
             <th></th>
-            <td><div>{{ $policy->city . ' ,'. $policy->state }}</div></td>
+            <td><div>{{ substr($policy->address ,22) .",".$policy->city}}</div></td>
 
             <th> Installment No :-</th>
             <td>
@@ -293,7 +294,9 @@
         </tr>
         <tr>
             <th></th>
-            <td><div>@if($policy->pincode == 0)
+            <td><div>
+                    {{ $policy->state .', ' }}
+                    @if($policy->pincode == 0)
                     {{ ' ' }}
                     @else
                     {{ $policy->pincode }}
