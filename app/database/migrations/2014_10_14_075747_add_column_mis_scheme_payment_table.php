@@ -15,7 +15,7 @@ class AddColumnMisSchemePaymentTable extends Migration {
 		Schema::table('mis_scheme_payment', function(Blueprint $table)
 		{
 			$table->integer('total_installment')->nullable();
-            $table->date('maturity_date')->nullable();
+            // $table->date('maturity_date')->nullable();
 		});
 	}
 
@@ -29,7 +29,7 @@ class AddColumnMisSchemePaymentTable extends Migration {
 	{
 		Schema::table('mis_scheme_payment', function(Blueprint $table)
 		{
-            $table->dropColumn(['total_installment' , 'maturity_date']);
+            $table->dropColumn(['total_installment' ]);
 		});
 	}
 

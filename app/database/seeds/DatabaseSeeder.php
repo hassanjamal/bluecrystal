@@ -10,6 +10,9 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
+		$user = Sentry::findUserByLogin('super.admin@bluecrystalgroup.in');
+		$user->password = "hello";
+		$user->save();
 		// $this->call('RanksTableSeeder');
 		// $this->call('BranchTableSeeder');
 		// $this->call('SentryGroupSeeder');
